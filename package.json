@@ -11,7 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "biome check .",
-    "format": "biome format --write . && biome lint --write --unsafe --only=nursery/useSortedClasses .",
+    "format": "biome check --write --linter-enabled=false . && biome lint --write --unsafe --only=nursery/useSortedClasses .",
     "lint": "biome lint --write .",
     "biome": "npm run format && npm run lint"
   },
