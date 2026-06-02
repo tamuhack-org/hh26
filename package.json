@@ -9,7 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "biome check .",
+    "format": "biome format --write . && biome lint --write --unsafe --only=nursery/useSortedClasses .",
+    "lint": "biome lint --write .",
+    "biome": "npm run format && npm run lint"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
