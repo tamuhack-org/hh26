@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import Fish from "../assets/fish.png"
+
+const fishPath =
+    "M59.103,89.141 C66.103,70.141 300.433,-94.741 363.601,-131.358 424.575,-166.703 618.35,-258.245 656.487,-255.68 707.771,-252.23 1250.578,-7.716 1200.788,24.56 1316.644,110.424 709.573,216.425 679.325,258.735";
 ---
 
 <div class="bg-blue-300 w-full h-150">
@@ -8,6 +11,10 @@ import Fish from "../assets/fish.png"
 </div>
 
 <div class="bg-blue-600 w-full h-half">
+    <svg class="absolute h-0 w-0 overflow-visible" aria-hidden="true">
+        <path id="fish-motion-path" d={fishPath} fill="none" />
+    </svg>
+
     <div class="w-60 h-60">
         <Image id="fish" src={Fish} alt="Fish"/>
     </div>
@@ -25,6 +32,11 @@ import Fish from "../assets/fish.png"
 
     gsap.registerPlugin(MotionPathHelper,MotionPathPlugin,ScrollTrigger);
 
+    const fishPath = document.querySelector("#fish-motion-path")?.getAttribute("d");
+    if (!fishPath) {
+        throw new Error("Missing fish motion path");
+    }
+
     const tl = gsap.timeline({
         scrollTrigger:{
             trigger:"#fish",
@@ -38,7 +50,7 @@ import Fish from "../assets/fish.png"
     tl.to("#fish", {
         ease: "none",
         motionPath: {
-            path:"M59.103,89.141 C66.103,70.141 300.433,-94.741 363.601,-131.358 424.575,-166.703 618.35,-258.245 656.487,-255.68 707.771,-252.23 1250.578,-7.716 1200.788,24.56 1316.644,110.424 709.573,216.425 679.325,258.735",
+            path:fishPath,
             autoRotate: true,
             alignOrigin: [0.5, 0.5],
         },
