@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import Fish from "../assets/fish.png"
 
 const fishPath =
-    "M59.103,89.141 C66.103,70.141 300.433,-94.741 363.601,-131.358 424.575,-166.703 618.35,-258.245 656.487,-255.68 707.771,-252.23 1250.578,-7.716 1200.788,24.56 1316.644,110.424 709.573,216.425 679.325,258.735";
+    "M0,0 C7,-19 241.33,-183.882 304.498,-220.499 365.472,-255.844 559.247,-347.386 597.384,-344.821 648.668,-341.371 1191.475,-96.857 1141.685,-64.581 1257.541,21.283 650.47,127.284 620.222,169.594";
 ---
 
 <div class="bg-blue-300 w-full h-150">
@@ -15,8 +15,8 @@ const fishPath =
         <path id="fish-motion-path" d={fishPath} fill="none" />
     </svg>
 
-    <div class="w-60 h-60">
-        <Image id="fish" src={Fish} alt="Fish"/>
+    <div id="fish-start" class="w-60 h-60" style="transform: translate(59.103px, 89.141px);">
+        <Image id="fish" src={Fish} alt="Fish" style="transform: scale(2) rotate(-70deg); transform-origin: center;" />
     </div>
 </div>
 
@@ -51,6 +51,8 @@ const fishPath =
         ease: "none",
         motionPath: {
             path:fishPath,
+            start: 0,
+            end: 1,
             autoRotate: true,
             alignOrigin: [0.5, 0.5],
         },
