@@ -1,0 +1,313 @@
+---
+// SVG Jelly Hover (v2): self-contained jelly-blob SVG that wobbles toward the
+// cursor. Render inside a page that provides the background + centering.
+---
+
+<div class="stage">
+  <svg viewBox="0 0 396 271" xmlns="http://www.w3.org/2000/svg">
+    <path class="jelly" fill-rule="evenodd" clip-rule="evenodd" d="M286.528 68.1145C264.528 51.1145 237.528 86.1145 234.528 125.614C231.528 165.114 259.528 172.114 284.528 139.614C291.529 143.781 308.329 147.814 319.529 130.614C333.529 109.114 331.029 100.614 314.529 103.614C302.954 105.719 303.19 115.698 303.327 121.467C303.385 123.922 303.425 125.614 302.529 125.614C299.529 125.614 293.029 102.114 302.529 84.1145C312.029 66.1145 339.029 13.6145 324.529 4.61447C310.029 -4.38553 296.795 -2.27178 290.029 29.6145C287.229 41.2144 286.529 60.1144 286.528 68.1145ZM278.029 87.6145C268.029 99.7812 251.329 125.414 264.529 130.614C277.729 135.814 279.029 104.114 278.029 87.6145Z"/>
+    <path class="jelly" d="M12.5294 166.115C12.5294 150.115 6.04937 131.542 4.52941 115.615C1.69676 85.9313 20.8405 72.6145 31.5293 72.6145C44.0293 72.6145 51.5293 91.6145 47.0293 105.115C42.9935 117.222 38.5293 140.948 38.5293 152.115C45.5293 141.615 63.5293 137.615 71.0293 145.115C78.5293 152.615 71.0293 183.115 71.0293 196.115C71.0293 209.115 80.5293 213.115 84.0293 217.615C87.5293 222.115 95.0293 241.615 66.5293 240.115C38.0293 238.615 46.5293 212.615 47.0293 206.615C47.5293 200.615 55.0293 176.615 42.0293 176.115C29.0293 175.615 31.5293 219.115 36.0293 228.615C40.5293 238.115 41.0293 259.615 31.5293 267.615C22.0293 275.615 4.52941 260.615 1.02941 250.115C-2.47059 239.615 12.5294 182.114 12.5294 166.115Z"/>
+    <path class="jelly" fill-rule="evenodd" clip-rule="evenodd" d="M107.53 111.615C124.657 104.479 140.03 125.115 139.03 157.615C138.03 190.115 128.53 205.614 113.53 208.614C98.5301 211.614 81.0266 195.712 82.5301 161.114C84.0293 126.615 92.5309 117.863 107.53 111.615ZM110.028 135.615C119.459 134.47 122.528 180.615 111.528 185.115C100.528 189.615 100.597 136.759 110.028 135.615Z"/>
+    <path class="jelly" d="M149.529 155.614C143.029 142.114 145.667 125.796 162.029 122.114C185.691 116.791 179.528 142.115 178.528 154.115C177.698 164.08 174.862 186.948 175.528 191.115C176.695 190.448 179.128 187.615 179.528 181.615C180.028 174.115 183.528 163.115 189.028 159.615C194.528 156.115 200.028 158.115 200.028 165.115C200.028 172.115 195.528 181.615 200.028 186.615C204.528 191.615 206.528 183.115 206.528 172.614C206.528 159.615 203.171 138.115 198.028 132.115C192.028 125.115 186.6 117.615 195.528 105.114C200.528 98.1145 209.028 93.1145 217.528 94.1145C226.028 95.1145 226.528 108.614 223.028 127.114C219.528 145.614 228.028 135.614 231.028 172.614C234.028 209.614 214.028 217.614 204.028 217.114C196.028 216.714 187.028 209.281 183.528 205.614C171.028 238.614 162.029 235.614 153.028 231.614C144.028 227.614 146.528 207.614 149.529 198.614C152.529 189.614 156.029 169.114 149.529 155.614Z"/>
+    <path class="jelly" d="M331.529 79.1145C316.529 73.1145 320.363 56.4343 336.029 52.6145C367.029 45.0554 356.529 79.1145 357.529 97.6145C358.529 116.114 359.528 129.114 367.029 124.114C374.53 119.114 370.029 81.6145 370.029 69.1145C370.029 56.6145 385.029 52.6145 393.529 60.6145C402.029 68.6145 385.029 101.385 385.029 121.114C385.029 144.614 380.529 176.115 359.528 211.614C337.889 248.194 311.028 227.614 302.029 220.614C293.03 213.614 288.029 215.614 290.529 227.614C293.029 239.614 281.028 259.614 269.028 257.114C257.028 254.614 246.528 244.114 262.028 206.114C277.528 168.114 303.528 177.614 311.028 185.114C318.528 192.614 320.528 193.614 331.529 189.114C340.329 185.514 353.862 157.948 359.528 144.614C355.362 146.114 345.828 148.214 341.028 144.614C335.028 140.114 338.028 124.614 341.028 115.614C344.028 106.614 346.529 85.1145 331.529 79.1145Z"/>
+  </svg>
+</div>
+
+<style>
+  .stage {
+    width: 720px;
+    height: 493px;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+  }
+  .jelly {
+    fill: white;
+  }
+</style>
+
+<script>
+  /*
+   * Jelly hover, v2. Same physics feel as v1 but:
+   *  - dt-correct integration: runs at the display's native refresh (120Hz on
+   *    ProMotion) instead of being capped at 60fps, with stable sub-stepping.
+   *  - centripetal Catmull-Rom: no overshoot/loops near tight curves.
+   *  - displacement-coupled smoothing: couples neighbour *wobble* without
+   *    shrinking/rounding the shape at rest, so it returns to the exact original
+   *    and the loop reliably falls asleep.
+   *  - one shared rAF loop for every path (v1 ran one loop per path).
+   *  - capped cursor force (no 1/dist velocity spike up close).
+   *  - cached screen->SVG matrix; denser sampling so small holes survive.
+   */
+  (function () {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const DEFAULTS = {
+      samples: 200,
+      radius: 156,
+      strength: 6.4,
+      spring: 0.44,
+      damping: 0.78,
+      smoothing: 0.2,
+      sleepThreshold: 0.02,
+      minForceDist: 8,       // floor on cursor distance -> no force spike up close
+      minSubpathPoints: 3,   // keep tiny subpaths (holes) instead of dropping them
+    };
+
+    const controllers = [];
+    const svgStates = new Map();
+
+    // ---- per-<svg> shared pointer state -------------------------------------
+    function getSvgState(svg) {
+      let s = svgStates.get(svg);
+      if (s) return s;
+
+      s = { svg, mouse: null, hovering: false, visible: true, ctmInv: null };
+      svgStates.set(svg, s);
+
+      const refreshCTM = () => {
+        const m = svg.getScreenCTM();
+        s.ctmInv = m ? m.inverse() : null;
+      };
+
+      svg.addEventListener('pointerenter', () => { s.hovering = true; refreshCTM(); ensureRunning(); });
+      svg.addEventListener('pointermove', (e) => {
+        if (!s.ctmInv) refreshCTM();
+        if (s.ctmInv) {
+          const pt = svg.createSVGPoint();
+          pt.x = e.clientX; pt.y = e.clientY;
+          const local = pt.matrixTransform(s.ctmInv);
+          s.mouse = { x: local.x, y: local.y };
+        }
+        s.hovering = true;
+        ensureRunning();
+      });
+      svg.addEventListener('pointerleave', () => { s.hovering = false; });
+
+      // the screen<->SVG matrix only changes on layout shifts, not on every move
+      window.addEventListener('scroll', refreshCTM, { passive: true });
+      window.addEventListener('resize', refreshCTM);
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([entry]) => {
+          s.visible = entry.isIntersecting;
+          if (s.visible) { refreshCTM(); ensureRunning(); }
+        }).observe(svg);
+      }
+      return s;
+    }
+
+    // ---- sample a path into one or more closed point loops ------------------
+    function jellyfy(pathEl, options = {}) {
+      const opt = Object.assign({}, DEFAULTS, options);
+      const svg = pathEl.ownerSVGElement;
+      if (!svg) return;
+      const state = getSvgState(svg);
+
+      const totalLength = pathEl.getTotalLength();
+      if (!totalLength) return;
+      const stepLen = totalLength / opt.samples;
+
+      const raw = [];
+      for (let i = 0; i < opt.samples; i++) {
+        const p = pathEl.getPointAtLength(i * stepLen);
+        raw.push({ x: p.x, y: p.y });
+      }
+
+      const N = raw.length;
+      const gapThreshold = Math.max(stepLen * 3, 2);
+      const gaps = [];
+      for (let i = 0; i < N; i++) {
+        const cur = raw[i];
+        const prev = raw[(i - 1 + N) % N];
+        if (Math.hypot(cur.x - prev.x, cur.y - prev.y) > gapThreshold) gaps.push(i);
+      }
+
+      const groups = [];
+      if (gaps.length === 0) {
+        groups.push(raw);
+      } else {
+        for (let g = 0; g < gaps.length; g++) {
+          const start = gaps[g];
+          const end   = gaps[(g + 1) % gaps.length];
+          const sp = [];
+          for (let i = start; i !== end; i = (i + 1) % N) sp.push(raw[i]);
+          groups.push(sp);
+        }
+      }
+
+      const subs = groups
+        .filter(sp => sp.length >= opt.minSubpathPoints)
+        .map(sp => sp.map(p => ({ rx: p.x, ry: p.y, x: p.x, y: p.y, vx: 0, vy: 0 })));
+      if (!subs.length) return;
+
+      // rest-shape bounding box, so we can skip paths the cursor is nowhere near
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      for (const sp of subs) for (const p of sp) {
+        if (p.rx < minX) minX = p.rx;
+        if (p.rx > maxX) maxX = p.rx;
+        if (p.ry < minY) minY = p.ry;
+        if (p.ry > maxY) maxY = p.ry;
+      }
+
+      controllers.push({ pathEl, state, opt, subs, awake: false, bbox: { minX, minY, maxX, maxY } });
+    }
+
+    // ---- physics: one settling step (frame-rate independent) ----------------
+    function stepController(c, sub, steps, mouse) {
+      const { spring, damping, smoothing, strength, radius, minForceDist } = c.opt;
+      const radiusSq = radius * radius;
+      const dampSub = Math.pow(damping, sub);
+      let maxMotion = 0;
+      let mouseActive = false;
+
+      for (let s = 0; s < steps; s++) {
+        const lastStep = s === steps - 1;
+        for (const sp of c.subs) {
+          const n = sp.length;
+          for (let i = 0; i < n; i++) {
+            const p  = sp[i];
+            const pl = sp[(i - 1 + n) % n];
+            const pr = sp[(i + 1) % n];
+
+            // pull displacement back toward zero (rest shape)
+            p.vx += (p.rx - p.x) * spring * sub;
+            p.vy += (p.ry - p.y) * spring * sub;
+
+            // couple neighbour *displacement* (not absolute position): smooths
+            // the wobble but is identically zero at rest, so nothing shrinks.
+            const myDx = p.x - p.rx, myDy = p.y - p.ry;
+            const avgDx = ((pl.x - pl.rx) + (pr.x - pr.rx)) * 0.5;
+            const avgDy = ((pl.y - pl.ry) + (pr.y - pr.ry)) * 0.5;
+            p.vx += (avgDx - myDx) * smoothing * sub;
+            p.vy += (avgDy - myDy) * smoothing * sub;
+
+            if (mouse) {
+              const mdx = p.x - mouse.x;
+              const mdy = p.y - mouse.y;
+              const distSq = mdx * mdx + mdy * mdy;
+              if (distSq < radiusSq && distSq > 0.0001) {
+                mouseActive = true;
+                const dist = Math.sqrt(distSq);
+                const t = dist / radius;
+                const falloff = 1 - t * t * (3 - 2 * t);          // smoothstep edge
+                const force = falloff * strength / Math.max(dist, minForceDist);
+                p.vx += mdx * force * sub;
+                p.vy += mdy * force * sub;
+              }
+            }
+
+            p.vx *= dampSub;
+            p.vy *= dampSub;
+            p.x  += p.vx * sub;
+            p.y  += p.vy * sub;
+
+            if (lastStep) {
+              const m = Math.abs(p.vx) + Math.abs(p.vy)
+                      + Math.abs(p.x - p.rx) + Math.abs(p.y - p.ry);
+              if (m > maxMotion) maxMotion = m;
+            }
+          }
+        }
+      }
+      return { maxMotion, mouseActive };
+    }
+
+    // ---- rebuild the path as a closed centripetal Catmull-Rom spline --------
+    const ALPHA = 0.5;   // 0 = uniform (overshoots), 0.5 = centripetal (clean)
+    const EPS = 1e-4;
+    function buildPath(subs) {
+      let d = '';
+      for (const sp of subs) {
+        const n = sp.length;
+        d += 'M' + sp[0].x.toFixed(2) + ' ' + sp[0].y.toFixed(2);
+        for (let i = 0; i < n; i++) {
+          const p0 = sp[(i - 1 + n) % n];
+          const p1 = sp[i];
+          const p2 = sp[(i + 1) % n];
+          const p3 = sp[(i + 2) % n];
+
+          // knot spacing weighted by chord^alpha (centripetal parameterisation)
+          const d01 = Math.max(Math.pow(Math.hypot(p1.x - p0.x, p1.y - p0.y), ALPHA), EPS);
+          const d12 = Math.max(Math.pow(Math.hypot(p2.x - p1.x, p2.y - p1.y), ALPHA), EPS);
+          const d23 = Math.max(Math.pow(Math.hypot(p3.x - p2.x, p3.y - p2.y), ALPHA), EPS);
+
+          const t2 = d01 + d12;          // t2 - t0, with t0 = 0
+          const t31 = d12 + d23;         // t3 - t1
+
+          // non-uniform Catmull-Rom tangents -> cubic Bezier handles.
+          // (reduces to p1 + (p2-p0)/6 etc. when ALPHA = 0)
+          const m1x = d12 * ((p1.x - p0.x) / d01 - (p2.x - p0.x) / t2 + (p2.x - p1.x) / d12);
+          const m1y = d12 * ((p1.y - p0.y) / d01 - (p2.y - p0.y) / t2 + (p2.y - p1.y) / d12);
+          const m2x = d12 * ((p2.x - p1.x) / d12 - (p3.x - p1.x) / t31 + (p3.x - p2.x) / d23);
+          const m2y = d12 * ((p2.y - p1.y) / d12 - (p3.y - p1.y) / t31 + (p3.y - p2.y) / d23);
+
+          const cp1x = p1.x + m1x / 3, cp1y = p1.y + m1y / 3;
+          const cp2x = p2.x - m2x / 3, cp2y = p2.y - m2y / 3;
+
+          d += 'C' + cp1x.toFixed(2) + ' ' + cp1y.toFixed(2)
+             + ' ' + cp2x.toFixed(2) + ' ' + cp2y.toFixed(2)
+             + ' ' + p2.x.toFixed(2) + ' ' + p2.y.toFixed(2);
+        }
+        d += 'Z';
+      }
+      return d;
+    }
+
+    // ---- single shared animation loop ---------------------------------------
+    let loopRunning = false;
+    let lastT = 0;
+
+    function ensureRunning() {
+      if (loopRunning) return;
+      loopRunning = true;
+      lastT = performance.now() - (1000 / 60);
+      requestAnimationFrame(tick);
+    }
+
+    function tick(now) {
+      // elapsed time in 60fps-frame units; clamp + sub-step so a stalled tab or a
+      // 30Hz frame can't blow up the explicit integrator.
+      let dt = (now - lastT) / (1000 / 60);
+      lastT = now;
+      if (!(dt > 0)) dt = 1;
+      dt = Math.min(dt, 4);
+      const steps = Math.max(1, Math.ceil(dt));
+      const sub = dt / steps;                 // each sub-step is <= 1 frame
+
+      let anyAwake = false;
+
+      for (const c of controllers) {
+        const st = c.state;
+        if (!st.visible) { c.awake = false; continue; }
+
+        const mouse = st.hovering ? st.mouse : null;
+        if (!c.awake && !mouse) continue;     // nothing to do for this path
+
+        const { maxMotion, mouseActive } = stepController(c, sub, steps, mouse);
+        c.pathEl.setAttribute('d', buildPath(c.subs));
+
+        c.awake = mouseActive || maxMotion >= c.opt.sleepThreshold;
+        if (c.awake) anyAwake = true;
+      }
+
+      if (anyAwake) requestAnimationFrame(tick);
+      else loopRunning = false;
+    }
+
+    // ---- go ------------------------------------------------------------------
+    document.querySelectorAll('.jelly').forEach(el => jellyfy(el, {
+      samples: 200,
+      radius: 156,
+      strength: 6.4,
+      spring: 0.44,
+      damping: 0.78,
+      smoothing: 0.2,
+    }));
+  })();
+</script>
