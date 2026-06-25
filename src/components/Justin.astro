@@ -6,31 +6,25 @@ const fishPath =
   "M0,0 C90,-210 330,-330 585,-320 890,-305 1170,-160 1120,-50 1070,70 780,145 620,170";
 ---
 
-<div class="bg-blue-300 w-full h-150"></div>
+<div class="w-full bg-blue-600">
+  <div class="bg-blue-300 w-full aspect-100/33"></div>
 
-<div id="fish-section" class="relative bg-blue-600 w-full h-half">
-  <svg class="absolute h-0 w-0 overflow-visible" aria-hidden="true">
-    <path id="fish-motion-path" d={fishPath} fill="none" />
-  </svg>
+  <div id="fish-section" class="relative w-full aspect-100/200">
+    <svg class="absolute h-0 w-0 overflow-visible" aria-hidden="true">
+      <path id="fish-motion-path" d={fishPath} fill="none" />
+    </svg>
 
-  <div
-    id="fish-start"
-    class="w-60 h-60"
-    style="transform: translate(59.103px, 89.141px);"
-  >
-    <Image
-      id="fish"
-      src={FlyingFish}
-      alt="Flying fish"
-      loading="eager"
-      decoding="sync"
-      fetchpriority="high"
-      style="transform: scale(2) rotate(-70deg); transform-origin: center; will-change: transform;"
-    />
+    <div id="fish-start">
+      <Image
+        id="fish"
+        src={FlyingFish}
+        alt="Flying fish"
+        loading="eager"
+        class="w-58/100 mt-[-18%] ml-[-6%]"
+      />
+    </div>
   </div>
 </div>
-
-<div class="bg-blue-600 w-full h-full"></div>
 
 <script>
 import { gsap } from "gsap";
@@ -45,31 +39,31 @@ if (!fishPath) {
   throw new Error("Missing fish motion path");
 }
 
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#fish-section",
-    start: "top 45%",
-    end: "+=500",
-    scrub: 1,
-    markers: true,
-  },
-});
-
-tl.to("#fish", {
-  ease: "none",
-  motionPath: {
-    path: fishPath,
-    start: 0,
-    end: 1,
-    autoRotate: true,
-    alignOrigin: [0.5, 0.5],
-  },
-  keyframes: [
-    { scale: 2, duration: 0 },
-    { scale: 1.1, duration: 0.4 },
-    { scale: 0.5, duration: 0.6 },
-  ],
-});
+// const tl = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: "#fish-section",
+//     start: "top 45%",
+//     end: "+=500",
+//     scrub: 1,
+//     markers: true,
+//   },
+// });
+//
+// tl.to("#fish", {
+//   ease: "none",
+//   motionPath: {
+//     path: fishPath,
+//     start: 0,
+//     end: 1,
+//     autoRotate: true,
+//     alignOrigin: [0.5, 0.5],
+//   },
+//   keyframes: [
+//     { scale: 2, duration: 0 },
+//     { scale: 1.1, duration: 0.4 },
+//     { scale: 0.5, duration: 0.6 },
+//   ],
+// });
 
 // MotionPathHelper.create("#fish")
 </script>
