@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Fish from "../assets/fish.png";
+import FlyingFish from "@assets/flying-fish.png";
 
 const fishPath =
   "M0,0 C90,-210 330,-330 585,-320 890,-305 1170,-160 1120,-50 1070,70 780,145 620,170";
@@ -20,8 +20,8 @@ const fishPath =
   >
     <Image
       id="fish"
-      src={Fish}
-      alt="Fish"
+      src={FlyingFish}
+      alt="Flying fish"
       loading="eager"
       decoding="sync"
       fetchpriority="high"
