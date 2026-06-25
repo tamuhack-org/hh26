@@ -1,79 +1,78 @@
 ---
 import { Image } from "astro:assets";
-import Fish from "../assets/fish.png"
+import Fish from "../assets/fish.png";
 
 const fishPath =
-    "M0,0 C90,-210 330,-330 585,-320 890,-305 1170,-160 1120,-50 1070,70 780,145 620,170";
+  "M0,0 C90,-210 330,-330 585,-320 890,-305 1170,-160 1120,-50 1070,70 780,145 620,170";
 ---
 
-<div class="bg-blue-300 w-full h-150">
-
-</div>
+<div class="bg-blue-300 w-full h-150"></div>
 
 <div id="fish-section" class="relative bg-blue-600 w-full h-half">
-    <svg class="absolute h-0 w-0 overflow-visible" aria-hidden="true">
-        <path id="fish-motion-path" d={fishPath} fill="none" />
-    </svg>
+  <svg class="absolute h-0 w-0 overflow-visible" aria-hidden="true">
+    <path id="fish-motion-path" d={fishPath} fill="none" />
+  </svg>
 
-    <div id="fish-start" class="w-60 h-60" style="transform: translate(59.103px, 89.141px);">
-        <Image
-            id="fish"
-            src={Fish}
-            alt="Fish"
-            loading="eager"
-            decoding="sync"
-            fetchpriority="high"
-            style="transform: scale(2) rotate(-70deg); transform-origin: center; will-change: transform;"
-        />
-    </div>
+  <div
+    id="fish-start"
+    class="w-60 h-60"
+    style="transform: translate(59.103px, 89.141px);"
+  >
+    <Image
+      id="fish"
+      src={Fish}
+      alt="Fish"
+      loading="eager"
+      decoding="sync"
+      fetchpriority="high"
+      style="transform: scale(2) rotate(-70deg); transform-origin: center; will-change: transform;"
+    />
+  </div>
 </div>
 
-<div class="bg-blue-600 w-full h-full">
-
-</div>
+<div class="bg-blue-600 w-full h-full"></div>
 
 <script>
-    import { gsap } from "gsap";
-    import { MotionPathHelper } from "gsap/MotionPathHelper";
-    import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import { MotionPathHelper } from "gsap/MotionPathHelper";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    gsap.registerPlugin(MotionPathHelper,MotionPathPlugin,ScrollTrigger);
+gsap.registerPlugin(MotionPathHelper, MotionPathPlugin, ScrollTrigger);
 
-    const fishPath = document.querySelector("#fish-motion-path")?.getAttribute("d");
-    if (!fishPath) {
-        throw new Error("Missing fish motion path");
-    }
+const fishPath = document.querySelector("#fish-motion-path")?.getAttribute("d");
+if (!fishPath) {
+  throw new Error("Missing fish motion path");
+}
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-          trigger: "#fish-section",
-          start: "top 45%",
-          end: "+=500",
-          scrub: 1,
-          markers: true,
-      }
-    })
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#fish-section",
+    start: "top 45%",
+    end: "+=500",
+    scrub: 1,
+    markers: true,
+  },
+});
 
-    tl.to("#fish", {
-        ease: "none",
-        motionPath: {
-            path:fishPath,
-            start: 0,
-            end: 1,
-            autoRotate: true,
-            alignOrigin: [0.5, 0.5],
-        },
-        keyframes: [
-            { scale: 2, duration: 0 },
-            { scale: 1.1, duration: 0.4 },
-            { scale: 0.5, duration: 0.6 },
-        ]
-    })
+tl.to("#fish", {
+  ease: "none",
+  motionPath: {
+    path: fishPath,
+    start: 0,
+    end: 1,
+    autoRotate: true,
+    alignOrigin: [0.5, 0.5],
+  },
+  keyframes: [
+    { scale: 2, duration: 0 },
+    { scale: 1.1, duration: 0.4 },
+    { scale: 0.5, duration: 0.6 },
+  ],
+});
 
-    // MotionPathHelper.create("#fish")
+// MotionPathHelper.create("#fish")
 </script>
-
 
 <!-- M22.5,4.5 C22.5,35.5 596.63,-183.465 616,-196.5 695.5,-250 1077,1.5 1108,1.5 M1309.5,9 C1309.5,40 1146.586,188.438 1124.5,196 1069,215 592.5,232 623.5,232  -->
 <!-- Fish jumping out of water path -->
@@ -83,4 +82,4 @@ const fishPath =
 <!-- M1270,270 C1270,284.725 860.286,-115.774 677.868,-128.455  -->
 
 <!-- Fish turning around after diving into water -->
- <!-- M1299.5,257 C1299.5,288 1214.909,467.221 1206.5,489 1187,539.5 699,602.5 730,602.5  -->
+<!-- M1299.5,257 C1299.5,288 1214.909,467.221 1206.5,489 1187,539.5 699,602.5 730,602.5  -->
