@@ -1,21 +1,41 @@
 ---
 import { Image } from "astro:assets";
-import Fish from "../assets/fish.png"
+import Wave1 from "../assets/wave-1-front-single.png"
+import Wave2 from "../assets/wave-2-single.png"
+import Wave3 from "../assets/wave-3-single.png"
+import Wave4 from "../assets/wave-4-back-single.png"
+import BackG from '../assets/background.png'
 ---
+<style>
+    #waves{
+        background-repeat: repeat-x;
+    }
+    :global(#waves) {
+        background-repeat: repeat-x;
+    }
+</style>
 
-<div class="bg-blue-300 w-full h-150">
+<body style={`background-image: url('${BackG.src}'); background-size: cover; background-repeat: no-repeat; overflow-x:hidden;`}>
+    <div class="w-full h-full" id="waves">
+        <!-- <div class="h-30">
 
-</div>
+        </div> -->
+        <section class="relative w-full h-screen overflow-visible" id="layers">
+            <div id="layer-1" class="absolute top-55 w-full h-48" style={`background-image: url('${Wave4.src}'); background-repeat: repeat-x; background-position: 15%; background-size: auto 100%;`}></div>
+            
+            <div id="layer-2" class="absolute top-70 w-full h-48" style={`background-image: url('${Wave3.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
+            
+            <div id="layer-3" class="absolute top-75 w-full h-48" style={`background-image: url('${Wave2.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
+            
+            <div id="layer-4" class="absolute top-85 w-full h-48" style={`background-image: url('${Wave1.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
+        </section>
 
-<div class="bg-blue-600 w-full h-half">
-    <div class="w-60 h-60">
-        <Image id="fish" src={Fish} alt="Fish"/>
+        <div class="h-full">
+
+        </div>
     </div>
-</div>
+</body>
 
-<div class="bg-blue-600 w-full h-full">
-
-</div>
 
 <script>
     import { gsap } from "gsap";
@@ -35,30 +55,23 @@ import Fish from "../assets/fish.png"
         }
     })
 
-    tl.to("#fish", {
+    const layers = [
+    { id: "#layer-1", yPercent: -20 },
+    { id: "#layer-2", yPercent: -40 },
+    { id: "#layer-3", yPercent: -60 },
+    { id: "#layer-4", yPercent: -80 },
+    ];
+
+    layers.forEach(({ id, yPercent }) => {
+    gsap.to(id, {
+        yPercent,
         ease: "none",
-        motionPath: {
-            path:"M59.103,89.141 C66.103,70.141 300.433,-94.741 363.601,-131.358 424.575,-166.703 618.35,-258.245 656.487,-255.68 707.771,-252.23 1250.578,-7.716 1200.788,24.56 1316.644,110.424 709.573,216.425 679.325,258.735",
-            autoRotate: true,
-            alignOrigin: [0.5, 0.5],
+        scrollTrigger: {
+        trigger: "#layers",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
         },
-        keyframes: [
-            { scale: 2, duration: 0 },
-            { scale: 1.1, duration: 0.4 },
-            { scale: 0.5, duration: 0.6 },
-        ]
-    })
-
-    // MotionPathHelper.create("#fish")
+    });
+    });
 </script>
-
-
-<!-- M22.5,4.5 C22.5,35.5 596.63,-183.465 616,-196.5 695.5,-250 1077,1.5 1108,1.5 M1309.5,9 C1309.5,40 1146.586,188.438 1124.5,196 1069,215 592.5,232 623.5,232  -->
-<!-- Fish jumping out of water path -->
-<!-- M19,259 C19,290 135.658,167.929 146,147 188,62 660,-133 691,-133 -->
-
-<!-- Fishing diving back into water -->
-<!-- M1270,270 C1270,284.725 860.286,-115.774 677.868,-128.455  -->
-
-<!-- Fish turning around after diving into water -->
- <!-- M1299.5,257 C1299.5,288 1214.909,467.221 1206.5,489 1187,539.5 699,602.5 730,602.5  -->
