@@ -45,18 +45,8 @@ import BackG from '../assets/background.png'
 
     gsap.registerPlugin(MotionPathHelper,MotionPathPlugin,ScrollTrigger);
 
-    const tl = gsap.timeline({
-        scrollTrigger:{
-            trigger:"#fish",
-            start:"top 60%",
-            end:"+=500",
-            scrub:1,
-            markers:true,
-        }
-    })
-
     const layers = [
-    { id: "#layer-1", yPercent: -20 },
+    { id: "#layer-1", yPercent: -25 },
     { id: "#layer-2", yPercent: -40 },
     { id: "#layer-3", yPercent: -60 },
     { id: "#layer-4", yPercent: -80 },
@@ -70,7 +60,8 @@ import BackG from '../assets/background.png'
         trigger: "#layers",
         start: "top top",
         end: "bottom top",
-        scrub: 1,
+        scrub: 0.5,
+        markers:true,
         },
     });
     });
