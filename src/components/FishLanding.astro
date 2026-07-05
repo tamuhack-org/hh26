@@ -7,22 +7,24 @@ const fishPath =
   "M240.411,310.041 C404.189,240.804 570.665,220.34 734.538,289.22 893.296,355.95 1056.809,532.363 985.984,788.281 ";
 ---
 
-<svg
-  class="absolute top-0 left-0 w-full aspect-1024/563"
-  viewBox="0 0 1024 563"
-  preserveAspectRatio="none"
-  aria-hidden="true"
->
-  <path id="fish-motion-path" d={fishPath} fill="none" />
-</svg>
-<Image
-  id="fish"
-  src={FlyingFish}
-  alt=""
-  aria-hidden="true"
-  loading="eager"
-  class="absolute top-0 left-0 w-58/100 opacity-0"
-/>
+<div class="relative mx-auto w-full max-w-500 aspect-1024/563">
+  <svg
+    class="absolute top-0 left-0 w-full h-full"
+    viewBox="0 0 1024 563"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path id="fish-motion-path" d={fishPath} fill="none" />
+  </svg>
+  <Image
+    id="fish"
+    src={FlyingFish}
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    class="absolute top-0 left-0 w-58/100 opacity-100 lg:opacity-0"
+  />
+</div>
 
 <script>
 import { gsap } from "gsap";
@@ -31,38 +33,50 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#fish-stage",
-    start: "top top",
-    end: () => `+=${window.innerWidth * 0.4}`,
-    scrub: 1,
-    invalidateOnRefresh: true,
-  },
-});
-tl.to("#fish", {
-  duration: 1,
-  ease: "none",
-  immediateRender: true,
-  motionPath: {
-    path: "#fish-motion-path",
-    align: "#fish-motion-path",
-    start: 0,
-    end: 1,
-    autoRotate: 18,
-    alignOrigin: [0.5, 0.31],
-  },
-});
-tl.to(
-  "#fish",
-  {
-    ease: "none",
-    duration: 0.25,
-    scale: 0.5,
-    transformOrigin: "50% 31%",
-  },
-  0.84,
-);
+const motionQuery =
+  "(min-width: 1024px) and (prefers-reduced-motion: no-preference)";
 
-gsap.set("#fish", { autoAlpha: 1 });
+gsap.matchMedia().add(motionQuery, () => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#fish-stage",
+      start: "top top",
+      end: () => `+=${window.innerWidth * 0.4}`,
+      scrub: 1,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  tl.to("#fish", {
+    duration: 1,
+    ease: "none",
+    immediateRender: true,
+    motionPath: {
+      path: "#fish-motion-path",
+      align: "#fish-motion-path",
+      start: 0,
+      end: 1,
+      autoRotate: 18,
+      alignOrigin: [0.5, 0.31],
+    },
+  });
+
+  tl.to(
+    "#fish",
+    {
+      ease: "none",
+      duration: 0.25,
+      scale: 0.5,
+      transformOrigin: "50% 31%",
+    },
+    0.84,
+  );
+
+  gsap.set("#fish", { autoAlpha: 1 });
+
+  return () => {
+    tl.kill();
+    gsap.set("#fish", { clearProps: "all" });
+  };
+});
 </script>
