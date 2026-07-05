@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import Wave1 from "../assets/wave-1-front-single.png"
-import Wave2 from "../assets/wave-2-single.png"
-import Wave3 from "../assets/wave-3-single.png"
-import Wave4 from "../assets/wave-4-back-single.png"
+import Wave1 from "../assets/wave-1.png"
+import Wave2 from "../assets/wave-2.png"
+import Wave3 from "../assets/wave-3.png"
+import Wave4 from "../assets/wave-4.png"
 import BackG from '../assets/background.png'
 ---
 <style>
@@ -17,17 +17,17 @@ import BackG from '../assets/background.png'
 
 <body style={`background-image: url('${BackG.src}'); background-size: cover; background-repeat: no-repeat; overflow-x:hidden;`}>
     <div class="w-full h-full" id="waves">
-        <!-- <div class="h-30">
+        <!-- <div class="h-50">
 
         </div> -->
         <section class="relative w-full h-screen overflow-visible" id="layers">
-            <div id="layer-1" class="absolute top-55 w-full h-48" style={`background-image: url('${Wave4.src}'); background-repeat: repeat-x; background-position: 15%; background-size: auto 100%;`}></div>
+            <div id="layer-1" class="absolute top-50 w-full h-48" style={`background-image: url('${Wave4.src}'); background-repeat: repeat-x; background-position: 15%; background-size: auto 100%;`}></div>
             
-            <div id="layer-2" class="absolute top-70 w-full h-48" style={`background-image: url('${Wave3.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
+            <div id="layer-2" class="absolute top-75 w-full h-48" style={`background-image: url('${Wave3.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
             
-            <div id="layer-3" class="absolute top-75 w-full h-48" style={`background-image: url('${Wave2.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
+            <div id="layer-3" class="absolute top-105 w-full h-48" style={`background-image: url('${Wave2.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
             
-            <div id="layer-4" class="absolute top-85 w-full h-48" style={`background-image: url('${Wave1.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
+            <div id="layer-4" class="absolute top-130 w-full h-48" style={`background-image: url('${Wave1.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
         </section>
 
         <div class="h-full">
@@ -46,10 +46,10 @@ import BackG from '../assets/background.png'
     gsap.registerPlugin(MotionPathHelper,MotionPathPlugin,ScrollTrigger);
 
     const layers = [
-    { id: "#layer-1", yPercent: -25 },
-    { id: "#layer-2", yPercent: -40 },
-    { id: "#layer-3", yPercent: -60 },
-    { id: "#layer-4", yPercent: -80 },
+    { id: "#layer-1", yPercent: -20 },
+    { id: "#layer-2", yPercent: -170 },
+    { id: "#layer-3", yPercent: -280 },
+    { id: "#layer-4", yPercent: -330 },
     ];
 
     layers.forEach(({ id, yPercent }) => {
@@ -59,8 +59,8 @@ import BackG from '../assets/background.png'
         scrollTrigger: {
         trigger: "#layers",
         start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
+        end: "+=690",
+        scrub: 0.1,
         markers:true,
         },
     });
