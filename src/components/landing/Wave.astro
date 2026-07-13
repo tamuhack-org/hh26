@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import Wave1 from "@assets/landing/wave-1.png";
+import Wave2 from "@assets/landing/wave-2.png";
+import Wave3 from "@assets/landing/wave-3.png";
+import Wave4 from "@assets/landing/wave-4.png";
+---
+
+<style>
+#wave-container {
+  background-repeat: repeat-x;
+}
+</style>
+
+<div class="relative w-full" id="wave-container">
+  <div
+    id="layer-1"
+    class="relative w-full aspect-1024/362"
+    style={`background-image: url('${Wave4.src}'); background-repeat: repeat-x; background-position: 15%; background-size: auto 100%;`}
+  ></div>
+
+  <div
+    id="layer-2"
+    class="relative mt-[-29%] w-full aspect-1024/467"
+    style={`background-image: url('${Wave3.src}'); background-repeat: repeat-x; background-position: 160%; background-size: auto 100%;`}
+  ></div>
+
+  <div
+    id="layer-3"
+    class="relative mt-[-35%] w-full aspect-1024/502 z-20"
+    style={`background-image: url('${Wave2.src}'); background-repeat: repeat-x; background-position: -15%; background-size: auto 100%;`}
+  ></div>
+
+  <div
+    id="layer-4"
+    class="relative mt-[-40%] w-full aspect-1024/854 z-20"
+    style={`background-image: url('${Wave1.src}'); background-repeat: repeat-x; background-position: 70%; background-size: auto 100%;`}
+  ></div>
+</div>
+
+<script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const layers = [
+  { id: "#layer-1", yPercent: -20 },
+  { id: "#layer-2", yPercent: -30 },
+  { id: "#layer-3", yPercent: -40 },
+  { id: "#layer-4", yPercent: -39 },
+];
+
+layers.forEach(({ id, yPercent }) => {
+  gsap.to(id, {
+    yPercent,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#landing",
+      start: "25% top",
+      end: "60% top",
+      scrub: 0.1,
+    },
+  });
+});
+</script>
