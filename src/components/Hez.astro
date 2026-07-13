@@ -1,68 +1,84 @@
 ---
 import { Image } from "astro:assets";
-import Wave1 from "../assets/wave-1.png"
-import Wave2 from "../assets/wave-2.png"
-import Wave3 from "../assets/wave-3.png"
-import Wave4 from "../assets/wave-4.png"
-import BackG from '../assets/background.png'
+import BackG from "../assets/background.png";
+import Wave1 from "../assets/wave-1.png";
+import Wave2 from "../assets/wave-2.png";
+import Wave3 from "../assets/wave-3.png";
+import Wave4 from "../assets/wave-4.png";
 ---
+
 <style>
-    #waves{
-        background-repeat: repeat-x;
-    }
-    :global(#waves) {
-        background-repeat: repeat-x;
-    }
+#waves {
+  background-repeat: repeat-x;
+}
+:global(#waves) {
+  background-repeat: repeat-x;
+}
 </style>
 
-<body style={`background-image: url('${BackG.src}'); background-size: cover; background-repeat: no-repeat; overflow-x:hidden;`}>
-    <div class="w-full h-full" id="waves">
-        <!-- <div class="h-50">
+<body
+  style={`background-image: url('${BackG.src}'); background-size: cover; background-repeat: no-repeat; overflow-x:hidden;`}
+>
+  <div class="w-full h-full" id="waves">
+    <!-- <div class="h-50">
 
         </div> -->
-        <section class="relative w-full h-screen overflow-visible" id="layers">
-            <div id="layer-1" class="absolute top-50 w-full h-48" style={`background-image: url('${Wave4.src}'); background-repeat: repeat-x; background-position: 15%; background-size: auto 100%;`}></div>
-            
-            <div id="layer-2" class="absolute top-75 w-full h-48" style={`background-image: url('${Wave3.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
-            
-            <div id="layer-3" class="absolute top-105 w-full h-48" style={`background-image: url('${Wave2.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
-            
-            <div id="layer-4" class="absolute top-130 w-full h-48" style={`background-image: url('${Wave1.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
-        </section>
+    <section class="relative w-full h-screen overflow-visible" id="layers">
+      <div
+        id="layer-1"
+        class="absolute top-50 w-full h-48"
+        style={`background-image: url('${Wave4.src}'); background-repeat: repeat-x; background-position: 15%; background-size: auto 100%;`}
+      ></div>
 
-        <div class="h-full">
+      <div
+        id="layer-2"
+        class="absolute top-75 w-full h-48"
+        style={`background-image: url('${Wave3.src}'); background-repeat: repeat-x; background-size: auto 100%;`}
+      ></div>
 
-        </div>
-    </div>
+      <div
+        id="layer-3"
+        class="absolute top-105 w-full h-48"
+        style={`background-image: url('${Wave2.src}'); background-repeat: repeat-x; background-size: auto 100%;`}
+      ></div>
+
+      <div
+        id="layer-4"
+        class="absolute top-130 w-full h-48"
+        style={`background-image: url('${Wave1.src}'); background-repeat: repeat-x; background-size: auto 100%;`}
+      ></div>
+    </section>
+
+    <div class="h-full"></div>
+  </div>
 </body>
 
-
 <script>
-    import { gsap } from "gsap";
-    import { MotionPathHelper } from "gsap/MotionPathHelper";
-    import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import { MotionPathHelper } from "gsap/MotionPathHelper";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    gsap.registerPlugin(MotionPathHelper,MotionPathPlugin,ScrollTrigger);
+gsap.registerPlugin(MotionPathHelper, MotionPathPlugin, ScrollTrigger);
 
-    const layers = [
-    { id: "#layer-1", yPercent: -20 },
-    { id: "#layer-2", yPercent: -170 },
-    { id: "#layer-3", yPercent: -280 },
-    { id: "#layer-4", yPercent: -330 },
-    ];
+const layers = [
+  { id: "#layer-1", yPercent: -20 },
+  { id: "#layer-2", yPercent: -170 },
+  { id: "#layer-3", yPercent: -280 },
+  { id: "#layer-4", yPercent: -330 },
+];
 
-    layers.forEach(({ id, yPercent }) => {
-    gsap.to(id, {
-        yPercent,
-        ease: "none",
-        scrollTrigger: {
-        trigger: "#layers",
-        start: "top top",
-        end: "+=690",
-        scrub: 0.1,
-        markers:true,
-        },
-    });
-    });
+layers.forEach(({ id, yPercent }) => {
+  gsap.to(id, {
+    yPercent,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#layers",
+      start: "top top",
+      end: "+=690",
+      scrub: 0.1,
+      markers: true,
+    },
+  });
+});
 </script>
