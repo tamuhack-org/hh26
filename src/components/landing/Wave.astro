@@ -12,7 +12,7 @@ import Wave4 from "@assets/landing/wave-4.png";
 }
 </style>
 
-<div class="relative w-full overflow-visible" id="wave-container">
+<div class="relative w-full" id="wave-container">
   <div
     id="layer-1"
     class="relative w-full aspect-1024/362"
@@ -48,9 +48,9 @@ gsap.registerPlugin(MotionPathHelper, MotionPathPlugin, ScrollTrigger);
 
 const layers = [
   { id: "#layer-1", yPercent: -20 },
-  { id: "#layer-2", yPercent: -170 },
-  { id: "#layer-3", yPercent: -280 },
-  { id: "#layer-4", yPercent: -330 },
+  { id: "#layer-2", yPercent: -30 },
+  { id: "#layer-3", yPercent: -40 },
+  { id: "#layer-4", yPercent: -32 },
 ];
 
 layers.forEach(({ id, yPercent }) => {
@@ -59,8 +59,8 @@ layers.forEach(({ id, yPercent }) => {
     ease: "none",
     scrollTrigger: {
       trigger: "#landing",
-      start: "top top",
-      end: "+=690",
+      start: "25% top",
+      end: "60% top",
       scrub: 0.1,
       markers: true,
     },
