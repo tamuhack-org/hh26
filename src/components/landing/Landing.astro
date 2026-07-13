@@ -1,13 +1,18 @@
 ---
 import { Image } from "astro:assets";
-import TempBg from "@assets/temp-bg.png";
 import FishLanding from "./FishLanding.astro";
+import Wave from "./Wave.astro";
 ---
 
-<div id="fish-stage" class="relative w-full overflow-x-clip bg-blue-600">
+<section
+  id="landing"
+  class="relative w-full overflow-x-clip"
+  style="background: radial-gradient(39.26% 44.91% at 39.18% -1.15%, #FCE3A5 0%, #7FDAB0 44.71%, #2CD0B4 78.85%, #1EC898 99.04%);"
+>
+  <Wave />
   <div id="inner-assets" class="mx-auto w-full max-w-500">
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
     <FishLanding />
   </div>
-</div>
+</section>

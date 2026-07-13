@@ -38,7 +38,7 @@ const motionQuery =
 gsap.matchMedia().add(motionQuery, () => {
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: "#fish-stage",
+      trigger: "#landing",
       start: "top top",
       end: () => `+=${window.innerWidth * 0.4}`,
       scrub: 1,
