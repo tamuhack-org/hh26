@@ -4,15 +4,26 @@ import FishLanding from "./FishLanding.astro";
 import Wave from "./Wave.astro";
 ---
 
-<section id="landing" class="relative w-full overflow-x-clip bg-[#29CDB4]">
+<section
+  id="landing"
+  class="relative w-full overflow-x-clip bg-[#29CDB4] aspect-1024/1471 grid grid-rows-4"
+>
   <div
     class="absolute inset-x-0 aspect-1024/763"
     style="background: radial-gradient(98.58% 50.38% at 26.71% 0%, #FCE3A5 0%, #7FDAB0 44.71%, #2CD0B4 78.85%, #29CDB4 99.04%);"
   ></div>
-  <Wave />
-  <div id="inner-assets" class="mx-auto w-full max-w-500">
+  <div class="row-start-2 row-span-3">
+    <Wave />
+  </div>
+  <div
+    id="inner-assets"
+    class="row-start-1 mx-auto w-full max-w-500 grid grid-cols-2"
+  >
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
-    <FishLanding />
+
+    <div class="col-start-1 col-span-2">
+      <FishLanding />
+    </div>
   </div>
 </section>

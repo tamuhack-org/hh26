@@ -12,7 +12,7 @@ import Wave4 from "@assets/landing/wave-4.png";
 }
 </style>
 
-<div class="relative w-full h-screen overflow-visible" id="wave-container">
+<div class="relative w-full overflow-visible" id="wave-container">
   <div
     id="layer-1"
     class="absolute top-50 w-full h-48"
@@ -58,7 +58,7 @@ layers.forEach(({ id, yPercent }) => {
     yPercent,
     ease: "none",
     scrollTrigger: {
-      trigger: "#wave-container",
+      trigger: "#landing",
       start: "top top",
       end: "+=690",
       scrub: 0.1,
