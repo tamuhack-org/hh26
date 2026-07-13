@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import BackG from "@assets/landing/background.png";
+import LandingBg from "@assets/landing/landing-bg-desktop.png";
 import Wave1 from "@assets/landing/wave-1.png";
 import Wave2 from "@assets/landing/wave-2.png";
 import Wave3 from "@assets/landing/wave-3.png";
 import Wave4 from "@assets/landing/wave-4.png";
-import LandingBg from '@assets/landing/landing-bg-desktop.png'
 ---
 
 <style>
@@ -17,19 +17,41 @@ import LandingBg from '@assets/landing/landing-bg-desktop.png'
 }
 </style>
 
-<body style="background: linear-gradient(180deg, #6AAAB4 26.49%, #4E55A7 92.49%); overflow-x: hidden;">
-    <div class="w-full h-full" id="waves">
-        <!-- <div class="h-50">
+<body
+  style="background: linear-gradient(180deg, #6AAAB4 26.49%, #4E55A7 92.49%); overflow-x: hidden;"
+>
+  <div class="w-full h-full" id="waves">
+    <!-- <div class="h-50">
         </div> -->
     <!-- jashith's new bg -->
-    <section class="relative w-full h-screen overflow-visible" id="layers" style="background: radial-gradient(39.26% 44.91% at 39.18% -1.15%, #FCE3A5 0%, #7FDAB0 44.71%, #2CD0B4 78.85%, #1EC898 99.04%);">  
-        <div id="layer-1" class="absolute top-50 w-full h-48" style={`background-image: url('${Wave4.src}'); background-repeat: repeat-x; background-position: 15%; background-size: auto 100%;`}></div>
-        
-        <div id="layer-2" class="absolute top-75 w-full h-48" style={`background-image: url('${Wave3.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
-        
-        <div id="layer-3" class="absolute top-105 w-full h-48" style={`background-image: url('${Wave2.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
-        
-        <div id="layer-4" class="absolute top-130 w-full h-48" style={`background-image: url('${Wave1.src}'); background-repeat: repeat-x; background-size: auto 100%;`}></div>
+    <section
+      class="relative w-full h-screen overflow-visible"
+      id="layers"
+      style="background: radial-gradient(39.26% 44.91% at 39.18% -1.15%, #FCE3A5 0%, #7FDAB0 44.71%, #2CD0B4 78.85%, #1EC898 99.04%);"
+    >
+      <div
+        id="layer-1"
+        class="absolute top-50 w-full h-48"
+        style={`background-image: url('${Wave4.src}'); background-repeat: repeat-x; background-position: 15%; background-size: auto 100%;`}
+      ></div>
+
+      <div
+        id="layer-2"
+        class="absolute top-75 w-full h-48"
+        style={`background-image: url('${Wave3.src}'); background-repeat: repeat-x; background-size: auto 100%;`}
+      ></div>
+
+      <div
+        id="layer-3"
+        class="absolute top-105 w-full h-48"
+        style={`background-image: url('${Wave2.src}'); background-repeat: repeat-x; background-size: auto 100%;`}
+      ></div>
+
+      <div
+        id="layer-4"
+        class="absolute top-130 w-full h-48"
+        style={`background-image: url('${Wave1.src}'); background-repeat: repeat-x; background-size: auto 100%;`}
+      ></div>
     </section>
     <section class="relative w-full h-screen overflow-visible" id="layers">
       <div
