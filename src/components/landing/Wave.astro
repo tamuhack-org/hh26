@@ -40,11 +40,9 @@ import Wave4 from "@assets/landing/wave-4.png";
 
 <script>
 import { gsap } from "gsap";
-import { MotionPathHelper } from "gsap/MotionPathHelper";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(MotionPathHelper, MotionPathPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const layers = [
   { id: "#layer-1", yPercent: -20 },
@@ -62,7 +60,6 @@ layers.forEach(({ id, yPercent }) => {
       start: "25% top",
       end: "60% top",
       scrub: 0.1,
-      markers: true,
     },
   });
 });
