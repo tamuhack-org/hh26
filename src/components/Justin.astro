@@ -5,20 +5,6 @@ import FishLanding from "./FishLanding.astro";
 ---
 
 <div id="fish-stage" class="relative w-full overflow-x-clip bg-blue-600">
-  <div class="absolute top-0 left-0 w-full">
-    <div class="bg-blue-300 w-full aspect-100/33"></div>
-
-    <div class="relative w-full aspect-100/200">
-      <Image
-        src={TempBg}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        class="absolute top-0 left-0 w-full"
-      />
-    </div>
-  </div>
-
   <div id="inner-assets" class="mx-auto w-full max-w-500">
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
