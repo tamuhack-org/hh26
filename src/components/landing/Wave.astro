@@ -59,16 +59,24 @@ const layers = [
   { id: "#layer-4", yPercent: -41 },
 ];
 
-layers.forEach(({ id, yPercent }) => {
-  gsap.to(id, {
-    yPercent,
-    ease: "none",
-    scrollTrigger: {
-      trigger: "#landing",
-      start: "25% top",
-      end: "60% top",
-      scrub: 0.1,
-    },
-  });
+gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+  const animations = layers.map(({ id, yPercent }) =>
+    gsap.to(id, {
+      yPercent,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#landing",
+        start: "25% top",
+        end: "60% top",
+        scrub: 0.1,
+      },
+    }),
+  );
+
+  return () => {
+    animations.forEach((animation) => {
+      animation.kill();
+    });
+  };
 });
 </script>
