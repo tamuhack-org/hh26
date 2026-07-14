@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import FlyingFish from "@assets/landing/flying-fish.png";
 
 const fishPath =
@@ -15,12 +15,15 @@ const fishPath =
   >
     <path id="fish-motion-path" d={fishPath} fill="none" />
   </svg>
-  <Image
+  <Picture
     id="fish"
     src={FlyingFish}
+    formats={["avif", "webp"]}
+    quality={80}
     alt=""
     aria-hidden="true"
     loading="eager"
+    fetchpriority="high"
     class="absolute top-0 left-0 w-58/100 opacity-100 lg:opacity-0 z-10"
   />
 </div>
