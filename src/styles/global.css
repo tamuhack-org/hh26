@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+  --desktop-breakpoint: 64rem;
+  --widescreen-breakpoint: 96rem;
+}

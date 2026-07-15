@@ -1,22 +1,47 @@
 ---
-import { Image } from "astro:assets";
 import FishLanding from "./FishLanding.astro";
 import Wave from "./Wave.astro";
 ---
 
+<style>
+#landing {
+  --landing-width: min(100vw, var(--widescreen-breakpoint));
+  grid-template-rows: calc(var(--landing-width) * 0.359375) auto;
+}
+
+.landing-gradient {
+  height: calc(var(--landing-width) * 0.71875);
+  background: radial-gradient(
+    calc(var(--landing-width) * 0.9858) calc(var(--landing-width) * 0.362106) at
+      max(
+        calc(var(--landing-width) * 0.2671),
+        calc(50vw - calc(var(--landing-width) * 0.2329))
+      )
+      0,
+    #fce3a5 0%,
+    #7fdab0 44.71%,
+    #2cd0b4 78.85%,
+    #29cdb4 99.04%
+  );
+}
+</style>
+
 <section
   id="landing"
   aria-labelledby="landing-title"
-  class="relative w-full overflow-x-clip aspect-1024/736 grid grid-rows-2"
-  style="background: radial-gradient(98.58% 50.38% at 26.71% 0%, #FCE3A5 0%, #7FDAB0 44.71%, #2CD0B4 78.85%, #29CDB4 99.04%);"
+  class="relative grid w-full overflow-x-clip"
 >
   <h2 class="sr-only" id="landing-title">Landing</h2>
-  <div class="row-start-2">
+  <div
+    aria-hidden="true"
+    class="landing-gradient absolute inset-x-0 top-0 z-0"
+  ></div>
+  <div class="relative row-start-2">
     <Wave />
   </div>
   <div
     id="inner-assets"
-    class="row-start-1 mx-auto w-full max-w-500 grid grid-cols-2"
+    class="row-start-1 mx-auto grid w-full max-w-(--widescreen-breakpoint) grid-cols-2"
   >
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
