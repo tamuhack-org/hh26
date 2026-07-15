@@ -32,13 +32,11 @@ const fishPath =
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MEDIA } from "../../media";
 
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
-const motionQuery =
-  "(min-width: 1024px) and (prefers-reduced-motion: no-preference)";
-
-gsap.matchMedia().add(motionQuery, () => {
+gsap.matchMedia().add(`${MEDIA.desktop} and ${MEDIA.motionSafe}`, () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#landing",

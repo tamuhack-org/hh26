@@ -69,6 +69,7 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 <script>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MEDIA } from "../../media";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,7 +80,7 @@ const layers = [
   { id: "#layer-4", yPercent: -41 },
 ];
 
-gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+gsap.matchMedia().add(MEDIA.motionSafe, () => {
   const animations = layers.map(({ id, yPercent }) =>
     gsap.to(id, {
       yPercent,
