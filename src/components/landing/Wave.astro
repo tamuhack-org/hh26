@@ -20,21 +20,21 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
   background-size: auto 100%;
 }
 
-#layer-1 {
+#wave-layer-4 {
   height: calc(var(--landing-width) * 0.353516);
 }
 
-#layer-2 {
+#wave-layer-3 {
   height: calc(var(--landing-width) * 0.456055);
   margin-top: calc(var(--landing-width) * -0.29);
 }
 
-#layer-3 {
+#wave-layer-2 {
   height: calc(var(--landing-width) * 0.490234);
   margin-top: calc(var(--landing-width) * -0.35);
 }
 
-#layer-4 {
+#wave-layer-1 {
   height: calc(var(--landing-width) * 0.833984);
   margin-top: calc(var(--landing-width) * -0.4);
 }
@@ -42,25 +42,25 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 
 <div class="relative w-full" id="wave-container">
   <div
-    id="layer-1"
+    id="wave-layer-4"
     class="relative w-full wave-layer"
     style={`background-image: url('${OptimizedWave4.src}'); background-position: 15%;`}
   ></div>
 
   <div
-    id="layer-2"
+    id="wave-layer-3"
     class="relative w-full wave-layer"
     style={`background-image: url('${OptimizedWave3.src}'); background-position: 160%;`}
   ></div>
 
   <div
-    id="layer-3"
+    id="wave-layer-2"
     class="relative w-full z-20 wave-layer"
     style={`background-image: url('${OptimizedWave2.src}'); background-position: 314.2899%;`}
   ></div>
 
   <div
-    id="layer-4"
+    id="wave-layer-1"
     class="relative w-full z-20 wave-layer"
     style={`background-image: url('${OptimizedWave1.src}'); background-position: 70%;`}
   ></div>
@@ -74,10 +74,10 @@ import { MEDIA } from "../../media";
 gsap.registerPlugin(ScrollTrigger);
 
 const layers = [
-  { id: "#layer-1", yPercent: -20 },
-  { id: "#layer-2", yPercent: -30 },
-  { id: "#layer-3", yPercent: -40 },
-  { id: "#layer-4", yPercent: -41 },
+  { id: "#wave-layer-4", yPercent: -20 },
+  { id: "#wave-layer-3", yPercent: -30 },
+  { id: "#wave-layer-2", yPercent: -40 },
+  { id: "#wave-layer-1", yPercent: -41 },
 ];
 
 gsap.matchMedia().add(MEDIA.motionSafe, () => {
