@@ -81,23 +81,22 @@ const layers = [
 ];
 
 gsap.matchMedia().add(MEDIA.motionSafe, () => {
-  const animations = layers.map(({ id, yPercent }) =>
-    gsap.to(id, {
-      yPercent,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#inner-assets",
-        start: "52% top",
-        end: "115% top",
-        scrub: 0.1,
-      },
-    }),
-  );
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#inner-assets",
+      start: "52% top",
+      end: "115% top",
+      scrub: 0.1,
+    },
+  });
+
+  layers.forEach(({ id, yPercent }) => {
+    timeline.to(id, { duration: 1, ease: "none", yPercent }, 0);
+  });
 
   return () => {
-    animations.forEach((animation) => {
-      animation.kill();
-    });
+    timeline.scrollTrigger?.kill();
+    timeline.kill();
   };
 });
 </script>
