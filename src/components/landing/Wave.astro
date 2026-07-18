@@ -1,5 +1,6 @@
 ---
-import { getImage } from "astro:assets";
+import { getImage, Image } from "astro:assets";
+import LocationWave from "@assets/landing/location-wave.png";
 import Wave1 from "@assets/landing/wave-1.png";
 import Wave2 from "@assets/landing/wave-2.png";
 import Wave3 from "@assets/landing/wave-3.png";
@@ -43,7 +44,15 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 
   height: calc(var(--landing-width) * 0.456055);
   margin-top: calc(var(--landing-width) * -0.29);
+  background-position: var(--wave-3-tile-origin) 0;
 }
+
+#location-wave {
+  position: absolute;
+  top: 0;
+  left: var(--wave-3-tile-origin);
+  width: auto;
+  height: 100%;
 }
 
 #wave-layer-2 {
@@ -99,6 +108,15 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
     class="relative w-full wave-layer"
     style={`background-image: url('${OptimizedWave3.src}');`}
   >
+    <Image
+      id="location-wave"
+      src={LocationWave}
+      format="avif"
+      quality={80}
+      alt=""
+      aria-hidden="true"
+    />
+    <h2 class="sr-only">Location: Texas A&M University</h2>
   </div>
 
   <div
