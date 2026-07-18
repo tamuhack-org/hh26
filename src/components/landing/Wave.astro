@@ -20,23 +20,52 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
   background-size: auto 100%;
 }
 
+#wave-container {
+  --scene-left: calc((100vw - var(--landing-width)) / 2);
+}
+
 #wave-layer-4 {
   height: calc(var(--landing-width) * 0.353516);
+  background-position: calc(
+      var(--scene-left) +
+      var(--landing-width) *
+      0.0440667
+    )
+    0;
 }
 
 #wave-layer-3 {
+  --wave-3-tile-origin: calc(
+    var(--scene-left) +
+    var(--landing-width) *
+    0.3348267
+  );
+
   height: calc(var(--landing-width) * 0.456055);
   margin-top: calc(var(--landing-width) * -0.29);
+}
 }
 
 #wave-layer-2 {
   height: calc(var(--landing-width) * 0.490234);
   margin-top: calc(var(--landing-width) * -0.35);
+  background-position: calc(
+      var(--scene-left) +
+      var(--landing-width) *
+      0.7027749
+    )
+    0;
 }
 
 #wave-layer-1 {
   height: calc(var(--landing-width) * 0.833984);
   margin-top: calc(var(--landing-width) * -0.4);
+  background-position: calc(
+      var(--scene-left) +
+      var(--landing-width) *
+      0.0424084
+    )
+    0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -62,25 +91,26 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
   <div
     id="wave-layer-4"
     class="relative w-full wave-layer"
-    style={`background-image: url('${OptimizedWave4.src}'); background-position: 15%;`}
+    style={`background-image: url('${OptimizedWave4.src}');`}
   ></div>
 
   <div
     id="wave-layer-3"
     class="relative w-full wave-layer"
-    style={`background-image: url('${OptimizedWave3.src}'); background-position: 160%;`}
-  ></div>
+    style={`background-image: url('${OptimizedWave3.src}');`}
+  >
+  </div>
 
   <div
     id="wave-layer-2"
     class="relative w-full z-20 wave-layer"
-    style={`background-image: url('${OptimizedWave2.src}'); background-position: 314.2899%;`}
+    style={`background-image: url('${OptimizedWave2.src}');`}
   ></div>
 
   <div
     id="wave-layer-1"
     class="relative w-full z-20 wave-layer"
-    style={`background-image: url('${OptimizedWave1.src}'); background-position: 70%;`}
+    style={`background-image: url('${OptimizedWave1.src}');`}
   ></div>
 </div>
 
