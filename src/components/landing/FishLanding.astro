@@ -24,9 +24,27 @@ const fishPath =
     aria-hidden="true"
     loading="eager"
     fetchpriority="high"
-    class="absolute top-0 left-0 w-58/100 opacity-100 lg:opacity-0 z-10"
+    class="absolute top-0 left-0 z-10 w-58/100"
   />
 </div>
+
+<style>
+#fish {
+  opacity: 1;
+  margin-left: calc(var(--landing-width) * -0.047);
+  margin-top: calc(var(--landing-width) * 0.153);
+  rotate: -5deg;
+}
+
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  #fish {
+    opacity: 0;
+    margin-left: 0;
+    margin-top: 0;
+    rotate: 0deg;
+  }
+}
+</style>
 
 <script>
 import { gsap } from "gsap";
