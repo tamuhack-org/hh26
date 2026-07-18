@@ -1,5 +1,6 @@
 ---
 import { getImage, Image } from "astro:assets";
+import DateWave from "@assets/landing/date-wave.png";
 import LocationWave from "@assets/landing/location-wave.png";
 import Wave1 from "@assets/landing/wave-1.png";
 import Wave2 from "@assets/landing/wave-2.png";
@@ -26,13 +27,22 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 }
 
 #wave-layer-4 {
+  --wave-4-tile-origin: calc(
+    var(--scene-left) +
+    var(--landing-width) *
+    0.0440667
+  );
+
   height: calc(var(--landing-width) * 0.353516);
-  background-position: calc(
-      var(--scene-left) +
-      var(--landing-width) *
-      0.0440667
-    )
-    0;
+  background-position: var(--wave-4-tile-origin) 0;
+}
+
+#date-wave {
+  position: absolute;
+  top: 0;
+  left: var(--wave-4-tile-origin);
+  width: auto;
+  height: 100%;
 }
 
 #wave-layer-3 {
@@ -101,7 +111,17 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
     id="wave-layer-4"
     class="relative w-full wave-layer"
     style={`background-image: url('${OptimizedWave4.src}');`}
-  ></div>
+  >
+    <Image
+      id="date-wave"
+      src={DateWave}
+      format="avif"
+      quality={80}
+      alt=""
+      aria-hidden="true"
+    />
+    <h2 class="sr-only">Date: October 24–25, 2026</h2>
+  </div>
 
   <div
     id="wave-layer-3"
