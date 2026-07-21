@@ -1,4 +1,6 @@
 ---
+import { Image, Picture } from "astro:assets";
+import SandTree from "@assets/landing/sand-tree.png";
 import FishLanding from "./FishLanding.astro";
 import Wave from "./Wave.astro";
 ---
@@ -46,6 +48,21 @@ import Wave from "./Wave.astro";
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
 
+    <div
+      class="relative z-10 row-start-1 col-start-1 col-span-2 grid grid-cols-2"
+    >
+      <div class="col-span-2 row-start-1 col-start-1">
+        <Picture
+          src={SandTree}
+          formats={["avif", "webp"]}
+          quality={80}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          fetchpriority="high"
+          class="w-131/100 max-w-none mt-[-27%]"
+        />
+      </div>
     <div class="relative z-30 col-start-1 col-span-2 row-start-1">
       <FishLanding />
     </div>
