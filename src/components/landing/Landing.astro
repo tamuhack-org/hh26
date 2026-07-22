@@ -11,7 +11,9 @@ import Wave from "./Wave.astro";
 <style>
 #landing {
   --landing-width: min(100vw, var(--widescreen-breakpoint));
-  grid-template-rows: calc(var(--landing-width) * 0.35) auto;
+  --wave-end-height: calc(var(--landing-width) * 0.7518556);
+
+  grid-template-rows: calc(var(--landing-width) * 0.35) var(--wave-end-height);
 }
 
 .landing-gradient {
@@ -85,7 +87,6 @@ import Wave from "./Wave.astro";
         alt=""
         aria-hidden="true"
         loading="eager"
-        fetchpriority="high"
         class="w-full"
       />
     </div>

@@ -86,24 +86,6 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
     )
     0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  #wave-container {
-    margin-top: calc(var(--landing-width) * -0.0707032);
-  }
-
-  #wave-layer-3 {
-    margin-top: calc(var(--landing-width) * -0.3561133);
-  }
-
-  #wave-layer-2 {
-    margin-top: calc(var(--landing-width) * -0.4092771);
-  }
-
-  #wave-layer-1 {
-    margin-top: calc(var(--landing-width) * -0.5458398);
-  }
-}
 </style>
 
 <div class="relative w-full" id="wave-container">
@@ -160,10 +142,10 @@ import { MEDIA } from "../../media";
 gsap.registerPlugin(ScrollTrigger);
 
 const layers = [
-  { id: "#wave-layer-4", yPercent: 20 },
-  { id: "#wave-layer-3", yPercent: 30 },
-  { id: "#wave-layer-2", yPercent: 40 },
-  { id: "#wave-layer-1", yPercent: 41 },
+  { id: "#wave-layer-4", yPercent: -20 },
+  { id: "#wave-layer-3", yPercent: -30 },
+  { id: "#wave-layer-2", yPercent: -40 },
+  { id: "#wave-layer-1", yPercent: -41 },
 ];
 
 gsap.matchMedia().add(MEDIA.motionSafe, () => {
@@ -177,7 +159,7 @@ gsap.matchMedia().add(MEDIA.motionSafe, () => {
   });
 
   layers.forEach(({ id, yPercent }) => {
-    timeline.from(id, { duration: 1, ease: "none", yPercent }, 0);
+    timeline.to(id, { duration: 1, ease: "none", yPercent }, 0);
   });
 
   return () => {
