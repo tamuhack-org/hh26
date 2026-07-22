@@ -8,7 +8,7 @@ import MentorBoard from "@assets/landing/mentor-board.png";
   <a
     href="https://start.tamuhack.org"
     aria-label="Apply to TAMUhack"
-    class="mr-[-10%] z-5"
+    class="cta-board mr-[-10%] z-5"
   >
     <Picture
       src={ApplyBoard}
@@ -20,7 +20,11 @@ import MentorBoard from "@assets/landing/mentor-board.png";
       class="w-[calc(var(--landing-width)*0.13183)]"
     />
   </a>
-  <a href="https://start.tamuhack.org" aria-label="Mentor at TAMUhack">
+  <a
+    href="https://start.tamuhack.org"
+    aria-label="Mentor at TAMUhack"
+    class="cta-board"
+  >
     <Picture
       src={MentorBoard}
       formats={["avif", "webp"]}
@@ -32,3 +36,15 @@ import MentorBoard from "@assets/landing/mentor-board.png";
     />
   </a>
 </div>
+
+<style>
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  .cta-board {
+    transition: transform 160ms ease-out;
+  }
+
+  .cta-board:hover {
+    transform: translateY(-5%);
+  }
+}
+</style>
