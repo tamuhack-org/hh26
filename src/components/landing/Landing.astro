@@ -51,59 +51,59 @@ import Wave from "./Wave.astro";
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
 
+    <div class="relative z-10 row-start-1 col-start-1 col-span-2">
+      <Picture
+        src={SandTree}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        class="w-130/100 max-w-none"
+      />
+    </div>
+
     <div
-      class="relative z-10 row-start-1 col-start-1 col-span-2 grid grid-cols-2"
+      class="relative z-10 row-start-1 col-start-2 flex items-end justify-end"
     >
-      <div class="col-span-2 row-start-1 col-start-1">
-        <Picture
-          src={SandTree}
-          formats={["avif", "webp"]}
-          quality={80}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          fetchpriority="high"
-          class="w-131/100 max-w-none mt-[-27%]"
-        />
-      </div>
-      <div class="row-start-1 col-start-2 flex items-end justify-end z-10">
-        <div class="flex mr-[21%] mb-[32%]">
-          <div class="mr-[-10%] z-5">
-            <Picture
-              src={ApplyBoard}
-              formats={["avif", "webp"]}
-              quality={80}
-              alt=""
-              aria-hidden="true"
-              loading="eager"
-              class="w-[calc(var(--landing-width)*0.1197917)]"
-            />
-          </div>
-          <div>
-            <Picture
-              src={MentorBoard}
-              formats={["avif", "webp"]}
-              quality={80}
-              alt=""
-              aria-hidden="true"
-              loading="eager"
-              class="w-[calc(var(--landing-width)*0.0911458)]"
-            />
-          </div>
+      <div class="flex mr-[17%] mb-[32%] items-end">
+        <div class="mr-[-10%] z-5">
+          <Picture
+            src={ApplyBoard}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            class="w-[calc(var(--landing-width)*0.13183)]"
+          />
+        </div>
+        <div>
+          <Picture
+            src={MentorBoard}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            class="w-[calc(var(--landing-width)*0.0986328)]"
+          />
         </div>
       </div>
-      <div class="col-span-2 row-start-1 col-start-1 self-end z-20">
-        <Picture
-          src={SandFront}
-          formats={["avif", "webp"]}
-          quality={80}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          fetchpriority="high"
-          class="w-full"
-        />
-      </div>
+    </div>
+
+    <div class="relative z-10 col-span-2 row-start-1 col-start-1 self-end">
+      <Picture
+        src={SandFront}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        class="w-full"
+      />
     </div>
 
     <div class="relative z-30 col-start-1 col-span-2 row-start-1">
