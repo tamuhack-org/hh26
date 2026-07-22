@@ -219,6 +219,16 @@
     });
   }
 
+  function getActiveMouse(c, mouse) {
+    if (!mouse) return null;
+
+    const { minX, minY, maxX, maxY } = c.bbox;
+    const dx = Math.max(minX - mouse.x, 0, mouse.x - maxX);
+    const dy = Math.max(minY - mouse.y, 0, mouse.y - maxY);
+
+    return dx * dx + dy * dy <= c.opt.radius * c.opt.radius ? mouse : null;
+  }
+
   // ---- Physics: one settling step ----
   function stepController(c, sub, steps, mouse) {
     const { spring, damping, smoothing, strength, radius, minForceDist } =
@@ -381,7 +391,7 @@
         continue;
       }
 
-      const mouse = st.hovering ? st.mouse : null;
+      const mouse = getActiveMouse(c, st.hovering ? st.mouse : null);
       if (!c.awake && !mouse) continue;
 
       const { maxMotion, mouseActive } = stepController(c, sub, steps, mouse);
