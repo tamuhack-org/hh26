@@ -1,0 +1,34 @@
+---
+import { Picture } from "astro:assets";
+import ApplyBoard from "@assets/landing/apply-board.png";
+import MentorBoard from "@assets/landing/mentor-board.png";
+---
+
+<div class="flex mr-[17%] mb-[32%] items-end">
+  <a
+    href="https://start.tamuhack.org"
+    aria-label="Apply to TAMUhack"
+    class="mr-[-10%] z-5"
+  >
+    <Picture
+      src={ApplyBoard}
+      formats={["avif", "webp"]}
+      quality={80}
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+      class="w-[calc(var(--landing-width)*0.13183)]"
+    />
+  </a>
+  <a href="https://start.tamuhack.org" aria-label="Mentor at TAMUhack">
+    <Picture
+      src={MentorBoard}
+      formats={["avif", "webp"]}
+      quality={80}
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+      class="w-[calc(var(--landing-width)*0.0986328)]"
+    />
+  </a>
+</div>
