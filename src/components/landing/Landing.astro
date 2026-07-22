@@ -39,9 +39,9 @@ import Wave from "./Wave.astro";
   <h2 class="sr-only" id="landing-title">Landing</h2>
   <div
     aria-hidden="true"
-    class="landing-gradient absolute inset-x-0 top-0 z-0"
+    class="landing-gradient pointer-events-none absolute inset-x-0 top-0 z-0"
   ></div>
-  <div class="relative row-start-2">
+  <div class="pointer-events-none relative row-start-2">
     <Wave />
   </div>
   <div
@@ -51,7 +51,9 @@ import Wave from "./Wave.astro";
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
 
-    <div class="relative z-10 row-start-1 col-start-1 col-span-2">
+    <div
+      class="pointer-events-none relative z-10 row-start-1 col-start-1 col-span-2"
+    >
       <Picture
         src={SandTree}
         formats={["avif", "webp"]}
@@ -68,7 +70,11 @@ import Wave from "./Wave.astro";
       class="relative z-10 row-start-1 col-start-2 flex items-end justify-end"
     >
       <div class="flex mr-[17%] mb-[32%] items-end">
-        <div class="mr-[-10%] z-5">
+        <a
+          href="https://start.tamuhack.org"
+          aria-label="Apply to TAMUhack"
+          class="mr-[-10%] z-5"
+        >
           <Picture
             src={ApplyBoard}
             formats={["avif", "webp"]}
@@ -78,8 +84,8 @@ import Wave from "./Wave.astro";
             loading="eager"
             class="w-[calc(var(--landing-width)*0.13183)]"
           />
-        </div>
-        <div>
+        </a>
+        <a href="https://start.tamuhack.org" aria-label="Mentor at TAMUhack">
           <Picture
             src={MentorBoard}
             formats={["avif", "webp"]}
@@ -89,11 +95,13 @@ import Wave from "./Wave.astro";
             loading="eager"
             class="w-[calc(var(--landing-width)*0.0986328)]"
           />
-        </div>
+        </a>
       </div>
     </div>
 
-    <div class="relative z-10 col-span-2 row-start-1 col-start-1 self-end">
+    <div
+      class="pointer-events-none relative z-10 col-span-2 row-start-1 col-start-1 self-end"
+    >
       <Picture
         src={SandFront}
         formats={["avif", "webp"]}
@@ -106,7 +114,9 @@ import Wave from "./Wave.astro";
       />
     </div>
 
-    <div class="relative z-30 col-start-1 col-span-2 row-start-1">
+    <div
+      class="pointer-events-none relative z-30 col-start-1 col-span-2 row-start-1"
+    >
       <FishLanding />
     </div>
   </div>
