@@ -1,13 +1,31 @@
 ---
+import { Image } from "astro:assets";
 import About from "@components/about/About.astro";
 import Landing from "@components/landing/Landing.astro";
 import Layout from "../layouts/Layout.astro";
+import Hh26Logo from "@assets/hh26-logo.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
+  <header class="relative">
+    <a
+      href="https://tamuhack.org"
+      aria-label="Visit the TAMUhack website"
+      class="absolute top-3 left-4 z-10"
+      ><Image
+        src={Hh26Logo}
+        format="avif"
+        quality={80}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        class="w-10 lg:w-14"
+      /></a
+    >
+  </header>
   <main>
     <h1 class="sr-only">HowdyHack 2026</h1>
     <Landing />
