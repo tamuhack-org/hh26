@@ -1,0 +1,77 @@
+---
+import { Picture } from "astro:assets";
+import Bubble from "@assets/about/gen-info-bubble.png"
+import LocRay from "@assets/about/location-ray.png"
+---
+<section id="intro" aria-label="About HowdyHack">
+    <div id="Bubble">
+        <Picture
+        id="Bubble"
+        src={Bubble}
+        formats={["avif","webp"]}
+        alt=""
+        densities={[1,2]}
+        quality={80}
+        aria-hidden="true"
+        loading={"eager"}
+        fetchpriority={"high"}
+        class="mt-[-23rem] w-full h-auto"
+        />
+        <div id="bubble-text">
+            <p>
+                HowdyHack is a 24-hour, themed, <b>beginner-focused</b> hackathon exclusively for <b>Texas A&M students</b>,
+                 designed to showcase TAMU's diverse range of ideas in a collaborative environment. At the event, 
+                you'll have the opportunity to create your own software and hardware products with <b>teams of up to 4</b> that wow judges and win prizes.
+                <br>
+                <br>
+                <b>Go gig 'em!</b>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="Location" aria-label="Location">
+    <a href="/building-map" id="location-ray">
+        <Picture
+            src={LocRay}
+            alt="View building map"
+            densities={[1,2]}
+            quality={80}
+            loading={"eager"}
+            fetchpriority={"high"}
+            class="w-full h-auto"
+        />
+    </a>
+</section>
+
+
+<style>
+    #Bubble{
+        position:relative;
+    }
+    #bubble-text{
+        position:absolute;
+        inset:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding: 25% 12%;
+        transform: translateY(20%);
+    }
+    #bubble-text p{
+        font-size:clamp(.8rem,2vw,2rem);
+        line-height:1.5;
+        text-align:center;
+    }
+    #Location{
+        position:relative;
+        min-height:30rem;
+    }
+    #location-ray{
+        position:absolute;
+        width: clamp(150px, 70vw, 900px);
+        right: -12rem;
+        bottom: 5rem;
+        z-index:10;
+    }
+</style>

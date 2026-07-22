@@ -4,3 +4,9 @@
   --desktop-breakpoint: 64rem;
   --widescreen-breakpoint: 96rem;
 }
+
+html {
+  font-family: "Poppins", sans-serif;
+  color: #261D5F;
+  overflow-x: hidden;
+}
