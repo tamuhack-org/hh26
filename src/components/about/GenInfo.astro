@@ -1,53 +1,200 @@
----
-import { Picture } from "astro:assets";
-import Bubble from "@assets/about/gen-info-bubble.png"
-import LocRay from "@assets/about/location-ray.png"
----
-<section id="intro" aria-label="About HowdyHack">
-    <div id="Bubble">
-        <Picture
-        id="Bubble"
-        src={Bubble}
-        formats={["avif","webp"]}
-        alt=""
-        densities={[1,2]}
-        quality={80}
-        aria-hidden="true"
-        loading={"eager"}
-        fetchpriority={"high"}
-        class="mt-[-23rem] w-full h-auto"
-        />
-        <div id="bubble-text">
+    ---
+    import { Picture } from "astro:assets";
+    import Bubble from "@assets/about/gen-info-bubble.png"
+    import LocRay from "@assets/about/location-ray.png"
+    import ParkRay from "@assets/about/parking-ray.png"
+    import TeamBub from "@assets/about/gen-info-team.png"
+    import AppBub from "@assets/about/gen-info-application.png"
+    import HarRay from "@assets/about/hardware-ray.png"
+    import HarBub from "@assets/about/gen-info-hardware.png"
+    import N from "@assets/about/gen-info-new-n.png"
+    import E from "@assets/about/gen-info-new-e.png"
+    import W from "@assets/about/gen-info-new-w.png"
+    import Exclamation from "@assets/about/gen-info-new-!.png"
+    ---
+    <section id="intro" aria-label="About HowdyHack">
+        <div id="Bubble">
+            <Picture
+            id="Bubble"
+            src={Bubble}
+            formats={["avif","webp"]}
+            alt=""
+            densities={[1,2]}
+            quality={80}
+            aria-hidden="true"
+            loading={"eager"}
+            fetchpriority={"high"}
+            class="mt-[-23rem] w-full h-auto"
+            />
+            <div id="bubble-text">
+                <p>
+                    HowdyHack is a 24-hour, themed, <b>beginner-focused</b> hackathon exclusively for <b>Texas A&M students</b>,
+                     designed to showcase TAMU's diverse range of ideas in a collaborative environment. At the event, 
+                    you'll have the opportunity to create your own software and hardware products with <b>teams of up to 4</b> that wow judges and win prizes.
+                    <br>
+                    <br>
+                    <b>Go gig 'em!</b>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Location" aria-label="Location">
+        <div id="stingray">
+            <a href="/building-map" id="location-ray">
+            <Picture
+                src={LocRay}
+                alt="View building map"
+                densities={[1,2]}
+                quality={80}
+                loading={"eager"}
+                fetchpriority={"high"}
+                class="w-full h-auto"
+            />
+            </a>
+            <div id="location-text">
+                <p>
+                    MSC 2400 730 Olsen Blvd, 
+                    <br>College Station, TX 77845
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Parking" aria-label="Parking">
+        <div id="parking-ray">
+            <Picture
+                src={ParkRay}
+                alt=""
+                densities={[1,2]}
+                quality={80}
+                loading={"eager"}
+                fetchpriority={"high"}
+                class="w-full h-auto"
+            />
+        </div>
+    
+        <div id="parking-ray-text">
             <p>
-                HowdyHack is a 24-hour, themed, <b>beginner-focused</b> hackathon exclusively for <b>Texas A&M students</b>,
-                 designed to showcase TAMU's diverse range of ideas in a collaborative environment. At the event, 
-                you'll have the opportunity to create your own software and hardware products with <b>teams of up to 4</b> that wow judges and win prizes.
-                <br>
-                <br>
-                <b>Go gig 'em!</b>
+                Parking will be available at _____ and _____
             </p>
         </div>
-    </div>
-</section>
+        <div id="team-info">
+            <Picture
+                src={TeamBub}
+                alt=""
+                densities={[1,2]}
+                quality={80}
+                loading={"eager"}
+                fetchpriority={"high"}
+                class="w-full h-auto"
+            />
+            <div id="team-info-text">
+                <p>
+                After you sign up, you will receive a confirmation email letting you know you're good to go. 
+                You can either <b>form a team</b> yourself, or <b>find one during the team building portion</b> right before the competition! 
+                This phase is designed for forming well-rounded teams that bring together diverse strengths and perspectives.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<section id="Location" aria-label="Location">
-    <a href="/building-map" id="location-ray">
+    <section id="Application" aria-label="Application Information">
         <Picture
-            src={LocRay}
-            alt="View building map"
+            src={AppBub}
+            alt=""
             densities={[1,2]}
             quality={80}
             loading={"eager"}
             fetchpriority={"high"}
             class="w-full h-auto"
         />
-    </a>
-</section>
+        <div id="application-text">
+            <p>
+                Applications are considered on a rolling basis; 
+                an application being accepted does not guarantee a spot in the hackathon. 
+                We have a limited space at the MSC, so we kindly ask you to <b>arrive early</b> on the day of the hackathon.
+            </p>
+        </div>
+    </section>
 
+    <section id="Hardware" aria-label="Hardware Information">
+        <div id="hardware-ray">
+            <Picture 
+                src={HarRay}
+                alt=""
+                densities={[1,2]}
+                quality={80}
+                loading={"eager"}
+                fetchpriority={"high"}
+                class="w-full h-auto"
+            />
+        </div>
+        <Picture
+            src={HarBub}
+            alt=""
+            id="hardware-bub"
+            densities={[1,2]}
+            quality={80}
+            loading={"eager"}
+            fetchpriority={"high"}
+            class="w-full h-auto"
+        />
+        <div id="new-bubbles">
+            <Picture
+                src={N}
+                alt=""
+                id="bubble-n"
+                densities={[1,2]}
+                quality={80}
+                loading={"eager"}
+                fetchpriority={"high"}
+                class="w-full h-auto new-bubble"
+            />
+            <Picture
+                src={E}
+                alt=""
+                id="bubble-e"
+                densities={[1,2]}
+                quality={80}
+                loading={"eager"}
+                fetchpriority={"high"}
+                class="w-full h-auto new-bubble"
+            />
+            <Picture
+                src={W}
+                alt=""
+                id="bubble-w"
+                densities={[1,2]}
+                quality={80}
+                loading={"eager"}
+                fetchpriority={"high"}
+                class="w-full h-auto new-bubble"
+            />
+            <Picture
+                src={Exclamation}
+                alt=""
+                id="bubble-excl"                
+                densities={[1,2]}
+                quality={80}
+                loading={"eager"}
+                fetchpriority={"high"}
+                class="w-full h-auto new-bubble"
+            />
+        </div>
+        <div id="hardware-text">
+            <p>
+                For the first time, HowdyHack will be supporting a hardware track! 
+                The <b>hardware track</b> will begin a week earlier on <b>October 16th</b>, 
+                and teams will have a week to create their projects!
+            </p>
+        </div>
+    </section>
 
 <style>
     #Bubble{
         position:relative;
+        min-height: 40vw;
     }
     #bubble-text{
         position:absolute;
@@ -59,19 +206,142 @@ import LocRay from "@assets/about/location-ray.png"
         transform: translateY(20%);
     }
     #bubble-text p{
-        font-size:clamp(.8rem,2vw,2rem);
+        font-size: 2vw;
         line-height:1.5;
         text-align:center;
     }
     #Location{
         position:relative;
-        min-height:30rem;
+        min-height: 40vw;
     }
-    #location-ray{
+    #stingray{
+        position: absolute;
+        width: 70vw;
+        right: -16vw;
+        bottom: 5vw;
+    }
+    #location-text{
         position:absolute;
-        width: clamp(150px, 70vw, 900px);
-        right: -12rem;
-        bottom: 5rem;
+        top: 45%;
+        left: 35%;
+        width: 45%;
+        font-size:1.4vw;
         z-index:10;
+    }
+    #Parking{
+        position: relative;
+        min-height: 40vw;
+    }
+    #parking-ray{
+        position: absolute;
+        width: 50vw;
+        left: -8vw;
+        bottom: 10vw;
+    }
+    #parking-ray-text{
+        color: white;
+        position:absolute;
+        top: 25%;
+        left: 15%;
+        right: 65%;
+        font-size:1.5vw;
+        text-align: center;
+        z-index:10;
+    }
+    #team-info{
+        position: absolute;
+        width: 50vw;
+        right: 2vw;
+        bottom: 10vw;
+    }
+    #team-info-text{
+        position:absolute;
+        top: 7%;
+        left: 20%;
+        right: 20%;
+        font-size:1.8vw;
+        text-align: center;
+        z-index:10;
+    }
+    #Application{
+        position: relative;
+        min-height: 40vw;
+        max-width: 85vw;
+        margin: 0% auto;
+        transform: translateX(-5vw); 
+    }
+    #application-text{
+        position:absolute;
+        top: 15%;
+        left: 10%;
+        right: 15%;
+        font-size:1.8vw;
+        text-align: center;
+        z-index:10;
+    }
+    #application-text p{
+        font-size: 2vw;
+        line-height:1.5;
+        text-align:center;
+    }
+    #Hardware{
+        position: relative;
+        min-height: 40vw;
+    }
+    #hardware-ray{
+        position: absolute;
+        width: 80vw;
+        right: -23vw;
+        top: -33vw;
+        z-index: 20;
+    }
+    #hardware-bub{
+        position: absolute;
+        max-width: 65vw;
+        margin-left: 3vw;
+    }
+    #hardware-text{
+        position:absolute;
+        top: 15%;
+        left: 15%;
+        right: 45%;
+        font-size:1.5vw;
+        text-align: center;
+        z-index:10;
+    }
+    #new-bubbles{
+        position: relative;
+        width: 10vw;
+        left: -2vw;
+        min-height: 12vw;
+    }
+    .new-bubble{
+        position: absolute;
+        height: auto;
+        animation: bob 2s ease-in-out infinite;
+    }
+    #bubble-n{
+        width: 10vw;
+        top: -3vw;
+        left: 2vw;
+        animation-delay: 0.75s
+    }
+    #bubble-e{
+        width: 10vw;
+        top: -5vw;
+        left: 10vw;
+        animation-delay: 0.90s
+    }
+    #bubble-w{
+        width: 10vw;
+        top: -6vw;
+        left: 18vw;
+        animation-delay: 1.05s;
+    }
+    #bubble-excl{
+        width: 8vw;
+        top: -7vw;
+        left: 26vw;
+        animation-delay: 1.20s;
     }
 </style>
