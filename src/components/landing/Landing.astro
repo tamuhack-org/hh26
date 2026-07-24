@@ -11,18 +11,19 @@ import Wave from "./Wave.astro";
 <style>
 #landing {
   --landing-width: min(100vw, var(--widescreen-breakpoint));
-  --wave-end-height: calc(var(--landing-width) * 0.7518556);
+  --scene-width: 20rem;
+  --wave-end-height: calc(var(--scene-width) * 0.7518556);
 
-  grid-template-rows: calc(var(--landing-width) * 0.35) var(--wave-end-height);
+  grid-template-rows: calc(var(--scene-width) * 0.35) var(--wave-end-height);
 }
 
 .landing-gradient {
-  height: calc(var(--landing-width) * 0.71875);
+  height: calc(var(--scene-width) * 0.71875);
   background: radial-gradient(
-    calc(var(--landing-width) * 0.9858) calc(var(--landing-width) * 0.362106) at
+    calc(var(--scene-width) * 0.9858) calc(var(--scene-width) * 0.362106) at
       max(
-        calc(var(--landing-width) * 0.2671),
-        calc(50vw - calc(var(--landing-width) * 0.2329))
+        calc(var(--scene-width) * 0.2671),
+        calc(50vw - calc(var(--scene-width) * 0.2329))
       )
       0,
     #fce3a5 0%,
@@ -30,6 +31,12 @@ import Wave from "./Wave.astro";
     #2cd0b4 78.85%,
     #29cdb4 99.04%
   );
+}
+
+@media (min-width: 64rem) {
+  #landing {
+    --scene-width: var(--landing-width);
+  }
 }
 </style>
 
