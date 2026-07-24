@@ -23,17 +23,19 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 }
 
 #wave-container {
-  --scene-left: calc((100vw - var(--landing-width)) / 2);
+  --wave-width: 30rem;
+  --scene-left: calc((100vw - var(--wave-width)) / 2);
+}
+
+#date-wave,
+#location-wave {
+  display: none;
 }
 
 #wave-layer-4 {
-  --wave-4-tile-origin: calc(
-    var(--scene-left) +
-    var(--landing-width) *
-    0.0440667
-  );
+  --wave-4-tile-origin: calc(var(--scene-left) + var(--wave-width) * 0.0440667);
 
-  height: calc(var(--landing-width) * 0.353516);
+  height: calc(var(--wave-width) * 0.353516);
   background-position: var(--wave-4-tile-origin) 0;
 }
 
@@ -46,14 +48,10 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 }
 
 #wave-layer-3 {
-  --wave-3-tile-origin: calc(
-    var(--scene-left) +
-    var(--landing-width) *
-    0.3348267
-  );
+  --wave-3-tile-origin: calc(var(--scene-left) + var(--wave-width) * 0.3348267);
 
-  height: calc(var(--landing-width) * 0.456055);
-  margin-top: calc(var(--landing-width) * -0.29);
+  height: calc(var(--wave-width) * 0.456055);
+  margin-top: calc(var(--wave-width) * -0.29);
   background-position: var(--wave-3-tile-origin) 0;
 }
 
@@ -66,25 +64,26 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 }
 
 #wave-layer-2 {
-  height: calc(var(--landing-width) * 0.490234);
-  margin-top: calc(var(--landing-width) * -0.35);
-  background-position: calc(
-      var(--scene-left) +
-      var(--landing-width) *
-      0.7027749
-    )
-    0;
+  height: calc(var(--wave-width) * 0.490234);
+  margin-top: calc(var(--wave-width) * -0.35);
+  background-position: calc(var(--scene-left) + var(--wave-width) * 0.7027749) 0;
 }
 
 #wave-layer-1 {
-  height: calc(var(--landing-width) * 0.833984);
-  margin-top: calc(var(--landing-width) * -0.4);
-  background-position: calc(
-      var(--scene-left) +
-      var(--landing-width) *
-      0.0424084
-    )
-    0;
+  height: calc(var(--wave-width) * 0.833984);
+  margin-top: calc(var(--wave-width) * -0.4);
+  background-position: calc(var(--scene-left) + var(--wave-width) * 0.0424084) 0;
+}
+
+@media (min-width: 64rem) {
+  #wave-container {
+    --wave-width: var(--landing-width);
+  }
+
+  #date-wave,
+  #location-wave {
+    display: block;
+  }
 }
 </style>
 
