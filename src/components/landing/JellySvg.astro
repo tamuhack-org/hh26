@@ -83,7 +83,12 @@
 
 <script>
 (() => {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (
+    !matchMedia(
+      "(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)",
+    ).matches
+  )
+    return;
 
   const DEFAULTS = {
     samples: 200,
