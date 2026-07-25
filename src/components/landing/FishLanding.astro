@@ -26,26 +26,31 @@ const fishPath =
     fetchpriority="high"
     width={891}
     sizes="(min-width: 96rem) 55.6875rem, 58vw"
-    class="absolute top-0 left-0 w-58/100"
-  />
+    class="w-100/100 lg:w-58/100 max-w-none"
+  />  
 </div>
 
 <style>
 #fish {
+  position: absolute;
   opacity: 1;
-  margin-left: calc(var(--landing-width) * -0.047);
-  margin-top: calc(var(--landing-width) * 0.153);
+  left: -3rem;
+  top: -1rem;
   rotate: -5deg;
-}
+  @media (min-width: 64rem) {
+  left: calc(var(--scene-width) * -0.047);
+  top: calc(var(--scene-width) * 0.153);
 
-@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
-  #fish {
+  @media (prefers-reduced-motion: no-preference) {
     opacity: 0;
-    margin-left: 0;
-    margin-top: 0;
+    left: 0;
+    top: 0;
     rotate: 0deg;
   }
 }
+}
+
+
 </style>
 
 <script>
