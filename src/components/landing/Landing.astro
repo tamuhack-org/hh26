@@ -2,10 +2,15 @@
 import { Picture } from "astro:assets";
 import SandFront from "@assets/landing/sand-front.png";
 import SandTree from "@assets/landing/sand-tree.png";
+import SandTreeMobile from "@assets/landing/sand-tree-mobile.png";
 import ApplyMentor from "./ApplyMentor.astro";
 import FishLanding from "./FishLanding.astro";
 import JellySvg from "./JellySvg.astro";
 import Wave from "./Wave.astro";
+import DateLoc from "./DateLoc.astro"
+
+import Apply from "@assets/landing/apply-mobile.png";
+import Mentor from "@assets/landing/mentor-mobile.png";
 ---
 
 <style>
@@ -79,7 +84,41 @@ import Wave from "./Wave.astro";
     <div class="relative z-20 pt-3 px-3 mt-20 lg:mt-0 row-start-1 col-start-1 ">
       <JellySvg />
     </div>
-
+    <div class="z-5 flex justify-center items-center">
+      <DateLoc />
+    </div>
+    <div class="relative flex items-center lg:hidden mt-2 gap-4 p-2 z-20 place-self-center">
+      <a
+      href="https://start.tamuhack.org"
+      aria-label="Apply to TAMUhack"
+      class="z-5"
+      >
+        <Picture
+            src={Apply}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            class=""
+          />
+      </a>
+      <a
+      href="https://start.tamuhack.org"
+      aria-label="Mentor at TAMUhack"
+      class="z-5"
+      >
+        <Picture
+          src={Mentor}
+          formats={["avif", "webp"]}
+          quality={80}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          class=""
+        />
+      </a>
+    </div>
     <div
       class="relative z-10 hidden lg:flex row-start-1 col-start-2 items-end justify-end"
     >
@@ -103,9 +142,26 @@ import Wave from "./Wave.astro";
     </div>
 
     <div
-      class="pointer-events-none relative z-30 col-start-1 col-span-2 row-start-1"
+      class="pointer-events-none z-30 absolute left-1/2 -translate-x-1/2 top-[calc(var(--scene-width)*0.30)] w-[calc(var(--scene-width)*0.343)] lg:static lg:left-auto lg:translate-x-0 lg:top-auto lg:w-auto lg:col-start-1 lg:col-span-2 lg:row-start-1"
     >
       <FishLanding />
     </div>
+    <div
+      class="pointer-events-none lg:hidden absolute left-[calc(50%+var(--scene-width)*0.02)] -translate-x-1/2 top-[calc(var(--scene-width)*0.19)] z-1"
+    >
+      <Picture
+        src={SandTreeMobile}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        width={1997}
+        sizes=""
+        class="w-[calc(var(--scene-width)*0.4)] max-w-none"
+      />
+    </div>
+
   </div>
 </section>
