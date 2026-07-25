@@ -27,7 +27,7 @@ const fishPath =
     width={891}
     sizes="(min-width: 96rem) 55.6875rem, 58vw"
     class="w-93/100 lg:w-58/100 max-w-none"
-  />  
+  />
 </div>
 
 <style>
@@ -38,19 +38,17 @@ const fishPath =
   top: -1rem;
   rotate: -5deg;
   @media (min-width: 64rem) {
-  left: calc(var(--scene-width) * -0.047);
-  top: calc(var(--scene-width) * 0.153);
+    left: calc(var(--scene-width) * -0.047);
+    top: calc(var(--scene-width) * 0.153);
 
-  @media (prefers-reduced-motion: no-preference) {
-    opacity: 0;
-    left: 0;
-    top: 0;
-    rotate: 0deg;
+    @media (prefers-reduced-motion: no-preference) {
+      opacity: 0;
+      left: 0;
+      top: 0;
+      rotate: 0deg;
+    }
   }
 }
-}
-
-
 </style>
 
 <script>
