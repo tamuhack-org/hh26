@@ -16,8 +16,10 @@ import Mentor from "@assets/landing/mentor-mobile.png";
 <style>
 #landing {
   --landing-width: min(100vw, var(--widescreen-breakpoint));
-  --scene-width: 20rem;
+  --scene-width: 70rem;
   --wave-end-height: calc(var(--scene-width) * 0.7518556);
+
+  --gradient-x: calc(50vw - var(--scene-width) * 0.15); /*keeps gradient visually fixed*/
 
   grid-template-rows: calc(var(--scene-width) * 0.35) var(--wave-end-height);
 }
@@ -26,10 +28,7 @@ import Mentor from "@assets/landing/mentor-mobile.png";
   height: calc(var(--scene-width) * 0.71875);
   background: radial-gradient(
     calc(var(--scene-width) * 0.9858) calc(var(--scene-width) * 0.362106) at
-      max(
-        calc(var(--scene-width) * 0.2671),
-        calc(50vw - calc(var(--scene-width) * 0.2329))
-      )
+      var(--gradient-x)
       0,
     #fce3a5 0%,
     #7fdab0 44.71%,
@@ -41,6 +40,10 @@ import Mentor from "@assets/landing/mentor-mobile.png";
 @media (min-width: 64rem) {
   #landing {
     --scene-width: var(--landing-width);
+    --gradient-x: max(
+      calc(var(--scene-width) * 0.2671),
+      calc(50vw - calc(var(--scene-width) * 0.2329))
+    );
   }
 }
 </style>
