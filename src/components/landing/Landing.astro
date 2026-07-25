@@ -55,13 +55,13 @@ import Wave from "./Wave.astro";
   </div>
   <div
     id="inner-assets"
-    class="row-start-1 mx-auto grid w-full max-w-(--widescreen-breakpoint) grid-cols-2"
+    class="row-start-1 mx-auto grid max-w-xs w-full lg:max-w-(--widescreen-breakpoint) grid-cols-1 lg:grid-cols-2 max-lg:content-start"
   >
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
 
     <div
-      class="pointer-events-none relative z-10 row-start-1 col-start-1 col-span-2"
+      class="pointer-events-none hidden lg:block relative z-10 row-start-1 col-start-1 col-span-2"
     >
       <Picture
         src={SandTree}
@@ -76,18 +76,18 @@ import Wave from "./Wave.astro";
         class="w-130/100 max-w-none"
       />
     </div>
-    <div class="relative z-20 row-start-1 col-start-1">
+    <div class="relative z-20 pt-3 px-3 mt-20 lg:mt-0 row-start-1 col-start-1 ">
       <JellySvg />
     </div>
 
     <div
-      class="relative z-10 row-start-1 col-start-2 flex items-end justify-end"
+      class="relative z-10 hidden lg:flex row-start-1 col-start-2 items-end justify-end"
     >
       <ApplyMentor />
     </div>
 
     <div
-      class="pointer-events-none relative z-10 col-span-2 row-start-1 col-start-1 self-end"
+      class="pointer-events-none hidden lg:block relative z-10 col-span-2 row-start-1 col-start-1 self-end"
     >
       <Picture
         src={SandFront}
