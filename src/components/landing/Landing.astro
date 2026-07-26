@@ -17,6 +17,8 @@ import Wave from "./Wave.astro";
   --landing-width: min(100vw, var(--widescreen-breakpoint));
   --scene-width: 70rem;
   --wave-end-height: calc(var(--scene-width) * 0.7518556);
+  --mobile-wave-width: 40rem;
+  --wave-width: var(--mobile-wave-width);
 
   --gradient-x: calc(
     50vw -
@@ -42,6 +44,7 @@ import Wave from "./Wave.astro";
 @media (min-width: 64rem) {
   #landing {
     --scene-width: var(--landing-width);
+    --wave-width: var(--landing-width);
     --gradient-x: max(
       calc(var(--scene-width) * 0.2671),
       calc(50vw - calc(var(--scene-width) * 0.2329))
