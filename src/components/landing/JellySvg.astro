@@ -82,10 +82,12 @@
 </style>
 
 <script>
+import { MEDIA } from "../../media";
+
 (() => {
   if (
     !matchMedia(
-      "(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)",
+      `${MEDIA.desktop} and ${MEDIA.motionSafe} and ${MEDIA.fineHover}`,
     ).matches
   )
     return;
