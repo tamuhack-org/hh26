@@ -23,7 +23,7 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 }
 
 #wave-container {
-  --scene-left: calc((100vw - var(--wave-width)) / 2);
+  --scene-left: calc((100vw - var(--landing-wave-width)) / 2);
 
   /* Mobile tile origins */
   --wave-4-origin: 0.0840667;
@@ -40,11 +40,11 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 #wave-layer-4 {
   --wave-4-tile-origin: calc(
     var(--scene-left) +
-    var(--wave-width) *
+    var(--landing-wave-width) *
     var(--wave-4-origin)
   );
 
-  height: calc(var(--wave-width) * 0.353516);
+  height: calc(var(--landing-wave-width) * 0.353516);
   background-position: var(--wave-4-tile-origin) 0;
 }
 
@@ -59,12 +59,12 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 #wave-layer-3 {
   --wave-3-tile-origin: calc(
     var(--scene-left) +
-    var(--wave-width) *
+    var(--landing-wave-width) *
     var(--wave-3-origin)
   );
 
-  height: calc(var(--wave-width) * 0.456055);
-  margin-top: calc(var(--wave-width) * -0.29);
+  height: calc(var(--landing-wave-width) * 0.456055);
+  margin-top: calc(var(--landing-wave-width) * -0.29);
   background-position: var(--wave-3-tile-origin) 0;
 }
 
@@ -77,22 +77,22 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 }
 
 #wave-layer-2 {
-  height: calc(var(--wave-width) * 0.490234);
-  margin-top: calc(var(--wave-width) * -0.35);
+  height: calc(var(--landing-wave-width) * 0.490234);
+  margin-top: calc(var(--landing-wave-width) * -0.35);
   background-position: calc(
       var(--scene-left) +
-      var(--wave-width) *
+      var(--landing-wave-width) *
       var(--wave-2-origin)
     )
     0;
 }
 
 #wave-layer-1 {
-  height: calc(var(--wave-width) * 0.833984);
-  margin-top: calc(var(--wave-width) * -0.4);
+  height: calc(var(--landing-wave-width) * 0.833984);
+  margin-top: calc(var(--landing-wave-width) * -0.4);
   background-position: calc(
       var(--scene-left) +
-      var(--wave-width) *
+      var(--landing-wave-width) *
       var(--wave-1-origin)
     )
     0;

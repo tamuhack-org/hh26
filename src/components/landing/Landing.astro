@@ -15,27 +15,30 @@ import Wave from "./Wave.astro";
 <style>
 #landing {
   --landing-width: min(100vw, var(--widescreen-breakpoint));
-  --mobile-scene-width: 70rem;
-  --mobile-wave-width: 40rem;
-  --scene-width: var(--mobile-scene-width);
-  --wave-width: var(--mobile-wave-width);
+  --landing-mobile-scene-width: 70rem;
+  --landing-mobile-wave-width: 40rem;
+  --landing-scene-width: var(--landing-mobile-scene-width);
+  --landing-wave-width: var(--landing-mobile-wave-width);
+
   --wave-end-ratio: 0.7518556;
-  --wave-end-height: calc(var(--wave-width) * var(--wave-end-ratio));
+  --wave-end-height: calc(var(--landing-wave-width) * var(--wave-end-ratio));
 
   --gradient-x: calc(
     50vw -
-    var(--scene-width) *
+    var(--landing-scene-width) *
     0.15
-  ); /*keeps gradient visually fixed*/
+  ); /* Keeps the gradient visually fixed. */
 
-  grid-template-rows: calc(var(--scene-width) * 0.35) var(--wave-end-height);
+  grid-template-rows:
+    calc(var(--landing-scene-width) * 0.35)
+    var(--wave-end-height);
 }
 
 .landing-gradient {
-  height: calc(var(--scene-width) * 0.71875);
+  height: calc(var(--landing-scene-width) * 0.71875);
   background: radial-gradient(
-    calc(var(--scene-width) * 0.9858) calc(var(--scene-width) * 0.362106) at
-      var(--gradient-x) 0,
+    calc(var(--landing-scene-width) * 0.9858)
+      calc(var(--landing-scene-width) * 0.362106) at var(--gradient-x) 0,
     #fce3a5 0%,
     #7fdab0 44.71%,
     #2cd0b4 78.85%,
@@ -45,11 +48,11 @@ import Wave from "./Wave.astro";
 
 @media (min-width: 64rem) {
   #landing {
-    --scene-width: var(--landing-width);
-    --wave-width: var(--landing-width);
+    --landing-scene-width: var(--landing-width);
+    --landing-wave-width: var(--landing-width);
     --gradient-x: max(
-      calc(var(--scene-width) * 0.2671),
-      calc(50vw - calc(var(--scene-width) * 0.2329))
+      calc(var(--landing-scene-width) * 0.2671),
+      calc(50vw - calc(var(--landing-scene-width) * 0.2329))
     );
   }
 }
@@ -162,12 +165,12 @@ import Wave from "./Wave.astro";
     </div>
 
     <div
-      class="pointer-events-none z-30 absolute left-1/2 -translate-x-1/2 top-[calc(var(--scene-width)*0.30)] w-[calc(var(--scene-width)*0.343)] lg:relative lg:left-auto lg:translate-x-0 lg:top-auto lg:w-auto lg:col-start-1 lg:col-span-2 lg:row-start-1"
+      class="pointer-events-none z-30 absolute left-1/2 -translate-x-1/2 top-[calc(var(--landing-scene-width)*0.30)] w-[calc(var(--landing-scene-width)*0.343)] lg:relative lg:left-auto lg:translate-x-0 lg:top-auto lg:w-auto lg:col-start-1 lg:col-span-2 lg:row-start-1"
     >
       <FishLanding />
     </div>
     <div
-      class="pointer-events-none lg:hidden absolute left-[calc(50%+var(--scene-width)*0.02)] -translate-x-1/2 top-[calc(var(--scene-width)*0.19)] z-1"
+      class="pointer-events-none lg:hidden absolute left-[calc(50%+var(--landing-scene-width)*0.02)] -translate-x-1/2 top-[calc(var(--landing-scene-width)*0.19)] z-1"
     >
       <Picture
         src={SandTreeMobile}
