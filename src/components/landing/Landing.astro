@@ -15,10 +15,12 @@ import Wave from "./Wave.astro";
 <style>
 #landing {
   --landing-width: min(100vw, var(--widescreen-breakpoint));
-  --scene-width: 70rem;
-  --wave-end-height: calc(var(--scene-width) * 0.7518556);
+  --mobile-scene-width: 70rem;
   --mobile-wave-width: 40rem;
+  --scene-width: var(--mobile-scene-width);
   --wave-width: var(--mobile-wave-width);
+  --wave-end-ratio: 0.7518556;
+  --wave-end-height: calc(var(--wave-width) * var(--wave-end-ratio));
 
   --gradient-x: calc(
     50vw -
