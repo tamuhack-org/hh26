@@ -178,13 +178,22 @@ const layers = [
   { id: "#wave-layer-1", yPercent: -41 },
 ];
 
+const SCROLL_START = {
+  mobile: "30% top",
+  desktop: "52% top",
+} as const;
+
 gsap.matchMedia().add(MEDIA.motionSafe, () => {
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: "#inner-assets",
-      start: "52% top",
+      start: () =>
+        window.matchMedia(MEDIA.desktop).matches
+          ? SCROLL_START.desktop
+          : SCROLL_START.mobile,
       end: "115% top",
       scrub: 0.1,
+      invalidateOnRefresh: true,
     },
   });
 
