@@ -1,8 +1,12 @@
 ---
 import { Picture } from "astro:assets";
+import ApplyMobile from "@assets/landing/apply-mobile.png";
+import MentorMobile from "@assets/landing/mentor-mobile.png";
 import SandFront from "@assets/landing/sand-front.png";
 import SandTree from "@assets/landing/sand-tree.png";
+import SandTreeMobile from "@assets/landing/sand-tree-mobile.png";
 import ApplyMentor from "./ApplyMentor.astro";
+import DateLocMobile from "./DateLocMobile.astro";
 import FishLanding from "./FishLanding.astro";
 import JellySvg from "./JellySvg.astro";
 import Wave from "./Wave.astro";
@@ -11,25 +15,46 @@ import Wave from "./Wave.astro";
 <style>
 #landing {
   --landing-width: min(100vw, var(--widescreen-breakpoint));
-  --wave-end-height: calc(var(--landing-width) * 0.7518556);
+  --landing-mobile-scene-width: 70rem;
+  --landing-mobile-wave-width: 40rem;
+  --landing-scene-width: var(--landing-mobile-scene-width);
+  --landing-wave-width: var(--landing-mobile-wave-width);
 
-  grid-template-rows: calc(var(--landing-width) * 0.35) var(--wave-end-height);
+  --wave-end-ratio: 0.7518556;
+  --wave-end-height: calc(var(--landing-wave-width) * var(--wave-end-ratio));
+
+  --gradient-x: calc(
+    50vw -
+    var(--landing-scene-width) *
+    0.15
+  ); /* Keeps the gradient visually fixed. */
+
+  grid-template-rows:
+    calc(var(--landing-scene-width) * 0.35)
+    var(--wave-end-height);
 }
 
 .landing-gradient {
-  height: calc(var(--landing-width) * 0.71875);
+  height: calc(var(--landing-scene-width) * 0.71875);
   background: radial-gradient(
-    calc(var(--landing-width) * 0.9858) calc(var(--landing-width) * 0.362106) at
-      max(
-        calc(var(--landing-width) * 0.2671),
-        calc(50vw - calc(var(--landing-width) * 0.2329))
-      )
-      0,
+    calc(var(--landing-scene-width) * 0.9858)
+      calc(var(--landing-scene-width) * 0.362106) at var(--gradient-x) 0,
     #fce3a5 0%,
     #7fdab0 44.71%,
     #2cd0b4 78.85%,
     #29cdb4 99.04%
   );
+}
+
+@media (min-width: 64rem) {
+  #landing {
+    --landing-scene-width: var(--landing-width);
+    --landing-wave-width: var(--landing-width);
+    --gradient-x: max(
+      calc(var(--landing-scene-width) * 0.2671),
+      calc(50vw - calc(var(--landing-scene-width) * 0.2329))
+    );
+  }
 }
 </style>
 
@@ -48,13 +73,13 @@ import Wave from "./Wave.astro";
   </div>
   <div
     id="inner-assets"
-    class="row-start-1 mx-auto grid w-full max-w-(--widescreen-breakpoint) grid-cols-2"
+    class="row-start-1 mx-auto grid max-w-xs w-full grid-cols-1 lg:max-w-(--widescreen-breakpoint) lg:grid-cols-2 max-lg:content-start"
   >
     <!-- this is where we would put all the assets constrained by width -->
     <!-- in other words, everything BUT the waves -->
 
     <div
-      class="pointer-events-none relative z-10 row-start-1 col-start-1 col-span-2"
+      class="pointer-events-none hidden lg:block relative z-10 row-start-1 col-start-1 col-span-2"
     >
       <Picture
         src={SandTree}
@@ -69,18 +94,62 @@ import Wave from "./Wave.astro";
         class="w-130/100 max-w-none"
       />
     </div>
-    <div class="relative z-20 row-start-1 col-start-1">
+    <div
+      class="relative z-20 px-3 lg:px-0 mt-24 lg:mt-0 row-start-1 col-start-1"
+    >
       <JellySvg />
     </div>
-
+    <div class="z-5 flex justify-center items-center lg:hidden">
+      <DateLocMobile />
+    </div>
     <div
-      class="relative z-10 row-start-1 col-start-2 flex items-end justify-end"
+      class="relative flex items-center lg:hidden mt-2 gap-4 p-2 z-20 place-self-center"
+    >
+      <a
+        href="https://start.tamuhack.org"
+        aria-label="Apply to TAMUhack"
+        class="z-5"
+      >
+        <Picture
+          src={ApplyMobile}
+          formats={["avif", "webp"]}
+          quality={80}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          width={98}
+          widths={[98, 196]}
+          sizes="6.125rem"
+          class="w-[6.125rem]"
+        />
+      </a>
+      <a
+        href="https://start.tamuhack.org"
+        aria-label="Mentor at TAMUhack"
+        class="z-5"
+      >
+        <Picture
+          src={MentorMobile}
+          formats={["avif", "webp"]}
+          quality={80}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          width={116}
+          widths={[116, 232]}
+          sizes="7.25rem"
+          class="w-[7.25rem]"
+        />
+      </a>
+    </div>
+    <div
+      class="relative z-10 hidden lg:flex row-start-1 col-start-2 items-end justify-end"
     >
       <ApplyMentor />
     </div>
 
     <div
-      class="pointer-events-none relative z-10 col-span-2 row-start-1 col-start-1 self-end"
+      class="pointer-events-none hidden lg:block relative z-10 col-span-2 row-start-1 col-start-1 self-end"
     >
       <Picture
         src={SandFront}
@@ -96,9 +165,26 @@ import Wave from "./Wave.astro";
     </div>
 
     <div
-      class="pointer-events-none relative z-30 col-start-1 col-span-2 row-start-1"
+      class="pointer-events-none z-30 absolute left-1/2 -translate-x-1/2 top-[calc(var(--landing-scene-width)*0.30)] w-[calc(var(--landing-scene-width)*0.343)] lg:relative lg:left-auto lg:translate-x-0 lg:top-auto lg:w-auto lg:col-start-1 lg:col-span-2 lg:row-start-1"
     >
       <FishLanding />
+    </div>
+    <div
+      class="pointer-events-none lg:hidden absolute left-[calc(50%+var(--landing-scene-width)*0.02)] -translate-x-1/2 top-[calc(var(--landing-scene-width)*0.19)] z-1"
+    >
+      <Picture
+        src={SandTreeMobile}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        width={448}
+        widths={[448, 896]}
+        sizes="28rem"
+        class="w-[28rem] max-w-none"
+      />
     </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-<div class="w-[94%] ml-[10%] mt-[8%]">
+<div class="w-[100%] lg:ml-[10%] lg:mt-[8%]">
   <svg
     viewBox="0 0 556 184"
     fill="none"
@@ -82,10 +82,12 @@
 </style>
 
 <script>
+import { MEDIA } from "../../media";
+
 (() => {
   if (
     !matchMedia(
-      "(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)",
+      `${MEDIA.desktop} and ${MEDIA.motionSafe} and ${MEDIA.fineHover}`,
     ).matches
   )
     return;

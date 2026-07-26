@@ -23,17 +23,28 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 }
 
 #wave-container {
-  --scene-left: calc((100vw - var(--landing-width)) / 2);
+  --scene-left: calc((100vw - var(--landing-wave-width)) / 2);
+
+  /* Mobile tile origins */
+  --wave-4-origin: 0.0840667;
+  --wave-3-origin: 0.4848267;
+  --wave-2-origin: 0.8527749;
+  --wave-1-origin: 0.2424084;
+}
+
+#date-wave,
+#location-wave {
+  display: none;
 }
 
 #wave-layer-4 {
   --wave-4-tile-origin: calc(
     var(--scene-left) +
-    var(--landing-width) *
-    0.0440667
+    var(--landing-wave-width) *
+    var(--wave-4-origin)
   );
 
-  height: calc(var(--landing-width) * 0.353516);
+  height: calc(var(--landing-wave-width) * 0.353516);
   background-position: var(--wave-4-tile-origin) 0;
 }
 
@@ -48,12 +59,12 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 #wave-layer-3 {
   --wave-3-tile-origin: calc(
     var(--scene-left) +
-    var(--landing-width) *
-    0.3348267
+    var(--landing-wave-width) *
+    var(--wave-3-origin)
   );
 
-  height: calc(var(--landing-width) * 0.456055);
-  margin-top: calc(var(--landing-width) * -0.29);
+  height: calc(var(--landing-wave-width) * 0.456055);
+  margin-top: calc(var(--landing-wave-width) * -0.29);
   background-position: var(--wave-3-tile-origin) 0;
 }
 
@@ -66,25 +77,40 @@ const [OptimizedWave1, OptimizedWave2, OptimizedWave3, OptimizedWave4] =
 }
 
 #wave-layer-2 {
-  height: calc(var(--landing-width) * 0.490234);
-  margin-top: calc(var(--landing-width) * -0.35);
+  height: calc(var(--landing-wave-width) * 0.490234);
+  margin-top: calc(var(--landing-wave-width) * -0.35);
   background-position: calc(
       var(--scene-left) +
-      var(--landing-width) *
-      0.7027749
+      var(--landing-wave-width) *
+      var(--wave-2-origin)
     )
     0;
 }
 
 #wave-layer-1 {
-  height: calc(var(--landing-width) * 0.833984);
-  margin-top: calc(var(--landing-width) * -0.4);
+  height: calc(var(--landing-wave-width) * 0.833984);
+  margin-top: calc(var(--landing-wave-width) * -0.4);
   background-position: calc(
       var(--scene-left) +
-      var(--landing-width) *
-      0.0424084
+      var(--landing-wave-width) *
+      var(--wave-1-origin)
     )
     0;
+}
+
+@media (min-width: 64rem) {
+  #wave-container {
+    /* Landing tile origins */
+    --wave-4-origin: 0.0440667;
+    --wave-3-origin: 0.3348267;
+    --wave-2-origin: 0.7027749;
+    --wave-1-origin: 0.0424084;
+  }
+
+  #date-wave,
+  #location-wave {
+    display: block;
+  }
 }
 </style>
 
@@ -152,13 +178,22 @@ const layers = [
   { id: "#wave-layer-1", yPercent: -41 },
 ];
 
+const SCROLL_START = {
+  mobile: "30% top",
+  desktop: "52% top",
+} as const;
+
 gsap.matchMedia().add(MEDIA.motionSafe, () => {
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: "#inner-assets",
-      start: "52% top",
+      start: () =>
+        window.matchMedia(MEDIA.desktop).matches
+          ? SCROLL_START.desktop
+          : SCROLL_START.mobile,
       end: "115% top",
       scrub: 0.1,
+      invalidateOnRefresh: true,
     },
   });
 
