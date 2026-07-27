@@ -12,43 +12,31 @@
     import W from "@assets/about/gen-info-new-w.png"
     import Exclamation from "@assets/about/gen-info-new-!.png"
     ---
-    <section id="intro" aria-label="About HowdyHack">
+    <div id="intro" aria-labelledby="About HowdyHack">
         <div id="Bubble">
             <Picture
-            id="Bubble"
             src={Bubble}
+            alt="About HowdyHack"
             formats={["avif","webp"]}
-            alt=""
-            densities={[1,2]}
-            quality={80}
-            aria-hidden="true"
-            loading={"eager"}
-            fetchpriority={"high"}
-            class="mt-[-23rem] w-full h-auto"
+            class="w-full h-auto"
             />
-            <div id="bubble-text">
-                <p>
-                    HowdyHack is a 24-hour, themed, <b>beginner-focused</b> hackathon exclusively for <b>Texas A&M students</b>,
-                     designed to showcase TAMU's diverse range of ideas in a collaborative environment. At the event, 
-                    you'll have the opportunity to create your own software and hardware products with <b>teams of up to 4</b> that wow judges and win prizes.
-                    <br>
-                    <br>
-                    <b>Go gig 'em!</b>
-                </p>
-            </div>
+            <p id="bubble-text">
+                HowdyHack is a 24-hour, themed, <strong>beginner-focused</strong> hackathon exclusively for <strong>Texas A&M students</strong>,
+                 designed to showcase TAMU's diverse range of ideas in a collaborative environment. At the event, 
+                you'll have the opportunity to create your own software and hardware products with <strong>teams of up to 4</strong> that wow judges and win prizes.
+                <span class="gig-em"><strong>Go gig 'em!</strong></span>
+            </p>
         </div>
-    </section>
+    </div>
 
-    <section id="Location" aria-label="Location">
+    <section id="Location" aria-labelledby="Location">
+        <h3 id="Location-Title" class="sr-only">Location</h3>
         <div id="stingray">
             <a href="/building-map" id="location-ray">
             <Picture
                 src={LocRay}
                 alt="View building map"
-                densities={[1,2]}
-                quality={80}
-                loading={"eager"}
-                fetchpriority={"high"}
+                formats={["avif","webp"]}
                 class="w-full h-auto"
             />
             </a>
@@ -62,18 +50,14 @@
     </section>
 
     <section id="Parking" aria-label="Parking">
+        <h3 id="Parking-Title" class="sr-only">Parking</h3>
         <div id="parking-ray">
             <Picture
                 src={ParkRay}
-                alt=""
-                densities={[1,2]}
-                quality={80}
-                loading={"eager"}
-                fetchpriority={"high"}
+                alt="Parking"
                 class="w-full h-auto"
             />
         </div>
-    
         <div id="parking-ray-text">
             <p>
                 Parking will be available at _____ and _____
@@ -82,51 +66,37 @@
         <div id="team-info">
             <Picture
                 src={TeamBub}
-                alt=""
-                densities={[1,2]}
-                quality={80}
-                loading={"eager"}
-                fetchpriority={"high"}
+                alt="Team Information"
                 class="w-full h-auto"
             />
-            <div id="team-info-text">
-                <p>
-                After you sign up, you will receive a confirmation email letting you know you're good to go. 
-                You can either <b>form a team</b> yourself, or <b>find one during the team building portion</b> right before the competition! 
-                This phase is designed for forming well-rounded teams that bring together diverse strengths and perspectives.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="Application" aria-label="Application Information">
-        <Picture
-            src={AppBub}
-            alt=""
-            densities={[1,2]}
-            quality={80}
-            loading={"eager"}
-            fetchpriority={"high"}
-            class="w-full h-auto"
-        />
-        <div id="application-text">
-            <p>
-                Applications are considered on a rolling basis; 
-                an application being accepted does not guarantee a spot in the hackathon. 
-                We have a limited space at the MSC, so we kindly ask you to <b>arrive early</b> on the day of the hackathon.
+            <p id="team-info-text">
+            After you sign up, you will receive a confirmation email letting you know you're good to go. 
+            You can either <strong>form a team</strong> yourself, or <strong>find one during the team building portion</strong> right before the competition! 
+            This phase is designed for forming well-rounded teams that bring together diverse strengths and perspectives.
             </p>
         </div>
     </section>
 
+    <section id="Application" aria-label="Application Information">
+        <h3 id="Application-Title" class="sr-only">Application Information</h3>
+        <Picture
+            src={AppBub}
+            alt="Application Information"
+            class="w-full h-auto"
+        />
+        <p id="application-text">
+            Applications are considered on a rolling basis; 
+            an application being accepted does not guarantee a spot in the hackathon. 
+            We have a limited space at the MSC, so we kindly ask you to <strong>arrive early</strong> on the day of the hackathon.
+        </p>
+    </section>
+
     <section id="Hardware" aria-label="Hardware Information">
+        <h3 id="Hardware-Title" class="sr-only">Hardware Information</h3>
         <div id="hardware-ray">
             <Picture 
                 src={HarRay}
-                alt=""
-                densities={[1,2]}
-                quality={80}
-                loading={"eager"}
-                fetchpriority={"high"}
+                alt="Hardware Information"
                 class="w-full h-auto"
             />
         </div>
@@ -136,7 +106,7 @@
             id="hardware-bub"
             densities={[1,2]}
             quality={80}
-            loading={"eager"}
+            loading={"lazy"}
             fetchpriority={"high"}
             class="w-full h-auto"
         />
@@ -147,7 +117,7 @@
                 id="bubble-n"
                 densities={[1,2]}
                 quality={80}
-                loading={"eager"}
+                loading={"lazy"}
                 fetchpriority={"high"}
                 class="w-full h-auto new-bubble"
             />
@@ -157,7 +127,7 @@
                 id="bubble-e"
                 densities={[1,2]}
                 quality={80}
-                loading={"eager"}
+                loading={"lazy"}
                 fetchpriority={"high"}
                 class="w-full h-auto new-bubble"
             />
@@ -167,7 +137,7 @@
                 id="bubble-w"
                 densities={[1,2]}
                 quality={80}
-                loading={"eager"}
+                loading={"lazy"}
                 fetchpriority={"high"}
                 class="w-full h-auto new-bubble"
             />
@@ -177,7 +147,7 @@
                 id="bubble-excl"                
                 densities={[1,2]}
                 quality={80}
-                loading={"eager"}
+                loading={"lazy"}
                 fetchpriority={"high"}
                 class="w-full h-auto new-bubble"
             />
@@ -185,7 +155,7 @@
         <div id="hardware-text">
             <p>
                 For the first time, HowdyHack will be supporting a hardware track! 
-                The <b>hardware track</b> will begin a week earlier on <b>October 16th</b>, 
+                The <strong>hardware track</b> will begin a week earlier on </strong>October 16th</b>, 
                 and teams will have a week to create their projects!
             </p>
         </div>
@@ -194,31 +164,31 @@
 <style>
     #Bubble{
         position:relative;
-        min-height: 40vw;
+        top: -27vw;
     }
-    #bubble-text{
-        position:absolute;
-        inset:0;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        padding: 25% 12%;
-        transform: translateY(20%);
-    }
-    #bubble-text p{
+    #bubble-text {
+        position: absolute;
+        inset: 0;
         font-size: 2vw;
-        line-height:1.5;
-        text-align:center;
+        line-height: 1.5;
+        transform: translateY(45%);
+        padding: 5vw;
+        text-align: center;
+        overflow: hidden;
+    }
+    .gig-em{
+        display: block;
+        margin-top:1.2em;
     }
     #Location{
         position:relative;
-        min-height: 40vw;
+        min-height: 10vw;
     }
     #stingray{
         position: absolute;
-        width: 70vw;
-        right: -16vw;
-        bottom: 5vw;
+        width: 70%;
+        right: -16%;
+        bottom: 25%;
     }
     #location-text{
         position:absolute;
@@ -234,14 +204,14 @@
     }
     #parking-ray{
         position: absolute;
-        width: 50vw;
-        left: -8vw;
-        bottom: 10vw;
+        width: 50%;
+        left: -8%;
+        bottom: 10%;
     }
     #parking-ray-text{
         color: white;
         position:absolute;
-        top: 25%;
+        top: 45%;
         left: 15%;
         right: 65%;
         font-size:1.5vw;
@@ -250,9 +220,9 @@
     }
     #team-info{
         position: absolute;
-        width: 50vw;
-        right: 2vw;
-        bottom: 10vw;
+        width: 50%;
+        right: 2%;
+        bottom: 15%;
     }
     #team-info-text{
         position:absolute;
@@ -266,9 +236,9 @@
     #Application{
         position: relative;
         min-height: 40vw;
-        max-width: 85vw;
+        max-width: 80%;
         margin: 0% auto;
-        transform: translateX(-5vw); 
+        transform: translateX(-5%); 
     }
     #application-text{
         position:absolute;
@@ -290,30 +260,26 @@
     }
     #hardware-ray{
         position: absolute;
-        width: 80vw;
-        right: -23vw;
-        top: -33vw;
+        width: 80%;
+        right: -23%;
+        top: -85%;
         z-index: 20;
     }
     #hardware-bub{
         position: absolute;
-        max-width: 65vw;
-        margin-left: 3vw;
+        max-width: 70%;
+        margin-left: 3%;
     }
     #hardware-text{
         position:absolute;
         top: 15%;
         left: 15%;
         right: 45%;
-        font-size:1.5vw;
+        font-size:1.7vw;
         text-align: center;
-        z-index:10;
     }
     #new-bubbles{
         position: relative;
-        width: 10vw;
-        left: -2vw;
-        min-height: 12vw;
     }
     .new-bubble{
         position: absolute;
@@ -321,27 +287,27 @@
         animation: bob 2s ease-in-out infinite;
     }
     #bubble-n{
-        width: 10vw;
+        width: 10%;
         top: -3vw;
-        left: 2vw;
+        left: 2%;
         animation-delay: 0.75s
     }
     #bubble-e{
-        width: 10vw;
+        width: 10%;
         top: -5vw;
-        left: 10vw;
+        left: 10%;
         animation-delay: 0.90s
     }
     #bubble-w{
-        width: 10vw;
+        width: 10%;
         top: -6vw;
-        left: 18vw;
+        left: 18%;
         animation-delay: 1.05s;
     }
     #bubble-excl{
-        width: 8vw;
+        width: 8%;
         top: -7vw;
-        left: 26vw;
+        left: 26%;
         animation-delay: 1.20s;
     }
 </style>

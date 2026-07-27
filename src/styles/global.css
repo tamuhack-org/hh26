@@ -8,5 +8,5 @@
 html {
   font-family: "Poppins", sans-serif;
   color: #261D5F;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
