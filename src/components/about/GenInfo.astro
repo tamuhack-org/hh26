@@ -43,8 +43,13 @@ import ParkRay from "@assets/about/parking-ray.png";
       formats={["avif","webp"]}
       class="w-full h-auto"
     />
-    <svg id="location-link-svg" viewBox="0 0 1000 800">
-      <a href="/building-map">
+    <svg
+      id="location-link-svg"
+      viewBox="0 0 1000 800"
+      role="img"
+      aria-label="View Building Map"
+    >
+      <a href="/building-map" aria-label="Building Map">
         <path
           d="M 150,490 Q 370,560 520,570 L 450,600 Q 370,585 205,535 Z"
           fill="none"
@@ -55,7 +60,6 @@ import ParkRay from "@assets/about/parking-ray.png";
     <div id="location-text">
       <p>MSC 2400 730 Olsen Blvd, <br>College Station, TX 77845</p>
     </div>
-    <a href="/building-map" id="location-ray" />
   </div>
 </section>
 
@@ -149,169 +153,171 @@ import ParkRay from "@assets/about/parking-ray.png";
   </div>
   <div id="hardware-text">
     <p>
-            For the first time, HowdyHack will be supporting a hardware track! 
-            The <strong>hardware track</strong> will begin a week earlier on </strong>October 16th</strong>, 
-            and teams will have a week to create their projects!
-        </p>
+      For the first time, HowdyHack will be supporting a hardware track! The
+      <strong>hardware track</strong>
+      will begin a week earlier on
+      <strong>October 16th</strong>, and teams will have a week to create their
+      projects!
+    </p>
   </div>
 </section>
 
 <style>
-    #Bubble {
-      position: relative;
-      top: -27vw;
-    }
-    #bubble-text {
-      position: absolute;
-      inset: 0;
-      font-size: clamp(1rem, 2vw, 1.5rem);
-      line-height: 1.5;
-      transform: translateY(45%);
-      padding: 5vw;
-      text-align: center;
-      overflow: clip;
-    }
-    .gig-em {
-      display: block;
-      margin-top: 1.2em;
-    }
-    #Location {
-      position: relative;
-      min-height: 10vw;
-    }
-    #stingray {
-      position: absolute;
-      width: 70%;
-      right: -16%;
-      bottom: 25%;
-      overflow: clip;
-    }
-    #location-link-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    #location-text {
-      position: absolute;
-      top: 45%;
-      left: 35%;
-      width: 45%;
-      font-size: clamp(1rem, 1.4vw, 1.5rem);
-      z-index: 10;
-    }
-    #Parking {
-      position: relative;
-      min-height: 40vw;
-    }
-    #parking-ray {
-      position: absolute;
-      width: 50%;
-      left: -8%;
-      bottom: 10%;
-      overflow: clip;
-    }
-    #parking-ray-text {
-      color: white;
-      position: absolute;
-      top: 45%;
-      left: 15%;
-      right: 65%;
-      font-size: clamp(1rem, 1.5vw, 1.5rem);
-      text-align: center;
-      z-index: 10;
-    }
-    #team-info {
-      position: absolute;
-      width: 50%;
-      right: 2%;
-      bottom: 15%;
-    }
-    #team-info-text {
-      position: absolute;
-      top: 7%;
-      left: 20%;
-      right: 20%;
-      font-size: clamp(1rem, 1.8vw, 1.5rem);
-      text-align: center;
-      z-index: 10;
-    }
-    #Application {
-      position: relative;
-      min-height: 40vw;
-      max-width: 80%;
-      margin: 0% auto;
-      transform: translateX(-5%);
-    }
-    #application-text {
-      position: absolute;
-      top: 15%;
-      left: 10%;
-      right: 15%;
-      font-size: clamp(1rem, 1.8vw, 1.5rem);
-      text-align: center;
-      z-index: 10;
-    }
-    #application-text p {
-      font-size: 2vw;
-      line-height: 1.5;
-      text-align: center;
-    }
-    #Hardware {
-      position: relative;
-      min-height: 40vw;
-    }
-    #hardware-ray {
-      position: absolute;
-      width: 80%;
-      right: -23%;
-      top: -85%;
-      z-index: 20;
-    }
-    #hardware-bub {
-      position: absolute;
-      max-width: 70%;
-      margin-left: 3%;
-    }
-    #hardware-text {
-      position: absolute;
-      top: 15%;
-      left: 15%;
-      right: 45%;
-      font-size: clamp(1rem, 1.7vw, 1.5rem);
-      text-align: center;
-    }
-    #new-bubbles {
-      position: relative;
-    }
-    .new-bubble {
-      position: absolute;
-      height: auto;
-      animation: bob 2s ease-in-out infinite;
-    }
-    #bubble-n {
-      width: 10%;
-      top: -3vw;
-      left: 2%;
-      animation-delay: 0.75s;
-    }
-    #bubble-e {
-      width: 10%;
-      top: -5vw;
-      left: 10%;
-      animation-delay: 0.9s;
-    }
-    #bubble-w {
-      width: 10%;
-      top: -6vw;
-      left: 18%;
-      animation-delay: 1.05s;
-    }
-    #bubble-excl {
-      width: 8%;
-      top: -7vw;
-      left: 26%;
-      animation-delay: 1.2s;
-    }
+#Bubble {
+  position: relative;
+  top: -27vw;
+}
+#bubble-text {
+  position: absolute;
+  inset: 0;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  transform: translateY(45%);
+  padding: 5vw;
+  text-align: center;
+  overflow: clip;
+}
+.gig-em {
+  display: block;
+  margin-top: 1.2em;
+}
+#Location {
+  position: relative;
+  min-height: 10vw;
+}
+#stingray {
+  position: absolute;
+  width: 70%;
+  right: -16%;
+  bottom: 25%;
+  overflow: clip;
+}
+#location-link-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#location-text {
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  width: 45%;
+  font-size: clamp(1rem, 1.4vw, 1.5rem);
+  z-index: 10;
+}
+#Parking {
+  position: relative;
+  min-height: 40vw;
+}
+#parking-ray {
+  position: absolute;
+  width: 50%;
+  left: -8%;
+  bottom: 10%;
+  overflow: clip;
+}
+#parking-ray-text {
+  color: white;
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  right: 65%;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  text-align: center;
+  z-index: 10;
+}
+#team-info {
+  position: absolute;
+  width: 50%;
+  right: 2%;
+  bottom: 15%;
+}
+#team-info-text {
+  position: absolute;
+  top: 7%;
+  left: 20%;
+  right: 20%;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  text-align: center;
+  z-index: 10;
+}
+#Application {
+  position: relative;
+  min-height: 40vw;
+  max-width: 80%;
+  margin: 0% auto;
+  transform: translateX(-5%);
+}
+#application-text {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  right: 15%;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  text-align: center;
+  z-index: 10;
+}
+#application-text p {
+  font-size: 2vw;
+  line-height: 1.5;
+  text-align: center;
+}
+#Hardware {
+  position: relative;
+  min-height: 40vw;
+}
+#hardware-ray {
+  position: absolute;
+  width: 80%;
+  right: -23%;
+  top: -85%;
+  z-index: 20;
+}
+#hardware-bub {
+  position: absolute;
+  max-width: 70%;
+  margin-left: 3%;
+}
+#hardware-text {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  right: 45%;
+  font-size: clamp(1rem, 1.7vw, 1.5rem);
+  text-align: center;
+}
+#new-bubbles {
+  position: relative;
+}
+.new-bubble {
+  position: absolute;
+  height: auto;
+  animation: bob 2s ease-in-out infinite;
+}
+#bubble-n {
+  width: 10%;
+  top: -3vw;
+  left: 2%;
+  animation-delay: 0.75s;
+}
+#bubble-e {
+  width: 10%;
+  top: -5vw;
+  left: 10%;
+  animation-delay: 0.9s;
+}
+#bubble-w {
+  width: 10%;
+  top: -6vw;
+  left: 18%;
+  animation-delay: 1.05s;
+}
+#bubble-excl {
+  width: 8%;
+  top: -7vw;
+  left: 26%;
+  animation-delay: 1.2s;
+}
 </style>
