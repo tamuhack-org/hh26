@@ -11,114 +11,88 @@ import C2 from "@assets/about/gen-info-c.png"
 import K2 from "@assets/about/gen-info-k.png"
 import WelcBot from "@assets/about/welcome-bottle.png"
 ---
-<div class="relative w-full">  
-  <div id="howdy-row" class="relative pt-[5%] flex items-center justify-center">
-    <div id="bottle" class="absolute top-[-40%] left-[10%] z-20 w-[30%]">
-      <Picture
-        id="WelcBot"
-        src={WelcBot}
-        formats={["avif", "webp"]}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        fetchpriority="high"
-        class="w-full h-auto bob-anim"
-      />
-    </div>
-    <Picture
-      id="H1"
-      src={H1}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
-    />
-    <Picture
-      id="O1"
-      src={O1}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
-    />
-    <Picture
-      id="W1"
-      src={W1}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
-    />
-    <Picture
-      id="D1"
-      src={D1}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
-    />
-    <Picture
-      id="Y1"
-      src={Y1}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
+<div class="relative w-full" style="min-height: 40vw;">
+  <div id="bottle" class="absolute z-20" style="width:25%; top:0%; left:10%;">
+    <Picture 
+      id="WelcBot"
+      src={WelcBot} 
+      formats={["avif","webp"]} 
+      alt="" 
+      class="w-full h-auto bob-anim"
     />
   </div>
-
-  <div id="hack-row" class="relative z-10 mt-[1%] ml-[5%] flex items-center justify-center">
-    <Picture
-      id="H2"
-      src={H2}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
-    />
-    <Picture
-      id="A2"
-      src={A2}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
-    />
-    <Picture
-      id="C2"
-      src={C2}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
-    />
-    <Picture
-      id="K2"
-      src={K2}
-      formats={["avif", "webp"]}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      class="w-[10vw] h-auto bob-anim"
-    />
-  </div>
+  <Picture
+    id="H1" 
+    src={H1} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim" 
+    style="position:absolute; width:15%; left:15%; top:25%;"
+  />
+  <Picture 
+    id="O1" 
+    src={O1} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim" 
+    style="position:absolute; width:10%; left:31%; top:30%;"
+  />
+  <Picture 
+    id="W1" 
+    src={W1} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim" 
+    style="position:absolute; width:13%; left:41%; top:25%;"
+  />
+  <Picture 
+    id="D1" 
+    src={D1} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim" 
+    style="position:absolute; width:10%; left:55%; top:30%;"
+  />
+  <Picture 
+    id="Y1" 
+    src={Y1} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim" 
+    style="position:absolute; width:13%; left:65%; top:25%;"
+  />
+  <Picture 
+    id="H2" 
+    src={H2} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim z-20" 
+    style="position:absolute; width:13%; left:30%; top:65%;"
+  />
+  <Picture 
+    id="A2" 
+    src={A2} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim z-20" 
+    style="position:absolute; width:12%; left:43%; top:68%;"
+  />
+  <Picture 
+    id="C2" 
+    src={C2} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim z-20" 
+    style="position:absolute; width:13%; left:55%; top:63%;"
+  />
+  <Picture 
+    id="K2" 
+    src={K2} 
+    formats={["avif","webp"]} 
+    alt="" 
+    class="h-auto bob-anim z-20" 
+    style="position:absolute; width:13%; left:68%; top:70%;"
+  />
 </div>
 
 <style>
