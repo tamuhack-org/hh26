@@ -6,7 +6,7 @@
 }
 
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins);
   color: #261D5F;
   overflow-x: clip;
 }
