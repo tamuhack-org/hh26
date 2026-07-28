@@ -13,10 +13,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  fonts: [{
-    provider: fontProviders.google(),
-    name: "Poppins",
-    cssVariable: "--font-poppins",
-  }]
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Poppins",
+      cssVariable: "--font-poppins",
+    },
+  ],
 });
-

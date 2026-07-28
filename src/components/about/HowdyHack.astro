@@ -1,123 +1,145 @@
 ---
 import { Picture } from "astro:assets";
-import H1 from "@assets/about/gen-info-h-1.png" 
-import O1 from "@assets/about/gen-info-o.png"
-import W1 from "@assets/about/gen-info-w.png"
-import D1 from "@assets/about/gen-info-d.png"
-import Y1 from "@assets/about/gen-info-y.png"
-import H2 from "@assets/about/gen-info-h.png"
-import A2 from "@assets/about/gen-info-a.png"
-import C2 from "@assets/about/gen-info-c.png"
-import K2 from "@assets/about/gen-info-k.png"
-import WelcBot from "@assets/about/welcome-bottle.png"
+import A2 from "@assets/about/gen-info-a.png";
+import C2 from "@assets/about/gen-info-c.png";
+import D1 from "@assets/about/gen-info-d.png";
+import H2 from "@assets/about/gen-info-h.png";
+import H1 from "@assets/about/gen-info-h-1.png";
+import K2 from "@assets/about/gen-info-k.png";
+import O1 from "@assets/about/gen-info-o.png";
+import W1 from "@assets/about/gen-info-w.png";
+import Y1 from "@assets/about/gen-info-y.png";
+import WelcBot from "@assets/about/welcome-bottle.png";
 ---
+
 <div class="relative w-full" style="min-height: 40vw;">
   <div id="bottle" class="absolute z-20" style="width:25%; top:0%; left:10%;">
-    <Picture 
+    <Picture
       id="WelcBot"
-      src={WelcBot} 
-      formats={["avif","webp"]} 
-      alt="" 
+      src={WelcBot}
+      formats={["avif","webp"]}
+      alt=""
       class="w-full h-auto bob-anim"
     />
   </div>
   <Picture
-    id="H1" 
-    src={H1} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim" 
+    id="H1"
+    src={H1}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim"
     style="position:absolute; width:15%; left:15%; top:25%;"
   />
-  <Picture 
-    id="O1" 
-    src={O1} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim" 
+  <Picture
+    id="O1"
+    src={O1}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim"
     style="position:absolute; width:10%; left:31%; top:30%;"
   />
-  <Picture 
-    id="W1" 
-    src={W1} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim" 
+  <Picture
+    id="W1"
+    src={W1}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim"
     style="position:absolute; width:13%; left:41%; top:25%;"
   />
-  <Picture 
-    id="D1" 
-    src={D1} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim" 
+  <Picture
+    id="D1"
+    src={D1}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim"
     style="position:absolute; width:10%; left:55%; top:30%;"
   />
-  <Picture 
-    id="Y1" 
-    src={Y1} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim" 
+  <Picture
+    id="Y1"
+    src={Y1}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim"
     style="position:absolute; width:13%; left:65%; top:25%;"
   />
-  <Picture 
-    id="H2" 
-    src={H2} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim z-20" 
+  <Picture
+    id="H2"
+    src={H2}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim z-20"
     style="position:absolute; width:13%; left:30%; top:65%;"
   />
-  <Picture 
-    id="A2" 
-    src={A2} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim z-20" 
+  <Picture
+    id="A2"
+    src={A2}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim z-20"
     style="position:absolute; width:12%; left:43%; top:68%;"
   />
-  <Picture 
-    id="C2" 
-    src={C2} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim z-20" 
+  <Picture
+    id="C2"
+    src={C2}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim z-20"
     style="position:absolute; width:13%; left:55%; top:63%;"
   />
-  <Picture 
-    id="K2" 
-    src={K2} 
-    formats={["avif","webp"]} 
-    alt="" 
-    class="h-auto bob-anim z-20" 
+  <Picture
+    id="K2"
+    src={K2}
+    formats={["avif","webp"]}
+    alt=""
+    class="h-auto bob-anim z-20"
     style="position:absolute; width:13%; left:68%; top:70%;"
   />
 </div>
 
 <style>
-  .bob-anim {
-    animation: bob 2s ease-in-out infinite;
+.bob-anim {
+  animation: bob 2s ease-in-out infinite;
+}
+#WelcBot {
+  animation-delay: 0.5s;
+}
+
+#H1 {
+  animation-delay: 0s;
+}
+#O1 {
+  animation-delay: 0.15s;
+}
+#W1 {
+  animation-delay: 0.3s;
+}
+#D1 {
+  animation-delay: 0.45s;
+}
+#Y1 {
+  animation-delay: 0.6s;
+}
+
+#H2 {
+  animation-delay: 0.75s;
+}
+#A2 {
+  animation-delay: 0.9s;
+}
+#C2 {
+  animation-delay: 1.05s;
+}
+#K2 {
+  animation-delay: 1.2s;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  #WelcBot { animation-delay: 0.5s; }
-
-  #H1 { animation-delay: 0s; }
-  #O1 { animation-delay: 0.15s; }
-  #W1 { animation-delay: 0.30s; }
-  #D1 { animation-delay: 0.45s; }
-  #Y1 { animation-delay: 0.60s; }
-
-  #H2 { animation-delay: 0.75s; }
-  #A2 { animation-delay: 0.90s; }
-  #C2 { animation-delay: 1.05s; }
-  #K2 { animation-delay: 1.20s; }
-
-  @keyframes bob {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-15px); 
-    }
+  50% {
+    transform: translateY(-15px);
   }
+}
 </style>
