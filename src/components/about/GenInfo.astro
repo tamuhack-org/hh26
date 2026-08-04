@@ -1,27 +1,38 @@
 ---
 import { Picture } from "astro:assets";
-import AppBub from "@assets/about/gen-info-application.png";
-import Bubble from "@assets/about/gen-info-bubble.png";
-import HarBub from "@assets/about/gen-info-hardware.png";
+import ApplicationBubble from "@assets/about/gen-info-application.png";
+import MobApplicationBubble from "@assets/about/gen-info-application-mobile.png"
+import GenInfoBubble from "@assets/about/gen-info-bubble.png";
+import MobGenInfoBubble from "@assets/about/gen-info-bubble-mobile.png"
+import HardwareBubble from "@assets/about/gen-info-hardware.png";
+import MobHardwareBubble from "@assets/about/gen-info-hardware-mobile.png";
 import Exclamation from "@assets/about/gen-info-new-!.png";
-import E from "@assets/about/gen-info-new-e.png";
 import N from "@assets/about/gen-info-new-n.png";
+import E from "@assets/about/gen-info-new-e.png";
 import W from "@assets/about/gen-info-new-w.png";
 import TeamBub from "@assets/about/gen-info-team.png";
+import MobTeamBub from "@assets/about/gen-info-team-mobile.png";
 import HarRay from "@assets/about/hardware-ray.png";
 import LocRay from "@assets/about/location-ray.png";
 import ParkRay from "@assets/about/parking-ray.png";
 ---
-
 <div id="intro" aria-labelledby="About HowdyHack">
-  <div id="Bubble">
+  <div id="GenInfoBubble">
     <Picture
-      src={Bubble}
+      src={GenInfoBubble}
+      id={'GenInfoBubble-desktop'}
       alt="About HowdyHack"
       formats={["avif","webp"]}
       class="w-full h-auto"
     />
-    <p id="bubble-text">
+    <Picture
+      src={MobGenInfoBubble}
+      id={'GenInfoBubble-mobile'}
+      alt="About HowdyHack"
+      formats={["avif","webp"]}
+      class="w-full h-auto"
+    />
+    <p id="GenInfoBubble-text">
       HowdyHack is a 24-hour, themed, <strong
         >beginner-focused</strong
       > hackathon exclusively for <strong>Texas A&M students</strong>,  designed
@@ -63,52 +74,50 @@ import ParkRay from "@assets/about/parking-ray.png";
   </div>
 </section>
 
-<section id="Parking" aria-label="Parking">
+<section id="parking-team-application" aria-label="Parking-Team-Application">
   <h3 id="Parking-Title" class="sr-only">Parking</h3>
-  <div id="parking-ray">
-    <Picture src={ParkRay} alt="Parking" class="w-full h-auto" />
+
+  <div id="parking-team-row">
+    <div id="parking-ray">
+        <Picture src={ParkRay} alt="Parking" class="w-full h-auto" />
+        <p id="parking-ray-text">Parking will be available at _____ and _____</p>
+      </div>
+
+      <div id="team-info">
+        <Picture src={TeamBub} id="team-bub-desktop" alt="Team Information" class="w-full h-auto" />
+        <Picture src={MobTeamBub} id="team-bub-mobile" alt="Team Information" class="w-full h-auto" />
+        <p id="team-info-text">
+          After you sign up, you will receive a confirmation email letting you know
+          you're good to go. You can either <strong>form a team</strong> yourself,
+          or <strong>find one during the team building portion</strong> right before
+          the competition! This phase is designed for forming well-rounded teams
+          that bring together diverse strengths and perspectives.
+        </p>
+      </div>
   </div>
-  <div id="parking-ray-text">
-    <p>Parking will be available at _____ and _____</p>
-  </div>
-  <div id="team-info">
-    <Picture src={TeamBub} alt="Team Information" class="w-full h-auto" />
-    <p id="team-info-text">
-      After you sign up, you will receive a confirmation email letting you know
-      you're good to go. You can either <strong>form a team</strong> yourself,
-      or <strong>find one during the team building portion</strong> right before
-      the competition! This phase is designed for forming well-rounded teams
-      that bring together diverse strengths and perspectives.
+
+  <div id="application" aria-label="Application Information">
+    <h3 id="Application-Title" class="sr-only">Application Information</h3>
+    <Picture src={ApplicationBubble}  id="app-bub-desktop" alt="Application Information" class="w-full h-auto" />
+    <Picture src={MobApplicationBubble} id="app-bub-mobile" alt="Application Information" class="w-full h-auto" />
+    <p id="application-text">
+      Applications are considered on a rolling basis; an application being
+      accepted does not guarantee a spot in the hackathon. We have a limited space
+      at the MSC, so we kindly ask you to <strong>arrive early</strong> on the day
+      of the hackathon.
     </p>
   </div>
 </section>
 
-<section id="Application" aria-label="Application Information">
-  <h3 id="Application-Title" class="sr-only">Application Information</h3>
-  <Picture src={AppBub} alt="Application Information" class="w-full h-auto" />
-  <p id="application-text">
-    Applications are considered on a rolling basis; an application being
-    accepted does not guarantee a spot in the hackathon. We have a limited space
-    at the MSC, so we kindly ask you to <strong>arrive early</strong> on the day
-    of the hackathon.
-  </p>
-</section>
+
 
 <section id="Hardware" aria-label="Hardware Information">
   <h3 id="Hardware-Title" class="sr-only">Hardware Information</h3>
   <div id="hardware-ray">
     <Picture src={HarRay} alt="Hardware Information" class="w-full h-auto" />
   </div>
-  <Picture
-    src={HarBub}
-    alt=""
-    id="hardware-bub"
-    densities={[1,2]}
-    quality={80}
-    loading={"lazy"}
-    fetchpriority={"high"}
-    class="w-full h-auto"
-  />
+  <Picture src={HardwareBubble} id="hardware-bub-desktop" alt=""  class="w-full h-auto" />
+  <Picture src={MobHardwareBubble} id="hardware-bub-mobile" alt=""  class="w-full h-auto" />
   <div id="new-bubbles">
     <Picture
       src={N}
@@ -163,161 +172,310 @@ import ParkRay from "@assets/about/parking-ray.png";
 </section>
 
 <style>
-#Bubble {
-  position: relative;
-  top: -27vw;
-}
-#bubble-text {
-  position: absolute;
-  inset: 0;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  line-height: 1.5;
-  transform: translateY(45%);
-  padding: 5vw;
-  text-align: center;
-  overflow: clip;
-}
-.gig-em {
-  display: block;
-  margin-top: 1.2em;
-}
-#Location {
-  position: relative;
-  min-height: 10vw;
-}
-#stingray {
-  position: absolute;
-  width: 70%;
-  right: -16%;
-  bottom: 25%;
-  overflow: clip;
-}
-#location-link-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-#location-text {
-  position: absolute;
-  top: 45%;
-  left: 35%;
-  width: 45%;
-  font-size: clamp(1rem, 1.4vw, 1.5rem);
-  z-index: 10;
-}
-#Parking {
-  position: relative;
-  min-height: 40vw;
-}
-#parking-ray {
-  position: absolute;
-  width: 50%;
-  left: -8%;
-  bottom: 10%;
-  overflow: clip;
-}
-#parking-ray-text {
-  color: white;
-  position: absolute;
-  top: 45%;
-  left: 15%;
-  right: 65%;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
-  text-align: center;
-  z-index: 10;
-}
-#team-info {
-  position: absolute;
-  width: 50%;
-  right: 2%;
-  bottom: 15%;
-}
-#team-info-text {
-  position: absolute;
-  top: 7%;
-  left: 20%;
-  right: 20%;
-  font-size: clamp(1rem, 1.8vw, 1.5rem);
-  text-align: center;
-  z-index: 10;
-}
-#Application {
-  position: relative;
-  min-height: 40vw;
-  max-width: 80%;
-  margin: 0% auto;
-  transform: translateX(-5%);
-}
-#application-text {
-  position: absolute;
-  top: 15%;
-  left: 10%;
-  right: 15%;
-  font-size: clamp(1rem, 1.8vw, 1.5rem);
-  text-align: center;
-  z-index: 10;
-}
-#application-text p {
-  font-size: 2vw;
-  line-height: 1.5;
-  text-align: center;
-}
-#Hardware {
-  position: relative;
-  min-height: 40vw;
-}
-#hardware-ray {
-  position: absolute;
-  width: 80%;
-  right: -23%;
-  top: -85%;
-  z-index: 20;
-}
-#hardware-bub {
-  position: absolute;
-  max-width: 70%;
-  margin-left: 3%;
-}
-#hardware-text {
-  position: absolute;
-  top: 15%;
-  left: 15%;
-  right: 45%;
-  font-size: clamp(1rem, 1.7vw, 1.5rem);
-  text-align: center;
-}
-#new-bubbles {
-  position: relative;
-}
-.new-bubble {
-  position: absolute;
-  height: auto;
-  animation: bob 2s ease-in-out infinite;
-}
-#bubble-n {
-  width: 10%;
-  top: -3vw;
-  left: 2%;
-  animation-delay: 0.75s;
-}
-#bubble-e {
-  width: 10%;
-  top: -5vw;
-  left: 10%;
-  animation-delay: 0.9s;
-}
-#bubble-w {
-  width: 10%;
-  top: -6vw;
-  left: 18%;
-  animation-delay: 1.05s;
-}
-#bubble-excl {
-  width: 8%;
-  top: -7vw;
-  left: 26%;
-  animation-delay: 1.2s;
-}
+  #GenInfoBubble {
+    position: relative;
+    top: -27vw;
+  }
+  #GenInfoBubble-mobile{
+    display: none;
+  }
+  #GenInfoBubble-text {
+    position: absolute;
+    inset: 0;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    transform: translateY(45%);
+    padding: 5vw;
+    text-align: center;
+    overflow: clip;
+  }
+  .gig-em {
+    display: block;
+    margin-top: 1.2em;
+  }
+
+  #Location {
+    position: relative;
+    min-height: 10vw;
+  }
+  #stingray {
+    position: absolute;
+    width: 70%;
+    right: -16%;
+    bottom: 25%;
+    overflow: clip;
+  }
+  #location-link-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  #location-text {
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    width: 45%;
+    font-size: clamp(0.8rem, 1.4vw, 1.5rem);
+    z-index: 10;
+  }
+
+  #parking-team-application {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
+  #parking-team-row {
+    display: flex;
+    position: relative;
+    min-height: 40vw;
+  }
+  #parking-ray {
+    position: absolute;
+    width: 50%;
+    left: -8%;
+    bottom: 10%;
+    overflow: clip;
+  }
+  #parking-ray-text {
+    color: white;
+    position: absolute;
+    top: 55%;
+    left: 55%;
+    right: 15%;
+    font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+    text-align: center;
+    z-index: 10;
+  }
+  
+  #team-info {
+    position: absolute;
+    width: 50%;
+    right: 2%;
+    bottom: 20%;
+  }
+  #team-info-text {
+    position: absolute;
+    top: 7%;
+    left: 20%;
+    right: 20%;
+    font-size: clamp(0.5rem, 1.8vw, 1.5rem);
+    text-align: center;
+    z-index: 10;
+  }
+  #team-bub-mobile{
+    display: none;
+  }
+  #application {
+    position: relative;
+    min-height: 40vw;
+    max-width: 80%;
+    margin: 0% auto;
+    transform: translateX(-5%);
+  }
+  #app-bub-mobile{
+    display: none;
+  }
+  #application-text {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    right: 15%;
+    font-size: clamp(0.8rem, 1.8vw, 1.5rem);
+    text-align: center;
+    z-index: 10;
+  }
+
+  #Hardware {
+    position: relative;
+    min-height: 40vw;
+  }
+  #hardware-ray {
+    position: absolute;
+    width: 80%;
+    right: -23%;
+    top: -85%;
+    z-index: 20;
+  }
+  #hardware-bub-desktop {
+    position: absolute;
+    max-width: 70%;
+    margin-left: 3%;
+  }
+  #hardware-bub-mobile{
+    display: none;
+  }
+  #hardware-text {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 45%;
+    font-size: clamp(0.8rem, 1.7vw, 1.5rem);
+    text-align: center;
+  }
+  #new-bubbles {
+    position: relative;
+  }
+  .new-bubble {
+    position: absolute;
+    height: auto;
+    animation: bob 2s ease-in-out infinite;
+  }
+  #bubble-n {
+    width: 10%;
+    top: -3vw;
+    left: 2%;
+    animation-delay: 0.75s;
+  }
+  #bubble-e {
+    width: 10%;
+    top: -5vw;
+    left: 10%;
+    animation-delay: 0.9s;
+  }
+  #bubble-w {
+    width: 10%;
+    top: -6vw;
+    left: 18%;
+    animation-delay: 1.05s;
+  }
+  #bubble-excl {
+    width: 8%;
+    top: -7vw;
+    left: 26%;
+    animation-delay: 1.2s;
+  }
+
+  @media (max-width: 768px) {
+    #GenInfoBubble{
+      width: 90%;
+      left: 5%;
+    }
+    #GenInfoBubble-desktop{
+      display: none;
+    }
+    #GenInfoBubble-mobile{
+      display: block;
+    }
+    #GenInfoBubble-text{
+      font-size: clamp(1.35rem, 1.50vw, 1.45rem);
+      transform: translateY(18%);
+    }
+
+    #Location{
+      min-height: 130vw;
+    }
+    #stingray {
+      position: absolute;
+      z-index: 1;
+      width: 220%;
+      right: -90%;
+    }
+    #location-text {
+      text-align: center;
+      top: 40%;
+      left: 35%;
+      width: 20%;
+      font-size: clamp(1.2rem, 0.5vw, 1.30rem);
+    }
+    
+    #parking-team-application {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 95vw;
+    }
+    #parking-team-row {
+      display: contents;
+    }
+    #app-bub-desktop{
+      display: none;
+    }
+    #app-bub-mobile{
+      display: block;
+    }
+    #application {
+      margin-top: -70vw;
+      left: 5%;
+      order: 1;
+    }
+    #application-text {
+      margin-top: -5%;
+      font-size: 1.2rem;
+    }
+    #parking-ray {
+      position: relative;
+      width: 150%;
+      left: -50%;
+      right: auto;
+      bottom: auto;
+      margin-top: -10vw;
+      margin-bottom: 5vw;
+      order: 2;
+    }
+    #parking-ray-text{
+      top: 50%;
+      font-size: 1.5rem;
+    }
+    #team-bub-desktop{
+      display: none;
+    }
+    #team-bub-mobile{
+      display: block;
+      width: 90%;
+      transform: translateX(5%);
+    }
+    #team-info {
+      position: relative;
+      width: 100%;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      order: 3;
+    }
+    #team-info-text{
+      top: 10%;
+      font-size: clamp(1.2rem, 0.5vw, 1.30rem);
+    }
+
+    #hardware-bub-desktop{
+      display: none;
+    }
+    #hardware-bub-mobile{
+      display: block;
+      width: 90%;
+      transform: translateX(5%);
+    }
+    #hardware-ray{
+      width: 120%;
+      left: 10%;
+      top: -120%;
+    }
+    #hardware-text{
+      font-size: 1.2rem;
+      top: 20%;
+      left: 15%;
+      right: 15%;
+    }
+    #bubble-n {
+      width: 20%;
+      top: -82vw;
+      left: -1%;
+    }
+    #bubble-e {
+      width: 20%;
+      top: -85vw;
+      left: 15%;
+    }
+    #bubble-w {
+      width: 20%;
+      top: -85vw;
+      left: 31%;
+    }
+    #bubble-excl {
+      width: 15%;
+      top: -90vw;
+      left: 46%;
+    }
+  }
 </style>

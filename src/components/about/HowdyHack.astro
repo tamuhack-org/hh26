@@ -13,7 +13,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
 ---
 
 <div class="relative w-full" style="min-height: 40vw;">
-  <div id="bottle" class="absolute z-20" style="width:25%; top:0%; left:10%;">
+  <div id="bottle" class="absolute z-20" style="">
     <Picture
       id="WelcBot"
       src={WelcBot}
@@ -28,7 +28,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim"
-    style="position:absolute; width:15%; left:15%; top:25%;"
+    style=""
   />
   <Picture
     id="O1"
@@ -36,7 +36,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim"
-    style="position:absolute; width:10%; left:31%; top:30%;"
+    style=""
   />
   <Picture
     id="W1"
@@ -44,7 +44,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim"
-    style="position:absolute; width:13%; left:41%; top:25%;"
+    style=""
   />
   <Picture
     id="D1"
@@ -52,7 +52,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim"
-    style="position:absolute; width:10%; left:55%; top:30%;"
+    style=""
   />
   <Picture
     id="Y1"
@@ -60,7 +60,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim"
-    style="position:absolute; width:13%; left:65%; top:25%;"
+    style=""
   />
   <Picture
     id="H2"
@@ -68,7 +68,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim z-20"
-    style="position:absolute; width:13%; left:30%; top:65%;"
+    style=""
   />
   <Picture
     id="A2"
@@ -76,7 +76,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim z-20"
-    style="position:absolute; width:12%; left:43%; top:68%;"
+    style=""
   />
   <Picture
     id="C2"
@@ -84,7 +84,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim z-20"
-    style="position:absolute; width:13%; left:55%; top:63%;"
+    style=""
   />
   <Picture
     id="K2"
@@ -92,7 +92,7 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     formats={["avif","webp"]}
     alt=""
     class="h-auto bob-anim z-20"
-    style="position:absolute; width:13%; left:68%; top:70%;"
+    style=""
   />
 </div>
 
@@ -103,36 +103,74 @@ import WelcBot from "@assets/about/welcome-bottle.png";
 #WelcBot {
   animation-delay: 0.5s;
 }
-
+#bottle{
+  width:25%; 
+  top:0%; 
+  left:10%;
+}
 #H1 {
   animation-delay: 0s;
+  position:absolute; 
+  width:15%; 
+  left:15%; 
+  top:25%;
 }
 #O1 {
   animation-delay: 0.15s;
+  position:absolute; 
+  width:10%; 
+  left:31%; 
+  top:30%;
 }
 #W1 {
   animation-delay: 0.3s;
+  position:absolute;
+  width:13%; 
+  left:41%; 
+  top:25%;
 }
 #D1 {
   animation-delay: 0.45s;
+  position:absolute; 
+  width:10%; 
+  left:55%; 
+  top:30%;
 }
 #Y1 {
   animation-delay: 0.6s;
+  position:absolute; 
+  width:13%; 
+  left:65%; 
+  top:25%;
 }
-
 #H2 {
   animation-delay: 0.75s;
+  position:absolute; 
+  width:13%; 
+  left:30%; 
+  top:65%;
 }
 #A2 {
   animation-delay: 0.9s;
+  position:absolute; 
+  width:12%; 
+  left:43%; 
+  top:68%;
 }
 #C2 {
   animation-delay: 1.05s;
+  position:absolute; 
+  width:13%; 
+  left:55%; 
+  top:63%;
 }
 #K2 {
   animation-delay: 1.2s;
+  position:absolute; 
+  width:13%; 
+  left:68%; 
+  top:70%;
 }
-
 @keyframes bob {
   0%,
   100% {
@@ -140,6 +178,52 @@ import WelcBot from "@assets/about/welcome-bottle.png";
   }
   50% {
     transform: translateY(-15px);
+  }
+}
+@media (max-width: 768px) {
+  #bottle{
+    width:65%; 
+    top:-70%; 
+    left:10%;
+  }
+  #H1{
+    width: 20%;
+    left: 8%;
+  }
+  #O1{
+    width: 13%;
+    left: 28%;
+  }
+  #W1{
+    width: 15%;
+    left: 40%;
+  }
+  #D1{
+    width: 15%;
+    left: 53%;
+  }
+  #Y1{
+    width: 15%;
+    left: 65%;
+  }
+  #H2{
+    width: 20%;
+    left: 27%;
+    top: 67%;
+  }
+  #A2{
+    width: 15%;
+    left: 45%;
+    top: 73%;
+  }
+  #C2{
+    width: 15%;
+    left: 59%;
+    top: 70%;
+  }
+  #K2{
+    width: 15%;
+    left: 74%;
   }
 }
 </style>
