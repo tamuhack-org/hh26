@@ -12,7 +12,7 @@ import Y1 from "@assets/about/gen-info-y.png";
 import WelcBot from "@assets/about/welcome-bottle.png";
 ---
 
-<div class="relative w-full" style="min-height: 40vw;">
+<div id="howdyhack-bubbles" class="relative w-full" style="min-height: 40rem;">
   <div id="bottle" class="absolute z-20" style="">
     <Picture
       id="WelcBot"
@@ -97,6 +97,16 @@ import WelcBot from "@assets/about/welcome-bottle.png";
 </div>
 
 <style>
+#howdyhack-bubbles {
+  width: 100%;
+
+  @media (width >= 64rem) {
+    font-size: 6rem;
+    max-width: 96rem;
+    margin: 0 auto;
+  }
+}
+
 .bob-anim {
   animation: bob 2s ease-in-out infinite;
 }
@@ -183,7 +193,6 @@ import WelcBot from "@assets/about/welcome-bottle.png";
 @media (max-width: 768px) {
   #bottle {
     width: 65%;
-    top: -70%;
     left: 10%;
   }
   #H1 {
@@ -192,38 +201,39 @@ import WelcBot from "@assets/about/welcome-bottle.png";
   }
   #O1 {
     width: 13%;
-    left: 28%;
+    left: 30%;
   }
   #W1 {
     width: 15%;
-    left: 40%;
+    left: 42%;
   }
   #D1 {
     width: 15%;
-    left: 53%;
+    left: 56%;
   }
   #Y1 {
     width: 15%;
-    left: 65%;
+    left: 70%;
   }
   #H2 {
     width: 20%;
-    left: 27%;
-    top: 67%;
+    left: 25%;
+    top: 40%;
   }
   #A2 {
     width: 15%;
-    left: 45%;
-    top: 73%;
+    left: 44%;
+    top: 44%;
   }
   #C2 {
     width: 15%;
     left: 59%;
-    top: 70%;
+    top: 44%;
   }
   #K2 {
     width: 15%;
-    left: 74%;
+    left: 75%;
+    top: 43%;
   }
 }
 </style>

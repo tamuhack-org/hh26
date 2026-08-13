@@ -1,0 +1,349 @@
+#gen-info-container {
+  width: 100%;
+  display: grid;
+  gap: 4rem;
+  justify-items: center;
+
+  @media (width >= 64rem) {
+    font-size: 6rem;
+    max-width: 96rem;
+    margin: 0 auto;
+  }
+}
+
+.bubble-stack {
+  position: relative;
+  display: grid;
+  width: 100%;
+}
+.bubble-stack > * {
+  grid-area: 1 / 1;
+}
+.bubble-stack img {
+  width: 100%;
+  height: auto;
+  justify-self: stretch;
+}
+.bubble-stack .bubble-text {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+/* GenInfo */
+#GenInfoBubble {
+  position: relative;
+  top: -25rem;
+}
+#GenInfoBubble-mobile {
+  display: none;
+}
+#GenInfoBubble-text {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  padding: 4rem;
+  transform: translate(0%, 45%);
+}
+.gig-em {
+  display: block;
+  margin-top: 1.2em;
+}
+
+/* Location */
+#Location {
+  width: 100%;
+  margin-top: -35rem;
+}
+
+#stingray {
+  position: relative;
+  width: 90%;
+  margin-left: auto;
+  transform: translateX(25%);
+}
+
+#stingray > Picture {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#location-link-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  z-index: 2;
+}
+
+#location-text {
+  position: absolute;
+  left: 35%;
+  top: 45%;
+  z-index: 3;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  transform: none;
+}
+
+/* Parking Team and Application */
+#parking-team-application {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "parking team"
+    "application application";
+  align-items: center;
+  gap: 2rem;
+  margin-top: -10rem;
+}
+
+#parking-team-row {
+  display: contents;
+}
+#parking-ray {
+  grid-area: parking;
+  width: 120%;
+  transform: translateX(-200px);
+}
+#parking-ray-text {
+  color: white;
+  font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+  width: 60%;
+  margin-left: 25%;
+  transform: translateY(90px);
+}
+
+#team-info {
+  grid-area: team;
+  transform: translateX(-20px);
+}
+#team-bub-mobile {
+  display: none;
+}
+#team-info-text {
+  width: 60%;
+  font-size: clamp(0.5rem, 1.8vw, 1.5rem);
+}
+
+#application {
+  grid-area: application;
+  max-width: 80%;
+  justify-self: center;
+}
+#app-bub-mobile {
+  display: none;
+}
+#application-text {
+  width: 70%;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+}
+
+/* Hardware */
+#Hardware {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+  padding-top: 15rem;
+}
+
+#hardware-bub-desktop {
+  width: 70%;
+  height: auto;
+  display: block;
+}
+#hardware-ray,
+.bubble-container {
+  grid-area: 1 / 1;
+}
+#hardware-ray {
+  align-self: start;
+  justify-self: end;
+  width: 90%;
+  z-index: 3;
+  transform: translate(160px, -270px);
+}
+#hardware-bub-mobile {
+  display: none;
+}
+
+#hardware-text {
+  align-self: start;
+  justify-self: start;
+  text-align: center;
+  width: 50%;
+  font-size: clamp(0.8rem, 1.7vw, 1.5rem);
+  z-index: 2;
+  margin-top: -13rem;
+  margin-left: 5rem;
+}
+
+#new-bubbles {
+  position: absolute;
+  top: 23%;
+  left: -2%;
+  width: 90%;
+}
+
+.new-bubble {
+  position: absolute;
+  height: auto;
+  animation: bob 2s ease-in-out infinite;
+}
+#bubble-n {
+  width: 10%;
+  top: -3rem;
+  left: 2%;
+  animation-delay: 0.75s;
+}
+#bubble-e {
+  width: 10%;
+  top: -5rem;
+  left: 10%;
+  animation-delay: 0.9s;
+}
+#bubble-w {
+  width: 10%;
+  top: -6rem;
+  left: 18%;
+  animation-delay: 1.05s;
+}
+#bubble-excl {
+  width: 8%;
+  top: -7rem;
+  left: 26%;
+  animation-delay: 1.2s;
+}
+
+/* Mobile UI */
+@media (max-width: 768px) {
+  #GenInfoBubble-desktop {
+    display: none;
+  }
+  #GenInfoBubble-mobile {
+    display: block;
+  }
+
+  #GenInfoBubble-text {
+    font-size: 1.2rem;
+    transform: translate(0%, 10%);
+  }
+  #GenInfoBubble {
+    top: -105vw;
+    width: 95%;
+    justify-self: center;
+  }
+
+  #stingray {
+    width: 250%;
+    margin-left: -45%;
+    transform: translate(0%, -5%);
+    z-index: 2;
+  }
+
+  #location-text {
+    width: 20%;
+    left: 32%;
+    top: 42%;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  #parking-team-application {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "application"
+      "parking"
+      "team";
+    gap: 0.5rem;
+  }
+  #parking-team-application {
+    margin-top: -70vw;
+  }
+  #application {
+    max-width: 90%;
+  }
+  #application-text {
+    font-size: 1.2rem;
+  }
+  #app-bub-desktop {
+    display: none;
+  }
+  #app-bub-mobile {
+    display: block;
+  }
+
+  #parking-ray {
+    transform: translateX(-90px);
+  }
+  #parking-ray-text {
+    font-size: 1.2rem;
+    width: 40%;
+    margin-left: 30%;
+    transform: translateY(60px);
+  }
+
+  #team-info {
+    width: 95%;
+    transform: translateX(0);
+    justify-self: center;
+  }
+  #team-bub-desktop {
+    display: none;
+  }
+  #team-bub-mobile {
+    display: block;
+  }
+  #team-info-text {
+    font-size: 1.2rem;
+  }
+
+  #Hardware {
+    padding-top: 36rem;
+  }
+  .bubble-container {
+    transform: translate(0vw, -35vw);
+  }
+  #hardware-bub-desktop {
+    display: none;
+  }
+  #hardware-bub-mobile {
+    display: block;
+    width: 90%;
+    justify-self: center;
+  }
+  #hardware-ray {
+    width: 150%;
+    justify-self: center;
+    transform: translate(14vw, -80vw);
+  }
+  #hardware-text {
+    font-size: 1.5rem;
+    width: 64%;
+    margin-top: -17rem;
+    text-align: center;
+  }
+
+  #bubble-n {
+    width: 20%;
+    top: -30vw;
+  }
+  #bubble-e {
+    width: 20%;
+    top: -33vw;
+    left: 17%;
+  }
+  #bubble-w {
+    width: 20%;
+    top: -35vw;
+    left: 33%;
+  }
+  #bubble-excl {
+    width: 15%;
+    top: -39vw;
+    left: 51%;
+  }
+}
