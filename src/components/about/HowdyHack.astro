@@ -12,7 +12,7 @@ import Y1 from "@assets/about/gen-info-y.png";
 import WelcBot from "@assets/about/welcome-bottle.png";
 ---
 
-<div id="howdyhack-bubbles" class="relative w-full" style="min-height: 40rem;">
+<div id="howdyhack-bubbles" class="relative w-full">
   <div id="bottle" class="absolute z-20" style="">
     <Picture
       id="WelcBot"
@@ -99,6 +99,8 @@ import WelcBot from "@assets/about/welcome-bottle.png";
 <style>
 #howdyhack-bubbles {
   width: 100%;
+  aspect-ratio: 5 / 3;
+  min-height: unset;
 
   @media (width >= 64rem) {
     font-size: 6rem;
@@ -114,8 +116,8 @@ import WelcBot from "@assets/about/welcome-bottle.png";
   animation-delay: 0.5s;
 }
 #bottle {
-  width: 25%;
-  top: 0%;
+  width: 30%;
+  top: 10%;
   left: 10%;
 }
 #H1 {
@@ -123,35 +125,35 @@ import WelcBot from "@assets/about/welcome-bottle.png";
   position: absolute;
   width: 15%;
   left: 15%;
-  top: 25%;
+  top: 35%;
 }
 #O1 {
   animation-delay: 0.15s;
   position: absolute;
   width: 10%;
   left: 31%;
-  top: 30%;
+  top: 40%;
 }
 #W1 {
   animation-delay: 0.3s;
   position: absolute;
   width: 13%;
   left: 41%;
-  top: 25%;
+  top: 35%;
 }
 #D1 {
   animation-delay: 0.45s;
   position: absolute;
   width: 10%;
   left: 55%;
-  top: 30%;
+  top: 35%;
 }
 #Y1 {
   animation-delay: 0.6s;
   position: absolute;
   width: 13%;
   left: 65%;
-  top: 25%;
+  top: 30%;
 }
 #H2 {
   animation-delay: 0.75s;
@@ -191,9 +193,13 @@ import WelcBot from "@assets/about/welcome-bottle.png";
   }
 }
 @media (max-width: 768px) {
+  #howdyhack-bubbles {
+    aspect-ratio: 1 / 1;
+  }
   #bottle {
     width: 65%;
-    left: 10%;
+    top: 5%;
+    left: 5%;
   }
   #H1 {
     width: 20%;
@@ -213,27 +219,28 @@ import WelcBot from "@assets/about/welcome-bottle.png";
   }
   #Y1 {
     width: 15%;
+    top: 32%;
     left: 70%;
   }
   #H2 {
     width: 20%;
     left: 25%;
-    top: 40%;
+    top: 55%;
   }
   #A2 {
     width: 15%;
     left: 44%;
-    top: 44%;
+    top: 60%;
   }
   #C2 {
     width: 15%;
     left: 59%;
-    top: 44%;
+    top: 58%;
   }
   #K2 {
     width: 15%;
     left: 75%;
-    top: 43%;
+    top: 56%;
   }
 }
 </style>
