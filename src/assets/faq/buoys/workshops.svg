@@ -1,0 +1,101 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="306.266" height="510.404" viewBox="0 0 306.266 510.404" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="workshops-workshops">
+<g id="workshops-Group 23" filter="url(#workshops-filter0_dg_0_4)">
+<g id="workshops-Rectangle 67" filter="url(#workshops-filter1_n_0_4)">
+<path d="M40.9277 196.642C40.9277 176.653 57.1327 160.447 77.1227 160.447H229.142C249.132 160.447 265.337 176.653 265.337 196.642V418.156C265.337 438.146 249.132 454.351 229.142 454.351H77.1226C57.1327 454.351 40.9277 438.146 40.9277 418.156V196.642Z" fill="url(#workshops-paint0_radial_0_4)"/>
+</g>
+<g id="workshops-Vector" filter="url(#workshops-filter2_n_0_4)">
+<path d="M56.2071 115.444H250.059C251.434 115.444 252.117 113.795 251.137 112.842L185.58 49.0292C185.292 48.7493 184.905 48.5924 184.501 48.5924H121.764C121.361 48.5924 120.974 48.7493 120.686 49.0292L55.1287 112.842C54.1489 113.795 54.8321 115.444 56.2071 115.444Z" fill="url(#workshops-paint1_radial_0_4)"/>
+<path d="M56.2071 115.444H250.059C251.434 115.444 252.117 113.795 251.137 112.842L185.58 49.0292C185.292 48.7493 184.905 48.5924 184.501 48.5924H121.764C121.361 48.5924 120.974 48.7493 120.686 49.0292L55.1287 112.842C54.1489 113.795 54.8321 115.444 56.2071 115.444Z" fill="url(#workshops-paint2_radial_0_4)"/>
+<path d="M205.393 91.8938H100.873C67.7661 91.8938 40.9277 118.423 40.9277 151.148V217.999H265.338V151.148C265.338 118.423 238.5 91.8938 205.393 91.8938Z" fill="url(#workshops-paint3_radial_0_4)"/>
+<path d="M205.393 91.8938H100.873C67.7661 91.8938 40.9277 118.423 40.9277 151.148V217.999H265.338V151.148C265.338 118.423 238.5 91.8938 205.393 91.8938Z" fill="url(#workshops-paint4_radial_0_4)"/>
+<path d="M153.133 25.8022C170.01 25.8022 186.18 36.8332 186.18 53.1504V59.2278H173.883V53.1504C173.883 45.9315 165.915 37.957 153.133 37.957C140.351 37.957 132.383 45.9315 132.383 53.1504V59.2278H120.086V53.1504C120.086 36.8332 136.256 25.8022 153.133 25.8022Z" fill="url(#workshops-paint5_radial_0_4)"/>
+<path d="M153.133 25.8022C170.01 25.8022 186.18 36.8332 186.18 53.1504V59.2278H173.883V53.1504C173.883 45.9315 165.915 37.957 153.133 37.957C140.351 37.957 132.383 45.9315 132.383 53.1504V59.2278H120.086V53.1504C120.086 36.8332 136.256 25.8022 153.133 25.8022Z" fill="url(#workshops-paint6_radial_0_4)"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="workshops-filter0_dg_0_4" x="-6.10366e-07" y="-1.25886e-06" width="306.266" height="510.404" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="15.1254"/>
+<feGaussianBlur stdDeviation="20.4638"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.110802 0 0 0 0 0.0235657 0 0 0 0 0.397436 0 0 0 0.8 0"/>
+<feBlend mode="multiply" in2="BackgroundImageFix" result="effect1_dropShadow_0_4"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_4" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.14465042948722839 0.75431805849075317" numOctaves="3" seed="4673" />
+<feDisplacementMap in="shape" scale="3.4877500534057617" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect2_texture_0_4">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+<filter id="workshops-filter1_n_0_4" x="40.9277" y="160.447" width="224.409" height="293.903" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="1.381406307220459 1.381406307220459" stitchTiles="stitch" numOctaves="3" result="noise" seed="6202" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(197, 197, 181, 0.54)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect1_noise_0_4">
+<feMergeNode in="shape" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<filter id="workshops-filter2_n_0_4" x="40.9277" y="25.8022" width="224.41" height="192.197" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="1.381406307220459 1.381406307220459" stitchTiles="stitch" numOctaves="3" result="noise" seed="7420" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(246, 210, 255, 0.54)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect1_noise_0_4">
+<feMergeNode in="shape" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<radialGradient id="workshops-paint0_radial_0_4" cx="0" cy="0" r="1" gradientTransform="matrix(40.0262 287.706 -160.234 22.0365 78.9841 259.938)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFFEFB"/>
+<stop offset="0.759615" stop-color="#D2D0CC"/>
+<stop offset="1" stop-color="#A1A195"/>
+</radialGradient>
+<radialGradient id="workshops-paint1_radial_0_4" cx="0" cy="0" r="1" gradientTransform="matrix(129.266 1.44781 -2.16844 235.636 95.3886 192.299)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E9AB98"/>
+<stop offset="0.625" stop-color="#C43B29"/>
+<stop offset="1" stop-color="#9D1605"/>
+</radialGradient>
+<radialGradient id="workshops-paint2_radial_0_4" cx="0" cy="0" r="1" gradientTransform="matrix(189.662 70.2183 -103.357 200.495 95.2202 121.357)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EAC7FF"/>
+<stop offset="0.463492" stop-color="#9D8FE8"/>
+<stop offset="0.800414" stop-color="#5D42F6"/>
+</radialGradient>
+<radialGradient id="workshops-paint3_radial_0_4" cx="0" cy="0" r="1" gradientTransform="matrix(129.266 1.44781 -2.16844 235.636 95.3886 192.299)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E9AB98"/>
+<stop offset="0.625" stop-color="#C43B29"/>
+<stop offset="1" stop-color="#9D1605"/>
+</radialGradient>
+<radialGradient id="workshops-paint4_radial_0_4" cx="0" cy="0" r="1" gradientTransform="matrix(189.662 70.2183 -103.357 200.495 95.2202 121.357)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EAC7FF"/>
+<stop offset="0.463492" stop-color="#9D8FE8"/>
+<stop offset="0.800414" stop-color="#5D42F6"/>
+</radialGradient>
+<radialGradient id="workshops-paint5_radial_0_4" cx="0" cy="0" r="1" gradientTransform="matrix(129.266 1.44781 -2.16844 235.636 95.3886 192.299)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E9AB98"/>
+<stop offset="0.625" stop-color="#C43B29"/>
+<stop offset="1" stop-color="#9D1605"/>
+</radialGradient>
+<radialGradient id="workshops-paint6_radial_0_4" cx="0" cy="0" r="1" gradientTransform="matrix(189.662 70.2183 -103.357 200.495 95.2202 121.357)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EAC7FF"/>
+<stop offset="0.463492" stop-color="#9D8FE8"/>
+<stop offset="0.800414" stop-color="#5D42F6"/>
+</radialGradient>
+</defs>
+</svg>

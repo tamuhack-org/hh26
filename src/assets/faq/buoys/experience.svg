@@ -1,0 +1,81 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="357.954" height="540.909" viewBox="0 0 357.954 540.909" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="experience-Group 19" filter="url(#experience-filter0_dg_0_4)">
+<g id="experience-Rectangle 68" filter="url(#experience-filter1_n_0_4)">
+<path d="M35.6448 219.884C35.6448 186.504 62.7053 159.443 96.086 159.443H261.868C295.249 159.443 322.309 186.504 322.309 219.884V431.65C322.309 465.031 295.249 492.091 261.868 492.091H96.0861C62.7053 492.091 35.6448 465.031 35.6448 431.65V219.884Z" fill="url(#experience-paint0_radial_0_4)"/>
+</g>
+<g id="experience-Vector" filter="url(#experience-filter2_n_0_4)">
+<path d="M55.163 113.908H302.791C304.548 113.908 305.42 112.227 304.169 111.254L220.425 46.1639C220.058 45.8784 219.563 45.7183 219.047 45.7183H138.907C138.391 45.7183 137.896 45.8784 137.529 46.1639L53.7853 111.254C52.5337 112.227 53.4064 113.908 55.163 113.908Z" fill="url(#experience-paint1_radial_0_4)"/>
+<path d="M245.734 89.8869H112.22C69.9285 89.8869 35.6448 116.947 35.6448 150.328V218.518H322.309V150.328C322.309 116.947 288.026 89.8869 245.734 89.8869Z" fill="url(#experience-paint2_radial_0_4)"/>
+<path d="M178.977 22.4717C200.536 22.4717 221.191 33.7236 221.191 50.3677V56.5668H205.484V50.3677C205.484 43.0041 195.305 34.8699 178.977 34.8699C162.649 34.8699 152.47 43.0041 152.47 50.3677V56.5668H136.763V50.3677C136.763 33.7236 157.418 22.4717 178.977 22.4717Z" fill="url(#experience-paint3_radial_0_4)"/>
+</g>
+</g>
+<defs>
+<filter id="experience-filter0_dg_0_4" x="1.83104e-06" y="4.19619e-07" width="357.954" height="540.909" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="13.1731"/>
+<feGaussianBlur stdDeviation="17.8224"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.110802 0 0 0 0 0.0235657 0 0 0 0 0.397436 0 0 0 0.8 0"/>
+<feBlend mode="multiply" in2="BackgroundImageFix" result="effect1_dropShadow_0_4"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_4" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.16608884930610657 0.86611437797546387" numOctaves="3" seed="4673" />
+<feDisplacementMap in="shape" scale="3.03755784034729" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect2_texture_0_4">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+<filter id="experience-filter1_n_0_4" x="35.6448" y="159.443" width="286.664" height="332.648" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="1.381406307220459 1.381406307220459" stitchTiles="stitch" numOctaves="3" result="noise" seed="9620" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(229, 201, 123, 0.54)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect1_noise_0_4">
+<feMergeNode in="shape" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<filter id="experience-filter2_n_0_4" x="35.6448" y="22.4717" width="286.664" height="196.046" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="1.381406307220459 1.381406307220459" stitchTiles="stitch" numOctaves="3" result="noise" seed="1864" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(173, 82, 216, 0.54)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect1_noise_0_4">
+<feMergeNode in="shape" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<radialGradient id="experience-paint0_radial_0_4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(97.8988 233.127) rotate(92.0953) scale(296.998 171.782)">
+<stop stop-color="#FFF1D1"/>
+<stop offset="0.428759" stop-color="#EBDC85"/>
+<stop offset="1" stop-color="#E28B3F"/>
+</radialGradient>
+<radialGradient id="experience-paint1_radial_0_4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(104.414 149.878) rotate(15.4993) scale(178.79 223.203)">
+<stop offset="0.0673077" stop-color="#FBCBEB"/>
+<stop offset="0.741678" stop-color="#C1639F"/>
+<stop offset="1" stop-color="#9735A6"/>
+</radialGradient>
+<radialGradient id="experience-paint2_radial_0_4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(104.414 149.878) rotate(15.4993) scale(178.79 223.203)">
+<stop offset="0.0673077" stop-color="#FBCBEB"/>
+<stop offset="0.741678" stop-color="#C1639F"/>
+<stop offset="1" stop-color="#9735A6"/>
+</radialGradient>
+<radialGradient id="experience-paint3_radial_0_4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(104.414 149.878) rotate(15.4993) scale(178.79 223.203)">
+<stop offset="0.0673077" stop-color="#FBCBEB"/>
+<stop offset="0.741678" stop-color="#C1639F"/>
+<stop offset="1" stop-color="#9735A6"/>
+</radialGradient>
+</defs>
+</svg>
