@@ -182,7 +182,7 @@
 
 #new-bubbles {
   position: absolute;
-  top: 23%;
+  top: 0%;
   left: -2%;
   width: 100%;
 }
@@ -194,25 +194,25 @@
 }
 #bubble-n {
   width: 10%;
-  top: -15rem;
   left: 2%;
+  top: 0%;
   animation-delay: 0.75s;
 }
 #bubble-e {
   width: 10%;
-  top: -17rem;
+  margin-top: -2%;
   left: 10%;
   animation-delay: 0.9s;
 }
 #bubble-w {
   width: 10%;
-  top: -18rem;
+  margin-top: -3%;
   left: 18%;
   animation-delay: 1.05s;
 }
 #bubble-excl {
   width: 8%;
-  top: -20rem;
+  margin-top: -5%;
   left: 26%;
   animation-delay: 1.2s;
 }
@@ -337,21 +337,21 @@
   }
   #bubble-n {
     width: 20%;
-    top: -30vw;
+    top: 0vw;
   }
   #bubble-e {
     width: 20%;
-    top: -33vw;
+    top: -2vw;
     left: 17%;
   }
   #bubble-w {
     width: 20%;
-    top: -35vw;
+    top: -3vw;
     left: 33%;
   }
   #bubble-excl {
     width: 15%;
-    top: -39vw;
+    top: -3vw;
     left: 51%;
   }
 }
