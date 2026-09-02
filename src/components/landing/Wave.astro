@@ -177,13 +177,16 @@ const layers = [
   { id: "#wave-layer-2", yPercent: -40 },
   { id: "#wave-layer-1", yPercent: -41 },
 ];
+const layerTargets = layers.map(({ id }) => id);
 
 const SCROLL_START = {
-  mobile: "30% top",
+  mobile: "20% top",
   desktop: "52% top",
 } as const;
 
 gsap.matchMedia().add(MEDIA.motionSafe, () => {
+  gsap.set(layerTargets, { yPercent: 0, force3D: true });
+
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: "#inner-assets",
@@ -193,7 +196,6 @@ gsap.matchMedia().add(MEDIA.motionSafe, () => {
           : SCROLL_START.mobile,
       end: "115% top",
       scrub: 0.1,
-      invalidateOnRefresh: true,
     },
   });
 
@@ -204,10 +206,7 @@ gsap.matchMedia().add(MEDIA.motionSafe, () => {
   return () => {
     timeline.scrollTrigger?.kill();
     timeline.kill();
-    gsap.set(
-      layers.map(({ id }) => id),
-      { clearProps: "transform" },
-    );
+    gsap.set(layerTargets, { clearProps: "transform" });
   };
 });
 </script>
