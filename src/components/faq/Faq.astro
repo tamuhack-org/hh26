@@ -1,9 +1,12 @@
 ---
+import Bubbles from "./Bubbles.astro";
 import BuoyLine from "./BuoyLine.astro";
 import Buoys from "./Buoys.astro";
 import Chains from "./Chains.astro";
 import FaqSign from "./FaqSign.astro";
+import HardwareSign from "./HardwareSign.astro";
 import Krill from "./Krill.astro";
+import Notice from "./Notice.astro";
 import Seaweed from "./Seaweed.astro";
 ---
 
@@ -14,7 +17,7 @@ import Seaweed from "./Seaweed.astro";
     font-family: var(--font-poppins);
     position: relative;
     width: 100%;
-    height: calc(var(--faq-width) * 6.858398);
+    height: calc(var(--faq-width) * 4.927734);
     background: linear-gradient(
         180deg,
         #4b5bbf 0%,
@@ -25,6 +28,13 @@ import Seaweed from "./Seaweed.astro";
     );
 }
 /* ts is lowkey kinda weird, i also have the gradient fixed js like landing, or at least my attempt to do it*/
+
+.faq-stage {
+    position: relative;
+    width: var(--faq-width);
+    height: 100%;
+    margin-inline: auto;
+}
 
 .faq-glow-lg {
     left: calc(var(--faq-width) * 0.041992);
@@ -52,22 +62,31 @@ import Seaweed from "./Seaweed.astro";
         #43c6e300 100%
     );
 }
+
+/* widescreen stuff */
+
+/* mobile stuff */
 </style>
 <!-- again just like lading ima try to have eveyrhing contrained by width since i dont have any waves -->
-<section id="faq" class="isolate overflow-x-clip" aria-labelledby="faq-title">
+<section id="faq" class="isolate overflow-clip" aria-labelledby="faq-title">
     <h2 id="faq-title" class="sr-only">FAQ</h2>
-    <div
-        aria-hidden="true"
-        class="faq-glow-lg pointer-events-none absolute z-0"
-    ></div>
-    <div
-        aria-hidden="true"
-        class="faq-glow-sm pointer-events-none absolute z-0"
-    ></div>
-    <Seaweed />
-    <FaqSign />
-    <BuoyLine />
-    <Buoys />
-    <Chains />
-    <Krill />
+    <div class="faq-stage">
+        <div
+            aria-hidden="true"
+            class="faq-glow-lg pointer-events-none absolute z-0"
+        ></div>
+        <div
+            aria-hidden="true"
+            class="faq-glow-sm pointer-events-none absolute z-0"
+        ></div>
+        <Seaweed />
+        <FaqSign />
+        <BuoyLine />
+        <Notice />
+        <Buoys />
+        <Chains />
+        <Bubbles />
+        <Krill />
+        <HardwareSign />
+    </div>
 </section>
