@@ -1,25 +1,26 @@
 ---
-import type { Buoy } from "./buoys";
-
 interface Props {
-    buoy: Buoy;
+    slug: string;
     art: unknown;
 }
 
-const { buoy, art: Art } = Astro.props;
-const { art, q, a } = buoy;
-
-const w = (ratio: number) => `calc(var(--faq-width) * ${ratio})`;
+const { slug, art: Art } = Astro.props;
 ---
 
 <style>
+/* !!!!!! to clarify for the ts styles component, you can pull the exact positions from figma which is why i use a lot of calc to put stuff where it goes */
 .buoy-art {
     position: absolute;
     z-index: 10;
+    left: calc(var(--faq-width) * var(--art-l));
+    top: calc(var(--faq-width) * var(--art-t));
+    width: calc(var(--faq-width) * var(--art-w));
+    height: calc(var(--faq-width) * var(--art-h));
 }
 
 .buoy-bleed {
     position: absolute;
+    inset: var(--bleed-t) var(--bleed-r) var(--bleed-b) var(--bleed-l);
 }
 
 .buoy-svg {
@@ -40,80 +41,228 @@ const w = (ratio: number) => `calc(var(--faq-width) * ${ratio})`;
 }
 
 .buoy-q {
+    left: calc(var(--faq-width) * var(--q-cx));
+    top: calc(var(--faq-width) * var(--q-top));
+    width: calc(var(--faq-width) * var(--q-w));
     color: #fff;
+    font-size: calc(var(--faq-width) * var(--q-size) / 1024);
     font-weight: 700;
     text-shadow: 1px 1px 3px rgb(35 27 121 / 0.6);
 }
 
 .buoy-a {
+    left: calc(var(--faq-width) * var(--a-cx));
+    top: calc(var(--faq-width) * var(--a-top));
+    width: calc(var(--faq-width) * var(--a-w));
     color: #261d5f;
     font-size: calc(var(--faq-width) * 0.015625);
     font-weight: 400;
 }
 
-.buoy-a p {
+.buoy-a :global(p) {
     margin: 0;
 }
 
-.buoy-a p + p {
+.buoy-a :global(p + p) {
     margin-top: 1em;
 }
 
-.buoy-a a {
+.buoy-a :global(a) {
     color: inherit;
     text-decoration: underline;
 }
 
-.buoy-a strong {
+.buoy-a :global(strong) {
     font-weight: 600;
+}
+
+#buoy-deadline {
+    --art-l: 0.595459;
+    --art-t: 0.716797;
+    --art-w: 0.278532;
+    --art-h: 0.340205;
+    --bleed-t: -1.58%;
+    --bleed-r: -8.02%;
+    --bleed-b: -11.55%;
+    --bleed-l: -8.02%;
+    --q-cx: 0.73291;
+    --q-top: 0.785156;
+    --q-w: 0.21582;
+    --q-size: 20;
+    --a-cx: 0.734014;
+    --a-top: 0.894941;
+    --a-w: 0.220563;
+}
+
+#buoy-experience {
+    --art-l: 0.203809;
+    --art-t: 0.951494;
+    --art-w: 0.279945;
+    --art-h: 0.458613;
+    --bleed-t: -4.79%;
+    --bleed-r: -12.43%;
+    --bleed-b: -10.4%;
+    --bleed-l: -12.43%;
+    --q-cx: 0.343789;
+    --q-top: 1.063193;
+    --q-w: 0.248841;
+    --q-size: 20;
+    --a-cx: 0.340918;
+    --a-top: 1.160283;
+    --a-w: 0.235995;
+}
+
+#buoy-attend {
+    --art-l: 0.538896;
+    --art-t: 1.109854;
+    --art-w: 0.291257;
+    --art-h: 0.526371;
+    --bleed-t: -4.33%;
+    --bleed-r: -12.42%;
+    --bleed-b: -9.41%;
+    --bleed-l: -12.42%;
+    --q-cx: 0.682402;
+    --q-top: 1.254063;
+    --q-w: 0.323775;
+    --q-size: 20;
+    --a-cx: 0.688271;
+    --a-top: 1.364258;
+    --a-w: 0.241771;
+}
+
+#buoy-cost {
+    --art-l: 0.171299;
+    --art-t: 1.471807;
+    --art-w: 0.285601;
+    --art-h: 0.428401;
+    --bleed-t: -5%;
+    --bleed-r: -11.91%;
+    --bleed-b: -10.87%;
+    --bleed-l: -11.91%;
+    --q-cx: 0.314941;
+    --q-top: 1.567383;
+    --q-w: 0.178711;
+    --q-size: 20;
+    --a-cx: 0.316406;
+    --a-top: 1.657021;
+    --a-w: 0.247817;
+}
+
+#buoy-workshops {
+    --art-l: 0.545967;
+    --art-t: 1.695195;
+    --art-w: 0.21915;
+    --art-h: 0.418505;
+    --bleed-t: -6.02%;
+    --bleed-r: -18.24%;
+    --bleed-b: -13.08%;
+    --bleed-l: -18.24%;
+    --q-cx: 0.660156;
+    --q-top: 1.779297;
+    --q-w: 0.189453;
+    --q-size: 20;
+    --a-cx: 0.65625;
+    --a-top: 1.899414;
+    --a-w: 0.189453;
+}
+
+#buoy-msc {
+    --art-l: 0.114736;
+    --art-t: 1.993516;
+    --art-w: 0.350719;
+    --art-h: 0.441127;
+    --bleed-t: -4.47%;
+    --bleed-r: -8.91%;
+    --bleed-b: -9.7%;
+    --bleed-l: -8.91%;
+    --q-cx: 0.289854;
+    --q-top: 2.086631;
+    --q-w: 0.303981;
+    --q-size: 20;
+    --a-cx: 0.290117;
+    --a-top: 2.235293;
+    --a-w: 0.316706;
+}
+
+#buoy-teams {
+    --art-l: 0.545977;
+    --art-t: 2.174492;
+    --art-w: 0.295663;
+    --art-h: 0.560203;
+    --bleed-t: -3.4%;
+    --bleed-r: -10.21%;
+    --bleed-b: -7.38%;
+    --bleed-l: -10.31%;
+    --q-cx: 0.693809;
+    --q-top: 2.290498;
+    --q-w: 0.323956;
+    --q-size: 20;
+    --a-cx: 0.695312;
+    --a-top: 2.392578;
+    --a-w: 0.257812;
+}
+
+#buoy-plagiarism {
+    --art-l: 0.143018;
+    --art-t: 2.598652;
+    --art-w: 0.365207;
+    --art-h: 0.521889;
+    --bleed-t: -5.18%;
+    --bleed-r: -11.75%;
+    --bleed-b: -11.26%;
+    --bleed-l: -11.75%;
+    --q-cx: 0.32752;
+    --q-top: 2.752939;
+    --q-w: 0.323775;
+    --q-size: 36;
+    --a-cx: 0.3254;
+    --a-top: 2.858809;
+    --a-w: 0.279945;
+}
+
+#buoy-waitlist {
+    --art-l: 0.562939;
+    --art-t: 2.806494;
+    --art-w: 0.356295;
+    --art-h: 0.600894;
+    --bleed-t: -4.39%;
+    --bleed-r: -11.75%;
+    --bleed-b: -9.54%;
+    --bleed-l: -11.75%;
+    --q-cx: 0.740371;
+    --q-top: 2.956367;
+    --q-w: 0.323775;
+    --q-size: 36;
+    --a-cx: 0.740371;
+    --a-top: 3.055332;
+    --a-w: 0.298326;
+}
+
+#buoy-more-qs {
+    --art-l: 0.212295;
+    --art-t: 3.208027;
+    --art-w: 0.244599;
+    --art-h: 0.311051;
+    --bleed-t: -6.23%;
+    --bleed-r: -12.56%;
+    --bleed-b: -13.53%;
+    --bleed-l: -12.56%;
+    --q-cx: 0.333184;
+    --q-top: 3.326797;
+    --q-w: 0.323775;
+    --q-size: 20;
+    --a-cx: 0.333086;
+    --a-top: 3.394658;
+    --a-w: 0.234375;
 }
 </style>
 
-<div
-    class="buoy-art"
-    style={{
-        left: w(art.left),
-        top: w(art.top),
-        width: w(art.width),
-        height: w(art.height),
-    }}
-    aria-hidden="true"
->
-    <div
-        class="buoy-bleed"
-        style={{
-            inset: `${art.bleed[0]}% ${art.bleed[1]}% ${art.bleed[2]}% ${art.bleed[3]}%`,
-        }}
-    >
-        <Art class="buoy-svg" />
+<div id={`buoy-${slug}`}>
+    <div class="buoy-art" aria-hidden="true">
+        <div class="buoy-bleed">
+            <Art class="buoy-svg" />
+        </div>
     </div>
-</div>
-
-<p
-    class="buoy-q"
-    id={`buoy-${buoy.slug}`}
-    style={{
-        left: w(q.cx),
-        top: w(q.top),
-        width: w(q.width),
-        fontSize: w(q.size / 1024),
-    }}
->
-    {buoy.question}
-</p>
-
-<div class="buoy-a" style={{ left: w(a.cx), top: w(a.top), width: w(a.width) }}>
-    {buoy.answer.map((paragraph) => (
-            <p>
-                {paragraph.map((segment) =>
-                    segment.href ? (
-                        <a href={segment.href}>{segment.text}</a>
-                    ) : segment.semibold ? (
-                        <strong>{segment.text}</strong>
-                    ) : (
-                        segment.text
-                    ),
-                )}
-            </p>
-        ))}
+    <p class="buoy-q"><slot name="question" /></p>
+    <div class="buoy-a"><slot name="answer" /></div>
 </div>
