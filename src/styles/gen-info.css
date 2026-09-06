@@ -3,9 +3,9 @@
   display: grid;
   gap: 4rem;
   justify-items: center;
+  font-size: 1rem;
 
   @media (width >= 64rem) {
-    font-size: 6rem;
     max-width: 96rem;
     margin: 0 auto;
   }
@@ -38,7 +38,6 @@
   display: none;
 }
 #GenInfoBubble-text {
-  font-size: clamp(1rem, 2vw, 2rem);
   line-height: 1.5;
   padding: clamp(1rem,4vw,4rem);
   transform: translate(0%, 45%);
@@ -80,7 +79,6 @@
   left: 35%;
   top: 45%;
   z-index: 3;
-  font-size: clamp(1rem, 2vw, 1.5rem);
   line-height: 1.5;
   transform: none;
 }
@@ -108,7 +106,6 @@
 }
 #parking-ray-text {
   color: white;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
   width: 60%;
   margin-left: 25%;
   transform: translateY(200%);
@@ -123,7 +120,6 @@
 }
 #team-info-text {
   width: 60%;
-  font-size: clamp(0.5rem, 1.8vw, 1.5rem);
 }
 
 #application {
@@ -136,7 +132,6 @@
 }
 #application-text {
   width: 70%;
-  font-size: clamp(1rem, 1.8vw, 1.5rem);
 }
 
 /* Hardware */
@@ -174,7 +169,6 @@
   justify-self: start;
   text-align: center;
   width: 50%;
-  font-size: clamp(0.8rem, 1.7vw, 1.5rem);
   z-index: 2;
   margin-top: -15%;
   margin-left: 10%;
@@ -235,7 +229,6 @@
   #GenInfoBubble-text {
     padding: 5% 8%;
     width: 100%;
-    font-size: clamp(0.1rem, 5vw, 2.5rem);
     transform: translate(0%, 10%);
   }
   #GenInfoBubble {
@@ -259,7 +252,6 @@
     width: 20%;
     left: 32%;
     top: 42%;
-    font-size: clamp(0.1rem, 5vw, 2.5rem);
     text-align: center;
   }
 
@@ -277,9 +269,6 @@
   #application {
     max-width: 90%;
   }
-  #application-text {
-    font-size: clamp(0.1rem, 5vw, 2.0rem);
-  }
   #app-bub-desktop {
     display: none;
   }
@@ -291,7 +280,6 @@
     transform: translateX(-15%);
   }
   #parking-ray-text {
-    font-size: clamp(0.2rem, 5vw, 2.0rem);
     width: 45%;
     margin-left: 30%;
     transform: translateY(75%);
@@ -307,9 +295,6 @@
   }
   #team-bub-mobile {
     display: block;
-  }
-  #team-info-text {
-    font-size: clamp(0.1rem, 4.5vw, 2.0rem);
   }
 
   #Hardware {
@@ -333,7 +318,6 @@
     transform: translate(14vw, -80vw);
   }
   #hardware-text {
-    font-size: clamp(0.25rem, 5vw, 2.0rem);
     width: 80%;
     margin-top: clamp(-30.5rem, -52vw, -5.5rem);
     text-align: center;
