@@ -109,8 +109,10 @@ import WelcBot from "@assets/about/welcome-bottle.png";
   }
 }
 
-.bob-anim {
-  animation: bob 2s ease-in-out infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .bob-anim {
+    animation: bob 2s ease-in-out infinite;
+  }
 }
 #WelcBot {
   animation-delay: 0.5s;

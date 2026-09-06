@@ -190,8 +190,14 @@
 .new-bubble {
   position: absolute;
   height: auto;
-  animation: bob 2s ease-in-out infinite;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .new-bubble {
+    animation: bob 2s ease-in-out infinite;
+  }
+}
+
 #bubble-n {
   width: 10%;
   left: 2%;
