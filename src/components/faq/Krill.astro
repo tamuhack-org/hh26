@@ -1,0 +1,30 @@
+---
+import { Picture } from "astro:assets";
+import Krill from "@assets/faq/faq-krill.png";
+---
+
+<style>
+.faq-krill {
+    left: calc(var(--faq-width) * 0.275539);
+    top: calc(var(--faq-width) * 3.598711);
+    width: calc(var(--faq-width) * 0.521484);
+    height: calc(var(--faq-width) * 0.40918);
+}
+
+.faq-krill-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<div class="faq-krill pointer-events-none absolute z-10">
+    <Picture
+        src={Krill}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt="A shrimp says: to be one in a krillion like me, make sure to bring your student ID, a computer, and a jacket (optional)."
+        width={Math.round(Krill.width / 2)}
+        class="faq-krill-img"
+    />
+</div>

@@ -1,0 +1,30 @@
+---
+import { Picture } from "astro:assets";
+import BuoyLine from "@assets/faq/faq-buoy-line.png";
+---
+
+<style>
+.faq-buoy-line {
+    left: 0;
+    top: calc(var(--faq-width) * 4.078691);
+    width: var(--faq-width);
+    height: calc(var(--faq-width) * 0.133789);
+}
+
+.faq-buoy-line-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<div aria-hidden="true" class="faq-buoy-line pointer-events-none absolute z-5">
+    <Picture
+        src={BuoyLine}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        width={Math.round(BuoyLine.width / 2)}
+        class="faq-buoy-line-img"
+    />
+</div>

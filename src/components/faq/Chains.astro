@@ -1,0 +1,30 @@
+---
+import { Picture } from "astro:assets";
+import Chains from "@assets/faq/faq-chains.png";
+---
+
+<style>
+.faq-chains {
+    left: calc(var(--faq-width) * 0.267559);
+    top: calc(var(--faq-width) * 0.660085);
+    width: calc(var(--faq-width) * 0.484375);
+    height: calc(var(--faq-width) * 2.567383);
+}
+
+.faq-chains-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<div aria-hidden="true" class="faq-chains pointer-events-none absolute z-15">
+    <Picture
+        src={Chains}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        width={Math.round(Chains.width / 2)}
+        class="faq-chains-img"
+    />
+</div>
