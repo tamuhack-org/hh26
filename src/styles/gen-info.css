@@ -44,7 +44,7 @@
 
 /* Location */
 #Location {
-  margin-top: clamp(-10rem, -25vw, -10rem);
+  margin-top: -7rem;
 }
 
 #stingray {
@@ -72,10 +72,11 @@
 #location-text {
   position: absolute;
   left: 35%;
-  top: 45%;
+  top: 42%;
   z-index: 3;
   line-height: 1.5;
   transform: none;
+  text-align: center;
 }
 
 /* Parking Team and Application */
@@ -237,21 +238,18 @@
     transform: translate(0, 10%);
   }
 
+  #Location {
+    margin-top: 0;
+    width: 100%;
+  }
   #stingray {
-    width: 250%;
-    margin-left: -45%;
-    transform: translate(0%, -5%);
-    z-index: 2;
+    width: 270%;
+    margin-top: -3rem;
+    transform: translate(-20%);
+    z-index: 5;
   }
-
-  #Location{
-    margin-top: -5rem;
-  }
-
   #location-text {
-    width: 20%;
-    left: 32%;
-    top: 42%;
+    transform: translate(-10%);
     text-align: center;
   }
 
