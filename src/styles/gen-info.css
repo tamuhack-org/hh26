@@ -1,14 +1,10 @@
 #gen-info-container {
-  width: 100%;
+  max-width: 52rem;
   display: grid;
   gap: 4rem;
   justify-items: center;
   font-size: 1rem;
-
-  @media (width >= 64rem) {
-    max-width: 96rem;
-    margin: 0 auto;
-  }
+  margin: 0 auto;
 }
 
 .bubble-stack {
@@ -32,19 +28,18 @@
 
 /* GenInfo */
 #GenInfoBubble {
-  margin-top: clamp(-20rem, -20vw, -10rem);
+  margin-top: -15rem;
 }
 #GenInfoBubble-mobile {
   display: none;
 }
 #GenInfoBubble-text {
-  line-height: 1.5;
-  padding: clamp(1rem,4vw,4rem);
-  transform: translate(0%, 45%);
+  padding: 4rem;
+  transform: translate(0%, 30%);
 }
 .gig-em {
   display: block;
-  margin-top: 1.2em;
+  margin-top: 1.2rem;
 }
 
 /* Location */
@@ -226,15 +221,20 @@
     display: block;
   }
 
-  #GenInfoBubble-text {
-    padding: 5% 8%;
+  #gen-info-container {
+    max-width: 19rem;
     width: 100%;
-    transform: translate(0%, 10%);
+    gap: 0;
   }
+
   #GenInfoBubble {
-    margin-top: clamp(-80vw, -60vw, -40vw);
+    margin-top: 0;
+    width: 100%;
+  }
+  #GenInfoBubble-text {
+    padding: 8%;
     width: 95%;
-    justify-self: center;
+    transform: translate(0, 10%);
   }
 
   #stingray {
