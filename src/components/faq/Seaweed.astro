@@ -18,6 +18,7 @@ import SeaweedRight from "@assets/faq/seaweed-right.svg";
 .faq-seaweed-right {
     right: calc(var(--faq-width) * -0.199219);
     width: calc(var(--faq-width) * 0.560547);
+    transform: scaleX(-1);
 }
 
 .seaweed-svg {
@@ -25,6 +26,31 @@ import SeaweedRight from "@assets/faq/seaweed-right.svg";
     width: 100%;
     height: 100%;
 }
+
+.faq-seaweed-wide {
+    display: none;
+    left: calc(50% - var(--faq-width) * 1.671973);
+    top: calc(var(--faq-width) * 0.177637);
+    width: calc(var(--faq-width) * 3.354688);
+    height: calc(var(--faq-width) * 6.786328);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* widescreen stuff */
+@media (width >= 96rem) {
+    .faq-seaweed-left,
+    .faq-seaweed-right {
+        display: none;
+    }
+
+    .faq-seaweed-wide {
+        display: block;
+        background-image: url("../../assets/faq/seaweed-wide.svg");
+    }
+}
+
+/* mobile stuff */
 </style>
 
 <div
@@ -39,3 +65,7 @@ import SeaweedRight from "@assets/faq/seaweed-right.svg";
 >
     <SeaweedRight class="seaweed-svg" />
 </div>
+<div
+    aria-hidden="true"
+    class="faq-seaweed-wide pointer-events-none absolute z-1"
+></div>
