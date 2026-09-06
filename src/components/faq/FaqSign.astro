@@ -8,235 +8,234 @@ import LightBuoy from "@assets/faq/sign/light-buoy.png";
 import LightBuoyShadow from "@assets/faq/sign/light-buoy-shadow.png";
 import QBase from "@assets/faq/sign/q-base.png";
 import QBurn from "@assets/faq/sign/q-burn.png";
-
 ---
 
 <style>
 .faq-masthead {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
 }
 
 .sign-layer {
-  position: absolute;
+    position: absolute;
 }
 
 .sign-layer :global(picture),
 .buoy-rot :global(picture) {
-  display: block;
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .sign-layer :global(img) {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 
 .sign-layer.is-cover :global(img) {
-  object-fit: cover;
+    object-fit: cover;
 }
 
 .is-burn {
-  mix-blend-mode: color-burn;
-  opacity: 0.75;
+    mix-blend-mode: color-burn;
+    opacity: 0.75;
 }
 
 .buoy-box {
-  position: absolute;
+    position: absolute;
 }
 
 .buoy-rot {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
 }
 
 .buoy-rot :global(img) {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .buoy-shadow {
-  mix-blend-mode: color-burn;
-  opacity: 0.8;
+    mix-blend-mode: color-burn;
+    opacity: 0.8;
 }
 </style>
 
 <div class="faq-masthead" aria-hidden="true">
-  <!-- light buoy, sits under the qa buoys -->
-  <div
-    class="buoy-box z-5"
-    style={{
-      left: "calc(var(--faq-width) * -0.075605)",
-      top: "calc(var(--faq-width) * 0.148633)",
-      width: "calc(var(--faq-width) * 0.655839)",
-      height: "calc(var(--faq-width) * 0.783268)",
-    }}
-  >
+    <!-- light buoy, sits under the qa buoys -->
     <div
-      class="buoy-rot buoy-shadow"
-      style={{
-        width: "calc(var(--faq-width) * 0.38442)",
-        height: "calc(var(--faq-width) * 0.682959)",
-        rotate: "-27.43deg",
-      }}
+        class="buoy-box z-5"
+        style={{
+            left: "calc(var(--faq-width) * -0.075605)",
+            top: "calc(var(--faq-width) * 0.148633)",
+            width: "calc(var(--faq-width) * 0.655839)",
+            height: "calc(var(--faq-width) * 0.783268)",
+        }}
     >
-      <Picture
-        src={LightBuoyShadow}
-        formats={["avif", "webp"]}
-        quality={80}
-        alt=""
-        width={940}
-        sizes="(min-width: 64rem) 393.65px, 38.44vw"
-      />
+        <div
+            class="buoy-rot buoy-shadow"
+            style={{
+                width: "calc(var(--faq-width) * 0.38442)",
+                height: "calc(var(--faq-width) * 0.682959)",
+                rotate: "-27.43deg",
+            }}
+        >
+            <Picture
+                src={LightBuoyShadow}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                width={940}
+                sizes="(min-width: 64rem) 393.65px, 38.44vw"
+            />
+        </div>
     </div>
-  </div>
-  <div
-    class="buoy-box z-5"
-    style={{
-      left: "calc(var(--faq-width) * -0.09375)",
-      top: "calc(var(--faq-width) * 0.112305)",
-      width: "calc(var(--faq-width) * 0.684764)",
-      height: "calc(var(--faq-width) * 0.824219)",
-    }}
-  >
     <div
-      class="buoy-rot"
-      style={{
-        width: "calc(var(--faq-width) * 0.404723)",
-        height: "calc(var(--faq-width) * 0.719029)",
-        rotate: "-26.72deg",
-      }}
+        class="buoy-box z-5"
+        style={{
+            left: "calc(var(--faq-width) * -0.09375)",
+            top: "calc(var(--faq-width) * 0.112305)",
+            width: "calc(var(--faq-width) * 0.684764)",
+            height: "calc(var(--faq-width) * 0.824219)",
+        }}
     >
-      <Picture
-        src={LightBuoy}
-        formats={["avif", "webp"]}
-        quality={80}
-        alt=""
-        width={577}
-        sizes="(min-width: 64rem) 414.44px, 40.47vw"
-      />
+        <div
+            class="buoy-rot"
+            style={{
+                width: "calc(var(--faq-width) * 0.404723)",
+                height: "calc(var(--faq-width) * 0.719029)",
+                rotate: "-26.72deg",
+            }}
+        >
+            <Picture
+                src={LightBuoy}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                width={577}
+                sizes="(min-width: 64rem) 414.44px, 40.47vw"
+            />
+        </div>
     </div>
-  </div>
 
-  <!-- F -->
-  <div
-    class="sign-layer is-burn z-30"
-    style={{
-      left: "calc(var(--faq-width) * 0.304014)",
-      top: "calc(var(--faq-width) * 0.179707)",
-      width: "calc(var(--faq-width) * 0.345564)",
-      height: "calc(var(--faq-width) * 0.42007)",
-    }}
-  >
-    <Picture
-      src={FBurn}
-      formats={["avif", "webp"]}
-      quality={80}
-      alt=""
-      width={1024}
-      sizes="(min-width: 64rem) 353.86px, 34.56vw"
-    />
-  </div>
-  <div
-    class="sign-layer z-30"
-    style={{
-      left: "calc(var(--faq-width) * 0.28125)",
-      top: "calc(var(--faq-width) * 0.170898)",
-      width: "calc(var(--faq-width) * 0.345564)",
-      height: "calc(var(--faq-width) * 0.42007)",
-    }}
-  >
-    <Picture
-      src={FBase}
-      formats={["avif", "webp"]}
-      quality={80}
-      alt=""
-      width={1024}
-      sizes="(min-width: 64rem) 353.86px, 34.56vw"
-    />
-  </div>
+    <!-- F -->
+    <div
+        class="sign-layer is-burn z-30"
+        style={{
+            left: "calc(var(--faq-width) * 0.304014)",
+            top: "calc(var(--faq-width) * 0.179707)",
+            width: "calc(var(--faq-width) * 0.345564)",
+            height: "calc(var(--faq-width) * 0.42007)",
+        }}
+    >
+        <Picture
+            src={FBurn}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 353.86px, 34.56vw"
+        />
+    </div>
+    <div
+        class="sign-layer z-30"
+        style={{
+            left: "calc(var(--faq-width) * 0.28125)",
+            top: "calc(var(--faq-width) * 0.170898)",
+            width: "calc(var(--faq-width) * 0.345564)",
+            height: "calc(var(--faq-width) * 0.42007)",
+        }}
+    >
+        <Picture
+            src={FBase}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 353.86px, 34.56vw"
+        />
+    </div>
 
-  <!-- A -->
-  <div
-    class="sign-layer is-burn z-30"
-    style={{
-      left: "calc(var(--faq-width) * 0.432617)",
-      top: "calc(var(--faq-width) * 0.307617)",
-      width: "calc(var(--faq-width) * 0.329616)",
-      height: "calc(var(--faq-width) * 0.365234)",
-    }}
-  >
-    <Picture
-      src={ABurn}
-      formats={["avif", "webp"]}
-      quality={80}
-      alt=""
-      width={1024}
-      sizes="(min-width: 64rem) 337.53px, 32.96vw"
-    />
-  </div>
-  <div
-    class="sign-layer is-cover z-30"
-    style={{
-      left: "calc(var(--faq-width) * 0.390869)",
-      top: "calc(var(--faq-width) * 0.314316)",
-      width: "calc(var(--faq-width) * 0.472213)",
-      height: "calc(var(--faq-width) * 0.328222)",
-    }}
-  >
-    <Picture
-      src={ABase}
-      formats={["avif", "webp"]}
-      quality={80}
-      alt=""
-      width={1024}
-      sizes="(min-width: 64rem) 483.55px, 47.22vw"
-    />
-  </div>
+    <!-- A -->
+    <div
+        class="sign-layer is-burn z-30"
+        style={{
+            left: "calc(var(--faq-width) * 0.432617)",
+            top: "calc(var(--faq-width) * 0.307617)",
+            width: "calc(var(--faq-width) * 0.329616)",
+            height: "calc(var(--faq-width) * 0.365234)",
+        }}
+    >
+        <Picture
+            src={ABurn}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 337.53px, 32.96vw"
+        />
+    </div>
+    <div
+        class="sign-layer is-cover z-30"
+        style={{
+            left: "calc(var(--faq-width) * 0.390869)",
+            top: "calc(var(--faq-width) * 0.314316)",
+            width: "calc(var(--faq-width) * 0.472213)",
+            height: "calc(var(--faq-width) * 0.328222)",
+        }}
+    >
+        <Picture
+            src={ABase}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 483.55px, 47.22vw"
+        />
+    </div>
 
-  <!-- Q -->
-  <div
-    class="sign-layer is-burn z-30"
-    style={{
-      left: "calc(var(--faq-width) * 0.636807)",
-      top: "calc(var(--faq-width) * 0.223438)",
-      width: "calc(var(--faq-width) * 0.339756)",
-      height: "calc(var(--faq-width) * 0.366711)",
-    }}
-  >
-    <Picture
-      src={QBurn}
-      formats={["avif", "webp"]}
-      quality={80}
-      alt=""
-      width={1024}
-      sizes="(min-width: 64rem) 347.91px, 33.98vw"
-    />
-  </div>
-  <div
-    class="sign-layer z-30"
-    style={{
-      left: "calc(var(--faq-width) * 0.611357)",
-      top: "calc(var(--faq-width) * 0.21125)",
-      width: "calc(var(--faq-width) * 0.339756)",
-      height: "calc(var(--faq-width) * 0.366711)",
-    }}
-  >
-    <Picture
-      src={QBase}
-      formats={["avif", "webp"]}
-      quality={80}
-      alt=""
-      width={1024}
-      sizes="(min-width: 64rem) 347.91px, 33.98vw"
-    />
-  </div>
+    <!-- Q -->
+    <div
+        class="sign-layer is-burn z-30"
+        style={{
+            left: "calc(var(--faq-width) * 0.636807)",
+            top: "calc(var(--faq-width) * 0.223438)",
+            width: "calc(var(--faq-width) * 0.339756)",
+            height: "calc(var(--faq-width) * 0.366711)",
+        }}
+    >
+        <Picture
+            src={QBurn}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 347.91px, 33.98vw"
+        />
+    </div>
+    <div
+        class="sign-layer z-30"
+        style={{
+            left: "calc(var(--faq-width) * 0.611357)",
+            top: "calc(var(--faq-width) * 0.21125)",
+            width: "calc(var(--faq-width) * 0.339756)",
+            height: "calc(var(--faq-width) * 0.366711)",
+        }}
+    >
+        <Picture
+            src={QBase}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 347.91px, 33.98vw"
+        />
+    </div>
 </div>

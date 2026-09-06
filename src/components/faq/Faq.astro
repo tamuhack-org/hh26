@@ -5,87 +5,63 @@ import Seaweed from "./Seaweed.astro";
 ---
 
 <style>
-/* only for this section 4 now, unless */
-@font-face {
-  font-family: "Poppins FAQ";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../../assets/faq/fonts/poppins-400.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Poppins FAQ";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("../../assets/faq/fonts/poppins-600.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Poppins FAQ";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../../assets/faq/fonts/poppins-700.woff2") format("woff2");
-}
-
+/* fixed the ugly font stuff that i was doing before with the fonts being manually put into folder, now js pulling form api like im supposed to */
 #faq {
-  --faq-width: min(100vw, 64rem);
-  font-family: "Poppins FAQ", sans-serif;
-  position: relative;
-  width: 100%;
-  height: calc(var(--faq-width) * 6.858398);
-  background: linear-gradient(
-    180deg,
-    #4b5bbf 0%,
-    #435ee2 31%,
-    #2b43c3 59%,
-    #1a2b92 75%,
-    #0e075f 95%
-  );
+    --faq-width: min(100vw, 64rem);
+    font-family: var(--font-poppins);
+    position: relative;
+    width: 100%;
+    height: calc(var(--faq-width) * 6.858398);
+    background: linear-gradient(
+        180deg,
+        #4b5bbf 0%,
+        #435ee2 31%,
+        #2b43c3 59%,
+        #1a2b92 75%,
+        #0e075f 95%
+    );
 }
 /* ts is lowkey kinda weird, i also have the gradient fixed js like landing, or at least my attempt to do it*/
 
 .faq-glow-lg {
-  left: calc(var(--faq-width) * 0.041992);
-  top: 0;
-  width: calc(var(--faq-width) * 1.153203);
-  height: calc(var(--faq-width) * 1.103516);
-  opacity: 0.75;
-  background: radial-gradient(
-    circle calc(var(--faq-width) * 0.521234) at 46.07% 47.21%,
-    #3ba2f0 0%,
-    #3b94f000 100%
-  );
+    left: calc(var(--faq-width) * 0.041992);
+    top: 0;
+    width: calc(var(--faq-width) * 1.153203);
+    height: calc(var(--faq-width) * 1.103516);
+    opacity: 0.75;
+    background: radial-gradient(
+        circle calc(var(--faq-width) * 0.521234) at 46.07% 47.21%,
+        #3ba2f0 0%,
+        #3b94f000 100%
+    );
 }
 
 .faq-glow-sm {
-  left: calc(var(--faq-width) * -0.052734);
-  top: calc(var(--faq-width) * 0.136719);
-  width: calc(var(--faq-width) * 0.427604);
-  height: calc(var(--faq-width) * 0.40918);
-  opacity: 0.75;
-  background: radial-gradient(
-    circle calc(var(--faq-width) * 0.193271) at 46.07% 47.21%,
-    #f3c955 0%,
-    #43c6e39c 50%,
-    #43c6e300 100%
-  );
+    left: calc(var(--faq-width) * -0.052734);
+    top: calc(var(--faq-width) * 0.136719);
+    width: calc(var(--faq-width) * 0.427604);
+    height: calc(var(--faq-width) * 0.40918);
+    opacity: 0.75;
+    background: radial-gradient(
+        circle calc(var(--faq-width) * 0.193271) at 46.07% 47.21%,
+        #f3c955 0%,
+        #43c6e39c 50%,
+        #43c6e300 100%
+    );
 }
 </style>
 <!-- again just like lading ima try to have eveyrhing contrained by width since i dont have any waves -->
 <section id="faq" class="isolate overflow-x-clip" aria-labelledby="faq-title">
-  <h2 id="faq-title" class="sr-only">FAQ</h2>
-  <div
-    aria-hidden="true"
-    class="faq-glow-lg pointer-events-none absolute z-0"
-  ></div>
-  <div
-    aria-hidden="true"
-    class="faq-glow-sm pointer-events-none absolute z-0"
-  ></div>
-  <Seaweed />
-  <FaqSign />
-  <Buoys />
+    <h2 id="faq-title" class="sr-only">FAQ</h2>
+    <div
+        aria-hidden="true"
+        class="faq-glow-lg pointer-events-none absolute z-0"
+    ></div>
+    <div
+        aria-hidden="true"
+        class="faq-glow-sm pointer-events-none absolute z-0"
+    ></div>
+    <Seaweed />
+    <FaqSign />
+    <Buoys />
 </section>

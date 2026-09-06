@@ -2,8 +2,8 @@
 import type { Buoy } from "./buoys";
 
 interface Props {
-  buoy: Buoy;
-  art: unknown;
+    buoy: Buoy;
+    art: unknown;
 }
 
 const { buoy, art: Art } = Astro.props;
@@ -14,106 +14,106 @@ const w = (ratio: number) => `calc(var(--faq-width) * ${ratio})`;
 
 <style>
 .buoy-art {
-  position: absolute;
-  z-index: 10;
+    position: absolute;
+    z-index: 10;
 }
 
 .buoy-bleed {
-  position: absolute;
+    position: absolute;
 }
 
 .buoy-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .buoy-q,
 .buoy-a {
-  position: absolute;
-  z-index: 20;
-  margin: 0;
-  translate: -50% 0;
-  text-align: center;
-  text-wrap: pretty;
-  letter-spacing: 0.02em;
+    position: absolute;
+    z-index: 20;
+    margin: 0;
+    translate: -50% 0;
+    text-align: center;
+    text-wrap: pretty;
+    letter-spacing: 0.02em;
 }
 
 .buoy-q {
-  color: #fff;
-  font-weight: 700;
-  text-shadow: 1px 1px 3px rgb(35 27 121 / 0.6);
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgb(35 27 121 / 0.6);
 }
 
 .buoy-a {
-  color: #261d5f;
-  font-size: calc(var(--faq-width) * 0.015625);
-  font-weight: 400;
+    color: #261d5f;
+    font-size: calc(var(--faq-width) * 0.015625);
+    font-weight: 400;
 }
 
 .buoy-a p {
-  margin: 0;
+    margin: 0;
 }
 
 .buoy-a p + p {
-  margin-top: 1em;
+    margin-top: 1em;
 }
 
 .buoy-a a {
-  color: inherit;
-  text-decoration: underline;
+    color: inherit;
+    text-decoration: underline;
 }
 
 .buoy-a strong {
-  font-weight: 600;
+    font-weight: 600;
 }
 </style>
 
 <div
-  class="buoy-art"
-  style={{
-    left: w(art.left),
-    top: w(art.top),
-    width: w(art.width),
-    height: w(art.height),
-  }}
-  aria-hidden="true"
->
-  <div
-    class="buoy-bleed"
+    class="buoy-art"
     style={{
-      inset: `${art.bleed[0]}% ${art.bleed[1]}% ${art.bleed[2]}% ${art.bleed[3]}%`,
+        left: w(art.left),
+        top: w(art.top),
+        width: w(art.width),
+        height: w(art.height),
     }}
-  >
-    <Art class="buoy-svg" />
-  </div>
+    aria-hidden="true"
+>
+    <div
+        class="buoy-bleed"
+        style={{
+            inset: `${art.bleed[0]}% ${art.bleed[1]}% ${art.bleed[2]}% ${art.bleed[3]}%`,
+        }}
+    >
+        <Art class="buoy-svg" />
+    </div>
 </div>
 
 <p
-  class="buoy-q"
-  id={`buoy-${buoy.slug}`}
-  style={{
-    left: w(q.cx),
-    top: w(q.top),
-    width: w(q.width),
-    fontSize: w(q.size / 1024),
-  }}
+    class="buoy-q"
+    id={`buoy-${buoy.slug}`}
+    style={{
+        left: w(q.cx),
+        top: w(q.top),
+        width: w(q.width),
+        fontSize: w(q.size / 1024),
+    }}
 >
-  {buoy.question}
+    {buoy.question}
 </p>
 
 <div class="buoy-a" style={{ left: w(a.cx), top: w(a.top), width: w(a.width) }}>
-  {buoy.answer.map((paragraph) => (
-      <p>
-        {paragraph.map((segment) =>
-          segment.href ? (
-            <a href={segment.href}>{segment.text}</a>
-          ) : segment.semibold ? (
-            <strong>{segment.text}</strong>
-          ) : (
-            segment.text
-          ),
-        )}
-      </p>
-    ))}
+    {buoy.answer.map((paragraph) => (
+            <p>
+                {paragraph.map((segment) =>
+                    segment.href ? (
+                        <a href={segment.href}>{segment.text}</a>
+                    ) : segment.semibold ? (
+                        <strong>{segment.text}</strong>
+                    ) : (
+                        segment.text
+                    ),
+                )}
+            </p>
+        ))}
 </div>
