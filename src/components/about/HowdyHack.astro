@@ -98,15 +98,10 @@ import WelcBot from "@assets/about/welcome-bottle.png";
 
 <style>
 #howdyhack-bubbles {
-  width: 100%;
-  aspect-ratio: 5 / 3;
+  width: 42rem;
+  aspect-ratio: 5 / 2;
   min-height: unset;
-
-  @media (width >= 64rem) {
-    font-size: 6rem;
-    max-width: 96rem;
-    margin: 0 auto;
-  }
+  margin: 1rem auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -118,72 +113,72 @@ import WelcBot from "@assets/about/welcome-bottle.png";
   animation-delay: 0.5s;
 }
 #bottle {
-  width: 30%;
-  top: 10%;
-  left: 10%;
+  width: 60%;
+  top: -60%;
+  left: -10%;
 }
 #H1 {
   animation-delay: 0s;
   position: absolute;
-  width: 15%;
-  left: 15%;
-  top: 35%;
+  width: 21%;
+  left: 8%;
+  top: 3%;
 }
 #O1 {
   animation-delay: 0.15s;
   position: absolute;
-  width: 10%;
-  left: 31%;
-  top: 40%;
+  width: 14%;
+  left: 28%;
+  top: 10%;
 }
 #W1 {
   animation-delay: 0.3s;
   position: absolute;
-  width: 13%;
+  width: 17%;
   left: 41%;
-  top: 35%;
+  top: 5%;
 }
 #D1 {
   animation-delay: 0.45s;
   position: absolute;
-  width: 10%;
-  left: 55%;
-  top: 35%;
+  width: 14%;
+  left: 57%;
+  top: 10%;
 }
 #Y1 {
   animation-delay: 0.6s;
   position: absolute;
-  width: 13%;
-  left: 65%;
-  top: 30%;
+  width: 17%;
+  left: 70%;
+  top: 4%;
 }
 #H2 {
   animation-delay: 0.75s;
   position: absolute;
-  width: 13%;
-  left: 30%;
-  top: 65%;
+  width: 18%;
+  left: 26%;
+  top: 49%;
 }
 #A2 {
   animation-delay: 0.9s;
   position: absolute;
-  width: 12%;
+  width: 16%;
   left: 43%;
-  top: 68%;
+  top: 55%;
 }
 #C2 {
   animation-delay: 1.05s;
   position: absolute;
-  width: 13%;
-  left: 55%;
-  top: 63%;
+  width: 16%;
+  left: 58%;
+  top: 53%;
 }
 #K2 {
   animation-delay: 1.2s;
   position: absolute;
-  width: 13%;
-  left: 68%;
-  top: 70%;
+  width: 18%;
+  left: 74%;
+  top: 56%;
 }
 @keyframes bob {
   0%,
@@ -191,58 +186,32 @@ import WelcBot from "@assets/about/welcome-bottle.png";
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-10px);
   }
 }
 @media (width < 64rem) {
   #howdyhack-bubbles {
-    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 20rem;
+    transform: translateY(7rem);
+    z-index: 10;
+  }
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+  }
+  #WelcBot {
+    animation-delay: 0.5s;
   }
   #bottle {
-    width: 65%;
-    top: 5%;
-    left: 5%;
-  }
-  #H1 {
-    width: 20%;
-    left: 8%;
-  }
-  #O1 {
-    width: 13%;
-    left: 30%;
-  }
-  #W1 {
-    width: 15%;
-    left: 42%;
-  }
-  #D1 {
-    width: 15%;
-    left: 56%;
-  }
-  #Y1 {
-    width: 15%;
-    top: 32%;
-    left: 70%;
-  }
-  #H2 {
-    width: 20%;
-    left: 25%;
-    top: 55%;
-  }
-  #A2 {
-    width: 15%;
-    left: 44%;
-    top: 60%;
-  }
-  #C2 {
-    width: 15%;
-    left: 59%;
-    top: 58%;
-  }
-  #K2 {
-    width: 15%;
-    left: 75%;
-    top: 56%;
+    width: 85%;
+    top: -115%;
+    left: 1%;
   }
 }
 </style>
