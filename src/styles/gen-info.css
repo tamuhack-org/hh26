@@ -224,7 +224,7 @@
 }
 
 /* Mobile UI */
-@media (max-width: 768px) {
+@media (width < 64rem) {
   #GenInfoBubble-desktop {
     display: none;
   }
