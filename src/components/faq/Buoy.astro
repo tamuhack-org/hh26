@@ -1,10 +1,12 @@
 ---
+import { Picture } from "astro:assets";
+
 interface Props {
     slug: string;
-    art: unknown;
+    art: ImageMetadata;
 }
 
-const { slug, art: Art } = Astro.props;
+const { slug, art } = Astro.props;
 ---
 
 <style>
@@ -23,7 +25,7 @@ const { slug, art: Art } = Astro.props;
     inset: var(--bleed-t) var(--bleed-r) var(--bleed-b) var(--bleed-l);
 }
 
-.buoy-svg {
+.buoy-img {
     display: block;
     width: 100%;
     height: 100%;
@@ -260,7 +262,14 @@ const { slug, art: Art } = Astro.props;
 <div id={`buoy-${slug}`}>
     <div class="buoy-art" aria-hidden="true">
         <div class="buoy-bleed">
-            <Art class="buoy-svg" />
+            <Picture
+                src={art}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                width={Math.round(art.width / 2)}
+                class="buoy-img"
+            />
         </div>
     </div>
     <p class="buoy-q"><slot name="question" /></p>
