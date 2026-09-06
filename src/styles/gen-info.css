@@ -110,13 +110,14 @@
 
 #team-info {
   grid-area: team;
+  width: 110%;
   /* transform: translateX(-10%); */
 }
 #team-bub-mobile {
   display: none;
 }
 #team-info-text {
-  width: 60%;
+  width: 75%;
 }
 
 #application {
@@ -287,9 +288,9 @@
   }
 
   #team-info {
-    width: 95%;
-    transform: translateX(0);
-    justify-self: center;
+    width: 100%;
+    transform: none;
+    margin-top: -3rem;
   }
   #team-bub-desktop {
     display: none;
