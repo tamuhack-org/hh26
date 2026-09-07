@@ -95,16 +95,17 @@
 #parking-team-row {
   display: contents;
 }
+
 #parking-ray {
   grid-area: parking;
-  width: 120%;
-  transform: translateX(-25%);
+  width: 130%;
+  transform: translateX(-40%);
 }
 #parking-ray-text {
   color: white;
-  width: 60%;
-  margin-left: 25%;
-  transform: translateY(200%);
+  width: 40%;
+  margin-left: 33%;
+  transform: translateY(80%);
 }
 
 #team-info {
@@ -274,12 +275,15 @@
   }
 
   #parking-ray {
-    transform: translateX(-15%);
+    width: 160%;
+    transform: translate(-30%, -10%);
+    z-index: 5;
   }
   #parking-ray-text {
-    width: 45%;
-    margin-left: 30%;
-    transform: translateY(75%);
+    width: 50%;
+    transform: translate(0%, 60%);
+    text-align: center;
+    margin-top: 1rem;
   }
 
   #team-info {
