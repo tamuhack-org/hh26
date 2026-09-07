@@ -20,6 +20,22 @@ import HardwareSign from "@assets/faq/faq-hardware-sign.png";
 /* widescreen stuff */
 
 /* mobile stuff */
+@media (width < 64rem) {
+    .faq-hardware {
+        order: 4;
+        position: static;
+        width: var(--faq-width);
+        height: calc(var(--faq-width) * 0.416667);
+        margin-top: calc(var(--faq-width) * -0.175);
+        background-image: url("../../assets/faq/faq-mobile-hardware-sign.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .faq-hardware-img {
+        display: none;
+    }
+}
 </style>
 
 <div

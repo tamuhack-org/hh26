@@ -20,6 +20,15 @@ import Krill from "@assets/faq/faq-krill.png";
 /* widescreen stuff */
 
 /* mobile stuff */
+@media (width < 64rem) {
+    .faq-krill {
+        order: 2;
+        position: static;
+        width: calc(var(--faq-width) * 0.902778);
+        height: calc(var(--faq-width) * 0.741667);
+        margin-top: calc(var(--faq-width) * 0.069444);
+    }
+}
 </style>
 
 <div class="faq-krill pointer-events-none absolute z-10">

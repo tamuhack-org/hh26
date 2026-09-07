@@ -19,6 +19,52 @@ import QBurn from "@assets/faq/sign/q-burn.png";
 
 .sign-layer {
     position: absolute;
+    left: calc(var(--faq-width) * var(--l));
+    top: calc(var(--faq-width) * var(--t));
+    width: calc(var(--faq-width) * var(--w));
+    height: calc(var(--faq-width) * var(--h));
+}
+
+#sign-f-burn {
+    --l: 0.304014;
+    --t: 0.179707;
+    --w: 0.345564;
+    --h: 0.42007;
+}
+
+#sign-f {
+    --l: 0.28125;
+    --t: 0.170898;
+    --w: 0.345564;
+    --h: 0.42007;
+}
+
+#sign-a-burn {
+    --l: 0.432617;
+    --t: 0.307617;
+    --w: 0.329616;
+    --h: 0.365234;
+}
+
+#sign-a {
+    --l: 0.390869;
+    --t: 0.314316;
+    --w: 0.472213;
+    --h: 0.328222;
+}
+
+#sign-q-burn {
+    --l: 0.636807;
+    --t: 0.223438;
+    --w: 0.339756;
+    --h: 0.366711;
+}
+
+#sign-q {
+    --l: 0.611357;
+    --t: 0.21125;
+    --w: 0.339756;
+    --h: 0.366711;
 }
 
 .sign-layer :global(picture),
@@ -70,6 +116,53 @@ import QBurn from "@assets/faq/sign/q-burn.png";
 /* widescreen stuff */
 
 /* mobile stuff */
+@media (width < 64rem) {
+    .buoy-box {
+        display: none;
+    }
+
+    #sign-f-burn {
+        --l: 0.065191;
+        --t: 0.114567;
+        --w: 0.462478;
+        --h: 0.562192;
+    }
+
+    #sign-f {
+        --l: 0.034722;
+        --t: 0.102777;
+        --w: 0.462478;
+        --h: 0.562192;
+    }
+
+    #sign-a-burn {
+        --l: 0.237294;
+        --t: 0.285752;
+        --w: 0.441135;
+        --h: 0.488803;
+    }
+
+    #sign-a {
+        --l: 0.181413;
+        --t: 0.294722;
+        --w: 0.631975;
+        --h: 0.439268;
+    }
+
+    #sign-q-burn {
+        --l: 0.510569;
+        --t: 0.173095;
+        --w: 0.454705;
+        --h: 0.490779;
+    }
+
+    #sign-q {
+        --l: 0.476508;
+        --t: 0.156776;
+        --w: 0.454705;
+        --h: 0.490779;
+    }
+}
 </style>
 
 <div class="faq-masthead" aria-hidden="true">
@@ -130,15 +223,7 @@ import QBurn from "@assets/faq/sign/q-burn.png";
     </div>
 
     <!-- F -->
-    <div
-        class="sign-layer is-burn z-30"
-        style={{
-            left: "calc(var(--faq-width) * 0.304014)",
-            top: "calc(var(--faq-width) * 0.179707)",
-            width: "calc(var(--faq-width) * 0.345564)",
-            height: "calc(var(--faq-width) * 0.42007)",
-        }}
-    >
+    <div class="sign-layer is-burn z-30" id="sign-f-burn">
         <Picture
             src={FBurn}
             formats={["avif", "webp"]}
@@ -148,15 +233,7 @@ import QBurn from "@assets/faq/sign/q-burn.png";
             sizes="(min-width: 64rem) 353.86px, 34.56vw"
         />
     </div>
-    <div
-        class="sign-layer z-30"
-        style={{
-            left: "calc(var(--faq-width) * 0.28125)",
-            top: "calc(var(--faq-width) * 0.170898)",
-            width: "calc(var(--faq-width) * 0.345564)",
-            height: "calc(var(--faq-width) * 0.42007)",
-        }}
-    >
+    <div class="sign-layer z-30" id="sign-f">
         <Picture
             src={FBase}
             formats={["avif", "webp"]}
@@ -168,15 +245,7 @@ import QBurn from "@assets/faq/sign/q-burn.png";
     </div>
 
     <!-- A -->
-    <div
-        class="sign-layer is-burn z-30"
-        style={{
-            left: "calc(var(--faq-width) * 0.432617)",
-            top: "calc(var(--faq-width) * 0.307617)",
-            width: "calc(var(--faq-width) * 0.329616)",
-            height: "calc(var(--faq-width) * 0.365234)",
-        }}
-    >
+    <div class="sign-layer is-burn z-30" id="sign-a-burn">
         <Picture
             src={ABurn}
             formats={["avif", "webp"]}
@@ -186,15 +255,7 @@ import QBurn from "@assets/faq/sign/q-burn.png";
             sizes="(min-width: 64rem) 337.53px, 32.96vw"
         />
     </div>
-    <div
-        class="sign-layer is-cover z-30"
-        style={{
-            left: "calc(var(--faq-width) * 0.390869)",
-            top: "calc(var(--faq-width) * 0.314316)",
-            width: "calc(var(--faq-width) * 0.472213)",
-            height: "calc(var(--faq-width) * 0.328222)",
-        }}
-    >
+    <div class="sign-layer is-cover z-30" id="sign-a">
         <Picture
             src={ABase}
             formats={["avif", "webp"]}
@@ -206,15 +267,7 @@ import QBurn from "@assets/faq/sign/q-burn.png";
     </div>
 
     <!-- Q -->
-    <div
-        class="sign-layer is-burn z-30"
-        style={{
-            left: "calc(var(--faq-width) * 0.636807)",
-            top: "calc(var(--faq-width) * 0.223438)",
-            width: "calc(var(--faq-width) * 0.339756)",
-            height: "calc(var(--faq-width) * 0.366711)",
-        }}
-    >
+    <div class="sign-layer is-burn z-30" id="sign-q-burn">
         <Picture
             src={QBurn}
             formats={["avif", "webp"]}
@@ -224,15 +277,7 @@ import QBurn from "@assets/faq/sign/q-burn.png";
             sizes="(min-width: 64rem) 347.91px, 33.98vw"
         />
     </div>
-    <div
-        class="sign-layer z-30"
-        style={{
-            left: "calc(var(--faq-width) * 0.611357)",
-            top: "calc(var(--faq-width) * 0.21125)",
-            width: "calc(var(--faq-width) * 0.339756)",
-            height: "calc(var(--faq-width) * 0.366711)",
-        }}
-    >
+    <div class="sign-layer z-30" id="sign-q">
         <Picture
             src={QBase}
             formats={["avif", "webp"]}

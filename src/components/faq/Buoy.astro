@@ -261,6 +261,36 @@ const { slug, art } = Astro.props;
 /* widescreen stuff */
 
 /* mobile stuff */
+@media (width < 64rem) {
+    [id^="buoy-"] {
+        order: 1;
+        position: relative;
+        width: calc(var(--art-w) * var(--m-base));
+        aspect-ratio: var(--art-w) / var(--art-h);
+        margin: 0 auto calc(var(--faq-width) * 0.111);
+    }
+
+    .buoy-art {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .buoy-q {
+        left: calc((var(--q-cx) - var(--art-l)) / var(--art-w) * 100%);
+        top: calc((var(--q-top) - var(--art-t)) / var(--art-h) * 100%);
+        width: calc(var(--q-w) / var(--art-w) * 100%);
+        font-size: calc(var(--q-size) * var(--m-base) / 1024);
+    }
+
+    .buoy-a {
+        left: calc((var(--a-cx) - var(--art-l)) / var(--art-w) * 100%);
+        top: calc((var(--a-top) - var(--art-t)) / var(--art-h) * 100%);
+        width: calc(var(--a-w) / var(--art-w) * 100%);
+        font-size: calc(var(--m-base) * 0.015625);
+    }
+}
 </style>
 
 <div id={`buoy-${slug}`}>

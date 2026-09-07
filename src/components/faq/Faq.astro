@@ -66,6 +66,27 @@ import Seaweed from "./Seaweed.astro";
 /* widescreen stuff */
 
 /* mobile stuff */
+@media (width < 64rem) {
+    #faq {
+        --m-base: calc((100vw - 1.5rem) / 0.3652);
+        height: auto;
+        padding-bottom: calc(var(--faq-width) * 0.18);
+    }
+
+    .faq-stage {
+        width: 100%;
+        height: auto;
+        padding-top: calc(var(--faq-width) * 0.84);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-glow-lg,
+    .faq-glow-sm {
+        display: none;
+    }
+}
 </style>
 <!-- again just like lading ima try to have eveyrhing contrained by width since i dont have any waves -->
 <section id="faq" class="isolate overflow-clip" aria-labelledby="faq-title">
