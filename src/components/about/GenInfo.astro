@@ -82,11 +82,10 @@ import ParkRay from "@assets/about/parking-ray.png";
     </div>
   </section>
 
-  <section id="parking-team-application" aria-label="Parking-Team-Application">
-    <h3 id="Parking-Title" class="sr-only">Parking</h3>
-
+  <div id="parking-team-application">
     <div id="parking-team-row">
       <div id="parking-ray" class="bubble-stack">
+        <h3 id="Parking-Title" class="sr-only">Parking</h3>
         <Picture src={ParkRay} alt="Parking" class="w-full h-auto" />
         <p id="parking-ray-text" class="bubble-text">
           Parking details will be announced closer to the day of the event.
@@ -94,6 +93,7 @@ import ParkRay from "@assets/about/parking-ray.png";
       </div>
 
       <div id="team-info" class="bubble-stack">
+        <h3 id="Team-Title" class="sr-only">Team Information</h3>
         <Picture
           src={TeamBub}
           id="team-bub-desktop"
@@ -121,11 +121,7 @@ import ParkRay from "@assets/about/parking-ray.png";
       </div>
     </div>
 
-    <div
-      id="application"
-      class="bubble-stack"
-      aria-label="Application Information"
-    >
+    <div id="application" class="bubble-stack">
       <h3 id="Application-Title" class="sr-only">Application Information</h3>
       <Picture
         src={ApplicationBubble}
@@ -147,9 +143,9 @@ import ParkRay from "@assets/about/parking-ray.png";
         on the day of the hackathon.
       </p>
     </div>
-  </section>
+  </div>
 
-  <section id="Hardware" aria-label="Hardware Information">
+  <section id="Hardware" aria-labelledby="Hardware-Title">
     <h3 id="Hardware-Title" class="sr-only">Hardware Information</h3>
     <Picture
       src={HarRay}
