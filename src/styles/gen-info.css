@@ -129,7 +129,7 @@
   display: none;
 }
 #application-text {
-  width: 70%;
+  width: 80%;
 }
 
 /* Hardware */
@@ -266,7 +266,8 @@
   }
 
   #application {
-    max-width: 90%;
+    max-width: 100%;
+    margin-top: -6rem;
   }
   #app-bub-desktop {
     display: none;
