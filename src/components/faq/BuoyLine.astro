@@ -5,9 +5,9 @@ import BuoyLine from "@assets/faq/faq-buoy-line.png";
 
 <style>
 .faq-buoy-line {
-    left: 0;
+    left: calc(var(--faq-width) * -0.235352);
     top: calc(var(--faq-width) * 4.078691);
-    width: var(--faq-width);
+    width: calc(var(--faq-width) * 1.327148);
     height: calc(var(--faq-width) * 0.133789);
 }
 
@@ -20,6 +20,22 @@ import BuoyLine from "@assets/faq/faq-buoy-line.png";
 /* widescreen stuff */
 
 /* mobile stuff */
+@media (width < 64rem) {
+    .faq-buoy-line {
+        order: 3;
+        position: static;
+        width: var(--faq-width);
+        height: calc(var(--faq-width) * 0.352778);
+        margin-top: calc(var(--faq-width) * 1.278972);
+        background-image: url("../../assets/faq/faq-mobile-buoy-line.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .faq-buoy-line-img {
+        display: none;
+    }
+}
 </style>
 
 <div aria-hidden="true" class="faq-buoy-line pointer-events-none absolute z-5">
