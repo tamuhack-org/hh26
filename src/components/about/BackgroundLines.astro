@@ -30,8 +30,51 @@ const backgroundLines = Array.from({ length: 38 }, (_, index) => {
     focusable="false"
     aria-hidden="true"
   >
+    <defs>
+      <linearGradient
+        id="background-lines-gradient"
+        x1="720"
+        y1="7600"
+        x2="550"
+        y2="-292"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0.0559077" stop-color="#556CAA" />
+        <stop offset="0.44424" stop-color="#629BB5" />
+        <stop offset="0.890605" stop-color="#84D8C3" />
+      </linearGradient>
+      <filter
+        id="background-lines-texture"
+        x="-200"
+        y="-200"
+        width="1840"
+        height="8000"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB"
+      >
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.25 0.232558"
+          numOctaves="3"
+          seed="1667"
+          result="noise"
+        />
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="noise"
+          scale="13.2"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+      </filter>
+    </defs>
     {backgroundLines.map(({ resting, gathered }) => (
-      <path d={resting} data-gathered={gathered} vector-effect="non-scaling-stroke" />
+      <path
+        d={resting}
+        data-gathered={gathered}
+        vector-effect="non-scaling-stroke"
+        filter="url(#background-lines-texture)"
+      />
     ))}
   </svg>
 </div>
@@ -48,7 +91,13 @@ const backgroundLines = Array.from({ length: 38 }, (_, index) => {
   pointer-events: none;
   z-index: -2;
   opacity: 0.24;
-  mask-image: linear-gradient(transparent, #000 3rem);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 3rem,
+    #000 calc(100% - 3rem),
+    transparent
+  );
 }
 
 #lines-background svg {
@@ -58,7 +107,7 @@ const backgroundLines = Array.from({ length: 38 }, (_, index) => {
   height: 100%;
   overflow: visible;
   fill: none;
-  stroke: #a0e5cb;
+  stroke: url(#background-lines-gradient);
   stroke-width: 8;
 }
 
