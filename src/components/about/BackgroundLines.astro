@@ -1,0 +1,95 @@
+---
+const backgroundLines = Array.from({ length: 38 }, (_, index) => {
+  const y = -40 + index * 100;
+  const bend = Math.sin(index * 0.32) * 65;
+  return {
+    resting: `M -160 ${y} C 220 ${y - 60 + bend}, 460 ${y + 150 + bend}, 760 ${y + 90} S 1190 ${y - 80 - bend}, 1600 ${y - 30}`,
+    gathered: `M -160 ${y + 120} C 220 ${y + 180 + bend}, 460 ${y - 180 + bend}, 760 ${y - 100} S 1190 ${y + 160 - bend}, 1600 ${y + 40}`,
+  };
+});
+---
+
+<div id="lines-background" aria-hidden="true">
+  <svg
+    viewBox="0 0 1440 2480"
+    preserveAspectRatio="none"
+    focusable="false"
+    aria-hidden="true"
+  >
+    {backgroundLines.map(({ resting, gathered }) => (
+      <path d={resting} data-gathered={gathered} vector-effect="non-scaling-stroke" />
+    ))}
+  </svg>
+</div>
+
+<style>
+#lines-background {
+  position: absolute;
+  top: 7rem;
+  bottom: 0;
+  left: 50%;
+  width: max(110vw, 72rem);
+  transform: translateX(-50%);
+  overflow: visible;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.24;
+  mask-image: linear-gradient(transparent, #000 3rem);
+}
+
+#lines-background svg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: #a0e5cb;
+  stroke-width: 8;
+}
+
+@media (min-width: 64rem) {
+  #lines-background {
+    top: 0;
+  }
+}
+</style>
+
+<script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MEDIA } from "../../media";
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.matchMedia().add(MEDIA.motionSafe, () => {
+  const paths = gsap.utils.toArray<SVGPathElement>("#lines-background path");
+  const restingPaths = paths.map((path) => path.getAttribute("d"));
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#howdyhack-bubbles",
+      start: "clamp(top 85%)",
+      end: "clamp(top 20%)",
+      scrub: 0.8,
+    },
+  });
+
+  timeline.fromTo(
+    "#lines-background",
+    { opacity: 0 },
+    { opacity: 0.24, duration: 0.45, ease: "sine.inOut" },
+    0,
+  );
+
+  timeline.fromTo(
+    paths,
+    { attr: { d: (index: number) => paths[index].dataset.gathered } },
+    {
+      attr: { d: (index: number) => restingPaths[index] },
+      duration: 1,
+      ease: "sine.inOut",
+    },
+    0,
+  );
+});
+</script>

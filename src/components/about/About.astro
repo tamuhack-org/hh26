@@ -2,16 +2,18 @@
 import FishTrail from "@assets/about/fish-trail.png";
 import GenInfoComponent from "./GenInfo.astro";
 import HowdyHackComponent from "./HowdyHack.astro";
+import BackgroundLines from "./BackgroundLines.astro";
 ---
 
 <section
   id="about"
-  class="w-full overflow-x-clip gap-6 p-4 mt-[-1rem] geninfo"
+  class="w-full overflow-x-clip overflow-y-visible gap-6 p-4 mt-[-1rem] geninfo"
   style={`--fish-trail-image: url('${FishTrail.src}');`}
   aria-labelledby="about-title"
 >
   <h2 id="about-title" class="sr-only">About</h2>
   <div class="geninfo-content">
+    <BackgroundLines />
     <HowdyHackComponent />
     <GenInfoComponent />
   </div>
