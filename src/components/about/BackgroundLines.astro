@@ -1,10 +1,24 @@
 ---
 const backgroundLines = Array.from({ length: 38 }, (_, index) => {
-  const y = -40 + index * 100;
+  const firstThirdEnd = 13;
+  const secondThirdEnd = 20;
+  const closeSpacing = 85;
+  const normalSpacing = 100;
+  const secondThirdStart = -40 + firstThirdEnd * closeSpacing;
+  const finalThirdStart =
+    secondThirdStart + (secondThirdEnd - firstThirdEnd) * normalSpacing;
+  const y =
+    index < firstThirdEnd
+      ? -40 + index * closeSpacing
+      : index < secondThirdEnd
+        ? secondThirdStart + (index - firstThirdEnd) * normalSpacing
+        : finalThirdStart +
+          (index - secondThirdEnd) * normalSpacing +
+          (index - secondThirdEnd) ** 2 * 40;
   const bend = Math.sin(index * 0.32) * 65;
   return {
     resting: `M -160 ${y} C 220 ${y - 60 + bend}, 460 ${y + 150 + bend}, 760 ${y + 90} S 1190 ${y - 80 - bend}, 1600 ${y - 30}`,
-    gathered: `M -160 ${y + 120} C 220 ${y + 180 + bend}, 460 ${y - 180 + bend}, 760 ${y - 100} S 1190 ${y + 160 - bend}, 1600 ${y + 40}`,
+    gathered: `M -160 ${y + 60} C 220 ${y + 90 + bend}, 460 ${y - 90 + bend}, 760 ${y - 50} S 1190 ${y + 80 - bend}, 1600 ${y + 20}`,
   };
 });
 ---
