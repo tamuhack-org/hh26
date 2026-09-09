@@ -4,6 +4,7 @@ import Hh26Logo from "@assets/hh26-logo.png";
 import About from "@components/about/About.astro";
 import Faq from "@components/faq/Faq.astro";
 import Landing from "@components/landing/Landing.astro";
+import Footer from "@components/footer/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -36,5 +37,10 @@ import Layout from "../layouts/Layout.astro";
     <Landing />
     <About />
     <Faq />
+    <div class="footer-wrapper bg-[#0E075F]">
+        <div class="mx-auto max-w-500 px-8 pt-16 lg:px-16">
+            <Footer />
+        </div>
+    </div>
   </main>
 </Layout>
