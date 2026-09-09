@@ -22,6 +22,11 @@ import Buoy from "./Buoy.astro";
         align-items: center;
         width: 100%;
     }
+
+    .hardware-buoys > :global([id^="buoy-"]) {
+        /* Let flex centering handle buoys wider than the mobile scene. */
+        margin-inline: 0;
+    }
 }
 </style>
 
