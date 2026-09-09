@@ -1,6 +1,9 @@
 ---
-import { Picture } from "astro:assets";
+import { getImage, Picture } from "astro:assets";
 import BuoyLine from "@assets/faq/faq-buoy-line.png";
+import MobileBuoyLine from "@assets/faq/faq-mobile-buoy-line.png";
+
+const OptimizedMobileBuoyLine = await getImage({ src: MobileBuoyLine, format: "avif", quality: 80 });
 ---
 
 <style>
@@ -29,7 +32,7 @@ import BuoyLine from "@assets/faq/faq-buoy-line.png";
         width: var(--faq-width);
         height: calc(var(--faq-width) * 0.352778);
         margin-top: 2rem;
-        background-image: url("../../assets/faq/faq-mobile-buoy-line.png");
+        background-image: var(--mobile-buoy-line-image);
         background-repeat: no-repeat;
         background-size: 100% 100%;
     }
@@ -40,7 +43,11 @@ import BuoyLine from "@assets/faq/faq-buoy-line.png";
 }
 </style>
 
-<div aria-hidden="true" class="faq-buoy-line pointer-events-none absolute z-5">
+<div
+    aria-hidden="true"
+    class="faq-buoy-line pointer-events-none absolute z-5"
+    style={`--mobile-buoy-line-image: url('${OptimizedMobileBuoyLine.src}');`}
+>
     <Picture
         src={BuoyLine}
         formats={["avif", "webp"]}

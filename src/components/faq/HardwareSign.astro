@@ -1,6 +1,9 @@
 ---
-import { Picture } from "astro:assets";
+import { getImage, Picture } from "astro:assets";
 import HardwareSign from "@assets/faq/faq-hardware-sign.png";
+import MobileHardwareSign from "@assets/faq/faq-mobile-hardware-sign.png";
+
+const OptimizedMobileHardwareSign = await getImage({ src: MobileHardwareSign, format: "avif", quality: 80 });
 ---
 
 <style>
@@ -27,7 +30,7 @@ import HardwareSign from "@assets/faq/faq-hardware-sign.png";
         width: var(--faq-width);
         height: calc(var(--faq-width) * 0.416667);
         margin-top: calc(var(--faq-width) * -0.175);
-        background-image: url("../../assets/faq/faq-mobile-hardware-sign.png");
+        background-image: var(--mobile-hardware-sign-image);
         background-repeat: no-repeat;
         background-size: 100% 100%;
     }
@@ -42,6 +45,7 @@ import HardwareSign from "@assets/faq/faq-hardware-sign.png";
     class="faq-hardware pointer-events-none absolute z-10"
     role="img"
     aria-label="Hardware"
+    style={`--mobile-hardware-sign-image: url('${OptimizedMobileHardwareSign.src}');`}
 >
     <Picture
         src={HardwareSign}
