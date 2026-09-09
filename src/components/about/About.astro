@@ -7,12 +7,15 @@ import HowdyHackComponent from "./HowdyHack.astro";
 
 <section
   id="about"
-  class="w-full overflow-x-clip overflow-y-visible gap-6 p-4 mt-[-1rem] geninfo"
+  class="w-full overflow-x-clip overflow-y-visible gap-6 p-4 pb-20 mt-[-1rem] geninfo"
   style={`--fish-trail-image: url('${FishTrail.src}');`}
   aria-labelledby="about-title"
 >
   <h2 id="about-title" class="sr-only">About</h2>
-  <div class="geninfo-content">
+  <div
+    class="geninfo-content"
+    style={`min-height: calc(${FishTrail.height}px + 22rem);`}
+  >
     <BackgroundLines />
     <HowdyHackComponent />
     <GenInfoComponent />
