@@ -13,11 +13,11 @@ import Seaweed from "./Seaweed.astro";
 <style>
 /* fixed the ugly font stuff that i was doing before with the fonts being manually put into folder, now js pulling form api like im supposed to */
 #faq {
-    --faq-width: min(100vw, 64rem);
+    --faq-width: 64rem;
     font-family: var(--font-poppins);
     position: relative;
     width: 100%;
-    height: calc(var(--faq-width) * 4.927734);
+    height: calc(var(--faq-width) * 6.3);
     background: linear-gradient(
         180deg,
         #4b5bbf 0%,
@@ -68,13 +68,14 @@ import Seaweed from "./Seaweed.astro";
 /* mobile stuff */
 @media (width < 64rem) {
     #faq {
-        --m-base: calc((100vw - 1.5rem) / 0.3652);
+        --faq-width: min(100vw, 24rem);
+        --m-base: calc((var(--faq-width) - 1.5rem) / 0.3652);
         height: auto;
         padding-bottom: calc(var(--faq-width) * 0.18);
     }
 
     .faq-stage {
-        width: 100%;
+        width: var(--faq-width);
         height: auto;
         padding-top: calc(var(--faq-width) * 0.84);
         display: flex;
