@@ -2,6 +2,8 @@
 import { Picture } from "astro:assets";
 import BabyFish from "@assets/about/baby-fish.png";
 
+const fishPathWidthScale = 1.4;
+const fishPathCenterX = 1401 / 2;
 const babyFishPath =
   "M453.715 7.40625C165.215 53.4062 53.2148 321.406 239.715 407.906C491.715 558.906 1042.21 459.406 1233.71 659.406C1475.26 911.672 1084.21 1074.63 900.715 1095.91C659.216 1123.91 251.214 1219.91 55.7139 1482.41C-139.786 1744.91 297.714 2036.91 678.214 2011.41C1292.21 1970.26 1792.71 2552.41 390.215 2813.91";
 ---
@@ -13,7 +15,12 @@ const babyFishPath =
     preserveAspectRatio="none"
     aria-hidden="true"
   >
-    <path id="babyfish-motion-path" d={babyFishPath} fill="none" />
+    <path
+      id="babyfish-motion-path"
+      d={babyFishPath}
+      transform={`translate(${fishPathCenterX} 0) scale(${fishPathWidthScale} 1) translate(${-fishPathCenterX} 0)`}
+      fill="none"
+    />
   </svg>
   <Picture
     id="babyfish"
@@ -40,9 +47,9 @@ const babyFishPath =
   top: 1rem;
   bottom: 1rem;
   left: 50%;
-  transform: translateX(-55%);
-  width: 1400px;
-  max-width: 140%;
+  transform: translateX(-50%);
+  width: 1500px;
+  max-width: 100%;
   pointer-events: none;
   z-index: 2;
 }
@@ -111,7 +118,7 @@ gsap.matchMedia().add(`${MEDIA.desktop} and ${MEDIA.motionSafe}`, () => {
     "#babyfish",
     {
       autoAlpha: 0,
-      duration: 0.15,
+      duration: 0.1,
       ease: "power1.in",
     },
     0.8,
