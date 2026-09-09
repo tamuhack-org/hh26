@@ -1,19 +1,21 @@
 ---
 import FishTrail from "@assets/about/fish-trail.png";
 import BackgroundLines from "./BackgroundLines.astro";
+import FishGenInfo from "./FishGenInfo.astro";
 import GenInfoComponent from "./GenInfo.astro";
 import HowdyHackComponent from "./HowdyHack.astro";
 ---
 
 <section
   id="about"
-  class="w-full overflow-x-clip overflow-y-visible gap-6 p-4 mt-[-1rem] geninfo"
-  style={`--fish-trail-image: url('${FishTrail.src}');`}
+  class="w-full overflow-x-clip overflow-y-visible gap-6 p-4 pb-48 mt-[-1rem] geninfo"
+  style={`--fish-trail-image: url('${FishTrail.src}'); --fish-trail-width: ${FishTrail.width / 16}rem; --fish-trail-height: ${FishTrail.height / 16}rem;`}
   aria-labelledby="about-title"
 >
   <h2 id="about-title" class="sr-only">About</h2>
   <div class="geninfo-content">
     <BackgroundLines />
+    <FishGenInfo />
     <HowdyHackComponent />
     <GenInfoComponent />
   </div>
@@ -27,6 +29,7 @@ import HowdyHackComponent from "./HowdyHack.astro";
 .geninfo-content {
   position: relative;
   z-index: 1;
+  min-height: calc(var(--fish-trail-height) + 22rem);
 }
 
 .geninfo-content::before {
@@ -36,6 +39,7 @@ import HowdyHackComponent from "./HowdyHack.astro";
   content: "";
   pointer-events: none;
   background-image: var(--fish-trail-image);
+  background-size: var(--fish-trail-width) var(--fish-trail-height);
   background-repeat: no-repeat;
   background-position: center 20rem;
 }

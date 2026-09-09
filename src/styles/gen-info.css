@@ -1,4 +1,6 @@
 #gen-info-container {
+  position: relative;
+  z-index: 3;
   max-width: 52rem;
   display: grid;
   gap: 4rem;
