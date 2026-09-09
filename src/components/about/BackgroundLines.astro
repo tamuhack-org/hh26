@@ -1,121 +1,121 @@
 ---
 const backgroundLines = Array.from({ length: 38 }, (_, index) => {
-  const firstThirdEnd = 13;
-  const secondThirdEnd = 20;
-  const closeSpacing = 85;
-  const normalSpacing = 100;
-  const secondThirdStart = -40 + firstThirdEnd * closeSpacing;
-  const finalThirdStart =
-    secondThirdStart + (secondThirdEnd - firstThirdEnd) * normalSpacing;
-  const y =
-    index < firstThirdEnd
-      ? -40 + index * closeSpacing
-      : index < secondThirdEnd
-        ? secondThirdStart + (index - firstThirdEnd) * normalSpacing
-        : finalThirdStart +
-          (index - secondThirdEnd) * normalSpacing +
-          (index - secondThirdEnd) ** 2 * 40;
-  const bend = Math.sin(index * 0.32) * 65;
-  return {
-    resting: `M -160 ${y} C 220 ${y - 60 + bend}, 460 ${y + 150 + bend}, 760 ${y + 90} S 1190 ${y - 80 - bend}, 1600 ${y - 30}`,
-    gathered: `M -160 ${y + 60} C 220 ${y + 90 + bend}, 460 ${y - 90 + bend}, 760 ${y - 50} S 1190 ${y + 80 - bend}, 1600 ${y + 20}`,
-  };
+    const firstThirdEnd = 13;
+    const secondThirdEnd = 20;
+    const closeSpacing = 85;
+    const normalSpacing = 100;
+    const secondThirdStart = -40 + firstThirdEnd * closeSpacing;
+    const finalThirdStart =
+        secondThirdStart + (secondThirdEnd - firstThirdEnd) * normalSpacing;
+    const y =
+        index < firstThirdEnd
+            ? -40 + index * closeSpacing
+            : index < secondThirdEnd
+              ? secondThirdStart + (index - firstThirdEnd) * normalSpacing
+              : finalThirdStart +
+                (index - secondThirdEnd) * normalSpacing +
+                (index - secondThirdEnd) ** 2 * 40;
+    const bend = Math.sin(index * 0.32) * 65;
+    return {
+        resting: `M -160 ${y} C 220 ${y - 60 + bend}, 460 ${y + 150 + bend}, 760 ${y + 90} S 1190 ${y - 80 - bend}, 1600 ${y - 30}`,
+        gathered: `M -160 ${y + 60} C 220 ${y + 90 + bend}, 460 ${y - 90 + bend}, 760 ${y - 50} S 1190 ${y + 80 - bend}, 1600 ${y + 20}`,
+    };
 });
 ---
 
 <div id="lines-background" aria-hidden="true">
-  <svg
-    viewBox="0 0 1440 2480"
-    preserveAspectRatio="none"
-    focusable="false"
-    aria-hidden="true"
-  >
-    <defs>
-      <linearGradient
-        id="background-lines-gradient"
-        x1="720"
-        y1="7600"
-        x2="550"
-        y2="-292"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0.0559077" stop-color="#556CAA" />
-        <stop offset="0.44424" stop-color="#629BB5" />
-        <stop offset="0.890605" stop-color="#84D8C3" />
-      </linearGradient>
-      <filter
-        id="background-lines-texture"
-        x="-200"
-        y="-200"
-        width="1840"
-        height="2720"
-        filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
-      >
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.25 0.232558"
-          numOctaves="3"
-          seed="1667"
-          result="noise"
-        />
-        <feDisplacementMap
-          in="SourceGraphic"
-          in2="noise"
-          scale="13.2"
-          xChannelSelector="R"
-          yChannelSelector="G"
-        />
-      </filter>
-    </defs>
-    <g filter="url(#background-lines-texture)">
-      {backgroundLines.map(({ resting, gathered }) => (
+    <svg
+        viewBox="0 0 1440 2480"
+        preserveAspectRatio="none"
+        focusable="false"
+        aria-hidden="true"
+    >
+        <defs>
+            <linearGradient
+                id="background-lines-gradient"
+                x1="720"
+                y1="7600"
+                x2="550"
+                y2="-292"
+                gradientUnits="userSpaceOnUse"
+            >
+                <stop offset="0.0559077" stop-color="#556CAA" />
+                <stop offset="0.44424" stop-color="#629BB5" />
+                <stop offset="0.890605" stop-color="#84D8C3" />
+            </linearGradient>
+            <filter
+                id="background-lines-texture"
+                x="-200"
+                y="-200"
+                width="1840"
+                height="2720"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+            >
+                <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.25 0.232558"
+                    numOctaves="3"
+                    seed="1667"
+                    result="noise"
+                />
+                <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="noise"
+                    scale="13.2"
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                />
+            </filter>
+        </defs>
+        <g filter="url(#background-lines-texture)">
+            {backgroundLines.map(({ resting, gathered }) => (
         <path
           d={resting}
           data-gathered={gathered}
           vector-effect="non-scaling-stroke"
         />
       ))}
-    </g>
-  </svg>
+        </g>
+    </svg>
 </div>
 
 <style>
 #lines-background {
-  position: absolute;
-  top: 7rem;
-  bottom: 0;
-  left: 50%;
-  width: max(110vw, 72rem);
-  transform: translateX(-50%);
-  overflow: visible;
-  pointer-events: none;
-  z-index: -2;
-  opacity: 0.24;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    #000 3rem,
-    #000 calc(100% - 3rem),
-    transparent
-  );
+    position: absolute;
+    top: 7rem;
+    bottom: 0;
+    left: 50%;
+    width: max(110vw, 72rem);
+    transform: translateX(-50%);
+    overflow: visible;
+    pointer-events: none;
+    z-index: -2;
+    opacity: 0.24;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        #000 3rem,
+        #000 calc(100% - 3rem),
+        transparent
+    );
 }
 
 #lines-background svg {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  fill: none;
-  stroke: url(#background-lines-gradient);
-  stroke-width: 8;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: none;
+    stroke: url(#background-lines-gradient);
+    stroke-width: 8;
 }
 
 @media (min-width: 64rem) {
-  #lines-background {
-    top: 0;
-  }
+    #lines-background {
+        top: 0;
+    }
 }
 </style>
 
@@ -127,33 +127,33 @@ import { MEDIA } from "../../media";
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.matchMedia().add(MEDIA.motionSafe, () => {
-  const paths = gsap.utils.toArray<SVGPathElement>("#lines-background path");
-  const restingPaths = paths.map((path) => path.getAttribute("d"));
-  const timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#howdyhack-bubbles",
-      start: "clamp(top 85%)",
-      end: "clamp(top 20%)",
-      scrub: 0.8,
-    },
-  });
+    const paths = gsap.utils.toArray<SVGPathElement>("#lines-background path");
+    const restingPaths = paths.map((path) => path.getAttribute("d"));
+    const timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#howdyhack-bubbles",
+            start: "clamp(top 85%)",
+            end: "clamp(top 20%)",
+            scrub: 0.8,
+        },
+    });
 
-  timeline.fromTo(
-    "#lines-background",
-    { opacity: 0 },
-    { opacity: 0.24, duration: 0.45, ease: "sine.inOut" },
-    0,
-  );
+    timeline.fromTo(
+        "#lines-background",
+        { opacity: 0 },
+        { opacity: 0.24, duration: 0.45, ease: "sine.inOut" },
+        0,
+    );
 
-  timeline.fromTo(
-    paths,
-    { attr: { d: (index: number) => paths[index].dataset.gathered } },
-    {
-      attr: { d: (index: number) => restingPaths[index] },
-      duration: 1,
-      ease: "sine.inOut",
-    },
-    0,
-  );
+    timeline.fromTo(
+        paths,
+        { attr: { d: (index: number) => paths[index].dataset.gathered } },
+        {
+            attr: { d: (index: number) => restingPaths[index] },
+            duration: 1,
+            ease: "sine.inOut",
+        },
+        0,
+    );
 });
 </script>

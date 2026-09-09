@@ -14,177 +14,177 @@ import Wave from "./Wave.astro";
 
 <style>
 #landing {
-  --landing-width: min(100vw, var(--widescreen-breakpoint));
-  --landing-mobile-scene-width: 70rem;
-  --landing-mobile-wave-width: 40rem;
-  --landing-scene-width: var(--landing-mobile-scene-width);
-  --landing-wave-width: var(--landing-mobile-wave-width);
+    --landing-width: min(100vw, var(--widescreen-breakpoint));
+    --landing-mobile-scene-width: 70rem;
+    --landing-mobile-wave-width: 40rem;
+    --landing-scene-width: var(--landing-mobile-scene-width);
+    --landing-wave-width: var(--landing-mobile-wave-width);
 
-  --wave-end-ratio: 0.7518556;
-  --wave-end-height: calc(var(--landing-wave-width) * var(--wave-end-ratio));
+    --wave-end-ratio: 0.7518556;
+    --wave-end-height: calc(var(--landing-wave-width) * var(--wave-end-ratio));
 
-  --gradient-x: calc(
-    50vw -
-    var(--landing-scene-width) *
-    0.15
-  ); /* Keeps the gradient visually fixed. */
+    --gradient-x: calc(
+        50vw -
+        var(--landing-scene-width) *
+        0.15
+    ); /* Keeps the gradient visually fixed. */
 
-  grid-template-rows:
-    calc(var(--landing-scene-width) * 0.35)
-    var(--wave-end-height);
+    grid-template-rows:
+        calc(var(--landing-scene-width) * 0.35)
+        var(--wave-end-height);
 }
 
 .landing-gradient {
-  height: calc(var(--landing-scene-width) * 0.71875);
-  background: radial-gradient(
-    calc(var(--landing-scene-width) * 0.9858)
-      calc(var(--landing-scene-width) * 0.362106) at var(--gradient-x) 0,
-    #fce3a5 0%,
-    #7fdab0 44.71%,
-    #2cd0b4 78.85%,
-    #29cdb4 99.04%
-  );
+    height: calc(var(--landing-scene-width) * 0.71875);
+    background: radial-gradient(
+        calc(var(--landing-scene-width) * 0.9858)
+            calc(var(--landing-scene-width) * 0.362106) at var(--gradient-x) 0,
+        #fce3a5 0%,
+        #7fdab0 44.71%,
+        #2cd0b4 78.85%,
+        #29cdb4 99.04%
+    );
 }
 
 @media (min-width: 64rem) {
-  #landing {
-    --landing-scene-width: var(--landing-width);
-    --landing-wave-width: var(--landing-width);
-    --gradient-x: max(
-      calc(var(--landing-scene-width) * 0.2671),
-      calc(50vw - calc(var(--landing-scene-width) * 0.2329))
-    );
-  }
+    #landing {
+        --landing-scene-width: var(--landing-width);
+        --landing-wave-width: var(--landing-width);
+        --gradient-x: max(
+            calc(var(--landing-scene-width) * 0.2671),
+            calc(50vw - calc(var(--landing-scene-width) * 0.2329))
+        );
+    }
 }
 </style>
 
 <section
-  id="landing"
-  aria-labelledby="landing-title"
-  class="relative isolate grid w-full overflow-x-clip"
+    id="landing"
+    aria-labelledby="landing-title"
+    class="relative isolate grid w-full overflow-x-clip"
 >
-  <h2 class="sr-only" id="landing-title">Landing</h2>
-  <div
-    aria-hidden="true"
-    class="landing-gradient pointer-events-none absolute inset-x-0 top-0 z-0"
-  ></div>
-  <div class="pointer-events-none relative row-start-2">
-    <Wave />
-  </div>
-  <div
-    id="inner-assets"
-    class="row-start-1 mx-auto grid max-w-xs w-full grid-cols-1 lg:max-w-(--widescreen-breakpoint) lg:grid-cols-2 max-lg:content-start"
-  >
-    <!-- this is where we would put all the assets constrained by width -->
-    <!-- in other words, everything BUT the waves -->
-
+    <h2 class="sr-only" id="landing-title">Landing</h2>
     <div
-      class="pointer-events-none hidden lg:block relative z-10 row-start-1 col-start-1 col-span-2"
-    >
-      <Picture
-        src={SandTree}
-        formats={["avif", "webp"]}
-        quality={80}
-        alt=""
         aria-hidden="true"
-        loading="eager"
-        fetchpriority="high"
-        width={1997}
-        sizes="(min-width: 96rem) 124.8125rem, 130vw"
-        class="w-130/100 max-w-none"
-      />
+        class="landing-gradient pointer-events-none absolute inset-x-0 top-0 z-0"
+    ></div>
+    <div class="pointer-events-none relative row-start-2">
+        <Wave />
     </div>
     <div
-      class="relative z-20 px-3 lg:px-0 mt-24 lg:mt-0 row-start-1 col-start-1"
+        id="inner-assets"
+        class="row-start-1 mx-auto grid max-w-xs w-full grid-cols-1 lg:max-w-(--widescreen-breakpoint) lg:grid-cols-2 max-lg:content-start"
     >
-      <JellySvg />
-    </div>
-    <div class="z-5 flex justify-center items-center lg:hidden">
-      <DateLocMobile />
-    </div>
-    <div
-      class="relative flex items-center lg:hidden mt-2 gap-4 p-2 z-20 place-self-center"
-    >
-      <a
-        href="https://start.tamuhack.org"
-        aria-label="Apply to TAMUhack"
-        class="z-5"
-      >
-        <Picture
-          src={ApplyMobile}
-          formats={["avif", "webp"]}
-          quality={80}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          width={98}
-          widths={[98, 196]}
-          sizes="6.125rem"
-          class="w-[6.125rem]"
-        />
-      </a>
-      <a
-        href="https://start.tamuhack.org"
-        aria-label="Mentor at TAMUhack"
-        class="z-5"
-      >
-        <Picture
-          src={MentorMobile}
-          formats={["avif", "webp"]}
-          quality={80}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          width={116}
-          widths={[116, 232]}
-          sizes="7.25rem"
-          class="w-[7.25rem]"
-        />
-      </a>
-    </div>
-    <div
-      class="relative z-10 hidden lg:flex row-start-1 col-start-2 items-end justify-end"
-    >
-      <ApplyMentor />
-    </div>
+        <!-- this is where we would put all the assets constrained by width -->
+        <!-- in other words, everything BUT the waves -->
 
-    <div
-      class="pointer-events-none hidden lg:block relative z-10 col-span-2 row-start-1 col-start-1 self-end"
-    >
-      <Picture
-        src={SandFront}
-        formats={["avif", "webp"]}
-        quality={80}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        width={1536}
-        sizes="(min-width: 96rem) 96rem, 100vw"
-        class="w-full"
-      />
-    </div>
+        <div
+            class="pointer-events-none hidden lg:block relative z-10 row-start-1 col-start-1 col-span-2"
+        >
+            <Picture
+                src={SandTree}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                aria-hidden="true"
+                loading="eager"
+                fetchpriority="high"
+                width={1997}
+                sizes="(min-width: 96rem) 124.8125rem, 130vw"
+                class="w-130/100 max-w-none"
+            />
+        </div>
+        <div
+            class="relative z-20 px-3 lg:px-0 mt-24 lg:mt-0 row-start-1 col-start-1"
+        >
+            <JellySvg />
+        </div>
+        <div class="z-5 flex justify-center items-center lg:hidden">
+            <DateLocMobile />
+        </div>
+        <div
+            class="relative flex items-center lg:hidden mt-2 gap-4 p-2 z-20 place-self-center"
+        >
+            <a
+                href="https://start.tamuhack.org"
+                aria-label="Apply to TAMUhack"
+                class="z-5"
+            >
+                <Picture
+                    src={ApplyMobile}
+                    formats={["avif", "webp"]}
+                    quality={80}
+                    alt=""
+                    aria-hidden="true"
+                    loading="eager"
+                    width={98}
+                    widths={[98, 196]}
+                    sizes="6.125rem"
+                    class="w-[6.125rem]"
+                />
+            </a>
+            <a
+                href="https://start.tamuhack.org"
+                aria-label="Mentor at TAMUhack"
+                class="z-5"
+            >
+                <Picture
+                    src={MentorMobile}
+                    formats={["avif", "webp"]}
+                    quality={80}
+                    alt=""
+                    aria-hidden="true"
+                    loading="eager"
+                    width={116}
+                    widths={[116, 232]}
+                    sizes="7.25rem"
+                    class="w-[7.25rem]"
+                />
+            </a>
+        </div>
+        <div
+            class="relative z-10 hidden lg:flex row-start-1 col-start-2 items-end justify-end"
+        >
+            <ApplyMentor />
+        </div>
 
-    <div
-      class="pointer-events-none z-30 absolute left-1/2 -translate-x-1/2 top-[calc(var(--landing-scene-width)*0.30)] w-[calc(var(--landing-scene-width)*0.343)] lg:relative lg:left-auto lg:translate-x-0 lg:top-auto lg:w-auto lg:col-start-1 lg:col-span-2 lg:row-start-1"
-    >
-      <FishLanding />
+        <div
+            class="pointer-events-none hidden lg:block relative z-10 col-span-2 row-start-1 col-start-1 self-end"
+        >
+            <Picture
+                src={SandFront}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                aria-hidden="true"
+                loading="eager"
+                width={1536}
+                sizes="(min-width: 96rem) 96rem, 100vw"
+                class="w-full"
+            />
+        </div>
+
+        <div
+            class="pointer-events-none z-30 absolute left-1/2 -translate-x-1/2 top-[calc(var(--landing-scene-width)*0.30)] w-[calc(var(--landing-scene-width)*0.343)] lg:relative lg:left-auto lg:translate-x-0 lg:top-auto lg:w-auto lg:col-start-1 lg:col-span-2 lg:row-start-1"
+        >
+            <FishLanding />
+        </div>
+        <div
+            class="pointer-events-none lg:hidden absolute left-[calc(50%+var(--landing-scene-width)*0.02)] -translate-x-1/2 top-[calc(var(--landing-scene-width)*0.19)] z-1"
+        >
+            <Picture
+                src={SandTreeMobile}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                aria-hidden="true"
+                loading="eager"
+                fetchpriority="high"
+                width={448}
+                widths={[448, 896]}
+                sizes="28rem"
+                class="w-[28rem] max-w-none"
+            />
+        </div>
     </div>
-    <div
-      class="pointer-events-none lg:hidden absolute left-[calc(50%+var(--landing-scene-width)*0.02)] -translate-x-1/2 top-[calc(var(--landing-scene-width)*0.19)] z-1"
-    >
-      <Picture
-        src={SandTreeMobile}
-        formats={["avif", "webp"]}
-        quality={80}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        fetchpriority="high"
-        width={448}
-        widths={[448, 896]}
-        sizes="28rem"
-        class="w-[28rem] max-w-none"
-      />
-    </div>
-  </div>
 </section>

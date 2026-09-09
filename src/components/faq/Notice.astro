@@ -1,0 +1,43 @@
+---
+import { Picture } from "astro:assets";
+import Notice from "@assets/faq/buoys/faq-notice.png";
+---
+
+<style>
+.faq-notice {
+    left: calc(var(--faq-width) * -0.219723);
+    top: calc(var(--faq-width) * 2.422852);
+    width: calc(var(--faq-width) * 0.707031);
+    height: calc(var(--faq-width) * 0.391602);
+}
+
+.faq-notice-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* widescreen stuff */
+
+/* mobile stuff */
+@media (width < 64rem) {
+    .faq-notice {
+        display: none;
+    }
+}
+</style>
+
+<div
+    class="faq-notice pointer-events-none absolute z-10"
+    role="img"
+    aria-label="Notice"
+>
+    <Picture
+        src={Notice}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        width={Math.round(Notice.width / 2)}
+        class="faq-notice-img"
+    />
+</div>

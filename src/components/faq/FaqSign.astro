@@ -1,0 +1,290 @@
+---
+import { Picture } from "astro:assets";
+import ABase from "@assets/faq/sign/a-base.png";
+import ABurn from "@assets/faq/sign/a-burn.png";
+import FBase from "@assets/faq/sign/f-base.png";
+import FBurn from "@assets/faq/sign/f-burn.png";
+import LightBuoy from "@assets/faq/sign/light-buoy.png";
+import LightBuoyShadow from "@assets/faq/sign/light-buoy-shadow.png";
+import QBase from "@assets/faq/sign/q-base.png";
+import QBurn from "@assets/faq/sign/q-burn.png";
+---
+
+<style>
+.faq-masthead {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.sign-layer {
+    position: absolute;
+    left: calc(var(--faq-width) * var(--l));
+    top: calc(var(--faq-width) * var(--t));
+    width: calc(var(--faq-width) * var(--w));
+    height: calc(var(--faq-width) * var(--h));
+}
+
+#sign-f-burn {
+    --l: 0.304014;
+    --t: 0.179707;
+    --w: 0.345564;
+    --h: 0.42007;
+}
+
+#sign-f {
+    --l: 0.28125;
+    --t: 0.170898;
+    --w: 0.345564;
+    --h: 0.42007;
+}
+
+#sign-a-burn {
+    --l: 0.432617;
+    --t: 0.307617;
+    --w: 0.329616;
+    --h: 0.365234;
+}
+
+#sign-a {
+    --l: 0.390869;
+    --t: 0.314316;
+    --w: 0.472213;
+    --h: 0.328222;
+}
+
+#sign-q-burn {
+    --l: 0.636807;
+    --t: 0.223438;
+    --w: 0.339756;
+    --h: 0.366711;
+}
+
+#sign-q {
+    --l: 0.611357;
+    --t: 0.21125;
+    --w: 0.339756;
+    --h: 0.366711;
+}
+
+.sign-layer :global(picture),
+.buoy-rot :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.sign-layer :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.sign-layer.is-cover :global(img) {
+    object-fit: cover;
+}
+
+.is-burn {
+    mix-blend-mode: color-burn;
+    opacity: 0.75;
+}
+
+.buoy-box {
+    position: absolute;
+}
+
+.buoy-rot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.buoy-rot :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buoy-shadow {
+    mix-blend-mode: color-burn;
+    opacity: 0.8;
+}
+
+/* widescreen stuff */
+
+/* mobile stuff */
+@media (width < 64rem) {
+    .buoy-box {
+        display: none;
+    }
+
+    #sign-f-burn {
+        --l: 0.065191;
+        --t: 0.114567;
+        --w: 0.462478;
+        --h: 0.562192;
+    }
+
+    #sign-f {
+        --l: 0.034722;
+        --t: 0.102777;
+        --w: 0.462478;
+        --h: 0.562192;
+    }
+
+    #sign-a-burn {
+        --l: 0.237294;
+        --t: 0.285752;
+        --w: 0.441135;
+        --h: 0.488803;
+    }
+
+    #sign-a {
+        --l: 0.181413;
+        --t: 0.294722;
+        --w: 0.631975;
+        --h: 0.439268;
+    }
+
+    #sign-q-burn {
+        --l: 0.510569;
+        --t: 0.173095;
+        --w: 0.454705;
+        --h: 0.490779;
+    }
+
+    #sign-q {
+        --l: 0.476508;
+        --t: 0.156776;
+        --w: 0.454705;
+        --h: 0.490779;
+    }
+}
+</style>
+
+<div class="faq-masthead" aria-hidden="true">
+    <!-- light buoy, sits under the qa buoys -->
+    <div
+        class="buoy-box z-5"
+        style={{
+            left: "calc(var(--faq-width) * -0.075605)",
+            top: "calc(var(--faq-width) * 0.148633)",
+            width: "calc(var(--faq-width) * 0.655839)",
+            height: "calc(var(--faq-width) * 0.783268)",
+        }}
+    >
+        <div
+            class="buoy-rot buoy-shadow"
+            style={{
+                width: "calc(var(--faq-width) * 0.38442)",
+                height: "calc(var(--faq-width) * 0.682959)",
+                rotate: "-27.43deg",
+            }}
+        >
+            <Picture
+                src={LightBuoyShadow}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                width={940}
+                sizes="(min-width: 64rem) 393.65px, 38.44vw"
+            />
+        </div>
+    </div>
+    <div
+        class="buoy-box z-5"
+        style={{
+            left: "calc(var(--faq-width) * -0.09375)",
+            top: "calc(var(--faq-width) * 0.112305)",
+            width: "calc(var(--faq-width) * 0.684764)",
+            height: "calc(var(--faq-width) * 0.824219)",
+        }}
+    >
+        <div
+            class="buoy-rot"
+            style={{
+                width: "calc(var(--faq-width) * 0.404723)",
+                height: "calc(var(--faq-width) * 0.719029)",
+                rotate: "-26.72deg",
+            }}
+        >
+            <Picture
+                src={LightBuoy}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                width={577}
+                sizes="(min-width: 64rem) 414.44px, 40.47vw"
+            />
+        </div>
+    </div>
+
+    <!-- F -->
+    <div class="sign-layer is-burn z-30" id="sign-f-burn">
+        <Picture
+            src={FBurn}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 353.86px, 34.56vw"
+        />
+    </div>
+    <div class="sign-layer z-30" id="sign-f">
+        <Picture
+            src={FBase}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 353.86px, 34.56vw"
+        />
+    </div>
+
+    <!-- A -->
+    <div class="sign-layer is-burn z-30" id="sign-a-burn">
+        <Picture
+            src={ABurn}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 337.53px, 32.96vw"
+        />
+    </div>
+    <div class="sign-layer is-cover z-30" id="sign-a">
+        <Picture
+            src={ABase}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 483.55px, 47.22vw"
+        />
+    </div>
+
+    <!-- Q -->
+    <div class="sign-layer is-burn z-30" id="sign-q-burn">
+        <Picture
+            src={QBurn}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 347.91px, 33.98vw"
+        />
+    </div>
+    <div class="sign-layer z-30" id="sign-q">
+        <Picture
+            src={QBase}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            width={1024}
+            sizes="(min-width: 64rem) 347.91px, 33.98vw"
+        />
+    </div>
+</div>

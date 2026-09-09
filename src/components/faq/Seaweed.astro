@@ -1,0 +1,73 @@
+---
+import SeaweedLeft from "@assets/faq/seaweed-left.svg?url";
+import SeaweedRight from "@assets/faq/seaweed-right.svg?url";
+---
+
+<!-- ts isnt crazy i just have the same formatting as the gradient-->
+<style>
+.faq-seaweed {
+    top: calc(var(--faq-width) * 0.46582);
+    bottom: 0;
+    background-repeat: repeat-y;
+    background-size: 100% calc(var(--faq-width) * 6.431641);
+}
+
+.faq-seaweed-left {
+    left: calc(var(--faq-width) * -0.186523);
+    width: calc(var(--faq-width) * 0.491211);
+    background-image: var(--seaweed-image);
+}
+
+.faq-seaweed-right {
+    right: calc(var(--faq-width) * -0.199219);
+    width: calc(var(--faq-width) * 0.560547);
+    background-image: var(--seaweed-image);
+    transform: scaleX(-1);
+}
+
+.faq-seaweed-wide {
+    display: none;
+    left: calc(50% - var(--faq-width) * 1.671973);
+    top: calc(var(--faq-width) * 0.177637);
+    width: calc(var(--faq-width) * 3.354688);
+    bottom: 0;
+    background-repeat: repeat-y;
+    background-size: 100% calc(var(--faq-width) * 6.786328);
+}
+
+/* widescreen stuff */
+@media (width >= 96rem) {
+    .faq-seaweed-left,
+    .faq-seaweed-right {
+        display: none;
+    }
+
+    .faq-seaweed-wide {
+        display: block;
+        background-image: url("../../assets/faq/seaweed-wide.svg");
+    }
+}
+
+/* mobile stuff */
+@media (width < 64rem) {
+    .faq-seaweed {
+        top: calc(var(--faq-width) * 0.259778);
+        bottom: calc(var(--faq-width) * -0.18);
+    }
+}
+</style>
+
+<div
+    aria-hidden="true"
+    class="faq-seaweed faq-seaweed-left pointer-events-none absolute z-1"
+    style={`--seaweed-image: url("${SeaweedLeft}")`}
+></div>
+<div
+    aria-hidden="true"
+    class="faq-seaweed faq-seaweed-right pointer-events-none absolute z-1"
+    style={`--seaweed-image: url("${SeaweedRight}")`}
+></div>
+<div
+    aria-hidden="true"
+    class="faq-seaweed-wide pointer-events-none absolute z-1"
+></div>

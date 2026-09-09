@@ -1,0 +1,154 @@
+---
+import Bubbles from "./Bubbles.astro";
+import BuoyLine from "./BuoyLine.astro";
+import Buoys from "./Buoys.astro";
+import Chains from "./Chains.astro";
+import FaqSign from "./FaqSign.astro";
+import HardwareBuoys from "./HardwareBuoys.astro";
+import HardwareSign from "./HardwareSign.astro";
+import Krill from "./Krill.astro";
+import Notice from "./Notice.astro";
+import Seaweed from "./Seaweed.astro";
+---
+
+<style>
+/* fixed the ugly font stuff that i was doing before with the fonts being manually put into folder, now js pulling form api like im supposed to */
+#faq {
+    --faq-width: 64rem;
+    font-family: var(--font-poppins);
+    position: relative;
+    width: 100%;
+    height: calc(var(--faq-width) * 6.3 + 4rem);
+    background: linear-gradient(
+        180deg,
+        #4b5bbf 0%,
+        #435ee2 31%,
+        #2b43c3 59%,
+        #1a2b92 75%,
+        #0e075f 95%
+    );
+}
+/* ts is lowkey kinda weird, i also have the gradient fixed js like landing, or at least my attempt to do it*/
+
+.faq-stage {
+    position: relative;
+    width: var(--faq-width);
+    height: 100%;
+    margin-inline: auto;
+}
+
+.faq-glow-lg {
+    left: calc(var(--faq-width) * 0.041992);
+    top: 0;
+    width: calc(var(--faq-width) * 1.153203);
+    height: calc(var(--faq-width) * 1.103516);
+    opacity: 0.75;
+    background: radial-gradient(
+        circle calc(var(--faq-width) * 0.521234) at 46.07% 47.21%,
+        #3ba2f0 0%,
+        #3b94f000 100%
+    );
+}
+
+.faq-glow-sm {
+    left: calc(var(--faq-width) * -0.052734);
+    top: calc(var(--faq-width) * 0.136719);
+    width: calc(var(--faq-width) * 0.427604);
+    height: calc(var(--faq-width) * 0.40918);
+    opacity: 0.75;
+    background: radial-gradient(
+        circle calc(var(--faq-width) * 0.193271) at 46.07% 47.21%,
+        #f3c955 0%,
+        #43c6e39c 50%,
+        #43c6e300 100%
+    );
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.1;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+.faq-glow-yellow {
+    top: calc(var(--faq-width) * -1);
+    left: 15%;
+    translate: -50% 0;
+
+    width: calc(var(--faq-width) * 0.8);
+    height: calc(var(--faq-width) * 0.8);
+
+    background: radial-gradient(
+        circle,
+        rgba(243, 201, 85, 0.8) 0%,
+        rgba(243, 201, 85, 0) 70%
+    );
+    border-radius: 50%;
+    filter: blur(40px);
+    mix-blend-mode: plus-lighter;
+    z-index: 100;
+
+    animation: pulse 3.5s ease-in-out infinite;
+}
+
+/* widescreen stuff */
+
+/* mobile stuff */
+@media (width < 64rem) {
+    #faq {
+        --faq-width: min(100vw, 24rem);
+        --m-base: calc((var(--faq-width) - 1.5rem) / 0.3652);
+        height: auto;
+        padding-bottom: calc(var(--faq-width) * 0.18);
+    }
+
+    .faq-stage {
+        width: var(--faq-width);
+        height: auto;
+        padding-top: calc(var(--faq-width) * 0.84);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-glow-yellow,
+    .faq-glow-lg,
+    .faq-glow-sm {
+        display: none;
+    }
+}
+</style>
+<!-- again just like lading ima try to have eveyrhing contrained by width since i dont have any waves -->
+<section id="faq" class="isolate overflow-clip" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="sr-only">FAQ</h2>
+    <div class="faq-stage">
+        <div
+            aria-hidden="true"
+            class="faq-glow-lg pointer-events-none absolute z-0"
+        ></div>
+        <div
+            aria-hidden="true"
+            class="faq-glow-sm pointer-events-none absolute z-0"
+        ></div>
+        <div
+            aria-hidden="true"
+            class="faq-glow-yellow pointer-events-none absolute z-0"
+        ></div>
+        <Seaweed />
+        <FaqSign />
+        <BuoyLine />
+        <Notice />
+        <Buoys />
+        <Chains />
+        <Bubbles />
+        <Krill />
+        <HardwareSign />
+        <HardwareBuoys />
+    </div>
+</section>

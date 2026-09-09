@@ -1,0 +1,455 @@
+---
+import { Picture } from "astro:assets";
+
+interface Props {
+    slug: string;
+    art: ImageMetadata;
+}
+
+const { slug, art } = Astro.props;
+---
+
+<style>
+/* !!!!!! to clarify for the ts styles component, you can pull the exact positions from figma which is why i use a lot of calc to put stuff where it goes */
+.buoy-art {
+    position: absolute;
+    z-index: 10;
+    left: calc(var(--faq-width) * var(--art-l));
+    top: calc(var(--faq-width) * var(--art-t));
+    width: calc(var(--faq-width) * var(--art-w));
+    height: calc(var(--faq-width) * var(--art-h));
+}
+
+.buoy-bleed {
+    position: absolute;
+    inset: var(--bleed-t) var(--bleed-r) var(--bleed-b) var(--bleed-l);
+}
+
+.buoy-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.buoy-q,
+.buoy-a {
+    font-family: var(--font-poppins), sans-serif;
+    position: absolute;
+    z-index: 20;
+    margin: 0;
+    translate: -50% 0;
+    text-align: center;
+    text-wrap: pretty;
+    letter-spacing: 0.02em;
+}
+
+.buoy-q {
+    font-family: var(--font-poppins), sans-serif;
+    left: calc(var(--faq-width) * var(--q-cx));
+    top: calc(var(--faq-width) * var(--q-top));
+    width: calc(var(--faq-width) * var(--q-w));
+    color: #fff;
+    font-size: calc(var(--faq-width) * var(--q-size) / 1024);
+    font-weight: 700;
+    line-height: var(--q-leading, inherit);
+    text-shadow: 1px 1px 3px rgb(35 27 121 / 0.6);
+}
+
+.buoy-a {
+    left: calc(var(--faq-width) * var(--a-cx));
+    top: calc(var(--faq-width) * var(--a-top));
+    width: calc(var(--faq-width) * var(--a-w));
+    color: #261d5f;
+    font-size: calc(var(--faq-width) * 16 / 1024);
+    font-weight: 400;
+    line-height: var(--a-leading, inherit);
+}
+
+.buoy-a :global(p) {
+    margin: 0;
+}
+
+.buoy-a :global(p + p) {
+    margin-top: var(--paragraph-gap, 1em);
+}
+
+.buoy-a :global(a) {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.buoy-a :global(strong) {
+    font-weight: 600;
+}
+
+#buoy-deadline {
+    --art-l: 0.595459;
+    --art-t: 0.716797;
+    --art-w: 0.278532;
+    --art-h: 0.340205;
+    --bleed-t: -1.58%;
+    --bleed-r: -8.02%;
+    --bleed-b: -11.55%;
+    --bleed-l: -8.02%;
+    --q-cx: 0.73291;
+    --q-top: 0.785156;
+    --q-w: 0.21582;
+    --q-size: 20;
+    --a-cx: 0.734014;
+    --a-top: 0.894941;
+    --a-w: 0.220563;
+}
+
+#buoy-experience {
+    --art-l: 0.203809;
+    --art-t: 0.951494;
+    --art-w: 0.279945;
+    --art-h: 0.458613;
+    --bleed-t: -4.79%;
+    --bleed-r: -12.43%;
+    --bleed-b: -10.4%;
+    --bleed-l: -12.43%;
+    --q-cx: 0.343789;
+    --q-top: 1.063193;
+    --q-w: 0.248841;
+    --q-size: 20;
+    --a-cx: 0.340918;
+    --a-top: 1.160283;
+    --a-w: 0.235995;
+}
+
+#buoy-attend {
+    --art-l: 0.538896;
+    --art-t: 1.109854;
+    --art-w: 0.291257;
+    --art-h: 0.526371;
+    --bleed-t: -4.33%;
+    --bleed-r: -12.42%;
+    --bleed-b: -9.41%;
+    --bleed-l: -12.42%;
+    --q-cx: 0.682402;
+    --q-top: 1.254063;
+    --q-w: 0.323775;
+    --q-size: 20;
+    --a-cx: 0.688271;
+    --a-top: 1.364258;
+    --a-w: 0.241771;
+}
+
+#buoy-cost {
+    --art-l: 0.171299;
+    --art-t: 1.471807;
+    --art-w: 0.285601;
+    --art-h: 0.428401;
+    --bleed-t: -5%;
+    --bleed-r: -11.91%;
+    --bleed-b: -10.87%;
+    --bleed-l: -11.91%;
+    --q-cx: 0.314941;
+    --q-top: 1.567383;
+    --q-w: 0.178711;
+    --q-size: 20;
+    --a-cx: 0.316406;
+    --a-top: 1.657021;
+    --a-w: 0.247817;
+}
+
+#buoy-workshops {
+    --art-l: 0.545967;
+    --art-t: 1.695195;
+    --art-w: 0.21915;
+    --art-h: 0.418505;
+    --bleed-t: -6.02%;
+    --bleed-r: -18.24%;
+    --bleed-b: -13.08%;
+    --bleed-l: -18.24%;
+    --q-cx: 0.660156;
+    --q-top: 1.779297;
+    --q-w: 0.189453;
+    --q-size: 20;
+    --a-cx: 0.65625;
+    --a-top: 1.899414;
+    --a-w: 0.189453;
+}
+
+#buoy-msc {
+    --art-l: 0.114736;
+    --art-t: 1.993516;
+    --art-w: 0.350719;
+    --art-h: 0.441127;
+    --bleed-t: -4.47%;
+    --bleed-r: -8.91%;
+    --bleed-b: -9.7%;
+    --bleed-l: -8.91%;
+    --q-cx: 0.289854;
+    --q-top: 2.086631;
+    --q-w: 0.303981;
+    --q-size: 20;
+    --a-cx: 0.290117;
+    --a-top: 2.235293;
+    --a-w: 0.316706;
+}
+
+#buoy-teams {
+    --art-l: 0.545977;
+    --art-t: 2.174492;
+    --art-w: 0.295663;
+    --art-h: 0.560203;
+    --bleed-t: -3.4%;
+    --bleed-r: -10.21%;
+    --bleed-b: -7.38%;
+    --bleed-l: -10.31%;
+    --q-cx: 0.693809;
+    --q-top: 2.290498;
+    --q-w: 0.323956;
+    --q-size: 20;
+    --a-cx: 0.695312;
+    --a-top: 2.392578;
+    --a-w: 0.257812;
+}
+
+#buoy-plagiarism {
+    --art-l: 0.143018;
+    --art-t: 2.598652;
+    --art-w: 0.365207;
+    --art-h: 0.521889;
+    --bleed-t: -5.18%;
+    --bleed-r: -11.75%;
+    --bleed-b: -11.26%;
+    --bleed-l: -11.75%;
+    --q-cx: 0.32752;
+    --q-top: 2.752939;
+    --q-w: 0.323775;
+    --q-size: 36;
+    --a-cx: 0.3254;
+    --a-top: 2.858809;
+    --a-w: 0.279945;
+}
+
+#buoy-waitlist {
+    --art-l: 0.562939;
+    --art-t: 2.806494;
+    --art-w: 0.356295;
+    --art-h: 0.600894;
+    --bleed-t: -4.39%;
+    --bleed-r: -11.75%;
+    --bleed-b: -9.54%;
+    --bleed-l: -11.75%;
+    --q-cx: 0.740371;
+    --q-top: 2.956367;
+    --q-w: 0.323775;
+    --q-size: 36;
+    --a-cx: 0.740371;
+    --a-top: 3.055332;
+    --a-w: 0.298326;
+}
+
+#buoy-more-qs {
+    --art-l: 0.212295;
+    --art-t: 3.208027;
+    --art-w: 0.244599;
+    --art-h: 0.311051;
+    --bleed-t: -6.23%;
+    --bleed-r: -12.56%;
+    --bleed-b: -13.53%;
+    --bleed-l: -12.56%;
+    --q-cx: 0.333184;
+    --q-top: 3.326797;
+    --q-w: 0.323775;
+    --q-size: 20;
+    --a-cx: 0.333086;
+    --a-top: 3.394658;
+    --a-w: 0.234375;
+}
+
+#buoy-judging {
+    --art-l: 0.546666325;
+    --art-t: 4.42461158;
+    --art-w: 0.375011735;
+    --art-h: 0.449648948;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.734725;
+    --q-top: 4.531023817;
+    --q-w: 0.254876277;
+    --q-size: 20;
+    --a-cx: 0.734725;
+    --a-top: 4.626953607;
+    --a-w: 0.250797451;
+}
+
+#buoy-how {
+    --art-l: 0.1370093019;
+    --art-t: 4.523841873;
+    --art-w: 0.41576962;
+    --art-h: 0.7228079;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.3437815;
+    --q-top: 4.637219607;
+    --q-w: 0.28926157;
+    --q-size: 20;
+    --a-cx: 0.3437815;
+    --a-top: 4.76090149;
+    --a-w: 0.313003;
+}
+
+#buoy-want {
+    --art-l: 0.480731713;
+    --art-t: 4.802585779;
+    --art-w: 0.408371969;
+    --art-h: 0.66856902;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.684917697;
+    --q-top: 4.916585728;
+    --q-w: 0.291346416;
+    --q-size: 20;
+    --a-cx: 0.684917697;
+    --a-top: 5.096585661;
+    --a-w: 0.302427818;
+}
+
+#buoy-sw {
+    --art-l: 0.114607202;
+    --art-t: 5.176310814;
+    --art-w: 0.400069881;
+    --art-h: 0.544669031;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.314642142;
+    --q-top: 5.2801584691;
+    --q-w: 0.242047519;
+    --q-size: 20;
+    --a-cx: 0.314642142;
+    --a-top: 5.4599854;
+    --a-w: 0.260045423;
+}
+
+#buoy-when {
+    --art-l: 0.480712525;
+    --art-t: 5.401963433;
+    --art-w: 0.34965895;
+    --art-h: 0.527734805;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.655542;
+    --q-top: 5.49806509;
+    --q-w: 0.216761265;
+    --q-size: 20;
+    --a-cx: 0.655542;
+    --a-top: 5.62553487;
+    --a-w: 0.23454444;
+}
+
+#buoy-where {
+    --art-l: 0.072009456;
+    --art-t: 5.698344595;
+    --art-w: 0.435294389;
+    --art-h: 0.554055512;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.290656651;
+    --q-top: 5.829155697;
+    --q-w: 0.311223736;
+    --q-size: 20;
+    --a-cx: 0.290656651;
+    --a-top: 5.969831796;
+    --a-w: 0.311223736;
+}
+
+/* widescreen stuff */
+@media (width >= 64rem) {
+    #buoy-how,
+    #buoy-sw,
+    #buoy-where {
+        --hardware-column-offset: -4rem;
+    }
+
+    #buoy-judging,
+    #buoy-want,
+    #buoy-when {
+        --hardware-column-offset: 4rem;
+    }
+
+    #buoy-sw,
+    #buoy-want {
+        --hardware-row-offset: 2rem;
+    }
+
+    #buoy-where,
+    #buoy-when {
+        --hardware-row-offset: 4rem;
+    }
+
+    .buoy-art,
+    .buoy-q,
+    .buoy-a {
+        transform: translate(
+            var(--hardware-column-offset, 0rem),
+            var(--hardware-row-offset, 0rem)
+        );
+    }
+}
+
+/* mobile stuff */
+@media (width < 64rem) {
+    [id^="buoy-"] {
+        order: 1;
+        position: relative;
+        width: calc(var(--art-w) * var(--m-base));
+        aspect-ratio: var(--art-w) / var(--art-h);
+        margin: 0 auto calc(var(--faq-width) * 0.111);
+    }
+
+    .buoy-art {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .buoy-q {
+        left: calc((var(--q-cx) - var(--art-l)) / var(--art-w) * 100%);
+        top: calc((var(--q-top) - var(--art-t)) / var(--art-h) * 100%);
+        width: calc(var(--q-w) / var(--art-w) * 100%);
+        font-size: calc(var(--q-size) * var(--m-base) / 1024);
+    }
+
+    .buoy-a {
+        left: calc((var(--a-cx) - var(--art-l)) / var(--art-w) * 100%);
+        top: calc((var(--a-top) - var(--art-t)) / var(--art-h) * 100%);
+        width: calc(var(--a-w) / var(--art-w) * 100%);
+        font-size: calc(var(--m-base) * 16 / 1024);
+    }
+}
+</style>
+
+<div id={`buoy-${slug}`}>
+    <div class="buoy-art" aria-hidden="true">
+        <div class="buoy-bleed">
+            <Picture
+                src={art}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                width={Math.round(art.width / 2)}
+                class="buoy-img"
+            />
+        </div>
+    </div>
+    <p class="buoy-q"><slot name="question" /></p>
+    <div class="buoy-a"><slot name="answer" /></div>
+</div>

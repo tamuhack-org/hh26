@@ -1,0 +1,50 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="324.848" height="169.955" viewBox="0 0 324.848 169.955" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="noticec-Group 34">
+<g id="noticec-Vector 411" filter="url(#noticec-filter0_g_0_4)">
+<path d="M201.587 9.32297C242.121 0.0453492 286.251 0.213233 314.635 3.18228L316.015 3.32667C320.588 3.80518 323.907 7.90002 323.428 12.4728L323.14 15.2325C322.661 19.8052 318.566 23.1242 313.994 22.6457L312.614 22.5013C285.73 19.6893 243.836 19.58 205.92 28.2586C167.462 37.0613 136.396 54.0794 125.705 82.827C98.8621 155.003 36.7847 168.84 10.6686 167.534L9.2829 167.464C4.69093 167.235 1.15456 163.326 1.38419 158.734L1.52277 155.963C1.7524 151.371 5.66108 147.834 10.2531 148.064L11.6387 148.133C31.7719 149.14 84.3929 138.186 107.5 76.0549C121.783 37.6489 161.595 18.4766 201.587 9.32297Z" fill="url(#noticec-paint0_radial_0_4)"/>
+<path d="M201.587 9.32297C242.121 0.0453492 286.251 0.213233 314.635 3.18228L316.015 3.32667C320.588 3.80518 323.907 7.90002 323.428 12.4728L323.14 15.2325C322.661 19.8052 318.566 23.1242 313.994 22.6457L312.614 22.5013C285.73 19.6893 243.836 19.58 205.92 28.2586C167.462 37.0613 136.396 54.0794 125.705 82.827C98.8621 155.003 36.7847 168.84 10.6686 167.534L9.2829 167.464C4.69093 167.235 1.15456 163.326 1.38419 158.734L1.52277 155.963C1.7524 151.371 5.66108 147.834 10.2531 148.064L11.6387 148.133C31.7719 149.14 84.3929 138.186 107.5 76.0549C121.783 37.6489 161.595 18.4766 201.587 9.32297Z" fill="url(#noticec-paint1_linear_0_4)" fill-opacity="0.3"/>
+<path d="M201.587 9.32297C242.121 0.0453492 286.251 0.213233 314.635 3.18228L316.015 3.32667C320.588 3.80518 323.907 7.90002 323.428 12.4728L323.14 15.2325C322.661 19.8052 318.566 23.1242 313.994 22.6457L312.614 22.5013C285.73 19.6893 243.836 19.58 205.92 28.2586C167.462 37.0613 136.396 54.0794 125.705 82.827C98.8621 155.003 36.7847 168.84 10.6686 167.534L9.2829 167.464C4.69093 167.235 1.15456 163.326 1.38419 158.734L1.52277 155.963C1.7524 151.371 5.66108 147.834 10.2531 148.064L11.6387 148.133C31.7719 149.14 84.3929 138.186 107.5 76.0549C121.783 37.6489 161.595 18.4766 201.587 9.32297Z" fill="url(#noticec-paint2_linear_0_4)" fill-opacity="0.2"/>
+</g>
+<g id="noticec-Vector 412" filter="url(#noticec-filter1_g_0_4)">
+<path d="M10.5192 168.342C12.0684 164.124 17.5255 154.109 26.9603 147.799M33.8977 166.208C37.8431 158.992 48.084 143.055 57.4849 137.033M60.9536 157.056C64.3234 146.485 72.0638 125.065 76.0675 123.955M88.0095 139.372C87.547 130.786 87.3158 112.648 90.0907 108.778M104.631 121.803C102.442 116.971 98.9924 103.421 102.707 87.8809M119.922 96.9252C118.044 91.3133 115.414 74.9872 119.922 54.5783M133.796 68.4562C132.871 62.805 131.993 48.9663 135.878 38.8204M151.915 51.1126C152.582 42.9668 155.441 26.0156 161.546 23.3782" stroke="url(#noticec-paint3_radial_0_4)" stroke-width="1.38748"/>
+</g>
+</g>
+<defs>
+<filter id="noticec-filter0_g_0_4" x="2.98023e-08" y="-5.27361e-08" width="324.848" height="168.989" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.11711689084768295 0.61073708534240723" numOctaves="3" seed="4673" />
+<feDisplacementMap in="shape" scale="2.7472128868103027" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect1_texture_0_4">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+<filter id="noticec-filter1_g_0_4" x="8.49439" y="21.3677" width="154.7" height="148.587" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.11711689084768295 0.61073708534240723" numOctaves="3" seed="4673" />
+<feDisplacementMap in="shape" scale="2.7472128868103027" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect1_texture_0_4">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+<radialGradient id="noticec-paint0_radial_0_4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88.1589 105.803) rotate(146.642) scale(99.6695 244.485)">
+<stop stop-color="#9A480D"/>
+<stop offset="0.610411" stop-color="#82380B"/>
+<stop offset="0.805205" stop-color="#772F0A"/>
+<stop offset="1" stop-color="#4E0F06"/>
+</radialGradient>
+<linearGradient id="noticec-paint1_linear_0_4" x1="96.4837" y1="99.5596" x2="109.665" y2="112.047" gradientUnits="userSpaceOnUse">
+<stop stop-color="#490C06" stop-opacity="0"/>
+<stop offset="1" stop-color="#490C06"/>
+</linearGradient>
+<linearGradient id="noticec-paint2_linear_0_4" x1="87.4651" y1="105.11" x2="110.359" y2="123.84" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EF6323"/>
+<stop offset="1" stop-color="#AD400E" stop-opacity="0"/>
+</linearGradient>
+<radialGradient id="noticec-paint3_radial_0_4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(10.3106 166.274) rotate(-24.7108) scale(86.2947 68.4172)">
+<stop stop-color="#3D0605"/>
+<stop offset="1" stop-color="#651B08"/>
+</radialGradient>
+</defs>
+</svg>

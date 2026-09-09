@@ -1,0 +1,122 @@
+---
+import How from "@assets/faq/buoys/faq-buoy-hw-how.png";
+import Judging from "@assets/faq/buoys/faq-buoy-hw-judging.png";
+import Software from "@assets/faq/buoys/faq-buoy-hw-sw.png";
+import Want from "@assets/faq/buoys/faq-buoy-hw-want.png";
+import When from "@assets/faq/buoys/faq-buoy-hw-when.png";
+import Where from "@assets/faq/buoys/faq-buoy-hw-where.png";
+import Buoy from "./Buoy.astro";
+---
+
+<style>
+.hardware-buoys {
+    display: contents;
+}
+
+@media (width < 64rem) {
+    .hardware-buoys {
+        order: 5;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+        align-items: center;
+        width: 100%;
+    }
+}
+</style>
+
+<div class="hardware-buoys">
+    <Buoy slug="judging" art={Judging}>
+        <Fragment slot="question">When is hardware judging?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                Hardware judging will take place in-person at HowdyHack on
+                Sunday, October 25th. Hardware and software judging occur at the
+                same location and time. See our schedule for details.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="how" art={How}>
+        <Fragment slot="question"
+            >How does the hardware track at HowdyHack work?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                The hardware track begins on
+                <strong>Saturday, October 17th,</strong>
+                a week before HowdyHack. Participants will collaboratively
+                design, build, and prototype hardware-based solutions to be
+                judged at the event. Additional details will be released as the
+                event date nears.
+            </p>
+            <p>
+                Hardware hackers are still
+                <strong>required to check in</strong>
+                to HowdyHack on October 24th and are encouraged to stay for
+                food, swag, and day-of activities.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="want" art={Want}>
+        <Fragment slot="question"
+            >I want to participate, but I don't have any hardware. What should I
+            do?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                TAMUhack will provide dedicated hardware components for hackers
+                on a first-come-first-serve basis. Details will be released in
+                the upcoming weeks.
+            </p>
+            <p>
+                <strong>NOTE:</strong>
+                Hackers are not limited to the resources we provide; using
+                personal/external hardware is allowed.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="sw" art={Software}>
+        <Fragment slot="question"
+            >Can I participate in both the software and hardware tracks?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                At this time, a team can only participate in one track, either
+                software or hardware. The tracks will be judged separately by
+                specialists in the respective field.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="when" art={When}>
+        <Fragment slot="question"
+            >When can I start working on my hardware project?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                Teams may begin working on October 17th. Hardware participants
+                are still required to check in to the event on October 24th.
+                Hardware judging will take place in person on October 25th.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="where" art={Where}>
+        <Fragment slot="question"
+            >Where can I specify that I want to participate in the hardware
+            track?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                There is a question on the application that asks if you want to
+                participate in the hardware track. If you change your mind
+                before applications close, you can log back in and edit your
+                application. Similar to software, hackers are allowed to apply
+                and work in teams of up to 4.
+            </p>
+        </Fragment>
+    </Buoy>
+</div>

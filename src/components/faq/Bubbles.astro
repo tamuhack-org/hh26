@@ -1,0 +1,43 @@
+---
+import { Picture } from "astro:assets";
+import Bubbles from "@assets/faq/faq-bubbles.png";
+---
+
+<style>
+.faq-bubbles {
+    left: calc(var(--faq-width) * 0.22282);
+    top: calc(var(--faq-width) * 0.637681);
+    width: calc(var(--faq-width) * 0.588867);
+    height: calc(var(--faq-width) * 1.854492);
+}
+
+.faq-bubbles-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* widescreen stuff */
+
+/* mobile stuff */
+@media (width < 64rem) {
+    .faq-bubbles {
+        display: block;
+        left: calc(var(--faq-width) * 0.809889);
+        top: calc(var(--faq-width) * 0.432611);
+        width: calc(var(--faq-width) * 0.586278);
+        height: calc(var(--faq-width) * 1.852778);
+    }
+}
+</style>
+
+<div aria-hidden="true" class="faq-bubbles pointer-events-none absolute z-25">
+    <Picture
+        src={Bubbles}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        width={Math.round(Bubbles.width / 2)}
+        class="faq-bubbles-img"
+    />
+</div>
