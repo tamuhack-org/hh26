@@ -1,7 +1,48 @@
+---
+import FishTrail from "@assets/about/fish-trail.png";
+import BackgroundLines from "./BackgroundLines.astro";
+import GenInfoComponent from "./GenInfo.astro";
+import HowdyHackComponent from "./HowdyHack.astro";
+---
+
 <section
   id="about"
-  class="w-full aspect-square bg-[#6CB3B7] mt-[-1rem]"
+  class="w-full overflow-x-clip overflow-y-visible gap-6 p-4 mt-[-1rem] geninfo"
+  style={`--fish-trail-image: url('${FishTrail.src}');`}
   aria-labelledby="about-title"
 >
   <h2 id="about-title" class="sr-only">About</h2>
+  <div class="geninfo-content">
+    <BackgroundLines />
+    <HowdyHackComponent />
+    <GenInfoComponent />
+  </div>
 </section>
+
+<style>
+.geninfo {
+  background-image: linear-gradient(#6bb3b6 25%, #55aabc 50%, #4e55a7 100%);
+}
+
+.geninfo-content {
+  position: relative;
+  z-index: 1;
+}
+
+.geninfo-content::before {
+  position: absolute;
+  inset: -1rem;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background-image: var(--fish-trail-image);
+  background-repeat: no-repeat;
+  background-position: center 20rem;
+}
+
+@media (min-width: 64rem) {
+  .geninfo-content {
+    margin-top: -8rem;
+  }
+}
+</style>

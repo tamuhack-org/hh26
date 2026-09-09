@@ -4,3 +4,10 @@
   --desktop-breakpoint: 64rem;
   --widescreen-breakpoint: 96rem;
 }
+
+html {
+  font-family: var(--font-poppins);
+  color: #261d5f;
+  overflow-x: clip;
+  letter-spacing: 0.03em;
+}

@@ -1,0 +1,208 @@
+---
+import "@styles/gen-info.css";
+import { Picture } from "astro:assets";
+import ApplicationBubble from "@assets/about/gen-info-application.png";
+import MobApplicationBubble from "@assets/about/gen-info-application-mobile.png";
+import GenInfoBubble from "@assets/about/gen-info-bubble.png";
+import MobGenInfoBubble from "@assets/about/gen-info-bubble-mobile.png";
+import HardwareBubble from "@assets/about/gen-info-hardware.png";
+import MobHardwareBubble from "@assets/about/gen-info-hardware-mobile.png";
+import Exclamation from "@assets/about/gen-info-new-!.png";
+import E from "@assets/about/gen-info-new-e.png";
+import N from "@assets/about/gen-info-new-n.png";
+import W from "@assets/about/gen-info-new-w.png";
+import TeamBub from "@assets/about/gen-info-team.png";
+import MobTeamBub from "@assets/about/gen-info-team-mobile.png";
+import HarRay from "@assets/about/hardware-ray.png";
+import LocRay from "@assets/about/location-ray.png";
+import ParkRay from "@assets/about/parking-ray.png";
+---
+
+<div id="gen-info-container">
+  <section id="intro" aria-labelledby="intro-title">
+    <h3 id="intro-title" class="sr-only">About HowdyHack</h3>
+    <div id="GenInfoBubble" class="bubble-stack">
+      <Picture
+        src={GenInfoBubble}
+        id={'GenInfoBubble-desktop'}
+        alt="About HowdyHack"
+        formats={["avif","webp"]}
+        class="w-full h-auto"
+      />
+      <Picture
+        src={MobGenInfoBubble}
+        id={'GenInfoBubble-mobile'}
+        alt="About HowdyHack"
+        formats={["avif","webp"]}
+        class="w-full h-auto"
+      />
+      <p id="GenInfoBubble-text" class="bubble-text">
+        HowdyHack is a 24-hour, themed,
+        {" "}<strong style="font-weight: 600;">beginner-focused</strong>{" "}
+        hackathon exclusively for
+        {" "}<strong style="font-weight: 600;">Texas A&M students</strong>,
+        designed to showcase TAMU's diverse range of ideas in a collaborative
+        environment. At the event, you'll have the opportunity to create your
+        own software and hardware products with
+        {" "}<strong style="font-weight: 600;">teams of up to 4</strong>{" "}
+        that wow judges and win prizes.
+        <span class="gig-em"
+          ><strong style="font-weight: 600;">Go gig 'em!</strong></span
+        >
+      </p>
+    </div>
+  </section>
+
+  <section id="Location" aria-labelledby="Location-Title">
+    <h3 id="Location-Title" class="sr-only">Location</h3>
+    <div id="stingray">
+      <Picture
+        src={LocRay}
+        alt="View building map"
+        formats={["avif","webp"]}
+        class="w-full h-auto"
+      />
+      <svg
+        id="location-link-svg"
+        viewBox="0 0 1000 800"
+        role="img"
+        aria-label="View Building Map"
+      >
+        <a href="/hh26-map.png" aria-label="Building Map">
+          <path
+            d="M 150,490 Q 370,560 520,570 L 450,600 Q 370,585 205,535 Z"
+            fill="none"
+            pointer-events="all"
+          />
+        </a>
+      </svg>
+      <div id="location-text" class="bubble-text">
+        <p>MSC 2400 <br>730 Olsen Blvd, <br>College Station, TX 77845</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="parking-team-application">
+    <div id="parking-team-row">
+      <div id="parking-ray" class="bubble-stack">
+        <h3 id="Parking-Title" class="sr-only">Parking</h3>
+        <Picture src={ParkRay} alt="Parking" class="w-full h-auto" />
+        <p id="parking-ray-text" class="bubble-text">
+          Parking details will be announced closer to the day of the event.
+        </p>
+      </div>
+
+      <div id="team-info" class="bubble-stack">
+        <h3 id="Team-Title" class="sr-only">Team Information</h3>
+        <Picture
+          src={TeamBub}
+          id="team-bub-desktop"
+          alt="Team Information"
+          class="w-full h-auto"
+        />
+        <Picture
+          src={MobTeamBub}
+          id="team-bub-mobile"
+          alt="Team Information"
+          class="w-full h-auto"
+        />
+        <p id="team-info-text" class="bubble-text">
+          After you sign up, you will receive a confirmation email letting you
+          know you're good to go. You can either
+          {" "}<strong style="font-weight: 600;">apply with a team</strong>{" "}
+          yourself, or
+          {" "}
+          <strong style="font-weight: 600;"
+            >find one during our team building event
+          </strong>{" "}
+          on the day of! This event is designed to form well-rounded teams that
+          bring together diverse strengths and perspectives.
+        </p>
+      </div>
+    </div>
+
+    <div id="application" class="bubble-stack">
+      <h3 id="Application-Title" class="sr-only">Application Information</h3>
+      <Picture
+        src={ApplicationBubble}
+        id="app-bub-desktop"
+        alt="Application Information"
+        class="w-full h-auto"
+      />
+      <Picture
+        src={MobApplicationBubble}
+        id="app-bub-mobile"
+        alt="Application Information"
+        class="w-full h-auto"
+      />
+      <p id="application-text" class="bubble-text">
+        Applications are considered on a rolling basis; an application being
+        submitted does not guarantee a spot in the hackathon. We have a limited
+        space at the MSC, so we kindly ask you to
+        {" "}<strong style="font-weight: 600;">arrive early</strong>{" "}
+        on the day of the hackathon.
+      </p>
+    </div>
+  </div>
+
+  <section id="Hardware" aria-labelledby="Hardware-Title">
+    <h3 id="Hardware-Title" class="sr-only">Hardware Information</h3>
+    <Picture
+      src={HarRay}
+      id="hardware-ray"
+      alt="Hardware Information"
+      class="w-full h-auto"
+    />
+    <div class="bubble-container">
+      <Picture
+        src={HardwareBubble}
+        id="hardware-bub-desktop"
+        alt=""
+        class="w-full h-auto"
+      />
+      <Picture
+        src={MobHardwareBubble}
+        id="hardware-bub-mobile"
+        alt=""
+        class="w-full h-auto"
+      />
+
+      <div id="new-bubbles">
+        <Picture
+          src={N}
+          alt=""
+          id="bubble-n"
+          class="w-full h-auto new-bubble"
+        />
+        <Picture
+          src={E}
+          alt=""
+          id="bubble-e"
+          class="w-full h-auto new-bubble"
+        />
+        <Picture
+          src={W}
+          alt=""
+          id="bubble-w"
+          class="w-full h-auto new-bubble"
+        />
+        <Picture
+          src={Exclamation}
+          alt=""
+          id="bubble-excl"
+          class="w-full h-auto new-bubble"
+        />
+      </div>
+
+      <div id="hardware-text" class="bubble-text">
+        <p>
+          For the first time ever, HowdyHack will be offering a
+          {" "}<strong style="font-weight: 600;">hardware track</strong>{" "}
+          with prizes! This track kicks off on
+          {" "}<strong style="font-weight: 600;">October 16th</strong>, giving
+          teams a full week to build their projects before the main event.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
