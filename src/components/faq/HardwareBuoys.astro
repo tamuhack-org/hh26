@@ -1,0 +1,80 @@
+---
+import { Picture } from "astro:assets";
+import How from "@assets/faq/buoys/faq-buoy-hw-how.png";
+import Judging from "@assets/faq/buoys/faq-buoy-hw-judging.png";
+import Software from "@assets/faq/buoys/faq-buoy-hw-sw.png";
+import Want from "@assets/faq/buoys/faq-buoy-hw-want.png";
+import When from "@assets/faq/buoys/faq-buoy-hw-when.png";
+import Where from "@assets/faq/buoys/faq-buoy-hw-where.png";
+
+const hardwareBuoys = [
+    { slug: "judging", art: Judging, l: 0.595459, t: 4.466797, w: 0.278532, h: 0.340205 },
+    { slug: "how", art: How, l: 0.203809, t: 4.701494, w: 0.279945, h: 0.458613 },
+    { slug: "want", art: Want, l: 0.538896, t: 4.859854, w: 0.291257, h: 0.526371 },
+    { slug: "sw", art: Software, l: 0.171299, t: 5.221807, w: 0.285601, h: 0.428401 },
+    { slug: "when", art: When, l: 0.545967, t: 5.445195, w: 0.21915, h: 0.418505 },
+    { slug: "where", art: Where, l: 0.114736, t: 5.743516, w: 0.350719, h: 0.441127 },
+];
+---
+
+<style>
+.hardware-buoys {
+    display: contents;
+}
+
+.hardware-buoy {
+    position: absolute;
+    z-index: 10;
+    left: calc(var(--faq-width) * var(--art-l));
+    top: calc(var(--faq-width) * var(--art-t));
+    width: calc(var(--faq-width) * var(--art-w));
+    height: calc(var(--faq-width) * var(--art-h));
+}
+
+.hardware-buoy :global(picture),
+.hardware-buoy :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (width < 64rem) {
+    .hardware-buoys {
+        order: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hardware-buoy {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: calc(var(--art-w) * var(--m-base));
+        height: auto;
+        aspect-ratio: var(--art-w) / var(--art-h);
+        margin: 0 auto calc(var(--faq-width) * 0.111);
+    }
+}
+</style>
+
+<div class="hardware-buoys">
+    {
+        hardwareBuoys.map(({ slug, art, l, t, w, h }) => (
+            <div
+                class="hardware-buoy"
+                style={`--art-l: ${l}; --art-t: ${t}; --art-w: ${w}; --art-h: ${h};`}
+                aria-label={`Hardware FAQ: ${slug}`}
+            >
+                <Picture
+                    src={art}
+                    formats={["avif", "webp"]}
+                    quality={80}
+                    alt=""
+                    width={Math.round(art.width / 2)}
+                />
+            </div>
+        ))
+    }
+</div>
