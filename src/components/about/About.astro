@@ -16,7 +16,7 @@ const OptimizedFishTrail = await getImage({
 <section
     id="about"
     class="w-full overflow-x-clip overflow-y-visible gap-6 p-4 pb-56 mt-[-1rem] geninfo"
-    style={`--fish-trail-image: url('${OptimizedFishTrail.src}'); --fish-trail-width: ${FishTrail.width / 16}rem; --fish-trail-height: ${FishTrail.height / 16}rem;`}
+    style={`--fish-trail-image: url('${OptimizedFishTrail.src}');`}
     aria-labelledby="about-title"
 >
     <h2 id="about-title" class="sr-only">About</h2>
@@ -30,6 +30,9 @@ const OptimizedFishTrail = await getImage({
 
 <style>
 .geninfo {
+    /* Keep the scene at 1668 × 2415 CSS pixels regardless of export resolution. */
+    --fish-trail-width: 104.25rem;
+    --fish-trail-height: 150.9375rem;
     background-image: linear-gradient(#6bb3b6 25%, #55aabc 50%, #4e55a7 100%);
 }
 
