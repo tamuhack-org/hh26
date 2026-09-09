@@ -48,7 +48,7 @@ const backgroundLines = Array.from({ length: 38 }, (_, index) => {
         x="-200"
         y="-200"
         width="1840"
-        height="8000"
+        height="2720"
         filterUnits="userSpaceOnUse"
         color-interpolation-filters="sRGB"
       >
@@ -68,14 +68,15 @@ const backgroundLines = Array.from({ length: 38 }, (_, index) => {
         />
       </filter>
     </defs>
-    {backgroundLines.map(({ resting, gathered }) => (
-      <path
-        d={resting}
-        data-gathered={gathered}
-        vector-effect="non-scaling-stroke"
-        filter="url(#background-lines-texture)"
-      />
-    ))}
+    <g filter="url(#background-lines-texture)">
+      {backgroundLines.map(({ resting, gathered }) => (
+        <path
+          d={resting}
+          data-gathered={gathered}
+          vector-effect="non-scaling-stroke"
+        />
+      ))}
+    </g>
   </svg>
 </div>
 
