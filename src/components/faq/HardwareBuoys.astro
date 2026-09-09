@@ -1,20 +1,11 @@
 ---
-import { Picture } from "astro:assets";
 import How from "@assets/faq/buoys/faq-buoy-hw-how.png";
 import Judging from "@assets/faq/buoys/faq-buoy-hw-judging.png";
 import Software from "@assets/faq/buoys/faq-buoy-hw-sw.png";
 import Want from "@assets/faq/buoys/faq-buoy-hw-want.png";
 import When from "@assets/faq/buoys/faq-buoy-hw-when.png";
 import Where from "@assets/faq/buoys/faq-buoy-hw-where.png";
-
-const hardwareBuoys = [
-    { slug: "judging", art: Judging, l: 0.595459, t: 4.466797, w: 0.278532, h: 0.340205 },
-    { slug: "how", art: How, l: 0.203809, t: 4.701494, w: 0.279945, h: 0.458613 },
-    { slug: "want", art: Want, l: 0.538896, t: 4.859854, w: 0.291257, h: 0.526371 },
-    { slug: "sw", art: Software, l: 0.171299, t: 5.221807, w: 0.285601, h: 0.428401 },
-    { slug: "when", art: When, l: 0.545967, t: 5.445195, w: 0.21915, h: 0.418505 },
-    { slug: "where", art: Where, l: 0.114736, t: 5.743516, w: 0.350719, h: 0.441127 },
-];
+import Buoy from "./Buoy.astro";
 ---
 
 <style>
@@ -22,59 +13,110 @@ const hardwareBuoys = [
     display: contents;
 }
 
-.hardware-buoy {
-    position: absolute;
-    z-index: 10;
-    left: calc(var(--faq-width) * var(--art-l));
-    top: calc(var(--faq-width) * var(--art-t));
-    width: calc(var(--faq-width) * var(--art-w));
-    height: calc(var(--faq-width) * var(--art-h));
-}
-
-.hardware-buoy :global(picture),
-.hardware-buoy :global(img) {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
 @media (width < 64rem) {
     .hardware-buoys {
         order: 5;
         display: flex;
         flex-direction: column;
+        row-gap: 2rem;
         align-items: center;
         width: 100%;
-    }
-
-    .hardware-buoy {
-        position: relative;
-        left: auto;
-        top: auto;
-        width: calc(var(--art-w) * var(--m-base));
-        height: auto;
-        aspect-ratio: var(--art-w) / var(--art-h);
-        margin: 0 auto calc(var(--faq-width) * 0.111);
     }
 }
 </style>
 
 <div class="hardware-buoys">
-    {
-        hardwareBuoys.map(({ slug, art, l, t, w, h }) => (
-            <div
-                class="hardware-buoy"
-                style={`--art-l: ${l}; --art-t: ${t}; --art-w: ${w}; --art-h: ${h};`}
-                aria-label={`Hardware FAQ: ${slug}`}
-            >
-                <Picture
-                    src={art}
-                    formats={["avif", "webp"]}
-                    quality={80}
-                    alt=""
-                    width={Math.round(art.width / 2)}
-                />
-            </div>
-        ))
-    }
+    <Buoy slug="judging" art={Judging}>
+        <Fragment slot="question">When is hardware judging?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                Hardware judging will take place in-person at HowdyHack on
+                Sunday, October 25th. Hardware and software judging occur at the
+                same location and time. See our schedule for details.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="how" art={How}>
+        <Fragment slot="question"
+            >How does the hardware track at HowdyHack work?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                The hardware track begins on
+                <strong>Saturday, October 17th,</strong>
+                a week before HowdyHack. Participants will collaboratively
+                design, build, and prototype hardware-based solutions to be
+                judged at the event. Additional details will be released as the
+                event date nears.
+            </p>
+            <p>
+                Hardware hackers are still
+                <strong>required to check in</strong>
+                to HowdyHack on October 24th and are encouraged to stay for
+                food, swag, and day-of activities.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="want" art={Want}>
+        <Fragment slot="question"
+            >I want to participate, but I don't have any hardware. What should I
+            do?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                TAMUhack will provide dedicated hardware components for hackers
+                on a first-come-first-serve basis. Details will be released in
+                the upcoming weeks.
+            </p>
+            <p>
+                <strong>NOTE:</strong>
+                Hackers are not limited to the resources we provide; using
+                personal/external hardware is allowed.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="sw" art={Software}>
+        <Fragment slot="question"
+            >Can I participate in both the software and hardware tracks?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                At this time, a team can only participate in one track, either
+                software or hardware. The tracks will be judged separately by
+                specialists in the respective field.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="when" art={When}>
+        <Fragment slot="question"
+            >When can I start working on my hardware project?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                Teams may begin working on October 17th. Hardware participants
+                are still required to check in to the event on October 24th.
+                Hardware judging will take place in person on October 25th.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="where" art={Where}>
+        <Fragment slot="question"
+            >Where can I specify that I want to participate in the hardware
+            track?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                There is a question on the application that asks if you want to
+                participate in the hardware track. If you change your mind
+                before applications close, you can log back in and edit your
+                application. Similar to software, hackers are allowed to apply
+                and work in teams of up to 4.
+            </p>
+        </Fragment>
+    </Buoy>
 </div>

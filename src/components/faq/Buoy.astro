@@ -33,6 +33,7 @@ const { slug, art } = Astro.props;
 
 .buoy-q,
 .buoy-a {
+    font-family: var(--font-poppins), sans-serif;
     position: absolute;
     z-index: 20;
     margin: 0;
@@ -43,12 +44,14 @@ const { slug, art } = Astro.props;
 }
 
 .buoy-q {
+    font-family: var(--font-poppins), sans-serif;
     left: calc(var(--faq-width) * var(--q-cx));
     top: calc(var(--faq-width) * var(--q-top));
     width: calc(var(--faq-width) * var(--q-w));
     color: #fff;
     font-size: calc(var(--faq-width) * var(--q-size) / 1024);
     font-weight: 700;
+    line-height: var(--q-leading, inherit);
     text-shadow: 1px 1px 3px rgb(35 27 121 / 0.6);
 }
 
@@ -57,8 +60,9 @@ const { slug, art } = Astro.props;
     top: calc(var(--faq-width) * var(--a-top));
     width: calc(var(--faq-width) * var(--a-w));
     color: #261d5f;
-    font-size: calc(var(--faq-width) * 0.015625);
+    font-size: calc(var(--faq-width) * 16 / 1024);
     font-weight: 400;
+    line-height: var(--a-leading, inherit);
 }
 
 .buoy-a :global(p) {
@@ -66,7 +70,7 @@ const { slug, art } = Astro.props;
 }
 
 .buoy-a :global(p + p) {
-    margin-top: 1em;
+    margin-top: var(--paragraph-gap, 1em);
 }
 
 .buoy-a :global(a) {
@@ -258,7 +262,147 @@ const { slug, art } = Astro.props;
     --a-w: 0.234375;
 }
 
+#buoy-judging {
+    --art-l: 0.546666325;
+    --art-t: 4.42461158;
+    --art-w: 0.375011735;
+    --art-h: 0.449648948;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.734725;
+    --q-top: 4.531023817;
+    --q-w: 0.254876277;
+    --q-size: 20;
+    --a-cx: 0.734725;
+    --a-top: 4.626953607;
+    --a-w: 0.250797451;
+}
+
+#buoy-how {
+    --art-l: 0.1370093019;
+    --art-t: 4.523841873;
+    --art-w: 0.41576962;
+    --art-h: 0.7228079;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.3437815;
+    --q-top: 4.637219607;
+    --q-w: 0.28926157;
+    --q-size: 20;
+    --a-cx: 0.3437815;
+    --a-top: 4.76090149;
+    --a-w: 0.313003;
+}
+
+#buoy-want {
+    --art-l: 0.480731713;
+    --art-t: 4.802585779;
+    --art-w: 0.408371969;
+    --art-h: 0.66856902;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.684917697;
+    --q-top: 4.916585728;
+    --q-w: 0.291346416;
+    --q-size: 20;
+    --a-cx: 0.684917697;
+    --a-top: 5.096585661;
+    --a-w: 0.302427818;
+}
+
+#buoy-sw {
+    --art-l: 0.114607202;
+    --art-t: 5.176310814;
+    --art-w: 0.400069881;
+    --art-h: 0.544669031;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.314642142;
+    --q-top: 5.2801584691;
+    --q-w: 0.242047519;
+    --q-size: 20;
+    --a-cx: 0.314642142;
+    --a-top: 5.4599854;
+    --a-w: 0.260045423;
+}
+
+#buoy-when {
+    --art-l: 0.480712525;
+    --art-t: 5.401963433;
+    --art-w: 0.34965895;
+    --art-h: 0.527734805;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.655542;
+    --q-top: 5.49806509;
+    --q-w: 0.216761265;
+    --q-size: 20;
+    --a-cx: 0.655542;
+    --a-top: 5.62553487;
+    --a-w: 0.23454444;
+}
+
+#buoy-where {
+    --art-l: 0.072009456;
+    --art-t: 5.698344595;
+    --art-w: 0.435294389;
+    --art-h: 0.554055512;
+    --bleed-t: 0%;
+    --bleed-r: 0%;
+    --bleed-b: 0%;
+    --bleed-l: 0%;
+    --q-cx: 0.290656651;
+    --q-top: 5.829155697;
+    --q-w: 0.311223736;
+    --q-size: 20;
+    --a-cx: 0.290656651;
+    --a-top: 5.969831796;
+    --a-w: 0.311223736;
+}
+
 /* widescreen stuff */
+@media (width >= 64rem) {
+    #buoy-how,
+    #buoy-sw,
+    #buoy-where {
+        --hardware-column-offset: -4rem;
+    }
+
+    #buoy-judging,
+    #buoy-want,
+    #buoy-when {
+        --hardware-column-offset: 4rem;
+    }
+
+    #buoy-sw,
+    #buoy-want {
+        --hardware-row-offset: 2rem;
+    }
+
+    #buoy-where,
+    #buoy-when {
+        --hardware-row-offset: 4rem;
+    }
+
+    .buoy-art,
+    .buoy-q,
+    .buoy-a {
+        transform: translate(
+            var(--hardware-column-offset, 0rem),
+            var(--hardware-row-offset, 0rem)
+        );
+    }
+}
 
 /* mobile stuff */
 @media (width < 64rem) {
@@ -288,7 +432,7 @@ const { slug, art } = Astro.props;
         left: calc((var(--a-cx) - var(--art-l)) / var(--art-w) * 100%);
         top: calc((var(--a-top) - var(--art-t)) / var(--art-h) * 100%);
         width: calc(var(--a-w) / var(--art-w) * 100%);
-        font-size: calc(var(--m-base) * 0.015625);
+        font-size: calc(var(--m-base) * 16 / 1024);
     }
 }
 </style>
