@@ -14,7 +14,7 @@ const { title, items } = Astro.props;
 
 <div role="region" aria-label={title}>
     <h2 class="mb-2 text-base font-light">{title}</h2>
-    
+
     <nav aria-label={`${title} navigation`}>
         <ul class="list-none p-0">
             {items.map((item) => (

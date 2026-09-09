@@ -5,29 +5,29 @@ import { Font } from "astro:assets";
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta
-      name="description"
-      content="HowdyHack 2026 is a beginner-friendly hackathon hosted by TAMUhack at Texas A&M University."
-    >
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="generator" content={Astro.generator}>
-    <Font cssVariable="--font-poppins" preload />
-    <title>HH 2026</title>
-  </head>
-  <body>
-    <slot />
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta
+            name="description"
+            content="HowdyHack 2026 is a beginner-friendly hackathon hosted by TAMUhack at Texas A&M University."
+        >
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+        <link rel="icon" href="/favicon.ico">
+        <meta name="generator" content={Astro.generator}>
+        <Font cssVariable="--font-poppins" preload />
+        <title>HH 2026</title>
+    </head>
+    <body>
+        <slot />
+    </body>
 </html>
 
 <style>
 html,
 body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 </style>
