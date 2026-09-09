@@ -3,7 +3,11 @@ import { getImage, Picture } from "astro:assets";
 import HardwareSign from "@assets/faq/faq-hardware-sign.png";
 import MobileHardwareSign from "@assets/faq/faq-mobile-hardware-sign.png";
 
-const OptimizedMobileHardwareSign = await getImage({ src: MobileHardwareSign, format: "avif", quality: 80 });
+const OptimizedMobileHardwareSign = await getImage({
+    src: MobileHardwareSign,
+    format: "avif",
+    quality: 80,
+});
 ---
 
 <style>

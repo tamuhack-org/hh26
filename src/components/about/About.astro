@@ -6,7 +6,11 @@ import FishGenInfo from "./FishGenInfo.astro";
 import GenInfoComponent from "./GenInfo.astro";
 import HowdyHackComponent from "./HowdyHack.astro";
 
-const OptimizedFishTrail = await getImage({ src: FishTrail, format: "avif", quality: 80 });
+const OptimizedFishTrail = await getImage({
+    src: FishTrail,
+    format: "avif",
+    quality: 80,
+});
 ---
 
 <section

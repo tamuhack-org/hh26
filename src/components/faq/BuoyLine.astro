@@ -3,7 +3,11 @@ import { getImage, Picture } from "astro:assets";
 import BuoyLine from "@assets/faq/faq-buoy-line.png";
 import MobileBuoyLine from "@assets/faq/faq-mobile-buoy-line.png";
 
-const OptimizedMobileBuoyLine = await getImage({ src: MobileBuoyLine, format: "avif", quality: 80 });
+const OptimizedMobileBuoyLine = await getImage({
+    src: MobileBuoyLine,
+    format: "avif",
+    quality: 80,
+});
 ---
 
 <style>
