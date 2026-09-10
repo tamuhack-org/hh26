@@ -1,143 +1,227 @@
 ---
+import About from "@assets/menu/about.svg";
 import CompassBlank from "@assets/menu/compass-blank.svg";
 import Needle from "@assets/menu/compass-needle.svg";
-import MenuText from "@assets/menu/menu.svg";
-import About from "@assets/menu/about.svg";
 import Faq from "@assets/menu/faq.svg";
-import Schedule from "@assets/menu/schedule.svg";
+import MenuText from "@assets/menu/menu.svg";
 import Prizes from "@assets/menu/prizes.svg";
+import Schedule from "@assets/menu/schedule.svg";
 
 interface Props {
-  variant?: "arc" | "ring";
+    variant?: "arc" | "ring";
 }
 
 const { variant = "ring" } = Astro.props;
 ---
 
-<nav class:list={["compass-menu", `compass-menu--${variant}`]} aria-label="Main navigation">
-  <div class="labels">
-    <a class="label label--about" href="#about"><About /></a>
-    <a class="label label--faq" href="#faq"><Faq /></a>
-    <a class="label label--schedule" href="#schedule"><Schedule /></a>
-    <a class="label label--prizes" href="#prizes"><Prizes /></a>
-  </div>
+<nav
+    class:list={["compass-menu", `compass-menu--${variant}`]}
+    aria-label="Main navigation"
+>
+    <div class="labels">
+        <a class="label label--about" aria-label="About" href="#about"
+            ><About /></a
+        >
+        <a class="label label--faq" aria-label="Faq" href="#faq"><Faq /></a>
+        <span
+            class="label label--schedule disabled-link"
+            aria-disabled="true"
+            aria-label="Schedule"
+            ><Schedule /></span
+        >
+        <span
+            class="label label--prizes disabled-link"
+            aria-disabled="true"
+            aria-label="Prizes"
+            ><Prizes /></span
+        >
+    </div>
 
-  <div class="compass">
-    <MenuText class="menu-text" />
-    <CompassBlank class="face" />
-    <Needle class="needle" />
-  </div>
+    <div class="compass">
+        <MenuText class="menu-text" />
+        <CompassBlank class="face" />
+        <Needle class="needle" />
+    </div>
 </nav>
 
 <style>
-  .compass-menu {
+.compass-menu {
+    --menu-width: 12.75rem;
+    --menu-height: 10.5rem;
+    --compass-size: 9.375rem;
+    --orbit-radius: 15rem;
+    --link-scale: 0.8;
+    --debug-orbit-color: rgb(255 74 210 / 0%);
+    --compass-scale: 1;
     position: relative;
-    width: 500px;
-    height: 300px;
-  }
+    width: var(--menu-width);
+    height: var(--menu-height);
+    transform: scale(var(--compass-scale));
+    transform-origin: bottom right;
+}
 
-  .compass {
+.compass {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
-    width: 182px;
-    height: 182px;
-  }
+    width: var(--compass-size);
+    height: var(--compass-size);
+}
 
-  .face {
+.face {
     display: block;
-    width: 182px;
-    height: 182px;
-  }
+    width: var(--compass-size);
+    height: var(--compass-size);
+}
 
-  .menu-text {
+.menu-text {
     position: absolute;
-    top: -43px;
-    left: 48.5px;
-  }
+    top: -1.65rem;
+    left: 1.63125rem;
+    opacity: 1;
+    transition: opacity 0.08s;
+}
 
-  .needle {
+.needle {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     transform-origin: center;
     transition: transform 0.9s cubic-bezier(0.34, 1.3, 0.64, 1);
-  }
+}
 
-  .label {
+.label {
+    --enter-delay: 0s;
     position: absolute;
     display: block;
     opacity: 0;
+    pointer-events: none;
     transform: translate(var(--tx), var(--ty));
+    transform-origin: center;
     transition:
-      opacity 0.4s ease,
-      transform 0.4s ease;
-  }
+        opacity 0.1s ease-out,
+        transform 4s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-  .label--faq {
-    transition-delay: 0.08s;
-  }
-  .label--schedule {
-    transition-delay: 0.16s;
-  }
-  .label--prizes {
-    transition-delay: 0.24s;
-  }
+.label--faq {
+    --enter-delay: 0.04s;
+}
 
-  .compass-menu--arc .label {
-    --tx: 80px;
-    --ty: 0px;
-  }
-  .compass-menu--arc .label--about {
-    top: 49px;
-    left: 30px;
-  }
-  .compass-menu--arc .label--faq {
-    top: 102px;
-    left: 78px;
-  }
-  .compass-menu--arc .label--schedule {
-    top: 150px;
-    left: 88px;
-  }
-  .compass-menu--arc .label--prizes {
-    top: 201px;
-    left: 30px;
-  }
+.label--schedule {
+    --enter-delay: 0.08s;
+}
 
-  .compass-menu--ring .label--about {
-    top: 21px;
-    left: 234px;
-    --tx: 48px;
-    --ty: 43px;
-  }
-  .compass-menu--ring .label--faq {
-    top: 62px;
-    left: 236px;
-    --tx: 54px;
-    --ty: 25px;
-  }
-  .compass-menu--ring .label--schedule {
-    top: 205px;
-    left: 165px;
-    --tx: 67px;
-    --ty: -31px;
-  }
-  .compass-menu--ring .label--prizes {
-    top: 251px;
-    left: 262px;
-    --tx: 35px;
-    --ty: -50px;
-  }
+.label--prizes {
+    --enter-delay: 0.12s;
+}
 
-  .compass-menu:hover .needle {
-    transform: translate(-50%, -50%) rotate(540deg);
-  }
+.disabled-link {
+    cursor: default;
+}
 
-  .compass-menu:hover .label {
+.compass-menu--arc .label {
+    --tx: 5rem;
+    --ty: 0;
+}
+.compass-menu--arc .label--about {
+    top: 3.0625rem;
+    left: 1.875rem;
+}
+.compass-menu--arc .label--faq {
+    top: 6.375rem;
+    left: 4.875rem;
+}
+.compass-menu--arc .label--schedule {
+    top: 9.375rem;
+    left: 5.5rem;
+}
+.compass-menu--arc .label--prizes {
+    top: 0.0625rem;
+    left: 1.875rem;
+}
+
+.compass-menu--ring .label {
+    --radius: var(--orbit-radius);
+    top: 65%;
+    left: calc(135% - var(--compass-size) / 2);
+    z-index: 1;
+    transform: translate(-50%, -50%) rotate(0deg) translateX(var(--radius));
+
+    display: flex;
+    width: 12.125rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.compass-menu--ring .label :global(svg) {
+    transform: rotate(180deg) scale(var(--link-scale));
+}
+
+.compass-menu--ring .label :global([fill="#1E0734"]) {
+    transition: fill 0.1s ease;
+}
+
+.compass-menu--ring .label:hover :global([fill="#1E0734"]),
+.compass-menu--ring .label:focus-visible :global([fill="#1E0734"]) {
+    fill: #45285a;
+}
+
+.compass-menu--ring .label--about {
+    --angle: -150deg;
+}
+
+.compass-menu--ring .label--faq {
+    --angle: -163deg;
+}
+
+.compass-menu--ring .label--schedule {
+    --angle: -175deg;
+}
+
+.compass-menu--ring .label--prizes {
+    --angle: -187deg;
+}
+
+.compass-menu:hover .needle,
+.compass-menu:focus-within .needle {
+    transform: translate(-50%, -50%) rotate(-540deg);
+}
+
+.compass-menu:hover .menu-text,
+.compass-menu:focus-within .menu-text {
+    opacity: 0;
+}
+
+.compass-menu:hover .label,
+.compass-menu:focus-within .label {
     opacity: 1;
+    pointer-events: auto;
     transform: translate(0, 0);
-  }
+    transition:
+        opacity 0.18s ease-in var(--enter-delay),
+        transform 0.2s cubic-bezier(0.22, 1, 0.36, 1) var(--enter-delay);
+}
+
+.compass-menu--ring:hover .label,
+.compass-menu--ring:focus-within .label {
+    transform: translate(-50%, -50%) rotate(var(--angle))
+        translateX(var(--radius));
+}
+
+.compass-menu:hover .disabled-link,
+.compass-menu:focus-within .disabled-link {
+    opacity: 0.45;
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .label,
+    .menu-text,
+    .needle {
+        transition-duration: 0.0001ms;
+    }
+}
 </style>
