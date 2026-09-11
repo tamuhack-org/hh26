@@ -46,11 +46,11 @@ const { variant = "ring" } = Astro.props;
 
 <style>
 .compass-menu {
-    --menu-width: 12.75rem;
+    --menu-width: 12rem;
     --menu-height: 10.5rem;
     --compass-size: 9.375rem;
     --orbit-radius: 15rem;
-    --link-scale: 0.8;
+    --link-scale: 0.75;
     --debug-orbit-color: rgb(255 74 210 / 0%);
     --compass-scale: 1;
     position: relative;
@@ -77,8 +77,11 @@ const { variant = "ring" } = Astro.props;
 
 .menu-text {
     position: absolute;
-    top: -1.65rem;
-    left: 1.63125rem;
+    top: calc(-16.6%);
+    left: 48%;
+    width: 57%;
+    height: auto;
+    transform: translateX(-50%);
     opacity: 1;
     transition: opacity 0.08s;
 }
@@ -87,6 +90,8 @@ const { variant = "ring" } = Astro.props;
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 38.5%;
+    height: auto;
     transform: translate(-50%, -50%);
     transform-origin: center;
     transition: transform 0.9s cubic-bezier(0.34, 1.3, 0.64, 1);
@@ -106,19 +111,19 @@ const { variant = "ring" } = Astro.props;
 }
 
 .label--faq {
-    --enter-delay: 0.04s;
+    --enter-delay: 0.03s;
 }
 
 .label--schedule {
-    --enter-delay: 0.08s;
+    --enter-delay: 0.06s;
 }
 
 .label--prizes {
-    --enter-delay: 0.12s;
+    --enter-delay: 0.09s;
 }
 
 .disabled-link {
-    cursor: default;
+    cursor: not-allowed;
 }
 
 .compass-menu--arc .label {
@@ -156,16 +161,25 @@ const { variant = "ring" } = Astro.props;
 }
 
 .compass-menu--ring .label :global(svg) {
+    width: auto;
+    height: 3.5rem;
     transform: rotate(180deg) scale(var(--link-scale));
+    transition:
+        filter 0.15s ease,
+        transform 0.15s ease;
 }
 
 .compass-menu--ring .label :global([fill="#1E0734"]) {
-    transition: fill 0.1s ease;
+    transition: fill-opacity 0.15s ease;
 }
 
-.compass-menu--ring .label:hover :global([fill="#1E0734"]),
-.compass-menu--ring .label:focus-visible :global([fill="#1E0734"]) {
-    fill: #45285a;
+.compass-menu--ring .label:not(.disabled-link):hover :global([fill="#1E0734"]),
+.compass-menu--ring .label:not(.disabled-link):focus-visible :global([fill="#1E0734"]) {
+    fill-opacity: 1;
+}
+
+.compass-menu--ring .label:not(.disabled-link):hover {
+    --link-scale: 0.79;
 }
 
 .compass-menu--ring .label--about {
@@ -200,8 +214,8 @@ const { variant = "ring" } = Astro.props;
     pointer-events: auto;
     transform: translate(0, 0);
     transition:
-        opacity 0.18s ease-in var(--enter-delay),
-        transform 0.2s cubic-bezier(0.22, 1, 0.36, 1) var(--enter-delay);
+        opacity 0.3s ease-in var(--enter-delay),
+        transform 0.25s cubic-bezier(0.22, 1, 0.36, 1) var(--enter-delay);
 }
 
 .compass-menu--ring:hover .label,
@@ -212,8 +226,8 @@ const { variant = "ring" } = Astro.props;
 
 .compass-menu:hover .disabled-link,
 .compass-menu:focus-within .disabled-link {
-    opacity: 0.45;
-    pointer-events: none;
+    opacity: 0.55;
+    pointer-events: auto;
     filter: grayscale(1);
 }
 
