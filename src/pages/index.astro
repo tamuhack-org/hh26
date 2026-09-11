@@ -5,6 +5,7 @@ import About from "@components/about/About.astro";
 import Faq from "@components/faq/Faq.astro";
 import Footer from "@components/footer/Footer.astro";
 import Landing from "@components/landing/Landing.astro";
+import CompassMenu from "@components/menu/CompassMenu.astro";
 import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -43,4 +44,31 @@ import Layout from "../layouts/Layout.astro";
             </div>
         </div>
     </main>
+    <aside class="compass-overlay">
+        <CompassMenu variant="ring" />
+    </aside>
 </Layout>
+
+<style>
+.compass-overlay {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.compass-overlay :global(.compass-menu) {
+    pointer-events: auto;
+}
+
+@media (width < 64rem) {
+    .compass-overlay {
+        display: none;
+    }
+
+    .compass-overlay :global(.compass-menu) {
+        --compass-scale: 0.75;
+    }
+}
+</style>

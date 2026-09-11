@@ -10,4 +10,5 @@ html {
     color: #261d5f;
     overflow-x: clip;
     letter-spacing: 0.03em;
+    scroll-behavior: smooth;
 }

@@ -1,0 +1,306 @@
+---
+import About from "@assets/menu/about.svg";
+import CompassBlank from "@assets/menu/compass-blank.svg";
+import Needle from "@assets/menu/compass-needle.svg";
+import Faq from "@assets/menu/faq.svg";
+import MenuText from "@assets/menu/menu.svg";
+import Prizes from "@assets/menu/prizes.svg";
+import Schedule from "@assets/menu/schedule.svg";
+
+interface Props {
+    variant?: "arc" | "ring";
+}
+
+const { variant = "ring" } = Astro.props;
+---
+
+<nav
+    class:list={["compass-menu", `compass-menu--${variant}`]}
+    aria-label="Main navigation"
+>
+    <button
+        class="compass"
+        type="button"
+        aria-expanded="false"
+        aria-controls={`compass-links-${variant}`}
+        aria-label="Open main navigation"
+    >
+        <MenuText class="menu-text" aria-hidden="true" />
+        <CompassBlank class="face" aria-hidden="true" />
+        <Needle class="needle" aria-hidden="true" />
+    </button>
+
+    <div class="labels" id={`compass-links-${variant}`}>
+        <a class="label label--about" aria-label="About" href="#about"
+            ><About aria-hidden="true" /></a
+        >
+        <a class="label label--faq" aria-label="FAQ" href="#faq"
+            ><Faq aria-hidden="true" /></a
+        >
+        <span class="label label--schedule disabled-link" aria-disabled="true"
+            ><span class="sr-only">Schedule (coming soon)</span>
+            <Schedule aria-hidden="true" /></span
+        >
+        <span class="label label--prizes disabled-link" aria-disabled="true"
+            ><span class="sr-only">Prizes (coming soon)</span>
+            <Prizes aria-hidden="true" /></span
+        >
+    </div>
+</nav>
+
+<script>
+document.querySelectorAll<HTMLElement>(".compass-menu").forEach((menu) => {
+    const trigger = menu.querySelector<HTMLButtonElement>(".compass");
+    if (!trigger) return;
+
+    const setOpen = (open: boolean) => {
+        menu.classList.toggle("is-open", open);
+        trigger.setAttribute("aria-expanded", String(open));
+        trigger.setAttribute(
+            "aria-label",
+            open ? "Close main navigation" : "Open main navigation",
+        );
+    };
+
+    trigger.addEventListener("click", () => {
+        setOpen(!menu.classList.contains("is-open"));
+    });
+
+    menu.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menu.classList.contains("is-open")) {
+            setOpen(false);
+            trigger.focus();
+        }
+    });
+
+    document.addEventListener("pointerdown", (event) => {
+        if (!menu.contains(event.target as Node)) setOpen(false);
+    });
+});
+</script>
+
+<style>
+.compass-menu {
+    --menu-width: 12rem;
+    --menu-height: 10.5rem;
+    --compass-size: 9.375rem;
+    --orbit-radius: 15rem;
+    --link-scale: 0.75;
+    --debug-orbit-color: rgb(255 74 210 / 0%);
+    --compass-scale: 1;
+    position: relative;
+    width: var(--menu-width);
+    height: var(--menu-height);
+    transform: scale(var(--compass-scale));
+    transform-origin: bottom right;
+}
+
+.compass {
+    position: absolute;
+    right: 0;
+    top: 55%;
+    transform: translateY(-50%);
+    width: var(--compass-size);
+    height: var(--compass-size);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.compass:focus-visible {
+    outline: 0.1875rem solid #fff9e2;
+    outline-offset: 0.25rem;
+    border-radius: 50%;
+}
+
+.face {
+    display: block;
+    width: var(--compass-size);
+    height: var(--compass-size);
+}
+
+.menu-text {
+    position: absolute;
+    top: calc(-16.6%);
+    left: 48%;
+    width: 57%;
+    height: auto;
+    transform: translateX(-50%);
+    opacity: 1;
+    transition: opacity 0.08s;
+}
+
+.needle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 38.5%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    transition: transform 0.9s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+.label {
+    --enter-delay: 0s;
+    position: absolute;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(var(--tx), var(--ty));
+    transform-origin: center;
+    transition:
+        opacity 0.1s ease-out,
+        transform 4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.label--faq {
+    --enter-delay: 0.03s;
+}
+
+.label--schedule {
+    --enter-delay: 0.06s;
+}
+
+.label--prizes {
+    --enter-delay: 0.09s;
+}
+
+.disabled-link {
+    cursor: not-allowed;
+}
+
+.compass-menu--arc .label {
+    --tx: 5rem;
+    --ty: 0;
+}
+.compass-menu--arc .label--about {
+    top: 3.0625rem;
+    left: 1.875rem;
+}
+.compass-menu--arc .label--faq {
+    top: 6.375rem;
+    left: 4.875rem;
+}
+.compass-menu--arc .label--schedule {
+    top: 9.375rem;
+    left: 5.5rem;
+}
+.compass-menu--arc .label--prizes {
+    top: 0.0625rem;
+    left: 1.875rem;
+}
+
+.compass-menu--ring .label {
+    --radius: var(--orbit-radius);
+    top: 65%;
+    left: calc(135% - var(--compass-size) / 2);
+    z-index: 1;
+    transform: translate(-50%, -50%) rotate(0deg) translateX(var(--radius));
+
+    display: flex;
+    width: 12.125rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.compass-menu--ring .label :global(svg) {
+    width: auto;
+    height: 3.5rem;
+    transform: rotate(180deg) scale(var(--link-scale));
+    transition:
+        filter 0.15s ease,
+        transform 0.15s ease;
+}
+
+.compass-menu--ring .label :global([fill="#1E0734"]) {
+    transition: fill-opacity 0.15s ease;
+}
+
+.compass-menu--ring .label:not(.disabled-link):hover :global([fill="#1E0734"]),
+.compass-menu--ring
+    .label:not(.disabled-link):focus-visible
+    :global([fill="#1E0734"]) {
+    fill-opacity: 1;
+}
+
+.compass-menu--ring .label:not(.disabled-link):hover,
+.compass-menu--ring .label:not(.disabled-link):focus-visible {
+    --link-scale: 0.79;
+}
+
+.compass-menu--ring .label:not(.disabled-link):focus-visible {
+    outline: none;
+}
+
+.compass-menu--ring .label:not(.disabled-link):focus-visible :global(svg) {
+    outline: 0.1875rem solid #fff9e2;
+    outline-offset: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+.compass-menu--ring .label--about {
+    --angle: -150deg;
+}
+
+.compass-menu--ring .label--faq {
+    --angle: -163deg;
+}
+
+.compass-menu--ring .label--schedule {
+    --angle: -175deg;
+}
+
+.compass-menu--ring .label--prizes {
+    --angle: -187deg;
+}
+
+.compass-menu:hover .needle,
+.compass-menu.is-open .needle {
+    transform: translate(-50%, -50%) rotate(-540deg);
+}
+
+.compass-menu:hover .menu-text,
+.compass-menu.is-open .menu-text {
+    opacity: 0;
+}
+
+.compass-menu:hover .label,
+.compass-menu.is-open .label {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(0, 0);
+    transition:
+        opacity 0.3s ease-in var(--enter-delay),
+        transform 0.25s cubic-bezier(0.22, 1, 0.36, 1) var(--enter-delay);
+}
+
+.compass-menu--ring:hover .label,
+.compass-menu--ring.is-open .label {
+    transform: translate(-50%, -50%) rotate(var(--angle))
+        translateX(var(--radius));
+}
+
+.compass-menu:hover .disabled-link,
+.compass-menu.is-open .disabled-link {
+    opacity: 0.55;
+    pointer-events: auto;
+    filter: grayscale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .label,
+    .menu-text,
+    .needle {
+        transition-duration: 0.0001ms;
+    }
+
+    .compass-menu--ring .label :global(svg) {
+        transition-duration: 0.0001ms;
+    }
+}
+</style>
