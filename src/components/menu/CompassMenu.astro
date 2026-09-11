@@ -18,31 +18,72 @@ const { variant = "ring" } = Astro.props;
     class:list={["compass-menu", `compass-menu--${variant}`]}
     aria-label="Main navigation"
 >
-    <div class="labels">
+    <button
+        class="compass"
+        type="button"
+        aria-expanded="false"
+        aria-controls={`compass-links-${variant}`}
+        aria-label="Open main navigation"
+    >
+        <MenuText class="menu-text" aria-hidden="true" />
+        <CompassBlank class="face" aria-hidden="true" />
+        <Needle class="needle" aria-hidden="true" />
+    </button>
+
+    <div class="labels" id={`compass-links-${variant}`}>
         <a class="label label--about" aria-label="About" href="#about"
-            ><About /></a
+            ><About aria-hidden="true" /></a
         >
-        <a class="label label--faq" aria-label="Faq" href="#faq"><Faq /></a>
+        <a class="label label--faq" aria-label="FAQ" href="#faq"
+            ><Faq aria-hidden="true" /></a
+        >
         <span
             class="label label--schedule disabled-link"
             aria-disabled="true"
-            aria-label="Schedule"
-            ><Schedule /></span
+            ><span class="sr-only">Schedule (coming soon)</span><Schedule
+                aria-hidden="true"
+            /></span
         >
         <span
             class="label label--prizes disabled-link"
             aria-disabled="true"
-            aria-label="Prizes"
-            ><Prizes /></span
+            ><span class="sr-only">Prizes (coming soon)</span><Prizes
+                aria-hidden="true"
+            /></span
         >
     </div>
-
-    <div class="compass">
-        <MenuText class="menu-text" />
-        <CompassBlank class="face" />
-        <Needle class="needle" />
-    </div>
 </nav>
+
+<script>
+document.querySelectorAll<HTMLElement>(".compass-menu").forEach((menu) => {
+    const trigger = menu.querySelector<HTMLButtonElement>(".compass");
+    if (!trigger) return;
+
+    const setOpen = (open: boolean) => {
+        menu.classList.toggle("is-open", open);
+        trigger.setAttribute("aria-expanded", String(open));
+        trigger.setAttribute(
+            "aria-label",
+            open ? "Close main navigation" : "Open main navigation",
+        );
+    };
+
+    trigger.addEventListener("click", () => {
+        setOpen(!menu.classList.contains("is-open"));
+    });
+
+    menu.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menu.classList.contains("is-open")) {
+            setOpen(false);
+            trigger.focus();
+        }
+    });
+
+    document.addEventListener("pointerdown", (event) => {
+        if (!menu.contains(event.target as Node)) setOpen(false);
+    });
+});
+</script>
 
 <style>
 .compass-menu {
@@ -67,6 +108,17 @@ const { variant = "ring" } = Astro.props;
     transform: translateY(-50%);
     width: var(--compass-size);
     height: var(--compass-size);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.compass:focus-visible {
+    outline: 0.1875rem solid #fff9e2;
+    outline-offset: 0.25rem;
+    border-radius: 50%;
 }
 
 .face {
@@ -102,6 +154,7 @@ const { variant = "ring" } = Astro.props;
     position: absolute;
     display: block;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translate(var(--tx), var(--ty));
     transform-origin: center;
@@ -174,12 +227,25 @@ const { variant = "ring" } = Astro.props;
 }
 
 .compass-menu--ring .label:not(.disabled-link):hover :global([fill="#1E0734"]),
-.compass-menu--ring .label:not(.disabled-link):focus-visible :global([fill="#1E0734"]) {
+.compass-menu--ring
+    .label:not(.disabled-link):focus-visible
+    :global([fill="#1E0734"]) {
     fill-opacity: 1;
 }
 
-.compass-menu--ring .label:not(.disabled-link):hover {
+.compass-menu--ring .label:not(.disabled-link):hover,
+.compass-menu--ring .label:not(.disabled-link):focus-visible {
     --link-scale: 0.79;
+}
+
+.compass-menu--ring .label:not(.disabled-link):focus-visible {
+    outline: none;
+}
+
+.compass-menu--ring .label:not(.disabled-link):focus-visible :global(svg) {
+    outline: 0.1875rem solid #fff9e2;
+    outline-offset: 0.2rem;
+    border-radius: 0.5rem;
 }
 
 .compass-menu--ring .label--about {
@@ -199,18 +265,19 @@ const { variant = "ring" } = Astro.props;
 }
 
 .compass-menu:hover .needle,
-.compass-menu:focus-within .needle {
+.compass-menu.is-open .needle {
     transform: translate(-50%, -50%) rotate(-540deg);
 }
 
 .compass-menu:hover .menu-text,
-.compass-menu:focus-within .menu-text {
+.compass-menu.is-open .menu-text {
     opacity: 0;
 }
 
 .compass-menu:hover .label,
-.compass-menu:focus-within .label {
+.compass-menu.is-open .label {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translate(0, 0);
     transition:
@@ -219,13 +286,13 @@ const { variant = "ring" } = Astro.props;
 }
 
 .compass-menu--ring:hover .label,
-.compass-menu--ring:focus-within .label {
+.compass-menu--ring.is-open .label {
     transform: translate(-50%, -50%) rotate(var(--angle))
         translateX(var(--radius));
 }
 
 .compass-menu:hover .disabled-link,
-.compass-menu:focus-within .disabled-link {
+.compass-menu.is-open .disabled-link {
     opacity: 0.55;
     pointer-events: auto;
     filter: grayscale(1);
@@ -233,6 +300,7 @@ const { variant = "ring" } = Astro.props;
 
 @media (prefers-reduced-motion: reduce) {
     .label,
+    .label :global(svg),
     .menu-text,
     .needle {
         transition-duration: 0.0001ms;
