@@ -37,19 +37,13 @@ const { variant = "ring" } = Astro.props;
         <a class="label label--faq" aria-label="FAQ" href="#faq"
             ><Faq aria-hidden="true" /></a
         >
-        <span
-            class="label label--schedule disabled-link"
-            aria-disabled="true"
-            ><span class="sr-only">Schedule (coming soon)</span><Schedule
-                aria-hidden="true"
-            /></span
+        <span class="label label--schedule disabled-link" aria-disabled="true"
+            ><span class="sr-only">Schedule (coming soon)</span>
+            <Schedule aria-hidden="true" /></span
         >
-        <span
-            class="label label--prizes disabled-link"
-            aria-disabled="true"
-            ><span class="sr-only">Prizes (coming soon)</span><Prizes
-                aria-hidden="true"
-            /></span
+        <span class="label label--prizes disabled-link" aria-disabled="true"
+            ><span class="sr-only">Prizes (coming soon)</span>
+            <Prizes aria-hidden="true" /></span
         >
     </div>
 </nav>
@@ -300,9 +294,12 @@ document.querySelectorAll<HTMLElement>(".compass-menu").forEach((menu) => {
 
 @media (prefers-reduced-motion: reduce) {
     .label,
-    .label :global(svg),
     .menu-text,
     .needle {
+        transition-duration: 0.0001ms;
+    }
+
+    .compass-menu--ring .label :global(svg) {
         transition-duration: 0.0001ms;
     }
 }

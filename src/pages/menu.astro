@@ -1,23 +1,23 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import CompassMenu from "@components/menu/CompassMenu.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <main class="stage">
-    <section class="example">
-      <h2>arc</h2>
-      <CompassMenu variant="arc" />
-    </section>
-    <section class="example">
-      <h2>ring</h2>
-      <CompassMenu variant="ring" />
-    </section>
-  </main>
+    <main class="stage">
+        <section class="example">
+            <h2>arc</h2>
+            <CompassMenu variant="arc" />
+        </section>
+        <section class="example">
+            <h2>ring</h2>
+            <CompassMenu variant="ring" />
+        </section>
+    </main>
 </Layout>
 
 <style>
-  .stage {
+.stage {
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
@@ -26,12 +26,12 @@ import CompassMenu from "@components/menu/CompassMenu.astro";
     gap: 2rem;
     background-color: black;
     padding: 2rem;
-  }
+}
 
-  .example h2 {
+.example h2 {
     color: #888;
     font-family: monospace;
     text-align: center;
     margin-bottom: 0.5rem;
-  }
+}
 </style>
