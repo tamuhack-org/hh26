@@ -73,7 +73,7 @@ document.querySelectorAll<HTMLElement>(".compass-menu").forEach((menu) => {
         }
     });
 
-    document.addEventListener("pointerdown", (event) => {
+    document.addEventListener("click", (event) => {
         if (!menu.contains(event.target as Node)) setOpen(false);
     });
 });
