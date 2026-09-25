@@ -1,0 +1,39 @@
+---
+import LightRay from "@assets/schedule/light-ray.svg?url";
+---
+
+<style>
+.schedule-light-ray {
+    left: 0;
+    top: 0;
+    width: calc(var(--schedule-width) * 1.622096);
+    height: calc(var(--schedule-width) * 2.342492);
+    transform-origin: 0 0;
+    transform: translate(
+            calc(var(--schedule-width) * 1.568072),
+            calc(var(--schedule-width) * 1.685813)
+        )
+        matrix(-0.698864, -0.715255, -0.715255, 0.698864, 0, 0);
+    background-image: var(--light-ray-image);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@media (width < 64rem) {
+    .schedule-light-ray {
+        width: calc(var(--schedule-width) * 2.712861);
+        height: calc(var(--schedule-width) * 3.900972);
+        transform: translate(
+                calc(var(--schedule-width) * 2.16436),
+                calc(var(--schedule-width) * 1.971755)
+            )
+            matrix(-0.784342, -0.620328, -0.620328, 0.784342, 0, 0);
+    }
+}
+</style>
+
+<div
+    aria-hidden="true"
+    class="schedule-light-ray pointer-events-none absolute z-12"
+    style={`--light-ray-image: url("${LightRay}")`}
+></div>

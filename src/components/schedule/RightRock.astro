@@ -1,0 +1,43 @@
+---
+import { Picture } from "astro:assets";
+import RightRock from "@assets/schedule/right-rock.png";
+---
+
+<style>
+.schedule-right-rock {
+    left: calc(var(--schedule-width) * 0.283203);
+    top: calc(var(--schedule-width) * 1.00293);
+    width: calc(var(--schedule-width) * 1.518555);
+    height: calc(var(--schedule-width) * 1.76709);
+}
+
+.schedule-right-rock-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (width < 64rem) {
+    .schedule-right-rock {
+        left: calc(var(--schedule-width) * 0.22975);
+        top: calc(var(--schedule-width) * 1.05025);
+        width: calc(var(--schedule-width) * 2.539694);
+        height: calc(var(--schedule-width) * 2.955361);
+    }
+}
+</style>
+
+<div
+    aria-hidden="true"
+    class="schedule-right-rock pointer-events-none absolute z-30"
+>
+    <Picture
+        src={RightRock}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="(min-width: 96rem) 145.7813rem, (min-width: 64rem) 151.8555vw, 253.9694vw"
+        width={Math.round(RightRock.width)}
+        class="schedule-right-rock-img"
+    />
+</div>

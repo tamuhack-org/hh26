@@ -1,0 +1,43 @@
+---
+import { Picture } from "astro:assets";
+import AnglerFishChef from "@assets/schedule/angler-fish-chef.png";
+---
+
+<style>
+.schedule-angler-fish-chef {
+    left: calc(var(--schedule-width) * 0.538281);
+    top: calc(var(--schedule-width) * 2.928711);
+    width: calc(var(--schedule-width) * 0.40332);
+    height: calc(var(--schedule-width) * 0.290527);
+}
+
+.schedule-angler-fish-chef-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (width < 64rem) {
+    .schedule-angler-fish-chef {
+        left: calc(var(--schedule-width) * 0.058778);
+        top: calc(var(--schedule-width) * 9.041667);
+        width: calc(var(--schedule-width) * 0.853639);
+        height: calc(var(--schedule-width) * 0.615694);
+    }
+}
+</style>
+
+<div
+    aria-hidden="true"
+    class="schedule-angler-fish-chef pointer-events-none absolute z-5"
+>
+    <Picture
+        src={AnglerFishChef}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="(min-width: 96rem) 38.7187rem, (min-width: 64rem) 40.332vw, 85.3639vw"
+        width={Math.round(AnglerFishChef.width)}
+        class="schedule-angler-fish-chef-img"
+    />
+</div>

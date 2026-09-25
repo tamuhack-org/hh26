@@ -1,14 +1,41 @@
 ---
+import AnglerFishChef from "./AnglerFishChef.astro";
+import Days from "./Days.astro";
+import LeftRock from "./LeftRock.astro";
+import LightRay from "./LightRay.astro";
+import RightRock from "./RightRock.astro";
+import ScheduleHeader from "./ScheduleHeader.astro";
+import SchoolOfFish from "./SchoolOfFish.astro";
+import Submarine from "./Submarine.astro";
 ---
 
 <section id="schedule" class="w-full" aria-labelledby="schedule-title">
     <h2 id="schedule-title" class="sr-only">Schedule</h2>
+    <div class="schedule-stage">
+        <AnglerFishChef />
+        <LeftRock />
+        <LightRay />
+        <Submarine />
+        <SchoolOfFish />
+        <ScheduleHeader />
+        <RightRock />
+        <Days />
+    </div>
 </section>
 
 <style>
 /* gradient */
 #schedule {
+    --schedule-width: min(100vw, var(--widescreen-breakpoint));
+    position: relative;
+    overflow-x: clip;
     min-height: 367.75rem;
     background-image: linear-gradient(180deg, #0e075f 0%, #161445 100%);
+}
+
+.schedule-stage {
+    position: relative;
+    width: var(--schedule-width);
+    margin-inline: auto;
 }
 </style>
