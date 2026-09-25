@@ -1,0 +1,41 @@
+---
+import { Picture } from "astro:assets";
+import ScheduleHeader from "@assets/schedule/schedule_header.png";
+---
+
+<style>
+.schedule-header {
+    left: calc(var(--schedule-width) * 0.004395);
+    top: calc(var(--schedule-width) * 1.750977);
+    width: calc(var(--schedule-width) * 0.987305);
+    height: calc(var(--schedule-width) * 0.369141);
+}
+
+.schedule-header-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (width < 64rem) {
+    .schedule-header {
+        left: calc(var(--schedule-width) * 0.005389);
+        top: calc(var(--schedule-width) * 2.388889);
+        width: calc(var(--schedule-width) * 0.994611);
+        height: calc(var(--schedule-width) * 0.373972);
+    }
+}
+</style>
+
+<div class="schedule-header pointer-events-none absolute z-25">
+    <Picture
+        src={ScheduleHeader}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        aria-hidden="true"
+        sizes="(min-width: 96rem) 94.7813rem, (min-width: 64rem) 98.7305vw, 99.4611vw"
+        width={Math.round(ScheduleHeader.width)}
+        class="schedule-header-img"
+    />
+</div>

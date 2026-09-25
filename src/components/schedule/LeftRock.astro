@@ -1,0 +1,43 @@
+---
+import { Picture } from "astro:assets";
+import LeftRock from "@assets/schedule/left-rock.png";
+---
+
+<style>
+.schedule-left-rock {
+    left: calc(var(--schedule-width) * -0.783203);
+    top: calc(var(--schedule-width) * 1.305664);
+    width: calc(var(--schedule-width) * 1.094727);
+    height: calc(var(--schedule-width) * 1.638672);
+}
+
+.schedule-left-rock-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (width < 64rem) {
+    .schedule-left-rock {
+        left: calc(var(--schedule-width) * -1.284333);
+        top: calc(var(--schedule-width) * 1.739889);
+        width: calc(var(--schedule-width) * 1.830861);
+        height: calc(var(--schedule-width) * 2.740583);
+    }
+}
+</style>
+
+<div
+    aria-hidden="true"
+    class="schedule-left-rock pointer-events-none absolute z-10"
+>
+    <Picture
+        src={LeftRock}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="(min-width: 96rem) 105.0938rem, (min-width: 64rem) 109.4727vw, 183.0861vw"
+        width={Math.round(LeftRock.width)}
+        class="schedule-left-rock-img"
+    />
+</div>
