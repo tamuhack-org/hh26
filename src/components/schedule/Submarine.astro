@@ -1,0 +1,43 @@
+---
+import { Picture } from "astro:assets";
+import Submarine from "@assets/schedule/submarine.png";
+---
+
+<style>
+.schedule-submarine {
+    left: calc(var(--schedule-width) * 0.512546);
+    top: calc(var(--schedule-width) * 0.45785);
+    width: calc(var(--schedule-width) * 0.420898);
+    height: calc(var(--schedule-width) * 0.382812);
+}
+
+.schedule-submarine-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (width < 64rem) {
+    .schedule-submarine {
+        left: calc(var(--schedule-width) * 0.224667);
+        top: calc(var(--schedule-width) * 0.130556);
+        width: calc(var(--schedule-width) * 0.703417);
+        height: calc(var(--schedule-width) * 0.639694);
+    }
+}
+</style>
+
+<div
+    aria-hidden="true"
+    class="schedule-submarine pointer-events-none absolute z-15"
+>
+    <Picture
+        src={Submarine}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="(min-width: 96rem) 40.4062rem, (min-width: 64rem) 42.0898vw, 70.3417vw"
+        width={Math.round(Submarine.width)}
+        class="schedule-submarine-img"
+    />
+</div>
