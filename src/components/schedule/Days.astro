@@ -1,6 +1,7 @@
 ---
 import SaturdayCard from "@assets/schedule/saturday-card.svg?url";
 import SundayCard from "@assets/schedule/sunday-card.svg?url";
+import AnglerFishChef from "./AnglerFishChef.astro";
 import DayCard from "./DayCard.astro";
 
 // going to try to set up the api using the code from th26
@@ -14,7 +15,7 @@ export interface ScheduleEvent {
     tags: string[];
 }
 
-const SCHEDULE_ENDPOINT = "https://team.tamuhack.org/api/hh26";
+const SCHEDULE_ENDPOINT = "https://team.tamuhack.org/api/th26";
 const TIME_ZONE = "America/Chicago";
 
 const weekdayFormatter = new Intl.DateTimeFormat("en-US", {
@@ -63,6 +64,7 @@ const sundayEvents = eventsForDay(events, "Sun");
 ---
 
 <div class="schedule-days absolute z-35">
+    <AnglerFishChef />
     <DayCard
         title="Saturday"
         events={saturdayEvents}

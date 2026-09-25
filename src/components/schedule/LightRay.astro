@@ -1,5 +1,4 @@
 ---
-import LightRay from "@assets/schedule/light-ray.svg?url";
 ---
 
 <style>
@@ -8,15 +7,24 @@ import LightRay from "@assets/schedule/light-ray.svg?url";
     top: 0;
     width: calc(var(--schedule-width) * 1.622096);
     height: calc(var(--schedule-width) * 2.342492);
+    opacity: 0.44;
     transform-origin: 0 0;
     transform: translate(
             calc(var(--schedule-width) * 1.568072),
             calc(var(--schedule-width) * 1.685813)
         )
         matrix(-0.698864, -0.715255, -0.715255, 0.698864, 0, 0);
-    background-image: var(--light-ray-image);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+}
+
+.schedule-light-ray-shape {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        203.86deg,
+        #8093ff 4.08%,
+        rgb(22 20 69 / 0.55) 42.8%
+    );
+    clip-path: polygon(98.03% 97.65%, 76.41% 1.37%, 2.05% 84.85%);
 }
 
 @media (width < 64rem) {
@@ -34,6 +42,7 @@ import LightRay from "@assets/schedule/light-ray.svg?url";
 
 <div
     aria-hidden="true"
-    class="schedule-light-ray pointer-events-none absolute z-12"
-    style={`--light-ray-image: url("${LightRay}")`}
-></div>
+    class="schedule-light-ray pointer-events-none absolute z-31"
+>
+    <div class="schedule-light-ray-shape"></div>
+</div>
