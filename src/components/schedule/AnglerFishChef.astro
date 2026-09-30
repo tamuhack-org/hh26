@@ -4,41 +4,34 @@ import AnglerFishChef from "@assets/schedule/angler-fish-chef.png";
 ---
 
 <style>
-.schedule-angler-fish-chef {
-    left: 33rem;
-    bottom: 1rem;
-    width: calc(var(--schedule-width) * 0.40332);
-    height: calc(var(--schedule-width) * 0.290527);
+.angler-fish-chef {
+    margin-left: 1.5625rem;
+    width: 25.8125rem;
 }
 
-.schedule-angler-fish-chef-img {
+.angler-fish-chef-img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 @media (width < 64rem) {
-    .schedule-angler-fish-chef {
-        left: calc(var(--schedule-width) * -0.032889);
-        top: calc(100% + var(--schedule-width) * 0.133333);
-        bottom: auto;
-        width: calc(var(--schedule-width) * 0.853639);
-        height: calc(var(--schedule-width) * 0.615694);
+    .angler-fish-chef {
+        margin-top: calc(0.133333 * 22.5rem);
+        margin-left: calc(-0.032889 * 22.5rem);
+        width: calc(22.5 * 0.853639rem);
     }
 }
 </style>
 
-<div
-    aria-hidden="true"
-    class="schedule-angler-fish-chef pointer-events-none absolute z-5"
->
+<div aria-hidden="true" class="angler-fish-chef pointer-events-none z-5">
     <Picture
         src={AnglerFishChef}
         formats={["avif", "webp"]}
         quality={80}
         alt=""
-        sizes="(min-width: 96rem) 38.7187rem, (min-width: 64rem) 40.332vw, 85.3639vw"
+        sizes="(min-width: 64rem) 25.8125rem, 19.2069rem"
         width={Math.round(AnglerFishChef.width)}
-        class="schedule-angler-fish-chef-img"
+        class="angler-fish-chef-img"
     />
 </div>

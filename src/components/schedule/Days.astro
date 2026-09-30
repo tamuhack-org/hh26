@@ -63,8 +63,7 @@ const saturdayEvents = eventsForDay(events, "Sat");
 const sundayEvents = eventsForDay(events, "Sun");
 ---
 
-<div class="schedule-days absolute z-35">
-    <AnglerFishChef />
+<div class="schedule-days z-35">
     <DayCard
         title="Saturday"
         weekday="Sat"
@@ -76,40 +75,52 @@ const sundayEvents = eventsForDay(events, "Sun");
         borderEnd="96.7%"
         locationWeight={400}
     />
-    <DayCard
-        title="Sunday"
-        weekday="Sun"
-        events={sundayEvents}
-        texture={SundayCard}
-        borderFrom="#08091d"
-        borderTo="#1d4bc2"
-        borderStart="24.5%"
-        borderEnd="108%"
-        locationWeight={300}
-    />
+    <div class="sunday-column">
+        <DayCard
+            title="Sunday"
+            weekday="Sun"
+            events={sundayEvents}
+            texture={SundayCard}
+            borderFrom="#08091d"
+            borderTo="#1d4bc2"
+            borderStart="24.5%"
+            borderEnd="108%"
+            locationWeight={300}
+        />
+        <AnglerFishChef />
+    </div>
 </div>
 
 <style>
 .schedule-days {
-    left: 50%;
-    top: calc(var(--schedule-width) * 2.083008);
-    display: flex;
-    align-items: flex-start;
+    margin-top: calc(64rem * 2.083008);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
     gap: 1.875rem;
     width: 61rem;
     padding: 1rem;
-    transform: translateX(-50%);
+}
+
+.sunday-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sunday-column > :global(.schedule-day) {
+    flex: none;
 }
 
 @media (width < 64rem) {
     .schedule-days {
-        left: calc(var(--schedule-width) * 0.091667);
-        top: calc(var(--schedule-width) * 2.786111);
-        transform: none;
-        flex-direction: column;
+        margin-top: calc(22.5rem * 2.786111);
+        margin-left: calc(0.091667rem * 22.5);
+        grid-template-columns: minmax(0, 1fr);
         align-items: stretch;
-        gap: calc(var(--schedule-width) * 0.105556);
-        width: calc(var(--schedule-width) * 0.819444);
+        gap: calc(22.5rem * 0.105556);
+        width: calc(22.5rem * 0.819444);
         padding: 0;
     }
 }
