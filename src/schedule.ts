@@ -1,5 +1,3 @@
-
-
 const SCHEDULE_ENDPOINT = "https://team.tamuhack.org/api/th26";
 const TIME_ZONE = "America/Chicago";
 
@@ -14,8 +12,6 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
     minute: "2-digit",
     hour12: true,
 });
-
-
 
 async function fetchSchedule(): Promise<ScheduleEvent[] | null> {
     try {
@@ -48,7 +44,6 @@ function eventsForDay(events: ScheduleEvent[], weekday: string) {
             (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
         );
 }
-
 
 function scopeAttribute(card: HTMLElement): string | null {
     for (const attribute of card.attributes) {
@@ -131,4 +126,3 @@ if (cards.length > 0) {
         }
     });
 }
-
