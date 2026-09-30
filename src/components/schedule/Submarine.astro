@@ -4,40 +4,35 @@ import Submarine from "@assets/schedule/submarine.png";
 ---
 
 <style>
-.schedule-submarine {
-    left: calc(var(--schedule-width) * 0.512546);
-    top: calc(var(--schedule-width) * 0.45785);
-    width: calc(var(--schedule-width) * 0.420898);
-    height: calc(var(--schedule-width) * 0.382812);
+.submarine {
+    margin-left: 32.8125rem;
+    margin-top: 29.3125rem;
+    width: 26.9183rem;
 }
 
-.schedule-submarine-img {
+.submarine-img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 @media (width < 64rem) {
-    .schedule-submarine {
-        left: calc(var(--schedule-width) * 0.224667);
-        top: calc(var(--schedule-width) * 0.130556);
-        width: calc(var(--schedule-width) * 0.703417);
-        height: calc(var(--schedule-width) * 0.639694);
+    .submarine {
+        margin-left: 5.0552rem;
+        margin-top: 2.9375rem;
+        width: 15.8271rem;
     }
 }
 </style>
 
-<div
-    aria-hidden="true"
-    class="schedule-submarine pointer-events-none absolute z-15"
->
+<div aria-hidden="true" class="submarine pointer-events-none z-15">
     <Picture
         src={Submarine}
         formats={["avif", "webp"]}
         quality={80}
         alt=""
-        sizes="(min-width: 96rem) 40.4062rem, (min-width: 64rem) 42.0898vw, 70.3417vw"
+        sizes="(min-width: 64rem) 26.9183rem, 15.8271rem"
         width={Math.round(Submarine.width)}
-        class="schedule-submarine-img"
+        class="submarine-img"
     />
 </div>

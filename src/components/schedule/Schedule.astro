@@ -11,7 +11,8 @@ import Submarine from "./Submarine.astro";
     <div class="schedule-stage">
         <RocksAndFish />
         <LightRay />
-        <Submarine /> <ScheduleHeader />
+        <Submarine />
+        <ScheduleHeader />
         <Days />
     </div>
 </section>
@@ -29,6 +30,13 @@ import Submarine from "./Submarine.astro";
     position: relative;
     width: 64rem;
     margin-inline: auto;
+    display: grid;
+}
+
+.schedule-stage > :global(*) {
+    /* for scoping*/
+    grid-area: 1 / 1;
+    align-self: start;
 }
 
 @media (width < 64rem) {
