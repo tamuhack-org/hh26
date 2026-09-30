@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import Submarine from "@assets/schedule/submarine.png";
+import Jellyfish from "@assets/schedule/jellyfish.png";
 ---
 
 <style>
@@ -16,11 +17,33 @@ import Submarine from "@assets/schedule/submarine.png";
     height: auto;
 }
 
+.jellyfish {
+    margin-left: 41.832rem;
+    margin-top: 41.8652rem;
+    width: 6.6123rem;
+    
+}
+
+.jellyfish-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    
+
+}
+
+
 @media (width < 64rem) {
     .submarine {
         margin-left: 5.0552rem;
         margin-top: 2.9375rem;
         width: 15.8271rem;
+    }
+
+    .jellyfish {
+        margin-left: 10.3584rem;
+        margin-top: 10.1711rem;
+        width: 3.8879rem;
     }
 }
 </style>
@@ -36,3 +59,18 @@ import Submarine from "@assets/schedule/submarine.png";
         class="submarine-img"
     />
 </div>
+
+<div aria-hidden="true" class="jellyfish pointer-events-none z-14">
+    <Picture
+        src={Jellyfish}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="(min-width: 64rem) 6.6123rem, 3.8879rem"
+        width={Math.round(Jellyfish.width)}
+        class="jellyfish-img"
+    />
+</div>
+
+
+
