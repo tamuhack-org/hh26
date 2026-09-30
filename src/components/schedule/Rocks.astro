@@ -2,6 +2,7 @@
 import { Picture } from "astro:assets";
 import LeftRock from "@assets/schedule/left-rock.png";
 import RightRock from "@assets/schedule/right-rock.png";
+import SchoolOfFish from "@assets/schedule/school-of-fish.png";
 ---
 
 <style>
@@ -21,6 +22,7 @@ import RightRock from "@assets/schedule/right-rock.png";
     z-index: 10;
 }
 /* had to margin-left to the right rocks, because ts rocks overlap. did for both desktop and mobile. */
+
 .schedule-rock-right {
     width: 97.1875rem;
     margin-top: 64.1875rem;
@@ -28,6 +30,19 @@ import RightRock from "@assets/schedule/right-rock.png";
     margin-left: -1.8125rem;
     flex-shrink: 0;
     z-index: 30;
+}
+/* fish here now */
+
+.school-of-fish {
+    width: 7.6581rem;
+    top: 106.875rem;
+    left: 4.6875rem;
+}
+
+.school-of-fish-img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 @media (width < 64rem) {
@@ -46,6 +61,10 @@ import RightRock from "@assets/schedule/right-rock.png";
         margin-top: 23.6304rem;
         margin-right: -39.8124rem;
         margin-left: -7.128rem;
+    }
+
+    .school-of-fish {
+        display: none;
     }
 }
 </style>
@@ -74,4 +93,19 @@ import RightRock from "@assets/schedule/right-rock.png";
             class="schedule-rocks-img"
         />
     </div>
+</div>
+
+<div
+    aria-hidden="true"
+    class="school-of-fish pointer-events-none absolute z-20"
+>
+    <Picture
+        src={SchoolOfFish}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="7.6581rem"
+        width={Math.round(SchoolOfFish.width)}
+        class="school-of-fish-img"
+    />
 </div>

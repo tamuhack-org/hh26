@@ -3,7 +3,6 @@ import Days from "./Days.astro";
 import LightRay from "./LightRay.astro";
 import Rocks from "./Rocks.astro";
 import ScheduleHeader from "./ScheduleHeader.astro";
-import SchoolOfFish from "./SchoolOfFish.astro";
 import Submarine from "./Submarine.astro";
 ---
 
@@ -12,9 +11,7 @@ import Submarine from "./Submarine.astro";
     <div class="schedule-stage">
         <Rocks />
         <LightRay />
-        <Submarine />
-        <SchoolOfFish />
-        <ScheduleHeader />
+        <Submarine /> <ScheduleHeader />
         <Days />
     </div>
 </section>
@@ -30,5 +27,13 @@ import Submarine from "./Submarine.astro";
 
 .schedule-stage {
     position: relative;
+    width: 64rem;
+    margin-inline: auto;
+}
+
+@media (width < 64rem) {
+    .schedule-stage {
+        width: 22.5rem;
+    }
 }
 </style>
