@@ -34,17 +34,10 @@ const {
 </article>
 
 <style>
-@property --day-glow-opacity {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 0;
-}
-
 .schedule-day {
-    --day-glow-size: 4.25rem;
-    --day-glow-x: 50%;
-    --day-glow-y: 50%;
-    --day-glow-color: color-mix(in srgb, var(--day-border-to), #ffffff 35%);
+    --day-glow-size: 20rem;
+    --day-glow-x: -100rem;
+    --day-glow-y: -100rem;
 
     display: flex;
     flex: 1 1 0;
@@ -57,31 +50,27 @@ const {
     border-radius: 2.0625rem;
     background-image:
         linear-gradient(#080625, #080625),
-        radial-gradient(
-            circle var(--day-glow-size) at var(--day-glow-x) var(--day-glow-y),
-            color-mix(
-                    in srgb,
-                    var(--day-glow-color) calc(var(--day-glow-opacity) * 100%),
-                    transparent
-                )
-                0%,
-            transparent 100%
-        ),
         linear-gradient(
             180deg,
             var(--day-border-from) var(--day-border-start),
             var(--day-border-to) var(--day-border-end)
         );
-    background-origin: padding-box, border-box, border-box;
-    background-clip: padding-box, border-box, border-box;
+    background-origin: padding-box, border-box;
+    background-clip: padding-box, border-box;
     box-shadow: inset 0 4px 4px rgb(0 0 0 / 0.25);
-    transition: --day-glow-opacity 220ms ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .schedule-day {
-        transition: none;
-    }
+.schedule-day[data-glow] {
+    background-image:
+        linear-gradient(#080625, #080625),
+        radial-gradient(
+            circle var(--day-glow-size) at var(--day-glow-x) var(--day-glow-y),
+            var(--day-border-to) 0%,
+            transparent 100%
+        ),
+        linear-gradient(var(--day-border-from), var(--day-border-from));
+    background-origin: padding-box, border-box, border-box;
+    background-clip: padding-box, border-box, border-box;
 }
 
 .schedule-day-inner {
@@ -185,27 +174,23 @@ const cards = document.querySelectorAll<HTMLElement>(
 );
 
 const fineHover = window.matchMedia(MEDIA.fineHover);
+const motionSafe = window.matchMedia(MEDIA.motionSafe);
 
-function track(card: HTMLElement) {
-    card.addEventListener("pointermove", (event) => {
+function moveGlow(event: PointerEvent) {
+    for (const card of cards) {
         const rect = card.getBoundingClientRect();
         card.style.setProperty(
             "--day-glow-x",
             `${event.clientX - rect.left}px`,
         );
         card.style.setProperty("--day-glow-y", `${event.clientY - rect.top}px`);
-    });
-    card.addEventListener("pointerenter", () => {
-        card.style.setProperty("--day-glow-opacity", "1");
-    });
-    card.addEventListener("pointerleave", () => {
-        card.style.setProperty("--day-glow-opacity", "0");
-    });
+    }
 }
 
-if (fineHover.matches) {
+if (fineHover.matches && motionSafe.matches) {
     for (const card of cards) {
-        track(card);
+        card.dataset.glow = "";
     }
+    document.addEventListener("pointermove", moveGlow);
 }
 </script>
