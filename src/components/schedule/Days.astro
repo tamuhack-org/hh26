@@ -3,71 +3,12 @@ import SaturdayCard from "@assets/schedule/saturday-card.svg?url";
 import SundayCard from "@assets/schedule/sunday-card.svg?url";
 import AnglerFishChef from "./AnglerFishChef.astro";
 import DayCard from "./DayCard.astro";
-
-// going to try to set up the api using the code from th26
-//
-export interface ScheduleEvent {
-    id: string;
-    date: string;
-    eventName: string;
-    description: string;
-    location: string;
-    tags: string[];
-}
-
-const SCHEDULE_ENDPOINT = "https://team.tamuhack.org/api/th26";
-const TIME_ZONE = "America/Chicago";
-
-const weekdayFormatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: TIME_ZONE,
-    weekday: "short",
-});
-
-async function fetchSchedule(): Promise<ScheduleEvent[]> {
-    try {
-        const response = await fetch(SCHEDULE_ENDPOINT);
-        if (!response.ok) {
-            console.warn(
-                `[schedule] ${SCHEDULE_ENDPOINT} returned ${response.status}`,
-            );
-            return [];
-        }
-        const data = await response.json();
-        if (!Array.isArray(data)) {
-            console.warn("[schedule] expected an array of events");
-            return [];
-        }
-        return data as ScheduleEvent[];
-    } catch (error) {
-        console.warn(`[schedule] could not reach ${SCHEDULE_ENDPOINT}`, error);
-        return [];
-    }
-}
-
-function eventsForDay(
-    events: ScheduleEvent[],
-    weekday: string,
-): ScheduleEvent[] {
-    return events
-        .filter(
-            (event) =>
-                weekdayFormatter.format(new Date(event.date)) === weekday,
-        )
-        .sort(
-            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-        );
-}
-
-const events = await fetchSchedule();
-const saturdayEvents = eventsForDay(events, "Sat");
-const sundayEvents = eventsForDay(events, "Sun");
 ---
 
 <div class="schedule-days z-35">
     <DayCard
         title="Saturday"
         weekday="Sat"
-        events={saturdayEvents}
         texture={SaturdayCard}
         borderFrom="#0b0a2d"
         borderTo="#2462fc"
@@ -79,7 +20,6 @@ const sundayEvents = eventsForDay(events, "Sun");
         <DayCard
             title="Sunday"
             weekday="Sun"
-            events={sundayEvents}
             texture={SundayCard}
             borderFrom="#08091d"
             borderTo="#1d4bc2"
@@ -125,3 +65,7 @@ const sundayEvents = eventsForDay(events, "Sun");
     }
 }
 </style>
+
+<script>
+import "../../schedule";
+</script>
