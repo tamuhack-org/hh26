@@ -1,4 +1,4 @@
-const SCHEDULE_ENDPOINT = "https://team.tamuhack.org/api/th26";
+const SCHEDULE_ENDPOINT = "https://team.tamuhack.org/api/hh26";
 const TIME_ZONE = "America/Chicago";
 
 const weekdayFormatter = new Intl.DateTimeFormat("en-US", {
