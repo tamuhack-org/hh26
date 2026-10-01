@@ -1,7 +1,7 @@
 ---
 import { Picture } from "astro:assets";
-import Submarine from "@assets/schedule/submarine.png";
 import Jellyfish from "@assets/schedule/jellyfish.png";
+import Submarine from "@assets/schedule/submarine.png";
 ---
 
 <style>
@@ -21,17 +21,14 @@ import Jellyfish from "@assets/schedule/jellyfish.png";
     margin-left: 41.832rem;
     margin-top: 41.8652rem;
     width: 6.6123rem;
-    
 }
 
 .jellyfish-img {
     display: block;
     width: 100%;
     height: auto;
-    
-
+    translate: 0 1rem;
 }
-
 
 @media (width < 64rem) {
     .submarine {
@@ -46,9 +43,27 @@ import Jellyfish from "@assets/schedule/jellyfish.png";
         width: 3.8879rem;
     }
 }
+
+@media (hover: hover) and (pointer: fine) and (
+        prefers-reduced-motion: no-preference
+    ) {
+    .submarine:hover + .jellyfish {
+        animation: jellyfish-bob 1.2s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes jellyfish-bob {
+    from {
+        translate: 0 -0.6rem;
+    }
+
+    to {
+        translate: 0 0.6rem;
+    }
+}
 </style>
 
-<div aria-hidden="true" class="submarine pointer-events-none z-15">
+<div aria-hidden="true" class="submarine z-15">
     <Picture
         src={Submarine}
         formats={["avif", "webp"]}
@@ -71,6 +86,3 @@ import Jellyfish from "@assets/schedule/jellyfish.png";
         class="jellyfish-img"
     />
 </div>
-
-
-
