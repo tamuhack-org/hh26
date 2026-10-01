@@ -27,7 +27,7 @@ import Submarine from "@assets/schedule/submarine.png";
     display: block;
     width: 100%;
     height: auto;
-    translate: 0 1rem;
+    translate: 0 0.5rem;
 }
 
 @media (width < 64rem) {
@@ -41,24 +41,6 @@ import Submarine from "@assets/schedule/submarine.png";
         margin-left: 10.3584rem;
         margin-top: 10.1711rem;
         width: 3.8879rem;
-    }
-}
-
-@media (hover: hover) and (pointer: fine) and (
-        prefers-reduced-motion: no-preference
-    ) {
-    .submarine:hover + .jellyfish {
-        animation: jellyfish-bob 1.2s ease-in-out infinite alternate;
-    }
-}
-
-@keyframes jellyfish-bob {
-    from {
-        translate: 0 -0.6rem;
-    }
-
-    to {
-        translate: 0 0.6rem;
     }
 }
 </style>
@@ -86,3 +68,42 @@ import Submarine from "@assets/schedule/submarine.png";
         class="jellyfish-img"
     />
 </div>
+
+<script>
+import { gsap } from "gsap";
+import { MEDIA } from "../../media";
+
+gsap.matchMedia().add(`${MEDIA.fineHover} and ${MEDIA.motionSafe}`, () => {
+    const submarine = document.querySelector<HTMLElement>(".submarine");
+
+    const bob = () => {
+        gsap.to(".jellyfish", {
+            yPercent: 8,
+            duration: 1.2,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            overwrite: true,
+        });
+    };
+
+    const settle = () => {
+        gsap.to(".jellyfish", {
+            yPercent: 0,
+            duration: 0.5,
+            ease: "sine.out",
+            overwrite: true,
+        });
+    };
+
+    submarine?.addEventListener("pointerenter", bob);
+    submarine?.addEventListener("pointerleave", settle);
+
+    return () => {
+        submarine?.removeEventListener("pointerenter", bob);
+        submarine?.removeEventListener("pointerleave", settle);
+        gsap.killTweensOf(".jellyfish");
+        gsap.set(".jellyfish", { clearProps: "all" });
+    };
+});
+</script>
