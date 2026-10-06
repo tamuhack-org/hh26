@@ -37,9 +37,8 @@ const { variant = "ring" } = Astro.props;
         <a class="label label--faq" aria-label="FAQ" href="#faq"
             ><Faq aria-hidden="true" /></a
         >
-        <span class="label label--schedule disabled-link" aria-disabled="true"
-            ><span class="sr-only">Schedule (coming soon)</span>
-            <Schedule aria-hidden="true" /></span
+        <a class="label label--schedule" aria-label="Schedule" href="#schedule">
+            <Schedule aria-hidden="true" /></a
         >
         <span class="label label--prizes disabled-link" aria-disabled="true"
             ><span class="sr-only">Prizes (coming soon)</span>
