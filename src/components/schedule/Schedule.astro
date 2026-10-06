@@ -20,9 +20,9 @@ import Submarine from "./Submarine.astro";
 <style>
 /* gradient */
 #schedule {
+    display: flow-root;
     position: relative;
-    overflow-x: clip;
-    min-height: 367.75rem;
+    overflow: clip;
     background-image: linear-gradient(180deg, #0e075f 0%, #161445 100%);
 }
 
@@ -30,6 +30,7 @@ import Submarine from "./Submarine.astro";
     position: relative;
     width: 64rem;
     margin-inline: auto;
+    margin-top: -14.6563rem;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
 }
@@ -43,6 +44,7 @@ import Submarine from "./Submarine.astro";
 @media (width < 64rem) {
     .schedule-stage {
         width: 22.5rem;
+        margin-top: -1.4688rem;
     }
 }
 </style>
