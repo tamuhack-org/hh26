@@ -1,0 +1,78 @@
+---
+import SaturdayCard from "@assets/schedule/saturday-card.svg?url";
+import SundayCard from "@assets/schedule/sunday-card.svg?url";
+import AnglerFishChef from "./AnglerFishChef.astro";
+import DayCard from "./DayCard.astro";
+---
+
+<div class="schedule-days z-35">
+    <DayCard
+        title="Saturday"
+        weekday="Sat"
+        texture={SaturdayCard}
+        borderFrom="#0b0a2d"
+        borderTo="#2462fc"
+        borderStart="22.6%"
+        borderEnd="96.7%"
+        locationWeight={400}
+    />
+    <div class="sunday-column">
+        <DayCard
+            title="Sunday"
+            weekday="Sun"
+            texture={SundayCard}
+            borderFrom="#08091d"
+            borderTo="#1d4bc2"
+            borderStart="24.5%"
+            borderEnd="108%"
+            locationWeight={300}
+        />
+        <a href="" class="angler-fish-link">
+            <AnglerFishChef />
+        </a>
+    </div>
+</div>
+
+<style>
+.schedule-days {
+    margin-top: calc(64rem * 2.083008);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1.875rem;
+    width: 61rem;
+    padding: 1rem;
+}
+
+.sunday-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sunday-column > :global(.schedule-day) {
+    flex: none;
+}
+
+.angler-fish-link {
+    display: none;
+    cursor: pointer;
+}
+
+@media (width < 64rem) {
+    .schedule-days {
+        margin-top: calc(22.5rem * 2.786111);
+        margin-left: calc(0.091667rem * 22.5);
+        grid-template-columns: minmax(0, 1fr);
+        align-items: stretch;
+        gap: calc(22.5rem * 0.105556);
+        width: calc(22.5rem * 0.819444);
+        padding: 0;
+    }
+}
+</style>
+
+<script>
+import "../../schedule";
+</script>

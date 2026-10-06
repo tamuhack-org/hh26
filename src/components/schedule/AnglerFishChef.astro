@@ -1,0 +1,37 @@
+---
+import { Picture } from "astro:assets";
+import AnglerFishChef from "@assets/schedule/angler-fish-chef.png";
+---
+
+<style>
+.angler-fish-chef {
+    margin-left: 1.5625rem;
+    width: 25.8125rem;
+}
+
+.angler-fish-chef-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (width < 64rem) {
+    .angler-fish-chef {
+        margin-top: calc(0.133333 * 22.5rem);
+        margin-left: calc(-0.032889 * 22.5rem);
+        width: calc(22.5 * 0.853639rem);
+    }
+}
+</style>
+
+<div aria-hidden="true" class="angler-fish-chef pointer-events-none z-5">
+    <Picture
+        src={AnglerFishChef}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="(min-width: 64rem) 25.8125rem, 19.2069rem"
+        width={Math.round(AnglerFishChef.width)}
+        class="angler-fish-chef-img"
+    />
+</div>

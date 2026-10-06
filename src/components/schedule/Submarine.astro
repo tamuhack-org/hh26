@@ -1,0 +1,109 @@
+---
+import { Picture } from "astro:assets";
+import Jellyfish from "@assets/schedule/jellyfish.png";
+import Submarine from "@assets/schedule/submarine.png";
+---
+
+<style>
+.submarine {
+    margin-left: 32.8125rem;
+    margin-top: 29.3125rem;
+    width: 26.9183rem;
+}
+
+.submarine-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.jellyfish {
+    margin-left: 41.832rem;
+    margin-top: 41.8652rem;
+    width: 6.6123rem;
+}
+
+.jellyfish-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    translate: 0 0.5rem;
+}
+
+@media (width < 64rem) {
+    .submarine {
+        margin-left: 5.0552rem;
+        margin-top: 2.9375rem;
+        width: 15.8271rem;
+    }
+
+    .jellyfish {
+        margin-left: 10.3584rem;
+        margin-top: 10.1711rem;
+        width: 3.8879rem;
+    }
+}
+</style>
+
+<div aria-hidden="true" class="submarine z-15">
+    <Picture
+        src={Submarine}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="(min-width: 64rem) 26.9183rem, 15.8271rem"
+        width={Math.round(Submarine.width)}
+        class="submarine-img"
+    />
+</div>
+
+<div aria-hidden="true" class="jellyfish pointer-events-none z-14">
+    <Picture
+        src={Jellyfish}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="(min-width: 64rem) 6.6123rem, 3.8879rem"
+        width={Math.round(Jellyfish.width)}
+        class="jellyfish-img"
+    />
+</div>
+
+<script>
+import { gsap } from "gsap";
+import { MEDIA } from "../../media";
+
+gsap.matchMedia().add(`${MEDIA.fineHover} and ${MEDIA.motionSafe}`, () => {
+    const submarine = document.querySelector<HTMLElement>(".submarine");
+
+    const bob = () => {
+        gsap.to(".jellyfish", {
+            yPercent: 8,
+            duration: 1.2,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            overwrite: true,
+        });
+    };
+
+    const settle = () => {
+        gsap.to(".jellyfish", {
+            yPercent: 0,
+            duration: 0.5,
+            ease: "sine.out",
+            overwrite: true,
+        });
+    };
+
+    submarine?.addEventListener("pointerenter", bob);
+    submarine?.addEventListener("pointerleave", settle);
+
+    return () => {
+        submarine?.removeEventListener("pointerenter", bob);
+        submarine?.removeEventListener("pointerleave", settle);
+        gsap.killTweensOf(".jellyfish");
+        gsap.set(".jellyfish", { clearProps: "all" });
+    };
+});
+</script>

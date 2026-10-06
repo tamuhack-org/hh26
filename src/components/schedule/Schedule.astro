@@ -1,0 +1,50 @@
+---
+import Days from "./Days.astro";
+import LightRay from "./LightRay.astro";
+import RocksAndFish from "./RocksAndFish.astro";
+import ScheduleHeader from "./ScheduleHeader.astro";
+import Submarine from "./Submarine.astro";
+---
+
+<section id="schedule" class="w-full" aria-labelledby="schedule-title">
+    <h2 id="schedule-title" class="sr-only">Schedule</h2>
+    <div class="schedule-stage">
+        <RocksAndFish />
+        <LightRay />
+        <Submarine />
+        <ScheduleHeader />
+        <Days />
+    </div>
+</section>
+
+<style>
+/* gradient */
+#schedule {
+    display: flow-root;
+    position: relative;
+    overflow: clip;
+    background-image: linear-gradient(180deg, #0e075f 0%, #161445 100%);
+}
+
+.schedule-stage {
+    position: relative;
+    width: 64rem;
+    margin-inline: auto;
+    margin-top: -14.6563rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.schedule-stage > :global(*) {
+    /* for scoping*/
+    grid-area: 1 / 1;
+    align-self: start;
+}
+
+@media (width < 64rem) {
+    .schedule-stage {
+        width: 22.5rem;
+        margin-top: -1.4688rem;
+    }
+}
+</style>

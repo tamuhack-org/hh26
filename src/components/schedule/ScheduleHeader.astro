@@ -1,0 +1,40 @@
+---
+import { Picture } from "astro:assets";
+import ScheduleHeader from "@assets/schedule/schedule_header.png";
+---
+
+<style>
+/*had to add the rocks x since the header is connected*/
+.header {
+    width: 63.1875rem;
+    margin-top: 112.0625rem;
+    margin-left: 0.28125rem;
+}
+
+.header-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (width < 64rem) {
+    .header {
+        width: 22.3787rem;
+        margin-top: 53.75rem;
+        margin-left: 0.1213rem;
+    }
+}
+</style>
+
+<div class="header pointer-events-none z-32">
+    <Picture
+        src={ScheduleHeader}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        aria-hidden="true"
+        sizes="(min-width: 64rem) 63.1875rem, 22.3787rem"
+        width={Math.round(ScheduleHeader.width)}
+        class="header-img"
+    />
+</div>

@@ -1,0 +1,111 @@
+---
+import { Picture } from "astro:assets";
+import LeftRock from "@assets/schedule/left-rock.png";
+import RightRock from "@assets/schedule/right-rock.png";
+import SchoolOfFish from "@assets/schedule/school-of-fish.png";
+---
+
+<style>
+/* had to find out the overlap using the leftEndx adn the width minus the size of the viewport all negative.*/
+.schedule-rocks {
+    display: flex;
+    justify-content: space-between;
+    width: max(64rem, 100vw - 100.25rem);
+    justify-self: center;
+}
+
+.schedule-rock-left {
+    width: 70.0625rem;
+    margin-top: 83.5625rem;
+    margin-left: -50.125rem;
+    flex-shrink: 0;
+    z-index: 10;
+}
+/* had to margin-left to the right rocks, because ts rocks overlap. did for both desktop and mobile. */
+
+.schedule-rock-right {
+    width: 97.1875rem;
+    margin-top: 64.1875rem;
+    margin-right: -51.3125rem;
+    margin-left: -1.8125rem;
+    flex-shrink: 0;
+    z-index: 30;
+}
+/* fish here now */
+
+.school-of-fish {
+    width: 7.6581rem;
+    top: 106.875rem;
+    left: 4.6875rem;
+}
+
+.school-of-fish-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (width < 64rem) {
+    .schedule-rocks {
+        width: calc(360rem / 16);
+    }
+
+    .schedule-rock-left {
+        width: 41.1946rem;
+        margin-top: 39.1473rem;
+        margin-left: -28.8972rem;
+    }
+
+    .schedule-rock-right {
+        width: 57.1432rem;
+        margin-top: 23.6304rem;
+        margin-right: -39.8124rem;
+        margin-left: -7.128rem;
+    }
+
+    .school-of-fish {
+        display: none;
+    }
+}
+</style>
+
+<div aria-hidden="true" class="schedule-rocks pointer-events-none">
+    <div class="schedule-rock-left">
+        <Picture
+            src={LeftRock}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            sizes="(min-width: 64rem) 70.0625rem, 41.1946rem"
+            width={Math.round(LeftRock.width)}
+            class="schedule-rocks-img"
+        />
+    </div>
+
+    <div class="schedule-rock-right">
+        <Picture
+            src={RightRock}
+            formats={["avif", "webp"]}
+            quality={80}
+            alt=""
+            sizes="(min-width: 64rem) 97.1875rem, 57.1432rem"
+            width={Math.round(RightRock.width)}
+            class="schedule-rocks-img"
+        />
+    </div>
+</div>
+
+<div
+    aria-hidden="true"
+    class="school-of-fish pointer-events-none absolute z-20"
+>
+    <Picture
+        src={SchoolOfFish}
+        formats={["avif", "webp"]}
+        quality={80}
+        alt=""
+        sizes="7.6581rem"
+        width={Math.round(SchoolOfFish.width)}
+        class="school-of-fish-img"
+    />
+</div>
