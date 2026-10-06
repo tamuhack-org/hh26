@@ -27,7 +27,9 @@ import DayCard from "./DayCard.astro";
             borderEnd="108%"
             locationWeight={300}
         />
-        <AnglerFishChef />
+        <a href="" class="angler-fish-link">
+            <AnglerFishChef />
+        </a>
     </div>
 </div>
 
@@ -51,6 +53,11 @@ import DayCard from "./DayCard.astro";
 
 .sunday-column > :global(.schedule-day) {
     flex: none;
+}
+
+.angler-fish-link {
+    display: none;
+    cursor: pointer;
 }
 
 @media (width < 64rem) {
