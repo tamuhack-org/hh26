@@ -109,7 +109,7 @@ const prizeList: PrizeItem[] = [
         label: "Best Beach",
         closed: getSvgMarkup("beach_closed.svg", "beach-c"),
         open: getSvgMarkup("beach_open.svg", "beach-o"),
-        positionClass: "-translate-x-4 -translate-y-8 -rotate-6",
+        positionClass: "-translate-x-2 -translate-y-8 -rotate-6",
         delay: "-2.0s",
         gridArea: "col-start-2 row-start-5",
     },
@@ -118,7 +118,7 @@ const prizeList: PrizeItem[] = [
 
 <div
     id="prizes"
-    class="relative w-full min-h-screen bg-cover bg-no-repeat bg-top bg-[#0b0a26] pt-16"
+    class="relative w-full min-h-screen overflow-x-clip bg-cover bg-no-repeat bg-top bg-[#0b0a26] pt-16"
     style={`background-image: url('${avifDeepSeaBg.src}');`}
 >
     <div
@@ -163,7 +163,7 @@ const prizeList: PrizeItem[] = [
                 position: relative;
                 display: inline-flex;
                 flex-shrink: 0;
-                width: 120%;
+                width: 100%;
                 max-width: 250px;
                 aspect-ratio: 1 / 1;
                 height: auto;
@@ -255,6 +255,12 @@ const prizeList: PrizeItem[] = [
 
             .prize-toggle:active {
                 animation-play-state: paused;
+            }
+
+            @media (width >= 40rem) {
+                .prize-toggle {
+                    width: 120%;
+                }
             }
             </style>
             <script>
