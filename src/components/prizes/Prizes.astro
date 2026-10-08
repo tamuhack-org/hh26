@@ -118,7 +118,7 @@ const prizeList: PrizeItem[] = [
 
 <div
     id="prizes"
-    class="relative w-full min-h-screen bg-cover bg-no-repeat bg-top bg-[#0b0a26]"
+    class="relative w-full min-h-screen bg-cover bg-no-repeat bg-top bg-[#0b0a26] pt-16"
     style={`background-image: url('${avifDeepSeaBg.src}');`}
 >
     <div
@@ -132,11 +132,11 @@ const prizeList: PrizeItem[] = [
                 class="grid grid-cols-2 gap-x-4 w-full max-w-[440px] mx-auto pt-8"
             >
                 <!-- Title Tile -->
-                <div class="flex justify-center items-center col-span-1">
+                <div class="col-span-1 flex items-center justify-center">
                     <img
                         src="src/assets/prizes/prizes_title.svg"
                         alt="Prizes"
-                        class="w-full h-auto block select-none pointer-events-none"
+                        class="block h-auto w-[140%] max-w-none translate-x-[36%] -translate-y-12 select-none pointer-events-none sm:w-[180%] sm:translate-x-0 sm:translate-y-0 lg:-translate-x-20"
                         loading="eager"
                     >
                 </div>
@@ -284,6 +284,7 @@ const prizeList: PrizeItem[] = [
             </script>
         </div>
     </div>
+    <div class="prizes-transition-top" aria-hidden="true"></div>
     <div class="prizes-transition" aria-hidden="true"></div>
 </div>
 
@@ -305,9 +306,7 @@ const prizeList: PrizeItem[] = [
 
     .prizes-transition {
         bottom: 0;
-        left: 0;
         height: clamp(5rem, 10vw, 9rem);
-        pointer-events: none;
         background: linear-gradient(to bottom, transparent, #080621);
     }
 </style>
