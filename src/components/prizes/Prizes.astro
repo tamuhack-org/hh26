@@ -288,10 +288,22 @@ const prizeList: PrizeItem[] = [
 </div>
 
 <style>
+    .prizes-transition-top,
     .prizes-transition {
         position: absolute;
         z-index: 10;
         right: 0;
+        left: 0;
+        pointer-events: none;
+    }
+
+    .prizes-transition-top {
+        top: 0;
+        height: clamp(12rem, 24vw, 20rem);
+        background: linear-gradient(to bottom, #161445, transparent);
+    }
+
+    .prizes-transition {
         bottom: 0;
         left: 0;
         height: clamp(5rem, 10vw, 9rem);
