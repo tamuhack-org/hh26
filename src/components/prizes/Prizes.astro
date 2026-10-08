@@ -1,0 +1,287 @@
+---
+import { getImage } from "astro:assets";
+import fs from "node:fs";
+import path from "node:path";
+import DeepSeaBg from "@assets/prizes/deepsea_bg.png";
+import ClosedClamGrain from "./ClosedClamGrain.astro";
+import OpenClamGrain from "./OpenClamGrain.astro";
+
+const avifDeepSeaBg = await getImage({
+    src: DeepSeaBg,
+    format: "avif",
+    width: DeepSeaBg.width,
+    height: DeepSeaBg.height,
+});
+
+const clamsDir = path.resolve("./src/assets/prizes/clams");
+
+const getSvgMarkup = (filename: string, uniqueIdPrefix: string) => {
+    try {
+        let svg = fs.readFileSync(path.join(clamsDir, filename), "utf-8");
+
+        svg = svg.replace(
+            /\bid=["'](?!clam-)([^"']+)["']/g,
+            `id="${uniqueIdPrefix}-$1"`,
+        );
+        svg = svg.replace(
+            /url\(\s*["']?#(?!clam-)([^"')]+)["']?\s*\)/g,
+            `url(#${uniqueIdPrefix}-$1)`,
+        );
+        svg = svg.replace(
+            /\bhref=["']#(?!clam-)([^"']+)["']/g,
+            `href="#${uniqueIdPrefix}-$1"`,
+        );
+        svg = svg.replace(
+            /\bxlink:href=["']#(?!clam-)([^"']+)["']/g,
+            `xlink:href="#${uniqueIdPrefix}-$1"`,
+        );
+
+        return svg;
+    } catch (e) {
+        console.error(`Failed to load SVG: ${filename}`, e);
+        return "";
+    }
+};
+
+interface PrizeItem {
+    id: string;
+    label: string;
+    closed: string;
+    open: string;
+    positionClass: string;
+    delay: string;
+    gridArea?: string;
+}
+
+const prizeList: PrizeItem[] = [
+    {
+        id: "first",
+        label: "1st Prize",
+        closed: getSvgMarkup("first_closed.svg", "first-c"),
+        open: getSvgMarkup("first_open.svg", "first-o"),
+        positionClass: "-translate-x-6 -translate-y-4 -rotate-3",
+        delay: "0s",
+    },
+    {
+        id: "second",
+        label: "2nd Prize",
+        closed: getSvgMarkup("second_closed.svg", "second-c"),
+        open: getSvgMarkup("second_open.svg", "second-o"),
+        positionClass: "translate-x-8 -translate-y-12 rotate-6",
+        delay: "-1.1s",
+    },
+    {
+        id: "third",
+        label: "3rd Prize",
+        closed: getSvgMarkup("third_closed.svg", "third-c"),
+        open: getSvgMarkup("third_open.svg", "third-o"),
+        positionClass: "-translate-x-4 translate-y-4 -rotate-6",
+        delay: "-2.3s",
+    },
+    {
+        id: "uiux",
+        label: "Best UI/UX",
+        closed: getSvgMarkup("uiux_closed.svg", "uiux-c"),
+        open: getSvgMarkup("uiux_open.svg", "uiux-o"),
+        positionClass: "translate-x-4 -translate-y-8 rotate-3",
+        delay: "-0.7s",
+    },
+    {
+        id: "aggie",
+        label: "Best Aggie",
+        closed: getSvgMarkup("aggie_closed.svg", "aggie-c"),
+        open: getSvgMarkup("aggie_open.svg", "aggie-o"),
+        positionClass: "-translate-x-10 -translate-y-8 rotate-6",
+        delay: "-1.8s",
+        gridArea: "col-start-1",
+    },
+    {
+        id: "hardware",
+        label: "Best Hardware",
+        closed: getSvgMarkup("hardware_closed.svg", "hardware-c"),
+        open: getSvgMarkup("hardware_open.svg", "hardware-o"),
+        positionClass: "translate-x-8 -translate-y-16 -rotate-3",
+        delay: "-0.4s",
+        gridArea: "col-start-1", // Explicitly skips to the next row
+    },
+    {
+        id: "beach",
+        label: "Best Beach",
+        closed: getSvgMarkup("beach_closed.svg", "beach-c"),
+        open: getSvgMarkup("beach_open.svg", "beach-o"),
+        positionClass: "-translate-x-4 -translate-y-8 -rotate-6",
+        delay: "-2.0s",
+        gridArea: "col-start-2 row-start-5",
+    },
+];
+---
+
+<div
+    id="prizes"
+    class="relative w-full min-h-screen bg-cover bg-no-repeat bg-top bg-[#0b0a26]"
+    style={`background-image: url('${avifDeepSeaBg.src}');`}
+>
+    <div
+        class="relative w-full min-h-full flex flex-col justify-center items-start text-left"
+    >
+        <OpenClamGrain />
+        <ClosedClamGrain />
+        <div class=" w-full">
+            <div
+                id="clam-grid"
+                class="grid grid-cols-2 gap-x-4 w-full max-w-[440px] mx-auto pt-8"
+            >
+                <!-- Title Tile -->
+                <div class="flex justify-center items-center col-span-1">
+                    <img
+                        src="src/assets/prizes/prizes_title.svg"
+                        alt="Prizes"
+                        class="w-full h-auto block select-none pointer-events-none"
+                        loading="eager"
+                    >
+                </div>
+
+                <!-- Prize Tiles -->
+                {prizeList.map((prize) => (
+                <div class={`flex justify-center ${prize.positionClass} ${prize.gridArea ?? ''}`}>
+                    <button
+                    class="prize-toggle"
+                    data-id={prize.id}
+                    data-state="closed"
+                    aria-label={`Toggle ${prize.label}`}
+                    type="button"
+                    style={`--bob-delay: ${prize.delay};`}
+                    >
+                    <div class="svg-layer svg-closed" set:html={prize.closed} />
+                    <div class="svg-layer svg-open" set:html={prize.open} />
+                    </button>
+                </div>
+                ))}
+            </div>
+            <style>
+            .prize-toggle {
+                position: relative;
+                display: inline-flex;
+                width: 100%;
+                max-width: 185px;
+                aspect-ratio: 1 / 1;
+                height: auto;
+                margin: auto;
+                background: transparent;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                perspective: 800px;
+                outline: none;
+                -webkit-tap-highlight-color: transparent;
+                animation: clam-bob 3.2s ease-in-out infinite
+                    var(--bob-delay, 0s);
+                will-change: transform;
+            }
+
+            .prize-toggle:focus-visible {
+                outline: 2px solid theme("colors.amber.400", #f59e0b);
+                outline-offset: 4px;
+                border-radius: 9999px;
+            }
+
+            .svg-layer {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition:
+                    opacity 450ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                    transform 450ms cubic-bezier(0.34, 1.56, 0.64, 1);
+                transform-origin: bottom center;
+                will-change: transform, opacity;
+            }
+
+            :global(.svg-layer svg) {
+                width: 100%;
+                height: auto;
+                display: block;
+                overflow: visible;
+            }
+
+            .svg-open {
+                position: absolute;
+                inset: 0;
+            }
+
+            /* Closed clam state */
+            .prize-toggle[data-state="closed"] .svg-closed {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotateX(0deg);
+                pointer-events: auto;
+            }
+
+            .prize-toggle[data-state="closed"] .svg-open {
+                opacity: 0;
+                transform: scale(0.85) translateY(12px) rotateX(-25deg);
+                pointer-events: none;
+            }
+
+            /* Open clam state */
+            .prize-toggle[data-state="open"] .svg-closed {
+                opacity: 0;
+                transform: scale(1.08) translateY(-14px) rotateX(25deg);
+                pointer-events: none;
+            }
+
+            .prize-toggle[data-state="open"] .svg-open {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotateX(0deg);
+                pointer-events: auto;
+            }
+
+            /* Active press feedback */
+            .prize-toggle:active .svg-layer {
+                transition-duration: 100ms;
+                transform: scale(0.96);
+            }
+
+            @keyframes clam-bob {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-4px);
+                }
+            }
+
+            .prize-toggle:active {
+                animation-play-state: paused;
+            }
+            </style>
+            <script>
+            const initToggles = () => {
+                const grid = document.getElementById("clam-grid");
+                if (!grid || grid.dataset.ready) return;
+                grid.dataset.ready = "true";
+
+                grid.addEventListener("click", (e) => {
+                    const toggle = (
+                        e.target as HTMLElement
+                    ).closest<HTMLButtonElement>(".prize-toggle");
+                    if (!toggle) return;
+
+                    e.stopPropagation();
+                    const isClosed =
+                        toggle.getAttribute("data-state") === "closed";
+                    toggle.setAttribute(
+                        "data-state",
+                        isClosed ? "open" : "closed",
+                    );
+                });
+            };
+
+            initToggles();
+            document.addEventListener("astro:page-load", initToggles);
+            document.addEventListener("astro:after-swap", initToggles);
+            </script>
+        </div>
+    </div>
+</div>

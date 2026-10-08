@@ -1,0 +1,74 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1"
+    height="1"
+    style="position: absolute; left: -9999px; top: -9999px; overflow: hidden;"
+    aria-hidden="true"
+>
+    <defs>
+        <filter
+            id="clam-closed-noise"
+            x="9"
+            y="109"
+            width="176"
+            height="62.7227"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+        >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+            />
+            <feTurbulence
+                type="fractalNoise"
+                baseFrequency="2 2"
+                stitchTiles="stitch"
+                numOctaves="3"
+                result="noise"
+                seed="3525"
+            />
+            <feColorMatrix
+                in="noise"
+                type="luminanceToAlpha"
+                result="alphaNoise"
+            />
+            <feComponentTransfer in="alphaNoise" result="coloredNoise1">
+                <feFuncA
+                    type="discrete"
+                    tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+                />
+            </feComponentTransfer>
+            <feComposite
+                operator="in"
+                in2="shape"
+                in="coloredNoise1"
+                result="noise1Clipped"
+            />
+            <feFlood flood-color="#ebce88" result="color1Flood" />
+            <feComposite
+                operator="in"
+                in2="noise1Clipped"
+                in="color1Flood"
+                result="color1"
+            />
+            <feMerge result="effect1_noise_18180_1418">
+                <feMergeNode in="shape" />
+                <feMergeNode in="color1" />
+            </feMerge>
+        </filter>
+        <clipPath id="paint0_angular_18180_1418_clip_path">
+            <path
+                d="M9.99226 142.755C19.5601 142.159 42.3397 130.108 44.4746 127.26C87.9246 99.6268 109.556 106.437 147.06 127.26C148.357 127.904 170.265 139.845 184.128 142.755C186.429 146.763 184.338 148.39 175.938 150.503C176.499 154.318 174.45 155.361 165.594 154.807C159.702 162.971 154.171 163.164 143.18 161.263C135.116 170.896 126.023 169.241 111.284 168.58C99.9641 173.132 93.6413 172.773 82.4051 167.289C62.7663 171.676 61.2029 168.881 56.9744 164.706C35.6667 165.253 30.8275 162.891 26.8024 156.959C17.8876 155.967 14.9004 154.764 16.0267 150.503C9.65621 148.933 7.54265 147.537 9.99226 142.755Z"
+            />
+        </clipPath>
+        <clipPath id="paint1_angular_18180_1418_clip_path">
+            <path
+                id="top_mask"
+                d="M9.99226 142.755C19.5601 142.159 42.3397 130.108 44.4746 127.26C87.9246 99.6268 109.556 106.437 147.06 127.26C148.357 127.904 170.265 139.845 184.128 142.755C186.429 146.763 184.338 148.39 175.938 150.503C176.499 154.318 174.45 155.361 165.594 154.807C159.702 162.971 154.171 163.164 143.18 161.263C135.116 170.896 126.023 169.241 111.284 168.58C99.9641 173.132 93.6413 172.773 82.4051 167.289C62.7663 171.676 61.2029 168.881 56.9744 164.706C35.6667 165.253 30.8275 162.891 26.8024 156.959C17.8876 155.967 14.9004 154.764 16.0267 150.503C9.65621 148.933 7.54265 147.537 9.99226 142.755Z"
+            />
+        </clipPath>
+    </defs>
+</svg>
