@@ -122,7 +122,7 @@ const prizeList: PrizeItem[] = [
     style={`background-image: url('${avifDeepSeaBg.src}');`}
 >
     <div
-        class="relative w-full min-h-full flex flex-col justify-center items-start text-left"
+        class="relative z-20 w-full min-h-full flex flex-col justify-center items-start text-left"
     >
         <OpenClamGrain />
         <ClosedClamGrain />
@@ -284,4 +284,18 @@ const prizeList: PrizeItem[] = [
             </script>
         </div>
     </div>
+    <div class="prizes-transition" aria-hidden="true"></div>
 </div>
+
+<style>
+    .prizes-transition {
+        position: absolute;
+        z-index: 10;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: clamp(5rem, 10vw, 9rem);
+        pointer-events: none;
+        background: linear-gradient(to bottom, transparent, #080621);
+    }
+</style>
