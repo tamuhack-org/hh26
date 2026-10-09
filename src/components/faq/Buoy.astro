@@ -4,9 +4,11 @@ import { Picture } from "astro:assets";
 interface Props {
     slug: string;
     art: ImageMetadata;
+    headingLevel?: 3 | 4;
 }
 
-const { slug, art } = Astro.props;
+const { slug, art, headingLevel = 3 } = Astro.props;
+const QuestionHeading = `h${headingLevel}`;
 ---
 
 <style>
@@ -450,6 +452,6 @@ const { slug, art } = Astro.props;
             />
         </div>
     </div>
-    <p class="buoy-q"><slot name="question" /></p>
+    <QuestionHeading class="buoy-q"><slot name="question" /></QuestionHeading>
     <div class="buoy-a"><slot name="answer" /></div>
 </div>
