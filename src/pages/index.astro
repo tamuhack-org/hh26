@@ -15,37 +15,39 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <header class="relative">
-        <a
-            href="https://tamuhack.org"
-            aria-label="Visit the TAMUhack website"
-            class="absolute top-3 left-4 z-10"
-            ><Image
-                src={Hh26Logo}
-                format="avif"
-                quality={80}
-                alt=""
-                aria-hidden="true"
-                loading="eager"
-                layout="fixed"
-                width={56}
-                widths={[40, 56, 80, 112]}
-                sizes="(min-width: 64rem) 56px, 40px"
-                class="w-[40px] lg:w-[56px]"
-            /></a
-        >
-    </header>
-    <div class="compass-overlay">
-        <CompassMenu variant="ring" />
+    <div class="page-shell">
+        <header class="relative">
+            <a
+                href="https://tamuhack.org"
+                aria-label="Visit the TAMUhack website"
+                class="absolute top-3 left-4 z-10"
+                ><Image
+                    src={Hh26Logo}
+                    format="avif"
+                    quality={80}
+                    alt=""
+                    aria-hidden="true"
+                    loading="eager"
+                    layout="fixed"
+                    width={56}
+                    widths={[40, 56, 80, 112]}
+                    sizes="(min-width: 64rem) 56px, 40px"
+                    class="w-[40px] lg:w-[56px]"
+                /></a
+            >
+        </header>
+        <div class="compass-overlay">
+            <CompassMenu variant="ring" />
+        </div>
+        <main>
+            <h1 class="sr-only">HowdyHack 2026</h1>
+            <Landing />
+            <About />
+            <Faq />
+            <Schedule />
+            <Prizes />
+        </main>
     </div>
-    <main>
-        <h1 class="sr-only">HowdyHack 2026</h1>
-        <Landing />
-        <About />
-        <Faq />
-        <Schedule />
-        <Prizes />
-    </main>
     <div class="footer-wrapper bg-[#080621]">
         <div class="mx-auto max-w-500 px-8 pt-16 lg:px-16">
             <Footer />
@@ -54,15 +56,23 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+.page-shell {
+    position: relative;
+}
+
 .compass-overlay {
-    position: fixed;
+    position: absolute;
+    top: 0;
     right: 1.5rem;
-    bottom: 1.5rem;
+    bottom: 0;
     z-index: 50;
+    width: 12rem;
     pointer-events: none;
 }
 
 .compass-overlay :global(.compass-menu) {
+    position: sticky;
+    top: max(0px, calc(100dvh - 12rem));
     pointer-events: auto;
 }
 

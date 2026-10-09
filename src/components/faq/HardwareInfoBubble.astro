@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+import HardwareInfoBubble from "@assets/faq/hardware-info-bubble.png";
+---
+
+<a
+    class="hardware-info-bubble"
+    href="https://docs.google.com/document/d/1XbRJmAOIaSmEmf1iT0peJe9mKLdmfs8QvcKQcY0H79Y/edit?usp=sharing"
+>
+    <Image
+        src={HardwareInfoBubble}
+        format="avif"
+        quality={80}
+        width={HardwareInfoBubble.width}
+        widths={[280, 400, HardwareInfoBubble.width]}
+        sizes="(min-width: 64rem) 566px, (min-width: 24rem) 336px, calc(100vw - 3rem)"
+        alt=""
+        aria-hidden="true"
+        class="hardware-info-art"
+    />
+    <span class="hardware-info-text">
+        find more <strong>hardware</strong> track info here!
+    </span>
+</a>
+
+<style>
+.hardware-info-bubble {
+    position: absolute;
+    top: calc(var(--faq-width) * 4.452149 + 3rem);
+    left: 50%;
+    translate: -50% 0;
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    width: 35.375rem;
+    max-width: calc(100% - 4rem);
+    margin-left: 1rem;
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.hardware-info-art {
+    grid-area: 1 / 1;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.hardware-info-text {
+    grid-area: 1 / 1;
+    z-index: 1;
+    max-width: 76%;
+    margin-top: 4%;
+    margin-right: 14%;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px #0e075f;
+}
+
+.hardware-info-text strong {
+    font-weight: 700;
+}
+
+.hardware-info-bubble:focus-visible {
+    outline: 0.1875rem solid white;
+    outline-offset: 0.25rem;
+    border-radius: 1rem;
+}
+
+@media (width >= 64rem) {
+    .hardware-info-bubble {
+        top: calc(var(--faq-width) * 4.452149 - 0.125rem);
+        margin-left: 2.5625rem;
+    }
+
+    .hardware-info-text {
+        translate: 0 -0.9375rem;
+    }
+}
+
+@media (width < 64rem) {
+    .hardware-info-bubble {
+        order: 5;
+        position: relative;
+        top: auto;
+        left: auto;
+        width: calc(120%); /* Reduce 3rem to make the bubble wider. */
+        max-width: calc(120%);
+        translate: 1.5rem 0; /* Increase the first value to move right. */
+        margin-inline: 0;
+    }
+
+    .hardware-info-text {
+        font-size: clamp(0.875rem, 3.5vw, 1rem);
+        margin-top: -2%;
+    }
+}
+</style>
