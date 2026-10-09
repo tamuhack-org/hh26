@@ -9,6 +9,12 @@ import Plagiarism from "@assets/faq/buoys/faq-buoy-plagiarism.png";
 import Teams from "@assets/faq/buoys/faq-buoy-teams.png";
 import Waitlist from "@assets/faq/buoys/faq-buoy-waitlist.png";
 import Workshops from "@assets/faq/buoys/faq-buoy-workshops.png";
+import ChainHow from "@assets/faq/chain-how.png";
+import ChainJudging from "@assets/faq/chain-judging.png";
+import ChainSw from "@assets/faq/chain-sw.png";
+import ChainWant from "@assets/faq/chain-want.png";
+import ChainWhen from "@assets/faq/chain-when.png";
+import ChainWhere from "@assets/faq/chain-where.png";
 import Buoy from "./Buoy.astro";
 ---
 
@@ -27,11 +33,15 @@ import Buoy from "./Buoy.astro";
         align-items: center;
         width: 100%;
     }
+
+    .faq-buoys > :global([id^="buoy-"]) {
+        margin-inline: 0;
+    }
 }
 </style>
 
 <ul class="faq-buoys">
-    <Buoy slug="deadline" art={Deadline}>
+    <Buoy slug="deadline" art={Deadline} chain={ChainJudging} chainMobileOnly>
         <Fragment slot="question">When is the deadline to apply?</Fragment>
         <Fragment slot="answer">
             <p>
@@ -43,7 +53,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="experience" art={Experience}>
+    <Buoy slug="experience" art={Experience} chain={ChainHow} chainMobileOnly>
         <Fragment slot="question">How much experience do I need?</Fragment>
         <Fragment slot="answer">
             <p>
@@ -55,7 +65,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="attend" art={Attend}>
+    <Buoy slug="attend" art={Attend} chain={ChainWant} chainMobileOnly>
         <Fragment slot="question">Who can attend?</Fragment>
         <Fragment slot="answer">
             <p>
@@ -67,7 +77,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="cost" art={Cost}>
+    <Buoy slug="cost" art={Cost} chain={ChainSw} chainMobileOnly>
         <Fragment slot="question">How much does it cost?</Fragment>
         <Fragment slot="answer">
             <p>
@@ -78,7 +88,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="workshops" art={Workshops}>
+    <Buoy slug="workshops" art={Workshops} chain={ChainWhen} chainMobileOnly>
         <Fragment slot="question">Will there be workshops or talks?</Fragment>
         <Fragment slot="answer">
             <p>
@@ -89,7 +99,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="msc" art={Msc}>
+    <Buoy slug="msc" art={Msc} chain={ChainWhere} chainMobileOnly>
         <Fragment slot="question"
             >Do I need to stay at the MSC the entire time?</Fragment
         >
@@ -102,7 +112,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="teams" art={Teams}>
+    <Buoy slug="teams" art={Teams} chain={ChainJudging} chainMobileOnly>
         <Fragment slot="question">How do teams work?</Fragment>
         <Fragment slot="answer">
             <p>
@@ -114,7 +124,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="plagiarism" art={Plagiarism}>
+    <Buoy slug="plagiarism" art={Plagiarism} chain={ChainHow} chainMobileOnly>
         <Fragment slot="question">Plagiarism</Fragment>
         <Fragment slot="answer">
             <p>
@@ -127,7 +137,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="waitlist" art={Waitlist}>
+    <Buoy slug="waitlist" art={Waitlist} chain={ChainWant} chainMobileOnly>
         <Fragment slot="question">Waitlist</Fragment>
         <Fragment slot="answer">
             <p>
@@ -145,7 +155,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="more-qs" art={MoreQs}>
+    <Buoy slug="more-qs" art={MoreQs} chain={ChainSw} chainMobileOnly>
         <Fragment slot="question">More questions?</Fragment>
         <Fragment slot="answer">
             <p>

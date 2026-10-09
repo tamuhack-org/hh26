@@ -5,10 +5,17 @@ interface Props {
     slug: string;
     art: ImageMetadata;
     chain?: ImageMetadata;
+    chainMobileOnly?: boolean;
     headingLevel?: 3 | 4;
 }
 
-const { slug, art, chain, headingLevel = 3 } = Astro.props;
+const {
+    slug,
+    art,
+    chain,
+    chainMobileOnly = false,
+    headingLevel = 3,
+} = Astro.props;
 const QuestionHeading = `h${headingLevel}`;
 ---
 
@@ -41,6 +48,10 @@ const QuestionHeading = `h${headingLevel}`;
     width: var(--chain-width);
     height: auto;
     pointer-events: none;
+}
+
+.buoy-chain-mobile {
+    display: none;
 }
 
 .buoy-q,
@@ -459,6 +470,138 @@ const QuestionHeading = `h${headingLevel}`;
 
 /* mobile stuff */
 @media (width < 64rem) {
+    /* Mobile: each buoy controls its own following gap and chain placement. */
+    #buoy-deadline {
+        margin-top: 4rem;
+        margin-bottom: 6.0125rem;
+    }
+
+    #chain-deadline {
+        left: 43.442851%;
+        top: -22.238146%;
+        width: 3.15875rem;
+    }
+
+    #buoy-experience {
+        margin-bottom: 6.0125rem;
+    }
+
+    #chain-experience {
+        left: 44.06466%;
+        top: -20.388283%;
+        width: 2.16625rem;
+    }
+
+    #buoy-attend {
+        margin-bottom: 4.3125rem;
+    }
+
+    #chain-attend {
+        left: 42.795958%;
+        top: -14.91136%;
+        width: 2.61375rem;
+    }
+
+    #buoy-cost {
+        margin-bottom: 4.0125rem;
+    }
+
+    #chain-cost {
+        left: 40.407077%;
+        top: -12.025048%;
+        width: 1.98125rem;
+    }
+
+    #buoy-workshops {
+        margin-bottom: 5.3125rem;
+    }
+
+    #chain-workshops {
+        left: 40.159795%;
+        top: -12.556167%;
+        width: 2.99562rem;
+    }
+
+    #buoy-msc {
+        margin-bottom: 5.3125rem;
+    }
+
+    #chain-msc {
+        left: 45.117101%;
+        top: -15.712829%;
+        width: 3.06625rem;
+    }
+
+    #buoy-teams {
+        margin-bottom: 6.0125rem;
+    }
+
+    #chain-teams {
+        left: 44.442851%;
+        top: -13.238146%;
+        width: 3.15875rem;
+    }
+
+    #buoy-plagiarism {
+        margin-bottom: 6.0125rem;
+    }
+
+    #chain-plagiarism {
+        left: 46.06466%;
+        top: -16.388283%;
+        width: 2.16625rem;
+    }
+
+    #buoy-waitlist {
+        margin-bottom: 5.0125rem;
+    }
+
+    #chain-waitlist {
+        left: 43.795958%;
+        top: -12.91136%;
+        width: 2.61375rem;
+    }
+
+    #buoy-more-qs {
+        margin-bottom: 2.6875rem;
+    }
+
+    #chain-more-qs {
+        left: 40.007077%;
+        top: -15.725048%;
+        width: 1.98125rem;
+    }
+
+    /* Mobile hardware gaps: each margin-bottom controls the following space. */
+    #buoy-judging {
+        margin-top: 2rem;
+        margin-bottom: 2.039rem;
+    }
+
+    #buoy-how {
+        margin-bottom: 2.039rem;
+    }
+
+    #buoy-want {
+        margin-bottom: 0.039rem;
+    }
+
+    #buoy-sw {
+        margin-bottom: 0.039rem;
+    }
+
+    #buoy-when {
+        margin-bottom: 1.039rem;
+    }
+
+    #buoy-where {
+        margin-bottom: 2.664rem;
+    }
+
+    .buoy-chain-mobile {
+        display: block;
+    }
+
     [id^="buoy-"] {
         order: 1;
         position: relative;
@@ -509,7 +652,7 @@ const QuestionHeading = `h${headingLevel}`;
                 format="webp"
                 quality={90}
                 alt=""
-                class="buoy-chain"
+                class:list={["buoy-chain", { "buoy-chain-mobile": chainMobileOnly }]}
             />
         )}
     </div>
