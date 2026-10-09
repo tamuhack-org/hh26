@@ -12,125 +12,146 @@ import Workshops from "@assets/faq/buoys/faq-buoy-workshops.png";
 import Buoy from "./Buoy.astro";
 ---
 
-<Buoy slug="deadline" art={Deadline}>
-    <Fragment slot="question">When is the deadline to apply?</Fragment>
-    <Fragment slot="answer">
-        <p>
-            The deadline for registration is{" "}
-            <strong>October 11 at 11:59 PM.</strong>{" "}
-            Applications are considered on a rolling basis, so please try to
-            apply early!
-        </p>
-    </Fragment>
-</Buoy>
+<style>
+.faq-buoys {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
-<Buoy slug="experience" art={Experience}>
-    <Fragment slot="question">How much experience do I need?</Fragment>
-    <Fragment slot="answer">
-        <p>
-            Absolutely zero! We want you here because you have a passion for
-            creating, not because you're the most experienced hacker on the
-            block. We'll have a bunch of resources including workshops and
-            mentors to help beginners get started.
-        </p>
-    </Fragment>
-</Buoy>
+@media (width < 64rem) {
+    .faq-buoys {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
+</style>
 
-<Buoy slug="attend" art={Attend}>
-    <Fragment slot="question">Who can attend?</Fragment>
-    <Fragment slot="answer">
-        <p>
-            Any Texas A&amp;M undergraduate or graduate student who is at least
-            18. Regardless of your experience, education, or background, as long
-            as you are excited about learning, building, and having fun, we'd
-            love for you to attend.
-        </p>
-    </Fragment>
-</Buoy>
+<ul class="faq-buoys">
+    <Buoy slug="deadline" art={Deadline}>
+        <Fragment slot="question">When is the deadline to apply?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                The deadline for registration is{" "}
+                <strong>October 11 at 11:59 PM.</strong>{" "}
+                Applications are considered on a rolling basis, so please try to
+                apply early!
+            </p>
+        </Fragment>
+    </Buoy>
 
-<Buoy slug="cost" art={Cost}>
-    <Fragment slot="question">How much does it cost?</Fragment>
-    <Fragment slot="answer">
-        <p>
-            Nothing. Nada. Zilch. It's completely free for all accepted hackers.
-            To make it even better, we'll be giving out a ton of swag to every
-            in-person hacker, and prizes to our winners.
-        </p>
-    </Fragment>
-</Buoy>
+    <Buoy slug="experience" art={Experience}>
+        <Fragment slot="question">How much experience do I need?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                Absolutely zero! We want you here because you have a passion for
+                creating, not because you're the most experienced hacker on the
+                block. We'll have a bunch of resources including workshops and
+                mentors to help beginners get started.
+            </p>
+        </Fragment>
+    </Buoy>
 
-<Buoy slug="workshops" art={Workshops}>
-    <Fragment slot="question">Will there be workshops or talks?</Fragment>
-    <Fragment slot="answer">
-        <p>
-            Of course! We will have workshops running throughout the whole
-            event. We will release the complete schedule on the website closer
-            to the event.
-        </p>
-    </Fragment>
-</Buoy>
+    <Buoy slug="attend" art={Attend}>
+        <Fragment slot="question">Who can attend?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                Any Texas A&amp;M undergraduate or graduate student who is at
+                least 18. Regardless of your experience, education, or
+                background, as long as you are excited about learning, building,
+                and having fun, we'd love for you to attend.
+            </p>
+        </Fragment>
+    </Buoy>
 
-<Buoy slug="msc" art={Msc}>
-    <Fragment slot="question"
-        >Do I need to stay at the MSC the entire time?</Fragment
-    >
-    <Fragment slot="answer">
-        <p>
-            No, but you must be present at check-in and the awards ceremony with
-            your team to receive prizes. Extenuating circumstances will be
-            considered on a case-by-case basis.
-        </p>
-    </Fragment>
-</Buoy>
+    <Buoy slug="cost" art={Cost}>
+        <Fragment slot="question">How much does it cost?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                Nothing. Nada. Zilch. It's completely free for all accepted
+                hackers. To make it even better, we'll be giving out a ton of
+                swag to every in-person hacker, and prizes to our winners.
+            </p>
+        </Fragment>
+    </Buoy>
 
-<Buoy slug="teams" art={Teams}>
-    <Fragment slot="question">How do teams work?</Fragment>
-    <Fragment slot="answer">
-        <p>
-            Teams are limited to 4 hackers. You don't need to have a team before
-            the event or have one at all, but hacking with friends is more fun!
-            There will be plenty of time after the opening ceremony to form
-            teams if you don't have one yet.
-        </p>
-    </Fragment>
-</Buoy>
+    <Buoy slug="workshops" art={Workshops}>
+        <Fragment slot="question">Will there be workshops or talks?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                Of course! We will have workshops running throughout the whole
+                event. We will release the complete schedule on the website
+                closer to the event.
+            </p>
+        </Fragment>
+    </Buoy>
 
-<Buoy slug="plagiarism" art={Plagiarism}>
-    <Fragment slot="question">Plagiarism</Fragment>
-    <Fragment slot="answer">
-        <p>
-            All projects must be original and created during the hackathon. Any
-            team found to be in violation of this rule will be disqualified from
-            the competition. Your codebase should no more than ~30% reused from
-            existing projects on GitHub, Kaggle, etc. Use of AI such as ChatGPT
-            or Copilot is completely fine.
-        </p>
-    </Fragment>
-</Buoy>
+    <Buoy slug="msc" art={Msc}>
+        <Fragment slot="question"
+            >Do I need to stay at the MSC the entire time?</Fragment
+        >
+        <Fragment slot="answer">
+            <p>
+                No, but you must be present at check-in and the awards ceremony
+                with your team to receive prizes. Extenuating circumstances will
+                be considered on a case-by-case basis.
+            </p>
+        </Fragment>
+    </Buoy>
 
-<Buoy slug="waitlist" art={Waitlist}>
-    <Fragment slot="question">Waitlist</Fragment>
-    <Fragment slot="answer">
-        <p>
-            We will have a waitlist line for students who are not accepted.
-            After 10 AM, we will admit people from the waitlist line until the
-            MSC capacity has been reached. Please come early for a higher chance
-            of being admitted to the event as it is first come, first serve.
-        </p>
-        <p>
-            If you were not accepted or waitlisted, unfortunately, we will not
-            be able to accommodate you at the event. However, we encourage you
-            to apply to TAMUhack in the spring!
-        </p>
-    </Fragment>
-</Buoy>
+    <Buoy slug="teams" art={Teams}>
+        <Fragment slot="question">How do teams work?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                Teams are limited to 4 hackers. You don't need to have a team
+                before the event or have one at all, but hacking with friends is
+                more fun! There will be plenty of time after the opening
+                ceremony to form teams if you don't have one yet.
+            </p>
+        </Fragment>
+    </Buoy>
 
-<Buoy slug="more-qs" art={MoreQs}>
-    <Fragment slot="question">More questions?</Fragment>
-    <Fragment slot="answer">
-        <p>
-            Email us with questions, comments, or concerns at{" "}
-            <a href="mailto:hello@tamuhack.com">hello@tamuhack.com</a>
-        </p>
-    </Fragment>
-</Buoy>
+    <Buoy slug="plagiarism" art={Plagiarism}>
+        <Fragment slot="question">Plagiarism</Fragment>
+        <Fragment slot="answer">
+            <p>
+                All projects must be original and created during the hackathon.
+                Any team found to be in violation of this rule will be
+                disqualified from the competition. Your codebase should no more
+                than ~30% reused from existing projects on GitHub, Kaggle, etc.
+                Use of AI such as ChatGPT or Copilot is completely fine.
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="waitlist" art={Waitlist}>
+        <Fragment slot="question">Waitlist</Fragment>
+        <Fragment slot="answer">
+            <p>
+                We will have a waitlist line for students who are not accepted.
+                After 10 AM, we will admit people from the waitlist line until
+                the MSC capacity has been reached. Please come early for a
+                higher chance of being admitted to the event as it is first
+                come, first serve.
+            </p>
+            <p>
+                If you were not accepted or waitlisted, unfortunately, we will
+                not be able to accommodate you at the event. However, we
+                encourage you to apply to TAMUhack in the spring!
+            </p>
+        </Fragment>
+    </Buoy>
+
+    <Buoy slug="more-qs" art={MoreQs}>
+        <Fragment slot="question">More questions?</Fragment>
+        <Fragment slot="answer">
+            <p>
+                Email us with questions, comments, or concerns at{" "}
+                <a href="mailto:hello@tamuhack.com">hello@tamuhack.com</a>
+            </p>
+        </Fragment>
+    </Buoy>
+</ul>

@@ -6,6 +6,7 @@ import Faq from "@components/faq/Faq.astro";
 import Footer from "@components/footer/Footer.astro";
 import Landing from "@components/landing/Landing.astro";
 import CompassMenu from "@components/menu/CompassMenu.astro";
+import Prizes from "@components/prizes/Prizes.astro";
 import Schedule from "@components/schedule/Schedule.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -34,21 +35,22 @@ import Layout from "../layouts/Layout.astro";
             /></a
         >
     </header>
+    <div class="compass-overlay">
+        <CompassMenu variant="ring" />
+    </div>
     <main>
         <h1 class="sr-only">HowdyHack 2026</h1>
         <Landing />
         <About />
         <Faq />
         <Schedule />
-        <div class="footer-wrapper bg-[#161445]">
-            <div class="mx-auto max-w-500 px-8 pt-16 lg:px-16">
-                <Footer />
-            </div>
-        </div>
+        <Prizes />
     </main>
-    <aside class="compass-overlay">
-        <CompassMenu variant="ring" />
-    </aside>
+    <div class="footer-wrapper bg-[#080621]">
+        <div class="mx-auto max-w-500 px-8 pt-16 lg:px-16">
+            <Footer />
+        </div>
+    </div>
 </Layout>
 
 <style>
