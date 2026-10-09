@@ -1,17 +1,10 @@
 ---
-import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import fs from "node:fs";
 import path from "node:path";
 import DeepSeaBg from "@assets/prizes/deepsea_bg.png";
 import ClosedClamGrain from "./ClosedClamGrain.astro";
 import OpenClamGrain from "./OpenClamGrain.astro";
-
-const avifDeepSeaBg = await getImage({
-    src: DeepSeaBg,
-    format: "avif",
-    width: DeepSeaBg.width,
-    height: DeepSeaBg.height,
-});
 
 const clamsDir = path.resolve("./src/assets/prizes/clams");
 
@@ -118,9 +111,18 @@ const prizeList: PrizeItem[] = [
 
 <div
     id="prizes"
-    class="relative w-full min-h-screen overflow-x-clip bg-cover bg-no-repeat bg-top bg-[#0b0a26] pt-16"
-    style={`background-image: url('${avifDeepSeaBg.src}');`}
+    class="relative w-full min-h-screen overflow-x-clip bg-[#0b0a26] pt-16"
 >
+    <Image
+        src={DeepSeaBg}
+        format="avif"
+        widths={[640, 960, 1280, 1600, 1920, 2400, DeepSeaBg.width]}
+        sizes="max(100vw, 300vh)"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        class="pointer-events-none absolute inset-0 h-full w-full object-cover object-top"
+    />
     <div
         class="relative z-20 w-full min-h-full flex flex-col justify-center items-start text-left"
     >
