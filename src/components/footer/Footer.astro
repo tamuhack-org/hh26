@@ -45,7 +45,9 @@ const workshops = [
 <footer class="footer-glow text-white">
     <div class="items-center lg:flex lg:justify-between">
         <div class="text-center opacity-90 lg:text-start">
-            <p class="mb-0 text-2xl font-semibold">Sign up to our newsletter</p>
+            <h2 class="mb-0 text-2xl font-semibold">
+                Sign up to our newsletter
+            </h2>
             <p class="font-light">
                 Stay connected! Sign up for our mailing list for events,
                 updates, and more.
@@ -63,7 +65,7 @@ const workshops = [
             <div
                 class="flex w-full flex-row items-stretch justify-center gap-3 px-4 py-4 max-[27.5rem]:flex-col max-[27.5rem]:justify-stretch lg:flex-none lg:gap-5 lg:px-0"
             >
-                <label for="mce-EMAIL" class="hidden">Email Address</label>
+                <label for="mce-EMAIL" class="sr-only">Email address</label>
                 <input
                     type="email"
                     autocomplete="email"
@@ -72,14 +74,15 @@ const workshops = [
                     class="w-64 rounded-lg focus:outline-red border border-[#ffffff] bg-[rgba(217,217,217,0.09)] px-4 py-2 max-[27.5rem]:w-full 2xl:w-96"
                     id="mce-EMAIL"
                 >
-                <button type="submit" class="clear">
-                    <input
-                        type="submit"
-                        value="Subscribe"
-                        name="subscribe"
-                        id="mc-embedded-subscribe"
-                        class="h-full cursor-pointer rounded-lg border border-[#ffffff] px-4 py-2 text-base font-bold transition-colors duration-200 hover:bg-[#3D3590]"
-                    >
+                <button
+                    type="submit"
+                    name="subscribe"
+                    value="Subscribe"
+                    id="mc-embedded-subscribe"
+                    aria-label="Subscribe to mailing list"
+                    class="h-full cursor-pointer rounded-lg border border-[#ffffff] px-4 py-2 text-base font-bold transition-colors duration-200 hover:bg-[#3D3590]"
+                >
+                    Subscribe
                 </button>
             </div>
             <!-- Mailchip bot prevention -->
@@ -97,7 +100,7 @@ const workshops = [
 
     <div class="my-8 justify-between opacity-90 lg:my-16 xl:flex">
         <div class="xl:w-1/3">
-            <p class="mb-8 text-3xl font-bold">HowdyHack 2026</p>
+            <h2 class="mb-8 text-3xl font-bold">HowdyHack 2026</h2>
             <p class="font-base mb-8 text-xl">
                 Website brought to you by the TAMUhack Design + Development
                 Teams
@@ -124,7 +127,7 @@ const workshops = [
 </footer>
 
 <style>
-    .footer-glow {
-        text-shadow: 0 0 1rem rgba(255, 253, 240, 0.35);
-    }
+.footer-glow {
+    text-shadow: 0 0 1rem rgba(255, 253, 240, 0.35);
+}
 </style>
