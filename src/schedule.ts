@@ -85,24 +85,22 @@ function renderEntries(card: HTMLElement, events: ScheduleEvent[]) {
             item.setAttribute(scope, "");
         }
 
-        const detail = createSpan("schedule-entry-detail", "", scope);
-        detail.append(
-            createSpan("schedule-entry-name", event.eventName, scope),
-        );
+        const date = new Date(event.date);
+        const time = document.createElement("time");
+        time.className = "schedule-entry-time";
+        time.dateTime = date.toISOString();
+        time.textContent = timeFormatter.format(date);
+        if (scope) {
+            time.setAttribute(scope, "");
+        }
+
+        item.append(createSpan("schedule-entry-name", event.eventName, scope));
+        item.append(time);
         if (event.location) {
-            detail.append(
+            item.append(
                 createSpan("schedule-entry-location", event.location, scope),
             );
         }
-
-        item.append(
-            createSpan(
-                "schedule-entry-time",
-                timeFormatter.format(new Date(event.date)),
-                scope,
-            ),
-            detail,
-        );
         entries.append(item);
     }
 
