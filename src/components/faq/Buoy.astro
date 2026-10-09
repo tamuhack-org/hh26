@@ -1,13 +1,14 @@
 ---
-import { Picture } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 
 interface Props {
     slug: string;
     art: ImageMetadata;
+    chain?: ImageMetadata;
     headingLevel?: 3 | 4;
 }
 
-const { slug, art, headingLevel = 3 } = Astro.props;
+const { slug, art, chain, headingLevel = 3 } = Astro.props;
 const QuestionHeading = `h${headingLevel}`;
 ---
 
@@ -31,6 +32,15 @@ const QuestionHeading = `h${headingLevel}`;
     display: block;
     width: 100%;
     height: 100%;
+}
+
+.buoy-chain {
+    position: absolute;
+    left: var(--chain-left);
+    top: var(--chain-top);
+    width: var(--chain-width);
+    height: auto;
+    pointer-events: none;
 }
 
 .buoy-q,
@@ -265,6 +275,10 @@ const QuestionHeading = `h${headingLevel}`;
 }
 
 #buoy-judging {
+    /* chain-judging: visible tip meets the bottom of the ring opening. */
+    --chain-left: 45.442851%;
+    --chain-top: -11.238146%;
+    --chain-width: 13.671447%;
     --art-l: 0.546666325;
     --art-t: 4.42461158;
     --art-w: 0.375011735;
@@ -283,6 +297,10 @@ const QuestionHeading = `h${headingLevel}`;
 }
 
 #buoy-how {
+    /* chain-how */
+    --chain-left: 46.06466%;
+    --chain-top: -10.388283%;
+    --chain-width: 8.455704%;
     --art-l: 0.1370093019;
     --art-t: 4.523841873;
     --art-w: 0.41576962;
@@ -301,6 +319,10 @@ const QuestionHeading = `h${headingLevel}`;
 }
 
 #buoy-want {
+    /* chain-want */
+    --chain-left: 43.795958%;
+    --chain-top: -8.91136%;
+    --chain-width: 10.387407%;
     --art-l: 0.480731713;
     --art-t: 4.802585779;
     --art-w: 0.408371969;
@@ -319,6 +341,10 @@ const QuestionHeading = `h${headingLevel}`;
 }
 
 #buoy-sw {
+    /* chain-sw */
+    --chain-left: 44.407077%;
+    --chain-top: -5.025048%;
+    --chain-width: 8.038339%;
     --art-l: 0.114607202;
     --art-t: 5.176310814;
     --art-w: 0.400069881;
@@ -337,6 +363,10 @@ const QuestionHeading = `h${headingLevel}`;
 }
 
 #buoy-when {
+    /* chain-when */
+    --chain-left: 44.159795%;
+    --chain-top: -6.556167%;
+    --chain-width: 13.904395%;
     --art-l: 0.480712525;
     --art-t: 5.401963433;
     --art-w: 0.34965895;
@@ -355,6 +385,10 @@ const QuestionHeading = `h${headingLevel}`;
 }
 
 #buoy-where {
+    /* chain-where */
+    --chain-left: 46.117101%;
+    --chain-top: -8.712829%;
+    --chain-width: 11.432982%;
     --art-l: 0.072009456;
     --art-t: 5.698344595;
     --art-w: 0.435294389;
@@ -384,16 +418,30 @@ const QuestionHeading = `h${headingLevel}`;
     #buoy-want,
     #buoy-when {
         --hardware-column-offset: 4rem;
+        --hardware-column-drop: 1.125rem;
     }
 
-    #buoy-sw,
+    #buoy-judging {
+        --hardware-column-offset: 0.6rem;
+    }
+
+    #buoy-sw {
+        --hardware-row-offset: 5rem;
+        --hardware-column-offset: -2.2rem;
+    }
+
+    #buoy-where {
+        --hardware-row-offset: 9rem;
+        --hardware-column-offset: 1rem;
+    }
+
     #buoy-want {
-        --hardware-row-offset: 2rem;
+        --hardware-row-offset: 6rem;
     }
 
-    #buoy-where,
     #buoy-when {
-        --hardware-row-offset: 4rem;
+        --hardware-row-offset: 12rem;
+        --hardware-column-offset: 5.5rem;
     }
 
     .buoy-art,
@@ -401,7 +449,10 @@ const QuestionHeading = `h${headingLevel}`;
     .buoy-a {
         transform: translate(
             var(--hardware-column-offset, 0rem),
-            var(--hardware-row-offset, 0rem)
+            calc(
+                var(--hardware-row-offset, 0rem) +
+                var(--hardware-column-drop, 0rem)
+            )
         );
     }
 }
@@ -451,6 +502,16 @@ const QuestionHeading = `h${headingLevel}`;
                 class="buoy-img"
             />
         </div>
+        {chain && (
+            <Image
+                id={`chain-${slug}`}
+                src={chain}
+                format="webp"
+                quality={90}
+                alt=""
+                class="buoy-chain"
+            />
+        )}
     </div>
     <QuestionHeading class="buoy-q"><slot name="question" /></QuestionHeading>
     <div class="buoy-a"><slot name="answer" /></div>
