@@ -312,6 +312,23 @@ const prizeList: PrizeItem[] = [
                 animation-play-state: paused;
             }
 
+            @media (prefers-reduced-motion: reduce) {
+                .prize-toggle {
+                    animation: none;
+                    will-change: auto;
+                }
+
+                .svg-layer,
+                .prize-toggle:active .svg-layer {
+                    transition: none;
+                    will-change: auto;
+                }
+
+                .prize-toggle:active .svg-layer {
+                    transform: none;
+                }
+            }
+
             @media (width >= 40rem) {
                 .prize-toggle {
                     width: 120%;
