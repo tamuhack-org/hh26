@@ -439,7 +439,7 @@ const QuestionHeading = `h${headingLevel}`;
 }
 </style>
 
-<div id={`buoy-${slug}`}>
+<li id={`buoy-${slug}`}>
     <div class="buoy-art" aria-hidden="true">
         <div class="buoy-bleed">
             <Picture
@@ -454,4 +454,4 @@ const QuestionHeading = `h${headingLevel}`;
     </div>
     <QuestionHeading class="buoy-q"><slot name="question" /></QuestionHeading>
     <div class="buoy-a"><slot name="answer" /></div>
-</div>
+</li>

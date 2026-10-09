@@ -10,7 +10,9 @@ import Buoy from "./Buoy.astro";
 
 <style>
 .hardware-buoys {
-    display: contents;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 @media (width < 64rem) {
@@ -30,8 +32,8 @@ import Buoy from "./Buoy.astro";
 }
 </style>
 
-<div class="hardware-buoys">
-    <Buoy slug="judging" art={Judging}>
+<ul class="hardware-buoys">
+    <Buoy slug="judging" art={Judging} headingLevel={4}>
         <Fragment slot="question">When is hardware judging?</Fragment>
         <Fragment slot="answer">
             <p>
@@ -42,7 +44,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="how" art={How}>
+    <Buoy slug="how" art={How} headingLevel={4}>
         <Fragment slot="question"
             >How does the hardware track at HowdyHack work?</Fragment
         >
@@ -64,7 +66,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="want" art={Want}>
+    <Buoy slug="want" art={Want} headingLevel={4}>
         <Fragment slot="question"
             >I want to participate, but I don't have any hardware. What should I
             do?</Fragment
@@ -83,7 +85,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="sw" art={Software}>
+    <Buoy slug="sw" art={Software} headingLevel={4}>
         <Fragment slot="question"
             >Can I participate in both the software and hardware tracks?</Fragment
         >
@@ -96,7 +98,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="when" art={When}>
+    <Buoy slug="when" art={When} headingLevel={4}>
         <Fragment slot="question"
             >When can I start working on my hardware project?</Fragment
         >
@@ -110,7 +112,7 @@ import Buoy from "./Buoy.astro";
         </Fragment>
     </Buoy>
 
-    <Buoy slug="where" art={Where}>
+    <Buoy slug="where" art={Where} headingLevel={4}>
         <Fragment slot="question"
             >Where can I specify that I want to participate in the hardware
             track?</Fragment
@@ -125,4 +127,4 @@ import Buoy from "./Buoy.astro";
             </p>
         </Fragment>
     </Buoy>
-</div>
+</ul>
