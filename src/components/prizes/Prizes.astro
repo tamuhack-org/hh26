@@ -30,6 +30,7 @@ import OpenClamGrain from "./OpenClamGrain.astro";
 interface PrizeItem {
     id: string;
     label: string;
+    description: string;
     closed: SvgComponent;
     open: SvgComponent;
     image: typeof FirstPrize;
@@ -42,7 +43,8 @@ interface PrizeItem {
 const prizeList: PrizeItem[] = [
     {
         id: "first",
-        label: "1st Prize",
+        label: "1st Place Overall",
+        description: "Aurzen Roku TV Smart Projector",
         closed: FirstClosed,
         open: FirstOpen,
         image: FirstPrize,
@@ -52,7 +54,8 @@ const prizeList: PrizeItem[] = [
     },
     {
         id: "second",
-        label: "2nd Prize",
+        label: "2nd Place Overall",
+        description: "HP Sprocket Portable Photo Printer",
         closed: SecondClosed,
         open: SecondOpen,
         image: SecondPrize,
@@ -62,7 +65,8 @@ const prizeList: PrizeItem[] = [
     },
     {
         id: "third",
-        label: "3rd Prize",
+        label: "3rd Place Overall",
+        description: "Divoom MiniToo Retro PC Speaker",
         closed: ThirdClosed,
         open: ThirdOpen,
         image: ThirdPrize,
@@ -73,6 +77,7 @@ const prizeList: PrizeItem[] = [
     {
         id: "uiux",
         label: "Best UI/UX",
+        description: "Buddha Water Painting Board",
         closed: UiuxClosed,
         open: UiuxOpen,
         image: UiuxPrize,
@@ -82,7 +87,8 @@ const prizeList: PrizeItem[] = [
     },
     {
         id: "aggie",
-        label: "Best Aggie",
+        label: "Best Aggie Hack",
+        description: "Aggie-opoly Set",
         closed: AggieClosed,
         open: AggieOpen,
         image: AggiePrize,
@@ -93,7 +99,8 @@ const prizeList: PrizeItem[] = [
     },
     {
         id: "hardware",
-        label: "Best Hardware",
+        label: "Best Hardware Hack",
+        description: "Soldering Kit",
         closed: HardwareClosed,
         open: HardwareOpen,
         image: HardwarePrize,
@@ -104,7 +111,8 @@ const prizeList: PrizeItem[] = [
     },
     {
         id: "beach",
-        label: "Best Beach",
+        label: "Best Beach Hack",
+        description: "Sandbox Desk Set and Palm Tree Neon Sign",
         closed: BeachClosed,
         open: BeachOpen,
         image: BeachPrize,
@@ -138,18 +146,20 @@ const prizeList: PrizeItem[] = [
         <OpenClamGrain />
         <ClosedClamGrain />
         <div class=" w-full">
-            <div
+            <ul
                 id="clam-grid"
                 class="grid grid-cols-2 gap-x-4 w-full max-w-[27.5rem] mx-auto pt-8"
             >
                 <!-- Title Tile -->
-                <div class="col-span-1 flex items-center justify-center">
+                <li
+                    aria-hidden="true"
+                    class="col-span-1 flex items-center justify-center"
+                >
                     <PrizesTitle
-                        role="img"
-                        aria-label="Prizes"
+                        aria-hidden="true"
                         class="block h-auto w-[140%] max-w-none translate-x-[36%] -translate-y-12 select-none pointer-events-none sm:w-[180%] sm:translate-x-0 sm:translate-y-0 lg:-translate-x-20"
                     />
-                </div>
+                </li>
 
                 <!-- Prize Tiles -->
                 {prizeList.map((prize) => {
@@ -157,12 +167,15 @@ const prizeList: PrizeItem[] = [
                 const Open = prize.open;
                 const [x, y, width, height, svgWidth, svgHeight] = prize.imageBox;
                 return (
-                <div class={`flex justify-center ${prize.positionClass} ${prize.gridArea ?? ''}`}>
+                <li class={`flex justify-center ${prize.positionClass} ${prize.gridArea ?? ''}`}>
+                    <span class="sr-only">{prize.label}: {prize.description}</span>
                     <button
                     class="prize-toggle"
                     data-id={prize.id}
+                    data-label={prize.label}
                     data-state="closed"
-                    aria-label={`Toggle ${prize.label}`}
+                    aria-label={`Show ${prize.label}`}
+                    aria-expanded="false"
                     type="button"
                     style={`--bob-delay: ${prize.delay};`}
                     >
@@ -185,10 +198,10 @@ const prizeList: PrizeItem[] = [
                         </div>
                     </div>
                     </button>
-                </div>
+                </li>
                 );
                 })}
-            </div>
+            </ul>
             <style>
             .prize-toggle {
                 position: relative;
@@ -324,6 +337,14 @@ const prizeList: PrizeItem[] = [
                         "data-state",
                         isClosed ? "open" : "closed",
                     );
+                    toggle.setAttribute("aria-expanded", String(isClosed));
+                    const prizeLabel = toggle.dataset.label;
+                    if (prizeLabel) {
+                        toggle.setAttribute(
+                            "aria-label",
+                            `${isClosed ? "Hide" : "Show"} ${prizeLabel}`,
+                        );
+                    }
                 });
             };
 
