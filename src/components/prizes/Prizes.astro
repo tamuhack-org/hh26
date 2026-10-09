@@ -22,6 +22,7 @@ import HardwarePrize from "@assets/prizes/open/hardware_prize.png";
 import SecondPrize from "@assets/prizes/open/second_prize.png";
 import ThirdPrize from "@assets/prizes/open/third_prize.png";
 import UiuxPrize from "@assets/prizes/open/uiux_prize.png";
+import PrizesTitle from "@assets/prizes/prizes_title.svg";
 import type { SvgComponent } from "astro/types";
 import ClosedClamGrain from "./ClosedClamGrain.astro";
 import OpenClamGrain from "./OpenClamGrain.astro";
@@ -141,12 +142,11 @@ const prizeList: PrizeItem[] = [
             >
                 <!-- Title Tile -->
                 <div class="col-span-1 flex items-center justify-center">
-                    <img
-                        src="src/assets/prizes/prizes_title.svg"
-                        alt="Prizes"
+                    <PrizesTitle
+                        role="img"
+                        aria-label="Prizes"
                         class="block h-auto w-[140%] max-w-none translate-x-[36%] -translate-y-12 select-none pointer-events-none sm:w-[180%] sm:translate-x-0 sm:translate-y-0 lg:-translate-x-20"
-                        loading="eager"
-                    >
+                    />
                 </div>
 
                 <!-- Prize Tiles -->
