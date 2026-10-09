@@ -5,6 +5,7 @@ import Buoys from "./Buoys.astro";
 import Chains from "./Chains.astro";
 import FaqSign from "./FaqSign.astro";
 import HardwareBuoys from "./HardwareBuoys.astro";
+import HardwareInfoBubble from "./HardwareInfoBubble.astro";
 import HardwareSign from "./HardwareSign.astro";
 import Krill from "./Krill.astro";
 import Notice from "./Notice.astro";
@@ -15,10 +16,11 @@ import Seaweed from "./Seaweed.astro";
 /* fixed the ugly font stuff that i was doing before with the fonts being manually put into folder, now js pulling form api like im supposed to */
 #faq {
     --faq-width: 64rem;
+    --hardware-info-space: 15rem;
     font-family: var(--font-poppins);
     position: relative;
     width: 100%;
-    height: calc(var(--faq-width) * 6.3 + 4rem);
+    height: calc(var(--faq-width) * 6.3 + 4rem + var(--hardware-info-space));
     background: linear-gradient(
         180deg,
         #4f56a7 4.81%,
@@ -98,6 +100,11 @@ import Seaweed from "./Seaweed.astro";
 }
 
 /* widescreen stuff */
+@media (width >= 64rem) {
+    #faq {
+        --hardware-info-space: 15rem;
+    }
+}
 
 /* mobile stuff */
 @media (width < 64rem) {
@@ -150,6 +157,7 @@ import Seaweed from "./Seaweed.astro";
         <Krill />
         <h3 class="sr-only">Hardware</h3>
         <HardwareSign />
+        <HardwareInfoBubble />
         <HardwareBuoys />
     </div>
 </section>

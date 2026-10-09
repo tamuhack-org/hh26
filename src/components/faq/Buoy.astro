@@ -419,6 +419,15 @@ const QuestionHeading = `h${headingLevel}`;
 
 /* widescreen stuff */
 @media (width >= 64rem) {
+    #buoy-judging,
+    #buoy-how,
+    #buoy-want,
+    #buoy-sw,
+    #buoy-when,
+    #buoy-where {
+        --hardware-info-offset: var(--hardware-info-space);
+    }
+
     #buoy-how,
     #buoy-sw,
     #buoy-where {
@@ -462,7 +471,8 @@ const QuestionHeading = `h${headingLevel}`;
             var(--hardware-column-offset, 0rem),
             calc(
                 var(--hardware-row-offset, 0rem) +
-                var(--hardware-column-drop, 0rem)
+                var(--hardware-column-drop, 0rem) +
+                var(--hardware-info-offset, 0rem)
             )
         );
     }
