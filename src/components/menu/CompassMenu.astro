@@ -295,13 +295,15 @@ document.querySelectorAll<HTMLElement>(".compass-menu").forEach((menu) => {
 @media (prefers-reduced-motion: reduce) {
     .label,
     .menu-text,
-    .needle {
-        transition-duration: 0.0001ms;
-        transition-delay: 0s;
+    .needle,
+    .compass-menu:hover .label,
+    .compass-menu.is-open .label {
+        transition: none;
     }
 
-    .compass-menu--ring .label :global(svg) {
-        transition-duration: 0.0001ms;
+    .compass-menu--ring .label :global(svg),
+    .compass-menu--ring .label :global([fill="#1E0734"]) {
+        transition: none;
     }
 }
 </style>
