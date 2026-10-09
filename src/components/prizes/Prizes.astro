@@ -150,7 +150,11 @@ const prizeList: PrizeItem[] = [
                 </div>
 
                 <!-- Prize Tiles -->
-                {prizeList.map((prize) => (
+                {prizeList.map((prize) => {
+                const Closed = prize.closed;
+                const Open = prize.open;
+                const [x, y, width, height, svgWidth, svgHeight] = prize.imageBox;
+                return (
                 <div class={`flex justify-center ${prize.positionClass} ${prize.gridArea ?? ''}`}>
                     <button
                     class="prize-toggle"
@@ -160,11 +164,28 @@ const prizeList: PrizeItem[] = [
                     type="button"
                     style={`--bob-delay: ${prize.delay};`}
                     >
-                    <div class="svg-layer svg-closed" set:html={prize.closed} />
-                    <div class="svg-layer svg-open" set:html={prize.open} />
+                    <div class="svg-layer svg-closed"><Closed aria-hidden="true" /></div>
+                    <div class="svg-layer svg-open">
+                        <div class="open-art" style={`aspect-ratio: ${svgWidth} / ${svgHeight};`}>
+                            <Open aria-hidden="true" />
+                            <Image
+                                src={prize.image}
+                                format="webp"
+                                quality={90}
+                                widths={[160, Math.min(250, prize.image.width), prize.image.width]}
+                                sizes="(min-width: 40rem) 250px, 50vw"
+                                alt=""
+                                aria-hidden="true"
+                                loading="lazy"
+                                class="prize-image"
+                                style={`left: ${x / svgWidth * 100}%; top: ${y / svgHeight * 100}%; width: ${width / svgWidth * 100}%; height: ${height / svgHeight * 100}%;`}
+                            />
+                        </div>
+                    </div>
                     </button>
                 </div>
-                ))}
+                );
+                })}
             </div>
             <style>
             .prize-toggle {
@@ -217,6 +238,17 @@ const prizeList: PrizeItem[] = [
             .svg-open {
                 position: absolute;
                 inset: 0;
+            }
+
+            .open-art {
+                position: relative;
+                width: 100%;
+            }
+
+            .prize-image {
+                position: absolute;
+                object-fit: fill;
+                pointer-events: none;
             }
 
             /* Closed clam state */
@@ -304,24 +336,24 @@ const prizeList: PrizeItem[] = [
 </div>
 
 <style>
-    .prizes-transition-top,
-    .prizes-transition {
-        position: absolute;
-        z-index: 10;
-        right: 0;
-        left: 0;
-        pointer-events: none;
-    }
+.prizes-transition-top,
+.prizes-transition {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+}
 
-    .prizes-transition-top {
-        top: 0;
-        height: clamp(12rem, 24vw, 20rem);
-        background: linear-gradient(to bottom, #161445, transparent);
-    }
+.prizes-transition-top {
+    top: 0;
+    height: clamp(12rem, 24vw, 20rem);
+    background: linear-gradient(to bottom, #161445, transparent);
+}
 
-    .prizes-transition {
-        bottom: 0;
-        height: clamp(5rem, 10vw, 9rem);
-        background: linear-gradient(to bottom, transparent, #080621);
-    }
+.prizes-transition {
+    bottom: 0;
+    height: clamp(5rem, 10vw, 9rem);
+    background: linear-gradient(to bottom, transparent, #080621);
+}
 </style>
