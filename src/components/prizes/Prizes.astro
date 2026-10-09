@@ -116,10 +116,12 @@ const prizeList: PrizeItem[] = [
 ];
 ---
 
-<div
+<section
     id="prizes"
+    aria-labelledby="prizes-heading"
     class="relative w-full min-h-screen overflow-x-clip bg-[#0b0a26] pt-16"
 >
+    <h2 id="prizes-heading" class="sr-only">Prizes</h2>
     <Image
         src={DeepSeaBg}
         format="avif"
@@ -333,7 +335,7 @@ const prizeList: PrizeItem[] = [
     </div>
     <div class="prizes-transition-top" aria-hidden="true"></div>
     <div class="prizes-transition" aria-hidden="true"></div>
-</div>
+</section>
 
 <style>
 .prizes-transition-top,
