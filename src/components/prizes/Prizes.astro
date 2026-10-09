@@ -1,5 +1,19 @@
 ---
 import { Image } from "astro:assets";
+import AggieClosed from "@assets/prizes/clams/aggie_closed.svg";
+import AggieOpen from "@assets/prizes/clams/aggie_open.svg";
+import BeachClosed from "@assets/prizes/clams/beach_closed.svg";
+import BeachOpen from "@assets/prizes/clams/beach_open.svg";
+import FirstClosed from "@assets/prizes/clams/first_closed.svg";
+import FirstOpen from "@assets/prizes/clams/first_open.svg";
+import HardwareClosed from "@assets/prizes/clams/hardware_closed.svg";
+import HardwareOpen from "@assets/prizes/clams/hardware_open.svg";
+import SecondClosed from "@assets/prizes/clams/second_closed.svg";
+import SecondOpen from "@assets/prizes/clams/second_open.svg";
+import ThirdClosed from "@assets/prizes/clams/third_closed.svg";
+import ThirdOpen from "@assets/prizes/clams/third_open.svg";
+import UiuxClosed from "@assets/prizes/clams/uiux_closed.svg";
+import UiuxOpen from "@assets/prizes/clams/uiux_open.svg";
 import DeepSeaBg from "@assets/prizes/deepsea_bg.png";
 import AggiePrize from "@assets/prizes/open/aggie_prize.png";
 import BeachPrize from "@assets/prizes/open/beach_prize.png";
@@ -15,8 +29,8 @@ import OpenClamGrain from "./OpenClamGrain.astro";
 interface PrizeItem {
     id: string;
     label: string;
-    closed: string;
-    open: string;
+    closed: SvgComponent;
+    open: SvgComponent;
     image: typeof FirstPrize;
     imageBox: [number, number, number, number, number, number]; // where in svg to place image
     positionClass: string;
@@ -28,8 +42,8 @@ const prizeList: PrizeItem[] = [
     {
         id: "first",
         label: "1st Prize",
-        closed: getSvgMarkup("first_closed.svg", "first-c"),
-        open: getSvgMarkup("first_open.svg", "first-o"),
+        closed: FirstClosed,
+        open: FirstOpen,
         image: FirstPrize,
         imageBox: [0, 12, 197, 181, 197, 197],
         positionClass: "-translate-x-6 -translate-y-4 -rotate-3",
@@ -38,8 +52,8 @@ const prizeList: PrizeItem[] = [
     {
         id: "second",
         label: "2nd Prize",
-        closed: getSvgMarkup("second_closed.svg", "second-c"),
-        open: getSvgMarkup("second_open.svg", "second-o"),
+        closed: SecondClosed,
+        open: SecondOpen,
         image: SecondPrize,
         imageBox: [12, 24, 165, 172, 194, 204],
         positionClass: "translate-x-8 -translate-y-12 rotate-6",
@@ -48,8 +62,8 @@ const prizeList: PrizeItem[] = [
     {
         id: "third",
         label: "3rd Prize",
-        closed: getSvgMarkup("third_closed.svg", "third-c"),
-        open: getSvgMarkup("third_open.svg", "third-o"),
+        closed: ThirdClosed,
+        open: ThirdOpen,
         image: ThirdPrize,
         imageBox: [0, 8, 176, 206, 194, 210],
         positionClass: "-translate-x-4 translate-y-4 -rotate-6",
@@ -58,8 +72,8 @@ const prizeList: PrizeItem[] = [
     {
         id: "uiux",
         label: "Best UI/UX",
-        closed: getSvgMarkup("uiux_closed.svg", "uiux-c"),
-        open: getSvgMarkup("uiux_open.svg", "uiux-o"),
+        closed: UiuxClosed,
+        open: UiuxOpen,
         image: UiuxPrize,
         imageBox: [12, 28, 162, 159, 194, 197],
         positionClass: "translate-x-4 -translate-y-8 rotate-3",
@@ -68,8 +82,8 @@ const prizeList: PrizeItem[] = [
     {
         id: "aggie",
         label: "Best Aggie",
-        closed: getSvgMarkup("aggie_closed.svg", "aggie-c"),
-        open: getSvgMarkup("aggie_open.svg", "aggie-o"),
+        closed: AggieClosed,
+        open: AggieOpen,
         image: AggiePrize,
         imageBox: [6, 32, 190, 161, 197, 197],
         positionClass: "-translate-x-10 -translate-y-8 rotate-6",
@@ -79,8 +93,8 @@ const prizeList: PrizeItem[] = [
     {
         id: "hardware",
         label: "Best Hardware",
-        closed: getSvgMarkup("hardware_closed.svg", "hardware-c"),
-        open: getSvgMarkup("hardware_open.svg", "hardware-o"),
+        closed: HardwareClosed,
+        open: HardwareOpen,
         image: HardwarePrize,
         imageBox: [18, 44, 172, 129, 194, 197],
         positionClass: "translate-x-8 -translate-y-16 -rotate-3",
@@ -90,8 +104,8 @@ const prizeList: PrizeItem[] = [
     {
         id: "beach",
         label: "Best Beach",
-        closed: getSvgMarkup("beach_closed.svg", "beach-c"),
-        open: getSvgMarkup("beach_open.svg", "beach-o"),
+        closed: BeachClosed,
+        open: BeachOpen,
         image: BeachPrize,
         imageBox: [6, 0, 190, 202, 198, 202],
         positionClass: "-translate-x-2 -translate-y-8 -rotate-6",
