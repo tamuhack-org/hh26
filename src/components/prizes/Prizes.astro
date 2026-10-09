@@ -1,46 +1,24 @@
 ---
 import { Image } from "astro:assets";
-import fs from "node:fs";
-import path from "node:path";
 import DeepSeaBg from "@assets/prizes/deepsea_bg.png";
+import AggiePrize from "@assets/prizes/open/aggie_prize.png";
+import BeachPrize from "@assets/prizes/open/beach_prize.png";
+import FirstPrize from "@assets/prizes/open/first_prize.png";
+import HardwarePrize from "@assets/prizes/open/hardware_prize.png";
+import SecondPrize from "@assets/prizes/open/second_prize.png";
+import ThirdPrize from "@assets/prizes/open/third_prize.png";
+import UiuxPrize from "@assets/prizes/open/uiux_prize.png";
+import type { SvgComponent } from "astro/types";
 import ClosedClamGrain from "./ClosedClamGrain.astro";
 import OpenClamGrain from "./OpenClamGrain.astro";
-
-const clamsDir = path.resolve("./src/assets/prizes/clams");
-
-const getSvgMarkup = (filename: string, uniqueIdPrefix: string) => {
-    try {
-        let svg = fs.readFileSync(path.join(clamsDir, filename), "utf-8");
-
-        svg = svg.replace(
-            /\bid=["'](?!clam-)([^"']+)["']/g,
-            `id="${uniqueIdPrefix}-$1"`,
-        );
-        svg = svg.replace(
-            /url\(\s*["']?#(?!clam-)([^"')]+)["']?\s*\)/g,
-            `url(#${uniqueIdPrefix}-$1)`,
-        );
-        svg = svg.replace(
-            /\bhref=["']#(?!clam-)([^"']+)["']/g,
-            `href="#${uniqueIdPrefix}-$1"`,
-        );
-        svg = svg.replace(
-            /\bxlink:href=["']#(?!clam-)([^"']+)["']/g,
-            `xlink:href="#${uniqueIdPrefix}-$1"`,
-        );
-
-        return svg;
-    } catch (e) {
-        console.error(`Failed to load SVG: ${filename}`, e);
-        return "";
-    }
-};
 
 interface PrizeItem {
     id: string;
     label: string;
     closed: string;
     open: string;
+    image: typeof FirstPrize;
+    imageBox: [number, number, number, number, number, number]; // where in svg to place image
     positionClass: string;
     delay: string;
     gridArea?: string;
@@ -52,6 +30,8 @@ const prizeList: PrizeItem[] = [
         label: "1st Prize",
         closed: getSvgMarkup("first_closed.svg", "first-c"),
         open: getSvgMarkup("first_open.svg", "first-o"),
+        image: FirstPrize,
+        imageBox: [0, 12, 197, 181, 197, 197],
         positionClass: "-translate-x-6 -translate-y-4 -rotate-3",
         delay: "0s",
     },
@@ -60,6 +40,8 @@ const prizeList: PrizeItem[] = [
         label: "2nd Prize",
         closed: getSvgMarkup("second_closed.svg", "second-c"),
         open: getSvgMarkup("second_open.svg", "second-o"),
+        image: SecondPrize,
+        imageBox: [12, 24, 165, 172, 194, 204],
         positionClass: "translate-x-8 -translate-y-12 rotate-6",
         delay: "-1.1s",
     },
@@ -68,6 +50,8 @@ const prizeList: PrizeItem[] = [
         label: "3rd Prize",
         closed: getSvgMarkup("third_closed.svg", "third-c"),
         open: getSvgMarkup("third_open.svg", "third-o"),
+        image: ThirdPrize,
+        imageBox: [0, 8, 176, 206, 194, 210],
         positionClass: "-translate-x-4 translate-y-4 -rotate-6",
         delay: "-2.3s",
     },
@@ -76,6 +60,8 @@ const prizeList: PrizeItem[] = [
         label: "Best UI/UX",
         closed: getSvgMarkup("uiux_closed.svg", "uiux-c"),
         open: getSvgMarkup("uiux_open.svg", "uiux-o"),
+        image: UiuxPrize,
+        imageBox: [12, 28, 162, 159, 194, 197],
         positionClass: "translate-x-4 -translate-y-8 rotate-3",
         delay: "-0.7s",
     },
@@ -84,6 +70,8 @@ const prizeList: PrizeItem[] = [
         label: "Best Aggie",
         closed: getSvgMarkup("aggie_closed.svg", "aggie-c"),
         open: getSvgMarkup("aggie_open.svg", "aggie-o"),
+        image: AggiePrize,
+        imageBox: [6, 32, 190, 161, 197, 197],
         positionClass: "-translate-x-10 -translate-y-8 rotate-6",
         delay: "-1.8s",
         gridArea: "col-start-1",
@@ -93,6 +81,8 @@ const prizeList: PrizeItem[] = [
         label: "Best Hardware",
         closed: getSvgMarkup("hardware_closed.svg", "hardware-c"),
         open: getSvgMarkup("hardware_open.svg", "hardware-o"),
+        image: HardwarePrize,
+        imageBox: [18, 44, 172, 129, 194, 197],
         positionClass: "translate-x-8 -translate-y-16 -rotate-3",
         delay: "-0.4s",
         gridArea: "col-start-1", // Explicitly skips to the next row
@@ -102,6 +92,8 @@ const prizeList: PrizeItem[] = [
         label: "Best Beach",
         closed: getSvgMarkup("beach_closed.svg", "beach-c"),
         open: getSvgMarkup("beach_open.svg", "beach-o"),
+        image: BeachPrize,
+        imageBox: [6, 0, 190, 202, 198, 202],
         positionClass: "-translate-x-2 -translate-y-8 -rotate-6",
         delay: "-2.0s",
         gridArea: "col-start-2 row-start-5",
