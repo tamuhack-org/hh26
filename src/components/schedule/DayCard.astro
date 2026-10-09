@@ -175,23 +175,68 @@ const cards = document.querySelectorAll<HTMLElement>(
 );
 
 const fineHover = window.matchMedia(MEDIA.fineHover);
-const motionSafe = window.matchMedia(MEDIA.motionSafe);
+let frame = 0;
+let pointerX = 0;
+let pointerY = 0;
+const activeCards = new Set<HTMLElement>();
 
-function moveGlow(event: PointerEvent) {
+function updateGlow() {
+    frame = 0;
+    const rootFontSize = parseFloat(
+        getComputedStyle(document.documentElement).fontSize,
+    );
+
     for (const card of cards) {
         const rect = card.getBoundingClientRect();
-        card.style.setProperty(
-            "--day-glow-x",
-            `${event.clientX - rect.left}px`,
+        const glowSize =
+            getComputedStyle(card).getPropertyValue("--day-glow-size");
+        const glowRadius = parseFloat(glowSize) * rootFontSize;
+        const distanceX = Math.max(
+            rect.left - pointerX,
+            0,
+            pointerX - rect.right,
         );
-        card.style.setProperty("--day-glow-y", `${event.clientY - rect.top}px`);
+        const distanceY = Math.max(
+            rect.top - pointerY,
+            0,
+            pointerY - rect.bottom,
+        );
+        const inReach = Math.hypot(distanceX, distanceY) <= glowRadius;
+
+        if (inReach) {
+            card.style.setProperty("--day-glow-x", `${pointerX - rect.left}px`);
+            card.style.setProperty("--day-glow-y", `${pointerY - rect.top}px`);
+            activeCards.add(card);
+        } else if (activeCards.delete(card)) {
+            card.style.removeProperty("--day-glow-x");
+            card.style.removeProperty("--day-glow-y");
+        }
     }
 }
 
-if (fineHover.matches && motionSafe.matches) {
-    for (const card of cards) {
-        card.dataset.glow = "";
-    }
-    document.addEventListener("pointermove", moveGlow);
+function moveGlow(event: PointerEvent) {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    if (!frame) frame = requestAnimationFrame(updateGlow);
 }
+
+function syncGlowMode() {
+    if (fineHover.matches) {
+        for (const card of cards) card.dataset.glow = "";
+        document.addEventListener("pointermove", moveGlow);
+    } else {
+        document.removeEventListener("pointermove", moveGlow);
+        cancelAnimationFrame(frame);
+        frame = 0;
+        for (const card of activeCards) {
+            card.style.removeProperty("--day-glow-x");
+            card.style.removeProperty("--day-glow-y");
+        }
+        activeCards.clear();
+        for (const card of cards) delete card.dataset.glow;
+    }
+}
+
+syncGlowMode();
+fineHover.addEventListener("change", syncGlowMode);
 </script>
