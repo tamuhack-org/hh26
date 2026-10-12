@@ -125,19 +125,21 @@ const prizeList: PrizeItem[] = [
 <section
     id="prizes"
     aria-labelledby="prizes-heading"
-    class="relative w-full min-h-screen overflow-x-clip bg-[#0b0a26] pt-16"
+    class="relative w-full min-h-screen overflow-x-clip bg-[#161445] pt-16 max-[63.75rem]:pb-40"
 >
     <h2 id="prizes-heading" class="sr-only">Prizes</h2>
-    <Image
-        src={DeepSeaBg}
-        format="avif"
-        widths={[640, 960, 1280, 1600, 1920, 2400, DeepSeaBg.width]}
-        sizes="max(100vw, 300vh)"
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        class="pointer-events-none absolute inset-0 h-full w-full object-cover object-top"
-    />
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <Image
+            src={DeepSeaBg}
+            format="avif"
+            widths={[640, 960, 1280, 1600, 1920, 2400, DeepSeaBg.width]}
+            sizes="max(100vw, 300vh)"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            class="h-full w-full object-cover object-top max-[63.75rem]:translate-y-32"
+        />
+    </div>
     <div
         class="relative z-20 w-full min-h-full flex flex-col justify-center items-start text-left"
     >
@@ -221,6 +223,7 @@ const prizeList: PrizeItem[] = [
             <style>
             .prize-toggle {
                 position: relative;
+                top: -2rem;
                 display: inline-flex;
                 flex-shrink: 0;
                 width: 100%;
@@ -360,6 +363,12 @@ const prizeList: PrizeItem[] = [
                     width: 120%;
                 }
             }
+
+            @media (width < 63.75rem) {
+                .prize-toggle {
+                    top: 6rem;
+                }
+            }
             </style>
             <script>
             const initToggles = () => {
@@ -414,7 +423,11 @@ const prizeList: PrizeItem[] = [
 .prizes-transition-top {
     top: 0;
     height: clamp(12rem, 24vw, 20rem);
-    background: linear-gradient(to bottom, #161445, transparent);
+    background: linear-gradient(
+        to bottom,
+        #161445 0%,
+        transparent 100%
+    );
 }
 
 .prizes-transition {
