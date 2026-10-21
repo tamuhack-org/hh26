@@ -35,3 +35,50 @@ import AnglerFishChef from "@assets/schedule/angler-fish-chef.png";
         class="angler-fish-chef-img"
     />
 </div>
+
+<script>
+import { gsap } from "gsap";
+import { MEDIA } from "../../media";
+
+gsap.matchMedia().add(`${MEDIA.fineHover} and ${MEDIA.motionSafe}`, () => {
+    const chefs = document.querySelectorAll<HTMLElement>(".angler-fish-chef");
+    const cleanups = Array.from(chefs, (chef) => {
+        const image = chef.querySelector<HTMLImageElement>(
+            ".angler-fish-chef-img",
+        );
+        if (!image) return () => {};
+
+        gsap.set(chef, { pointerEvents: "auto" });
+        const resize = (scale: number) => {
+            gsap.to(image, {
+                scale,
+                duration: 0.25,
+                ease: "power2.out",
+                overwrite: true,
+            });
+        };
+        const grow = () => {
+            resize(1.08);
+        };
+        const settle = () => {
+            resize(1);
+        };
+
+        chef.addEventListener("pointerenter", grow);
+        chef.addEventListener("pointerleave", settle);
+        chef.addEventListener("pointercancel", settle);
+
+        return () => {
+            chef.removeEventListener("pointerenter", grow);
+            chef.removeEventListener("pointerleave", settle);
+            chef.removeEventListener("pointercancel", settle);
+            gsap.killTweensOf(image);
+            gsap.set(image, { clearProps: "transform" });
+        };
+    });
+
+    return () => {
+        for (const cleanup of cleanups) cleanup();
+    };
+});
+</script>
