@@ -1,5 +1,6 @@
 ---
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
+import FooterArtwork from "@assets/footer.PNG";
 import Hh26Logo from "@assets/hh26-logo.png";
 import About from "@components/about/About.astro";
 import Faq from "@components/faq/Faq.astro";
@@ -48,14 +49,54 @@ import Layout from "../layouts/Layout.astro";
             <Prizes />
         </main>
     </div>
-    <div class="footer-wrapper bg-[#080621]">
+    <div class="footer-wrapper bg-[#080621] relative">
         <div class="mx-auto max-w-500 px-8 pt-16 lg:px-16">
             <Footer />
+        </div>
+
+        <div class="h-2 w-full bg-[#072F49]"></div>
+        <div class="h-2 w-full bg-[#065E77] mt-2"></div>
+        <div class="h-2 w-full bg-[#7EBECD] mt-2"></div>
+
+        <div
+            class="footer-artwork-reveal mt-2 relative"
+            style={`aspect-ratio: ${FooterArtwork.width} / ${FooterArtwork.height}`}
+            aria-hidden="true"
+        >
+            <Picture
+                src={FooterArtwork}
+                formats={["avif", "webp"]}
+                quality={80}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                widths={[480, 768, 1024, 1440, 1966]}
+                sizes="100vw"
+                class="footer-artwork block h-auto w-full"
+            />
         </div>
     </div>
 </Layout>
 
 <style>
+.footer-artwork-reveal {
+    /* Clip the viewport-anchored image to the space reserved for the artwork. */
+    clip-path: inset(0);
+}
+
+.footer-artwork-reveal :global(.footer-artwork) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-artwork-reveal :global(.footer-artwork) {
+        position: static;
+    }
+}
+
 .page-shell {
     position: relative;
     overflow-x: clip;
